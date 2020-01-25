@@ -16,12 +16,20 @@ public class bossShoot : MonoBehaviour
     }
     void Update()
     { 
+        // 
         if (nextTime < Time.time) {
             Shoot();
             nextTime += cooldown;
         }
     }
-    // Update is called once per frame
+
+    // range, height, width, angle, damage, 
+    void Physical() {
+        // For now, make pop up instant 
+            
+    }
+    
+
     void Shoot()
     { 
         int max = 1;
