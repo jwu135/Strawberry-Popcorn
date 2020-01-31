@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class bossOnHit : MonoBehaviour
 {
-    //private float health = 100f;
     public Text text;
 
     private void OnTriggerEnter2D(Collider2D other)

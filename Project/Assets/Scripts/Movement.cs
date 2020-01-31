@@ -6,26 +6,32 @@ public class Movement : MonoBehaviour
 {
     private Rigidbody2D rb;
     private GameObject legs;
+    private GameObject arm;
     private HealthManager healthManager;
-    // Start is called before the first frame update
+    //private float offset = 0;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        legs = transform.GetChild(0).gameObject;
-        healthManager = GetComponent<HealthManager>();
+        legs = transform.GetChild(1).gameObject; // temporarily getting sprites this way
+        arm = transform.GetChild(0).gameObject;
+         healthManager = GetComponent<HealthManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.Space)) {
             Vector3 Jump = new Vector3(0, 6, 0);
             rb.velocity = Jump;
         }
-        if (Input.GetKey(KeyCode.LeftArrow)||Input.GetKey(KeyCode.A)) {
+        float h = Input.GetAxis("Horizontal");
+        Vector3 Movement = new Vector3(h, 0, 0);
+
+        // Sprite flipping section, currently only for legs
+        if (h<0) { 
             Vector3 temp = legs.transform.localScale;
-            if(temp.y>0)
-             temp.y *= -1;
+            if (temp.y > 0)
+                temp.y *= -1;
             legs.transform.localScale = temp;
         } else {
             Vector3 temp = legs.transform.localScale;
@@ -33,12 +39,21 @@ public class Movement : MonoBehaviour
                 temp.y = Mathf.Abs(temp.y);
             legs.transform.localScale = temp;
         }
-            float h = Input.GetAxis("Horizontal");
-        Vector3 Movement = new Vector3(h, 0, 0);
-        rb.transform.position +=  Movement.normalized  * Time.deltaTime * 4;
 
-        if (Input.GetKey(KeyCode.E))
-        {
+        Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition); // mouse also used in Shoot.cs
+
+        Vector3 rotation = mouse - arm.transform.position;
+        float step = Time.deltaTime * 2;
+        Vector3 direction = Vector3.RotateTowards(arm.transform.forward, rotation, step, 0);
+        //arm.transform.rotation = Quaternion.Angle Axis(direction),Vector3.up);
+        arm.transform.rotation = Quaternion.LookRotation(new Vector3(direction.x,0,direction.z));
+        
+        //arm.transform.rotation = Quaternion.Euler(rotation);
+        //Quaternion target = Quaternion.Euler(rotation);
+        //arm.transform.rotation = Quaternion.Slerp(arm.transform.rotation,target,0);
+
+        rb.transform.position +=  Movement.normalized  * Time.deltaTime * 4;
+        if (Input.GetKey(KeyCode.E)) {
             healthManager.invicibilityCounter = healthManager.invicibilityLength;
         }
     }

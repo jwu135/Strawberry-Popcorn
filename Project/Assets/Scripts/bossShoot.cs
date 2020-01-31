@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class bossShoot : MonoBehaviour
 {
+    //public GameObject hit;
     public GameObject projectile;
     public GameObject hitObj;
 
+    private int[] spawnPointsX = new int[] { -8, -4, 0, 4, 8 };
+    private float[] spawnPointsY = new float[] { -3f, -1.5f, 0, 1.5f, 3f};
     private float nextTime = 0f;
     private float cooldown = 1f;
     private GameObject player;
@@ -16,12 +19,44 @@ public class bossShoot : MonoBehaviour
     }
     void Update()
     { 
+        
         if (nextTime < Time.time) {
-            Shoot();
+            if (Random.Range(0f, 1f) > 0.5f)
+                Shoot();
+            else
+                Physical();
+            
             nextTime += cooldown;
         }
     }
-    // Update is called once per frame
+
+    // range, height, width, angle, damage, 
+    void Physical() {
+        int pos = Random.Range(0,3);
+        GameObject physicalAttack = null;
+        if (pos == 0) {
+            // For now, make pop up instantly
+            int rand = Random.Range(0, spawnPointsX.Length);
+            Vector3 position = new Vector3(spawnPointsX[rand], -13, 0);
+            physicalAttack = Instantiate(hitObj, position, hitObj.transform.rotation) as GameObject;
+            //physicalAttack.GetComponent<Animation>().Play("SpikeMoveUp");
+           
+        } else if (pos==1) {
+            int rand = Random.Range(0, spawnPointsY.Length);
+            Vector3 position = new Vector3(17.5f,spawnPointsY[rand], 0);
+            //tempRotation = transform.rotation;
+            Quaternion tempRotation = Quaternion.Euler(0, 0, 180);
+            physicalAttack = Instantiate(hitObj, position,tempRotation ) as GameObject;
+        } else {
+            int rand = Random.Range(0, spawnPointsY.Length);
+            Vector3 position = new Vector3(-17, spawnPointsY[rand], 0);
+            physicalAttack = Instantiate(hitObj, position, transform.rotation) as GameObject;
+        }
+        physicalAttack.GetComponent<Animator>().SetTrigger("Spike");
+        physicalAttack.GetComponent<attackTimer>().disappear();
+    }
+    
+
     void Shoot()
     { 
         int max = 1;
