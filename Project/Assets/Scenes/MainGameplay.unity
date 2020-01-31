@@ -1308,8 +1308,7 @@ GameObject:
   - component: {fileID: 1814532868}
   - component: {fileID: 1814532867}
   - component: {fileID: 1814532872}
-  - component: {fileID: 1814532875}
-  - component: {fileID: 1814532874}
+  - component: {fileID: 1814532876}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1446,7 +1445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1726734607}
---- !u!114 &1814532874
+--- !u!114 &1814532876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1455,24 +1454,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1814532866}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 187611730d763464a98e633357a9c7e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 242097788}
---- !u!114 &1814532875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1814532866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7daea90f7276e5042a31ec05461c1c94, type: 3}
+  m_Script: {fileID: 11500000, guid: 28b159e4ed17ed047a71f92a80dd64ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
   health: 100
+  invicibilityLength: 3
+  invicibilityCounter: 0
+  helthText: {fileID: 242097788}
 --- !u!1 &1818777922
 GameObject:
   m_ObjectHideFlags: 0
