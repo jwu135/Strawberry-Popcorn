@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         legs = transform.GetChild(1).gameObject; // temporarily getting sprites this way
         arm = transform.GetChild(0).gameObject;
-         healthManager = GetComponent<HealthManager>();
+        healthManager = GetComponent<HealthManager>();
     }
 
     void Update()
@@ -53,8 +53,23 @@ public class Movement : MonoBehaviour
         //arm.transform.rotation = Quaternion.Slerp(arm.transform.rotation,target,0);
 
         rb.transform.position +=  Movement.normalized  * Time.deltaTime * 4;
-        if (Input.GetKey(KeyCode.E)) {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            // Invicibility
             healthManager.invicibilityCounter = healthManager.invicibilityLength;
+
+            // Movement
+            if (Input.GetKey(KeyCode.A))
+            {
+                Vector3 dodge = new Vector3(-6, 0, 0);
+                rb.velocity = dodge;
+            } 
+            else
+            {       
+                Vector3 dodge = new Vector3(6, 0, 0);
+                rb.velocity = dodge;
+            }
         }
+
     }
 }
