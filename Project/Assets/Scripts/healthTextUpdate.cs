@@ -11,8 +11,9 @@ public class healthTextUpdate : MonoBehaviour
     {
         text = GetComponent<Text>();
     }
-    public void updateHealth(float health, float maxhealth)
+    public void updateHealth(float health, float maxHealth)
     {
-        text.text = health.ToString() + "/" + maxhealth.ToString();
+        text.text = health.ToString() + "/" + maxHealth.ToString();
     }
+
 }

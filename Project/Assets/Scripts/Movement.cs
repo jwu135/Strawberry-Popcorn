@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     private GameObject legs;
     private GameObject arm;
     private HealthManager healthManager;
+    private float dodgeCounter;
     //private float offset = 0;
 
     void Start()
@@ -16,6 +17,7 @@ public class Movement : MonoBehaviour
         legs = transform.GetChild(1).gameObject; // temporarily getting sprites this way
         arm = transform.GetChild(0).gameObject;
         healthManager = GetComponent<HealthManager>();
+        dodgeCounter = 0;
     }
 
     void Update()
@@ -53,8 +55,9 @@ public class Movement : MonoBehaviour
         //arm.transform.rotation = Quaternion.Slerp(arm.transform.rotation,target,0);
 
         rb.transform.position +=  Movement.normalized  * Time.deltaTime * 4;
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && dodgeCounter <= 0)
         {
+            dodgeCounter = 0.5f;
             // Invicibility
             healthManager.invicibilityCounter = healthManager.invicibilityLength;
 
@@ -69,6 +72,11 @@ public class Movement : MonoBehaviour
                 Vector3 dodge = new Vector3(6, 0, 0);
                 rb.velocity = dodge;
             }
+        }
+        
+        if(dodgeCounter > 0)
+        {
+            dodgeCounter -= Time.deltaTime;
         }
 
     }

@@ -9,6 +9,7 @@ public class playerOnHit : MonoBehaviour
     public float invicibilityLength;
     private float invicibilityCounter;
 
+
     void update()
     {
         if (invicibilityCounter > 0) 
@@ -30,6 +31,15 @@ public class playerOnHit : MonoBehaviour
                 {
                     GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
                 }
+            }
+        }
+        else
+        {
+            if (other.tag == "BossBullet")
+            {
+                player player = GetComponent<player>();
+                player.losehealth();
+                text.text = player.mana.ToString() + "/" + player.maxMana.ToString();
             }
         }
     }
