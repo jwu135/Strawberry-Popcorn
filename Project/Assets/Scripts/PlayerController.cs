@@ -10,13 +10,41 @@ public class PlayerController : MonoBehaviour
     public float numJumps; //the amount of times the player can jump before touching the ground again
     public float jumpVelocity; //the initial speed the player leaves the ground upon pressing jump
     public float gravity; //the amount of velocity removed from the players initial jump velocity until...
-    public float fallingGravity; //effect of gravity while falling
+    public float fallingGravity; //effect of gravity while falling (should be higher than regular gravity)
     public float fallSpeedCap; //it reaches the fall speed cap
+    public float dodgeDistance; //How far should a dodge move the player?
+    public float dodgeDuration;
     public int mode;
+    Rigidbody2D body;
+    FlightMovementPhys mode0;
+    PlatformMovementPhys mode1;
+
+
+    private void Start()
+    {
+        mode0 = GetComponent<FlightMovementPhys>();
+        mode1 = GetComponent<PlatformMovementPhys>();
+        body = GetComponent<Rigidbody2D>();
+        body.interpolation = RigidbodyInterpolation2D.Interpolate;
+        setMode(mode);
+    }
     // Start is called before the first frame update
     public void setMode(int modeSet)// 0 for flight 1 for platforming
     {
         mode = modeSet;
+        if(modeSet == 0)
+        {
+            mode0.initMode();
+        }
+        else if(modeSet == 1)
+        {
+            mode1.initMode();
+        }
+    }
+
+    public int getMode()
+    {
+        return mode;
     }
 
     public float getStat(string stat)
@@ -52,6 +80,14 @@ public class PlayerController : MonoBehaviour
         else if (string.Equals(stat, "fallSpeedCap"))
         {
             return fallSpeedCap;
+        }
+        else if (string.Equals(stat, "dodgeDistance"))
+        {
+            return dodgeDistance;
+        }
+        else if (string.Equals(stat, "dodgeDuration"))
+        {
+            return dodgeDuration;
         }
         else
         {
