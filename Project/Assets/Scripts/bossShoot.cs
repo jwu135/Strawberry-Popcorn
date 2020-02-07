@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bossShoot : MonoBehaviour
+public class BossShoot : MonoBehaviour
 {
-    //public GameObject hit;
     public GameObject projectile;
     public GameObject hitObj;
 
@@ -29,8 +28,6 @@ public class bossShoot : MonoBehaviour
             nextTime += cooldown;
         }
     }
-
-    // range, height, width, angle, damage, 
     void Physical() {
         int pos = Random.Range(0,3);
         GameObject physicalAttack = null;
@@ -39,12 +36,9 @@ public class bossShoot : MonoBehaviour
             int rand = Random.Range(0, spawnPointsX.Length);
             Vector3 position = new Vector3(spawnPointsX[rand], -13, 0);
             physicalAttack = Instantiate(hitObj, position, hitObj.transform.rotation) as GameObject;
-            //physicalAttack.GetComponent<Animation>().Play("SpikeMoveUp");
-           
         } else if (pos==1) {
             int rand = Random.Range(0, spawnPointsY.Length);
             Vector3 position = new Vector3(17.5f,spawnPointsY[rand], 0);
-            //tempRotation = transform.rotation;
             Quaternion tempRotation = Quaternion.Euler(0, 0, 180);
             physicalAttack = Instantiate(hitObj, position,tempRotation ) as GameObject;
         } else {
@@ -53,7 +47,7 @@ public class bossShoot : MonoBehaviour
             physicalAttack = Instantiate(hitObj, position, transform.rotation) as GameObject;
         }
         physicalAttack.GetComponent<Animator>().SetTrigger("Spike");
-        physicalAttack.GetComponent<attackTimer>().disappear();
+        physicalAttack.GetComponent<AttackTimer>().disappear();
     }
     
 
@@ -67,10 +61,5 @@ public class bossShoot : MonoBehaviour
             Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
             bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * 4;
         }
-    }
-    void Hit()
-    {
-        
-         // GameObject bullet = Instantiate(hitObj, temp, transform.rotation) as GameObject;
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class boss : MonoBehaviour
+public class Boss : MonoBehaviour
 {
     public float health = 100f;
     private GameObject player;
@@ -14,11 +14,5 @@ public class boss : MonoBehaviour
     public void losehealth(float amnt)
     {
         health -= amnt;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class attackTimer : MonoBehaviour
+public class AttackTimer : MonoBehaviour
 {
     private bool spawned = false;
     private float disappearTime = 1;
