@@ -1,0 +1,2389 @@
+fileFormatVersion: 2
+guid: d097fd1de7c9831419e1399a2f705a81
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1652328229866725102
+    second: M484GoodFruits (1)_0
+  - first:
+      213: 7383187241216119880
+    second: M484GoodFruits (1)_1
+  - first:
+      213: -635049303854168132
+    second: M484GoodFruits (1)_2
+  - first:
+      213: -1482200667945562261
+    second: M484GoodFruits (1)_3
+  - first:
+      213: 5769684200085602156
+    second: M484GoodFruits (1)_4
+  - first:
+      213: -6903596864907414216
+    second: M484GoodFruits (1)_5
+  - first:
+      213: -8287043334730750847
+    second: M484GoodFruits (1)_6
+  - first:
+      213: -1495117875860300493
+    second: M484GoodFruits (1)_7
+  - first:
+      213: 7589650212410103973
+    second: M484GoodFruits (1)_8
+  - first:
+      213: -39036075180322555
+    second: M484GoodFruits (1)_9
+  - first:
+      213: 8906843012064470613
+    second: M484GoodFruits (1)_10
+  - first:
+      213: 6708709981817400
+    second: M484GoodFruits (1)_11
+  - first:
+      213: 5652861529084904482
+    second: M484GoodFruits (1)_12
+  - first:
+      213: 7588164991001702856
+    second: M484GoodFruits (1)_13
+  - first:
+      213: 4496792179523309941
+    second: M484GoodFruits (1)_14
+  - first:
+      213: 9120015523976715601
+    second: M484GoodFruits (1)_15
+  - first:
+      213: -3614601957689797457
+    second: M484GoodFruits (1)_16
+  - first:
+      213: 5516414567377309005
+    second: M484GoodFruits (1)_17
+  - first:
+      213: -3500361071014331232
+    second: M484GoodFruits (1)_18
+  - first:
+      213: 5386032481195945879
+    second: M484GoodFruits (1)_19
+  - first:
+      213: 8893875488647022319
+    second: M484GoodFruits (1)_20
+  - first:
+      213: 8945498752870556556
+    second: M484GoodFruits (1)_21
+  - first:
+      213: -4380684381773727538
+    second: M484GoodFruits (1)_22
+  - first:
+      213: 5245391273060888874
+    second: M484GoodFruits (1)_23
+  - first:
+      213: 8063316480677785424
+    second: M484GoodFruits (1)_24
+  - first:
+      213: -8964703722515252976
+    second: M484GoodFruits (1)_25
+  - first:
+      213: 6655718099052351008
+    second: M484GoodFruits (1)_26
+  - first:
+      213: 5558009631557408118
+    second: M484GoodFruits (1)_27
+  - first:
+      213: -96058163385499520
+    second: M484GoodFruits (1)_28
+  - first:
+      213: 8775311909152668545
+    second: M484GoodFruits (1)_29
+  - first:
+      213: 6339284886957249570
+    second: M484GoodFruits (1)_30
+  - first:
+      213: 7750770493256557510
+    second: M484GoodFruits (1)_31
+  - first:
+      213: -1873522505381145257
+    second: M484GoodFruits (1)_32
+  - first:
+      213: -4623875853125182181
+    second: M484GoodFruits (1)_33
+  - first:
+      213: 5092849459347918670
+    second: M484GoodFruits (1)_34
+  - first:
+      213: 8123727413273685851
+    second: M484GoodFruits (1)_35
+  - first:
+      213: -8509605209729926764
+    second: M484GoodFruits (1)_36
+  - first:
+      213: 4584347509049057192
+    second: M484GoodFruits (1)_37
+  - first:
+      213: -3769513854077776028
+    second: M484GoodFruits (1)_38
+  - first:
+      213: -87380801695391104
+    second: M484GoodFruits (1)_39
+  - first:
+      213: 4303842537840064226
+    second: M484GoodFruits (1)_40
+  - first:
+      213: -1539835151381384274
+    second: M484GoodFruits (1)_41
+  - first:
+      213: -6525106091580027133
+    second: M484GoodFruits (1)_42
+  - first:
+      213: -6750584260925086276
+    second: M484GoodFruits (1)_43
+  - first:
+      213: 2826343946634598769
+    second: M484GoodFruits (1)_44
+  - first:
+      213: 613171535047801994
+    second: M484GoodFruits (1)_45
+  - first:
+      213: 1026468596579589
+    second: M484GoodFruits (1)_46
+  - first:
+      213: 1628468707755039991
+    second: Strawberry
+  - first:
+      213: 3470507575196618102
+    second: Pineapple
+  - first:
+      213: 5810039709463277037
+    second: M484GoodFruits (1)_49
+  - first:
+      213: 8877748937649417587
+    second: M484GoodFruits (1)_50
+  - first:
+      213: -9076140154493045888
+    second: M484GoodFruits (1)_51
+  - first:
+      213: 4079795706211044225
+    second: M484GoodFruits (1)_52
+  - first:
+      213: 6301583812489025059
+    second: M484GoodFruits (1)_53
+  - first:
+      213: -5291765403185660963
+    second: M484GoodFruits (1)_54
+  - first:
+      213: -7058945565663605912
+    second: M484GoodFruits (1)_55
+  - first:
+      213: -2050247139994988399
+    second: M484GoodFruits (1)_56
+  - first:
+      213: -8527731499664230652
+    second: M484GoodFruits (1)_57
+  - first:
+      213: 9135627084993822163
+    second: M484GoodFruits (1)_58
+  - first:
+      213: 3138093307030955869
+    second: M484GoodFruits (1)_59
+  - first:
+      213: 4936604953084228493
+    second: M484GoodFruits (1)_60
+  - first:
+      213: -5963685931741180769
+    second: M484GoodFruits (1)_61
+  - first:
+      213: -3361139638369417922
+    second: M484GoodFruits (1)_62
+  - first:
+      213: 949572649493497538
+    second: M484GoodFruits (1)_63
+  - first:
+      213: 4036469695334003067
+    second: M484GoodFruits (1)_64
+  - first:
+      213: 2635342742606853392
+    second: M484GoodFruits (1)_65
+  - first:
+      213: 4529278760025990325
+    second: M484GoodFruits (1)_66
+  - first:
+      213: 4625364027554859422
+    second: M484GoodFruits (1)_67
+  - first:
+      213: 6661856030742777445
+    second: M484GoodFruits (1)_68
+  - first:
+      213: 5266558029580604510
+    second: M484GoodFruits (1)_69
+  - first:
+      213: -2964915367358276661
+    second: M484GoodFruits (1)_70
+  - first:
+      213: 1948654351814330700
+    second: M484GoodFruits (1)_71
+  - first:
+      213: -7804033223039306065
+    second: M484GoodFruits (1)_72
+  - first:
+      213: 2318657374278108251
+    second: M484GoodFruits (1)_73
+  - first:
+      213: 2191960710333894674
+    second: M484GoodFruits (1)_74
+  - first:
+      213: 998582228276659051
+    second: M484GoodFruits (1)_75
+  - first:
+      213: -5433293038962668651
+    second: M484GoodFruits (1)_76
+  - first:
+      213: 4870648648776738052
+    second: M484GoodFruits (1)_77
+  - first:
+      213: -5111447780354514104
+    second: M484GoodFruits (1)_78
+  - first:
+      213: -5637010456180519430
+    second: M484GoodFruits (1)_79
+  - first:
+      213: -6069579740598181701
+    second: M484GoodFruits (1)_80
+  - first:
+      213: -5617447152580133349
+    second: M484GoodFruits (1)_81
+  - first:
+      213: 8650404700661997818
+    second: M484GoodFruits (1)_82
+  - first:
+      213: 3639546442221796551
+    second: M484GoodFruits (1)_83
+  - first:
+      213: 6458120775019223688
+    second: M484GoodFruits (1)_84
+  - first:
+      213: -2367584540842897786
+    second: M484GoodFruits (1)_85
+  - first:
+      213: 6594222775360726106
+    second: M484GoodFruits (1)_86
+  - first:
+      213: -4295176833464266891
+    second: M484GoodFruits (1)_87
+  - first:
+      213: -2479899615060629079
+    second: M484GoodFruits (1)_88
+  - first:
+      213: 2810624952643772816
+    second: M484GoodFruits (1)_89
+  - first:
+      213: 5768287937619889491
+    second: M484GoodFruits (1)_90
+  - first:
+      213: 6384596449031657216
+    second: M484GoodFruits (1)_91
+  - first:
+      213: 4009846811487536922
+    second: M484GoodFruits (1)_92
+  - first:
+      213: -6765406594863427238
+    second: M484GoodFruits (1)_93
+  - first:
+      213: 4751889028130156195
+    second: M484GoodFruits (1)_94
+  - first:
+      213: -8208449115166061161
+    second: M484GoodFruits (1)_95
+  - first:
+      213: -5983881530057823181
+    second: M484GoodFruits (1)_96
+  - first:
+      213: -1426489877932143512
+    second: M484GoodFruits (1)_97
+  - first:
+      213: -622242294607384037
+    second: M484GoodFruits (1)_98
+  - first:
+      213: 4833342291334405684
+    second: M484GoodFruits (1)_99
+  - first:
+      213: 5080144581492725249
+    second: M484GoodFruits (1)_100
+  - first:
+      213: 8213013133782237899
+    second: M484GoodFruits (1)_101
+  - first:
+      213: -6295708449438314465
+    second: M484GoodFruits (1)_102
+  - first:
+      213: 3315404546719055908
+    second: M484GoodFruits (1)_103
+  - first:
+      213: 999746692752286607
+    second: M484GoodFruits (1)_104
+  - first:
+      213: -4644347181752262309
+    second: M484GoodFruits (1)_105
+  - first:
+      213: -5077805563887983094
+    second: M484GoodFruits (1)_106
+  - first:
+      213: -8183671159070246042
+    second: M484GoodFruits (1)_107
+  - first:
+      213: 3107512432424897185
+    second: M484GoodFruits (1)_108
+  - first:
+      213: 3069071237403685531
+    second: M484GoodFruits (1)_109
+  - first:
+      213: -7099538220089027509
+    second: M484GoodFruits (1)_110
+  - first:
+      213: -7780457037380720064
+    second: M484GoodFruits (1)_111
+  - first:
+      213: -3902676977015260699
+    second: M484GoodFruits (1)_112
+  - first:
+      213: -478669630399162054
+    second: M484GoodFruits (1)_113
+  - first:
+      213: -5794438437892180008
+    second: M484GoodFruits (1)_114
+  - first:
+      213: 2563524968926632100
+    second: M484GoodFruits (1)_115
+  - first:
+      213: 1483173050636887838
+    second: M484GoodFruits (1)_116
+  - first:
+      213: 1837950434709358703
+    second: M484GoodFruits (1)_117
+  - first:
+      213: -1624280415702259021
+    second: M484GoodFruits (1)_118
+  - first:
+      213: -4394279604207180186
+    second: M484GoodFruits (1)_119
+  - first:
+      213: -7458100829021174489
+    second: M484GoodFruits (1)_120
+  - first:
+      213: -9029185706686200126
+    second: M484GoodFruits (1)_121
+  - first:
+      213: -2142789243651494692
+    second: M484GoodFruits (1)_122
+  - first:
+      213: -1755353964503832677
+    second: M484GoodFruits (1)_123
+  - first:
+      213: 2103231103675717281
+    second: M484GoodFruits (1)_124
+  - first:
+      213: 511262121731265832
+    second: M484GoodFruits (1)_125
+  - first:
+      213: 6878558927980499061
+    second: M484GoodFruits (1)_126
+  - first:
+      213: -3246486985330471892
+    second: M484GoodFruits (1)_127
+  - first:
+      213: -3118029020037913528
+    second: M484GoodFruits (1)_128
+  - first:
+      213: 4713467043942629256
+    second: M484GoodFruits (1)_129
+  - first:
+      213: -5895260760712411035
+    second: M484GoodFruits (1)_130
+  - first:
+      213: 6450525611537514677
+    second: M484GoodFruits (1)_131
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 262
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eee5e8945cf3ee610800000000000000
+      internalID: 1652328229866725102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 262
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84412e69da9567660800000000000000
+      internalID: 7383187241216119880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_2
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 262
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb7c9e4d50adf27f0800000000000000
+      internalID: -635049303854168132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_3
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 262
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6f0245785a2e6be0800000000000000
+      internalID: -1482200667945562261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_4
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 262
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6f394cf539021050800000000000000
+      internalID: 5769684200085602156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_5
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 262
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83571ba6a3f7130a0800000000000000
+      internalID: -6903596864907414216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_6
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 262
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 184ea136ef18efc80800000000000000
+      internalID: -8287043334730750847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_7
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 262
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33d9200a636404be0800000000000000
+      internalID: -1495117875860300493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_8
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 262
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a81c2018aad35960800000000000000
+      internalID: 7589650212410103973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_9
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 234
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 501937d75e0557ff0800000000000000
+      internalID: -39036075180322555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_10
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 234
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 556e54c67867b9b70800000000000000
+      internalID: 8906843012064470613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_11
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 234
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83a0e534985d71000800000000000000
+      internalID: 6708709981817400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_12
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 234
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 224c39d4c9ff27e40800000000000000
+      internalID: 5652861529084904482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_13
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 234
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c136b10bd39e4960800000000000000
+      internalID: 7588164991001702856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_14
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 234
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 571dd3989a0d76e30800000000000000
+      internalID: 4496792179523309941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_15
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 234
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15d1ea49ccdc09e70800000000000000
+      internalID: 9120015523976715601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_16
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 234
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa4d773abaa56ddc0800000000000000
+      internalID: -3614601957689797457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_17
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 234
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4d805262dd3e8c40800000000000000
+      internalID: 5516414567377309005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_18
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 206
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0acb590d6283c6fc0800000000000000
+      internalID: -3500361071014331232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_19
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 206
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79f666651080fba40800000000000000
+      internalID: 5386032481195945879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_20
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 206
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe60c5992a46d6b70800000000000000
+      internalID: 8893875488647022319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_21
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 206
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c83ac8f68bbc42c70800000000000000
+      internalID: 8945498752870556556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_22
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 206
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec8764fb3cea433c0800000000000000
+      internalID: -4380684381773727538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_23
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 206
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a217ab2529f5bc840800000000000000
+      internalID: 5245391273060888874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_24
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 206
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f2a5e2e97a6ef60800000000000000
+      internalID: 8063316480677785424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_25
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 206
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0193bde1679f69380800000000000000
+      internalID: -8964703722515252976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_26
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 206
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02e472bf85cdd5c50800000000000000
+      internalID: 6655718099052351008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_27
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 178
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 675dd23ff44022d40800000000000000
+      internalID: 5558009631557408118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_28
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 178
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08081adfb9bbaaef0800000000000000
+      internalID: -96058163385499520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_29
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 178
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18bbc4210bb28c970800000000000000
+      internalID: 8775311909152668545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_30
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 178
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 224d619840aa9f750800000000000000
+      internalID: 6339284886957249570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_31
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 178
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c3e222c2b4409b60800000000000000
+      internalID: 7750770493256557510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_32
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 178
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7559e0c2539eff5e0800000000000000
+      internalID: -1873522505381145257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_33
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 178
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1d97f0f861b4dfb0800000000000000
+      internalID: -4623875853125182181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_34
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 178
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4f09f6a99f6da640800000000000000
+      internalID: 5092849459347918670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_35
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 178
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5fe7408a074db070800000000000000
+      internalID: 8123727413273685851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_36
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 150
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 499fb37c52fc7e980800000000000000
+      internalID: -8509605209729926764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_37
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 150
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8afd0d345cfde9f30800000000000000
+      internalID: 4584347509049057192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_38
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 150
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46fc7c71f1fffabc0800000000000000
+      internalID: -3769513854077776028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_39
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 150
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 082e1c2bf9f89cef0800000000000000
+      internalID: -87380801695391104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_40
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 150
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e63c254cf15abb30800000000000000
+      internalID: 4303842537840064226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_41
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 150
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea3b045961861aae0800000000000000
+      internalID: -1539835151381384274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_42
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 150
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30f82a9c49a2275a0800000000000000
+      internalID: -6525106091580027133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_43
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 150
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb5a73d716b1152a0800000000000000
+      internalID: -6750584260925086276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_44
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 150
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1791b3848d0393720800000000000000
+      internalID: 2826343946634598769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_45
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 122
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8cb7ec234c628800800000000000000
+      internalID: 613171535047801994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_46
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 122
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50d72185195a30000800000000000000
+      internalID: 1026468596579589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strawberry
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 122
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fc149569ab799610800000000000000
+      internalID: 1628468707755039991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pineapple
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 122
+        width: 28
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67d85e98048b92030800000000000000
+      internalID: 3470507575196618102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_49
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 122
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dede875355861a050800000000000000
+      internalID: 5810039709463277037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_50
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 122
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37de1b95f99143b70800000000000000
+      internalID: 8877748937649417587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_51
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 122
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08378cfed921b0280800000000000000
+      internalID: -9076140154493045888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_52
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 122
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18b8fd044985e9830800000000000000
+      internalID: 4079795706211044225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_53
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 122
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32692c91719b37750800000000000000
+      internalID: 6301583812489025059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_54
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 94
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddbba6c176fdf86b0800000000000000
+      internalID: -5291765403185660963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_55
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 94
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86b4dcd6866990e90800000000000000
+      internalID: -7058945565663605912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_56
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 94
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19096deb61f0c83e0800000000000000
+      internalID: -2050247139994988399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_57
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 94
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 407ba96026967a980800000000000000
+      internalID: -8527731499664230652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_58
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 94
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dd7e716e6448ce70800000000000000
+      internalID: 9135627084993822163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_59
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 94
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d576c958c3fbc8b20800000000000000
+      internalID: 3138093307030955869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_60
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 94
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d83f401bc08528440800000000000000
+      internalID: 4936604953084228493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_61
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 94
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9c8296fd3bbc3da0800000000000000
+      internalID: -5963685931741180769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_62
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 94
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3581869e45da51d0800000000000000
+      internalID: -3361139638369417922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_63
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 66
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c68c7d2b4f8d2d00800000000000000
+      internalID: 949572649493497538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_64
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 66
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7133014dcb640830800000000000000
+      internalID: 4036469695334003067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_65
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 66
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0153c72034e929420800000000000000
+      internalID: 2635342742606853392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_66
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 66
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b4221cf80b3bde30800000000000000
+      internalID: 4529278760025990325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_67
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 66
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e99074ba318903040800000000000000
+      internalID: 4625364027554859422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_68
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 66
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56e873193caa37c50800000000000000
+      internalID: 6661856030742777445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_69
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 66
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e54122edf92961940800000000000000
+      internalID: 5266558029580604510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_70
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 66
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcb5383ae218ad6d0800000000000000
+      internalID: -2964915367358276661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_71
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 66
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4989edfec20b0b10800000000000000
+      internalID: 1948654351814330700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_72
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 38
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa63565912182b390800000000000000
+      internalID: -7804033223039306065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_73
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 38
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b54cfadd8968d2020800000000000000
+      internalID: 2318657374278108251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_74
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 38
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 210901d07a86b6e10800000000000000
+      internalID: 2191960710333894674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_75
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 38
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b63c273fe3dabdd00800000000000000
+      internalID: 998582228276659051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_76
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 38
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b070494c01994b0800000000000000
+      internalID: -5433293038962668651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_77
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 38
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 405e218e325089340800000000000000
+      internalID: 4870648648776738052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_78
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 38
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 843a20c435d7019b0800000000000000
+      internalID: -5111447780354514104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_79
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 38
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afd82343bd055c1b0800000000000000
+      internalID: -5637010456180519430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_80
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 38
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb0ecb9426584cba0800000000000000
+      internalID: -6069579740598181701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_81
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 10
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1e7ee5c391da02b0800000000000000
+      internalID: -5617447152580133349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_82
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 10
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af0e3525e396c0870800000000000000
+      internalID: 8650404700661997818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_83
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 10
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ccba20c434428230800000000000000
+      internalID: 3639546442221796551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_84
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 10
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88a5797d0aadf9950800000000000000
+      internalID: 6458120775019223688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_85
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 10
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68e4a537766a42fd0800000000000000
+      internalID: -2367584540842897786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_86
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 10
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a54aa2f2da2638b50800000000000000
+      internalID: 6594222775360726106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_87
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 10
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57f00e14d677464c0800000000000000
+      internalID: -4295176833464266891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_88
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 10
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a9eead6070a59dd0800000000000000
+      internalID: -2479899615060629079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484GoodFruits (1)_89
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 10
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0916e2bc088510720800000000000000
+      internalID: 2810624952643772816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
