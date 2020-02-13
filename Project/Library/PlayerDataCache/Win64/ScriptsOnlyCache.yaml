@@ -4,6 +4,8 @@ ScriptsOnlyBuild:
     - SceneChanger
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
+    - UnityEditor.Tilemaps.GridPaletteBrushes
+    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
@@ -39,21 +41,21 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11156}
+      Script: {instanceID: 11160}
     - Class: 114
-      Script: {instanceID: 11326}
+      Script: {instanceID: 11330}
     - Class: 114
-      Script: {instanceID: 11370}
+      Script: {instanceID: 11374}
     - Class: 114
-      Script: {instanceID: 11790}
+      Script: {instanceID: 11794}
     - Class: 114
-      Script: {instanceID: 12212}
+      Script: {instanceID: 12216}
     - Class: 114
-      Script: {instanceID: 12736}
+      Script: {instanceID: 12740}
     - Class: 114
-      Script: {instanceID: 12856}
+      Script: {instanceID: 12860}
     - Class: 114
-      Script: {instanceID: 13138}
+      Script: {instanceID: 13142}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -88,21 +90,21 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11156}
+      Script: {instanceID: 11160}
     - Class: 114
-      Script: {instanceID: 11326}
+      Script: {instanceID: 11330}
     - Class: 114
-      Script: {instanceID: 11370}
+      Script: {instanceID: 11374}
     - Class: 114
-      Script: {instanceID: 11790}
+      Script: {instanceID: 11794}
     - Class: 114
-      Script: {instanceID: 12212}
+      Script: {instanceID: 12216}
     - Class: 114
-      Script: {instanceID: 12736}
+      Script: {instanceID: 12740}
     - Class: 114
-      Script: {instanceID: 12856}
+      Script: {instanceID: 12860}
     - Class: 114
-      Script: {instanceID: 13138}
+      Script: {instanceID: 13142}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -464,7 +466,7 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 6bda6aa4c3343486d24200ca4581a281
+      Hash: 956a212e94e69b0d4e69b6fcef9f49ec
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Enemy
@@ -476,7 +478,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: 4a246750e1d8ffdd219596a41a8e6a40
+      Hash: 6c6e4d4e330e192a5c8ed1c411b09a51
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController

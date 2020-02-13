@@ -338,7 +338,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9278d5e88d76e43959b2c679186388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 574301431}
 --- !u!114 &117516977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,7 +350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61d28cda481f4b54798ddf5b77811519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
 --- !u!114 &117516978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,8 +374,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db5dd6c556a3cd4a9782e3fd9800011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 6887859871426871690}
-  hitObj: {fileID: 176314249}
 --- !u!114 &117516980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,6 +388,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   text: {fileID: 574301431}
+  ConnectNA1: 0
+  ConnectNA2: 0
+  ConnectNA3: 0
+  ConnectCA1: 0
+  ConnectCA2: 0
+  ConnectCA3: 0
+  damage1: 0
+  damage2: 0
+  damage3: 0
+  damage4: 0
+  damage5: 0
+  damage6: 0
 --- !u!1 &176314249
 GameObject:
   m_ObjectHideFlags: 0
@@ -2277,8 +2285,11 @@ MonoBehaviour:
   gravity: 1
   fallingGravity: 6
   fallSpeedCap: 15
-  dodgeDistance: 0
-  dodgeDuration: 0
+  rollDistance: 150
+  rollDuration: 5
+  rollSlowFrames: 6
+  rollSlowSpeedMult: 0.7
+  rollCooldown: 15
   mode: 1
 --- !u!114 &1814532876
 MonoBehaviour:
