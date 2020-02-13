@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bossMovement : MonoBehaviour
+public class BossMovement : MonoBehaviour
 {
 
     // Update is called once per frame

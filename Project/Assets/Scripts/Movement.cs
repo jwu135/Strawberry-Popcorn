@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space)) {
+        /*if (Input.GetKey(KeyCode.Space)) {
             Vector3 Jump = new Vector3(0, 6, 0);
             rb.velocity = Jump;
         }
@@ -54,7 +54,7 @@ public class Movement : MonoBehaviour
         //Quaternion target = Quaternion.Euler(rotation);
         //arm.transform.rotation = Quaternion.Slerp(arm.transform.rotation,target,0);
 
-        rb.transform.position +=  Movement.normalized  * Time.deltaTime * 4;
+        rb.transform.position +=  Movement.normalized  * Time.deltaTime * 4;*/
         if (Input.GetKey(KeyCode.LeftShift) && dodgeCounter <= 0)
         {
             dodgeCounter = 0.5f;
