@@ -24,9 +24,9 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(double damage)
     {
-        GetComponent<boss>().losehealth(damage);
-        text.text = GetComponent<boss>().health.ToString() + "/" + "100";
-        if (GetComponent<boss>().health <= 0)
+        GetComponent<Boss>().losehealth(damage);
+        text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
+        if (GetComponent<Boss>().health <= 0)
         {
             GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
         }
@@ -36,9 +36,9 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage2(double damage2)
     {
-        GetComponent<boss>().losehealth(damage2);
-        text.text = GetComponent<boss>().health.ToString() + "/" + "100";
-        if (GetComponent<boss>().health <= 0)
+        GetComponent<Boss>().losehealth(damage2);
+        text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
+        if (GetComponent<Boss>().health <= 0)
         {
             GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
         }
@@ -48,9 +48,9 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage3(double damage3)
     {
-        GetComponent<boss>().losehealth(damage3);
-        text.text = GetComponent<boss>().health.ToString() + "/" + "100";
-        if (GetComponent<boss>().health <= 0)
+        GetComponent<Boss>().losehealth(damage3);
+        text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
+        if (GetComponent<Boss>().health <= 0)
         {
             GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
         }
@@ -61,9 +61,9 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage4(double damage4)
     {
-        GetComponent<boss>().losehealth(damage4);
-        text.text = GetComponent<boss>().health.ToString() + "/" + "100";
-        if (GetComponent<boss>().health <= 0)
+        GetComponent<Boss>().losehealth(damage4);
+        text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
+        if (GetComponent<Boss>().health <= 0)
         {
             GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
         }
