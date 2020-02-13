@@ -137,17 +137,18 @@ public class PlayerCombat : MonoBehaviour
     void Shoot1()
     {
         Instantiate(bullet1Prefab, firePoint.position, firePoint.rotation);
-        Enemy.TakeDamage2(damage2);
+        //Enemy.TakeDamage2(damage2);
+
     }
 
     void Shoot2()
     {
         Instantiate(bullet2Prefab, firePoint.position, firePoint.rotation);
-        Enemy.TakeDamage3(damage3);
+        //Enemy.TakeDamage3(damage3);
     }
     void Shoot3()
     {
         Instantiate(harpoonPrefab, firePoint2.position, firePoint2.rotation);
-        Enemy.TakeDamage4(damage4);
+        //Enemy.TakeDamage4(damage4);
     }
 }

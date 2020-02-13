@@ -7,6 +7,18 @@ public class Enemy : MonoBehaviour
 {
     public double health;
     public Text text;
+    public bool ConnectNA1 = false;
+    public bool ConnectNA2 = false;
+    public bool ConnectNA3 = false;
+    public bool ConnectCA1 = false;
+    public bool ConnectCA2 = false;
+    public bool ConnectCA3 = false;
+    public double damage1;
+    public double damage2;
+    public double damage3;
+    public double damage4;
+    public double damage5;
+    public double damage6;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,53 +34,89 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "normalAttack1")
+        {
+            GetComponent<boss>().losehealth(damage1);
+            text.text = GetComponent<boss>().health.ToString() + "/" + "100";
+            if (GetComponent<boss>().health <= 0)
+            {
+                GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
+            }
+            health -= damage1;
+            Debug.Log("damage");
+            Debug.Log(health);
+        }
+        if (other.tag == "normalAttack2")
+        {
+            GetComponent<boss>().losehealth(damage2);
+            text.text = GetComponent<boss>().health.ToString() + "/" + "100";
+            if (GetComponent<boss>().health <= 0)
+            {
+                GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
+            }
+            health -= damage2;
+            Debug.Log("damage");
+            Debug.Log(health);
+        }
+        if (other.tag == "normalAttack3")
+        {
+            GetComponent<boss>().losehealth(damage3);
+            text.text = GetComponent<boss>().health.ToString() + "/" + "100";
+            if (GetComponent<boss>().health <= 0)
+            {
+                GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
+            }
+            health -= damage3;
+            Debug.Log("damage");
+            Debug.Log(health);
+        }
+        if (other.tag == "chargeAttack1")
+        {
+            GetComponent<boss>().losehealth(damage4);
+            text.text = GetComponent<boss>().health.ToString() + "/" + "100";
+            if (GetComponent<boss>().health <= 0)
+            {
+                GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
+            }
+            health -= damage4;
+            Debug.Log("damage");
+            Debug.Log(health);
+        }
+        if (other.tag == "chargeAttack2")
+        {
+            GetComponent<boss>().losehealth(damage5);
+            text.text = GetComponent<boss>().health.ToString() + "/" + "100";
+            if (GetComponent<boss>().health <= 0)
+            {
+                GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
+            }
+            health -= damage5;
+            Debug.Log("damage");
+            Debug.Log(health);
+        }
+        if (other.tag == "chargeAttack3")
+        {
+
+        }
+    }
+
     public void TakeDamage(double damage)
     {
-        GetComponent<boss>().losehealth(damage);
-        text.text = GetComponent<boss>().health.ToString() + "/" + "100";
-        if (GetComponent<boss>().health <= 0)
-        {
-            GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
-        }
-        health -= damage;
-        Debug.Log("damage");
-        Debug.Log(health);
+      
     }
     public void TakeDamage2(double damage2)
     {
-        GetComponent<boss>().losehealth(damage2);
-        text.text = GetComponent<boss>().health.ToString() + "/" + "100";
-        if (GetComponent<boss>().health <= 0)
-        {
-            GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
-        }
-        health -= damage2;
-        Debug.Log("damage");
-        Debug.Log(health);
+        
     }
     public void TakeDamage3(double damage3)
     {
-        GetComponent<boss>().losehealth(damage3);
-        text.text = GetComponent<boss>().health.ToString() + "/" + "100";
-        if (GetComponent<boss>().health <= 0)
-        {
-            GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
-        }
-        health -= damage3;
-        Debug.Log("damage");
-        Debug.Log(health);
+        
     }
 
     public void TakeDamage4(double damage4)
     {
-        GetComponent<boss>().losehealth(damage4);
-        text.text = GetComponent<boss>().health.ToString() + "/" + "100";
-        if (GetComponent<boss>().health <= 0)
-        {
-            GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
-        }
-        health -= damage4;
-        Debug.Log("damage");
-        Debug.Log(health);
+        
     }
 }
