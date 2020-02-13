@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+    //a "frame" is a unit of time that is defined in Edit->Project Settings->Time->Fixed Timestep
+    //this does NOT IN ANY WAY correlate to the framerate that the user is getting
     public float moveSpeed; //the maximum movement speed
     public float acceleration; //the multiplier for speeding up
     public float deceleration; //the coefficient of drag
@@ -12,8 +15,11 @@ public class PlayerController : MonoBehaviour
     public float gravity; //the amount of velocity removed from the players initial jump velocity until...
     public float fallingGravity; //effect of gravity while falling (should be higher than regular gravity)
     public float fallSpeedCap; //it reaches the fall speed cap
-    public float dodgeDistance; //How far should a dodge move the player?
-    public float dodgeDuration;
+    public float rollDistance; //How far should a dodge move the player?
+    public float rollDuration; //How many frames should the dodge take
+    public float rollSlowFrames; //How many frames after the fast animation ends does the player stay in slow state
+    public float rollSlowSpeedMult; //Multiplier for how fast the player moves during slow frames of a roll
+    public float rollCooldown; //frames after the roll ends before the player can roll again
     public int mode;
     Rigidbody2D body;
     FlightMovementPhys mode0;
@@ -81,13 +87,25 @@ public class PlayerController : MonoBehaviour
         {
             return fallSpeedCap;
         }
-        else if (string.Equals(stat, "dodgeDistance"))
+        else if (string.Equals(stat, "rollDistance"))
         {
-            return dodgeDistance;
+            return rollDistance;
         }
-        else if (string.Equals(stat, "dodgeDuration"))
+        else if (string.Equals(stat, "rollDuration"))
         {
-            return dodgeDuration;
+            return rollDuration;
+        }
+        else if (string.Equals(stat, "rollSlowFrames"))
+        {
+            return rollSlowFrames;
+        }
+        else if (string.Equals(stat, "rollSlowSpeedMult"))
+        {
+            return rollSlowSpeedMult;
+        }
+        else if (string.Equals(stat, "rollCooldown"))
+        {
+            return rollCooldown;
         }
         else
         {

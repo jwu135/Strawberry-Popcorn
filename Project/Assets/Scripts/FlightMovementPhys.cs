@@ -7,12 +7,21 @@ public class FlightMovementPhys : MonoBehaviour
     private float moveSpeed; //the maximum movement speed
     private float acceleration; //the multiplier for speeding up
     private float deceleration; //the coefficient of drag
+    private float rollDistance; //How far should a dodge move the player?
+    private float rollDuration; //How many frames to complete the dodge?
+    private float rollSlowFrames; //How many frames after the fast animation ends does the player stay in slow state
+    private float rollSlowSpeedMult; //Multiplier for how fast the player moves during slow frames of a roll
+    private float rollCooldown; //frames after the roll ends before the player can roll again
+
     protected Rigidbody2D body;
 
     PlayerController pc;
 
     float deadzone; //joystick deadzone
     Vector2 stickInput;
+    bool controlFrozen;
+    int rollingFrame;
+    Vector2 rollInput = Vector2.zero;
 
     Vector2 velocityVector;
 
@@ -32,8 +41,15 @@ public class FlightMovementPhys : MonoBehaviour
         moveSpeed = pc.getStat("moveSpeed");
         acceleration = pc.getStat("acceleration");
         deceleration = pc.getStat("deceleration");
+        rollDistance = pc.getStat("rollDistance");
+        rollDuration = pc.getStat("rollDuration");
+        rollSlowFrames = pc.getStat("rollSlowFrames");
+        rollSlowSpeedMult = pc.getStat("rollSlowSpeedMult");
+        rollCooldown = pc.getStat("rollCooldown");
 
         deadzone = 0.0007f;
+        controlFrozen = false;
+        rollingFrame = 0;
 
         velocityVector = new Vector2(0, 0);
 
@@ -59,11 +75,15 @@ public class FlightMovementPhys : MonoBehaviour
             stickInput = Vector2.zero;
         }
 
-        velocityVector = Vector2.ClampMagnitude(body.velocity + (stickInput * acceleration), moveSpeed);
+        if(controlFrozen == false) //as long as the player isn't rolling
+        {
+            velocityVector = Vector2.ClampMagnitude(body.velocity + (stickInput * acceleration), moveSpeed);
+        }
 
 
         //first do velocity based on stick movement
-        if (stickInput.magnitude == Vector2.zero.magnitude)//if player is not pressing anything horizontal
+        if (stickInput.magnitude == Vector2.zero.magnitude && controlFrozen == false)//if player is not pressing anything horizontal and the player isn't rolling
+
         {
             if (velocityVector.x > 0)
             {
@@ -112,6 +132,46 @@ public class FlightMovementPhys : MonoBehaviour
             }
         }
 
+
+        print("rollingFrame: " + rollingFrame);
+
+        if ( (Input.GetButton("Roll") == true && rollingFrame == 0 && stickInput.magnitude > 0 ) || rollingFrame >= 1)
+        {
+            if(rollingFrame == 0)
+            {
+                controlFrozen = true;
+                rollInput = stickInput;
+            }
+            doRoll(Vector2.SignedAngle(Vector2.right, rollInput)); //calls roll with the angle (0 degrees is right)
+        }
+
         body.velocity = velocityVector;
     }
+    void doRoll(float rollAngle)
+    {
+        print(controlFrozen);
+        if(rollingFrame < rollDuration)
+        {
+            velocityVector.x = (rollDistance / rollDuration) * Mathf.Cos(Mathf.Deg2Rad * rollAngle);
+            velocityVector.y = (rollDistance / rollDuration) * Mathf.Sin(Mathf.Deg2Rad * rollAngle);
+
+            rollingFrame++;
+        }
+        else if( rollingFrame < rollDuration + rollSlowFrames)
+        {
+            velocityVector.x = rollSlowSpeedMult * ((rollDistance / rollDuration) * Mathf.Cos(Mathf.Deg2Rad * rollAngle));
+            velocityVector.y = rollSlowSpeedMult * ((rollDistance / rollDuration) * Mathf.Sin(Mathf.Deg2Rad * rollAngle));
+            rollingFrame++;
+        }
+        else if( rollingFrame < rollDuration + rollSlowFrames + rollCooldown)
+        {
+            controlFrozen = false;
+            rollingFrame++;
+        }
+        else
+        {
+            rollingFrame = 0;
+        }
+    }
 }
+
