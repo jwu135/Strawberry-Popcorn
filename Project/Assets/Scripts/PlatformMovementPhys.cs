@@ -114,7 +114,11 @@ public class PlatformMovementPhys : MonoBehaviour
             }
         }
 
-        if(Input.GetButton("Jump") == true && velocityVector.y == 0)//if jump button is pressed and conditions are met, then jump (add double jump later)
+
+        //if(Input.GetButton("Jump") == true && velocityVector.y == 0)//if jump button is pressed and conditions are met, then jump (add double jump later)
+
+        //made jump w
+        if (Input.GetKey(KeyCode.W) == true && velocityVector.y == 0)
         {
             jump();
         }

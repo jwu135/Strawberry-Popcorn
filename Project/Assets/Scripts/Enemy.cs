@@ -19,6 +19,10 @@ public class Enemy : MonoBehaviour
     public double damage4;
     public double damage5;
     public double damage6;
+    public double damage7;
+    public double damage8;
+    public double damage9;
+    public bool SA2 = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -100,7 +104,47 @@ public class Enemy : MonoBehaviour
         {
 
         }
+        if (other.tag == "specialAttack2")
+        {
+            SA2 = true;
+        }
     }
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.tag == "normalAttack3")
+        {
+            GetComponent<Boss>().losehealth(damage3);
+            text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
+            if (GetComponent<Boss>().health <= 0)
+            {
+                GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
+            }
+            health -= damage3;
+            Debug.Log("damage");
+            Debug.Log(health);
+        }
+        if (other.tag == "specialAttack2" && SA2)
+        {
+            GetComponent<Boss>().losehealth(damage8);
+            text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
+            if (GetComponent<Boss>().health <= 0)
+            {
+                GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
+            }
+            health -= damage8;
+            Debug.Log("damage");
+            Debug.Log(health);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "specialAttack2")
+        {
+            SA2 = false;
+        }
+    }
+
 
     public void TakeDamage(double damage)
     {
