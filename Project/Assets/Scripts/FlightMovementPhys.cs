@@ -52,13 +52,12 @@ public class FlightMovementPhys : MonoBehaviour
         rollingFrame = 0;
 
         velocityVector = new Vector2(0, 0);
-
-        mode = pc.getMode();
     }
 
     // Fixed update is called 50 times per second, regardless of framerate (this can be changed in the project settings)
     private void FixedUpdate()
     {
+        mode = pc.getMode();
         //Controls the movemement of the player when in flying mode
         if (mode == 0)
         {
@@ -133,7 +132,6 @@ public class FlightMovementPhys : MonoBehaviour
         }
 
 
-        print("rollingFrame: " + rollingFrame);
 
         if ( (Input.GetButton("Roll") == true && rollingFrame == 0 && stickInput.magnitude > 0 ) || rollingFrame >= 1)
         {
@@ -149,7 +147,6 @@ public class FlightMovementPhys : MonoBehaviour
     }
     void doRoll(float rollAngle)
     {
-        print(controlFrozen);
         if(rollingFrame < rollDuration)
         {
             velocityVector.x = (rollDistance / rollDuration) * Mathf.Cos(Mathf.Deg2Rad * rollAngle);

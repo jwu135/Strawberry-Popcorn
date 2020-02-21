@@ -64,12 +64,12 @@ public class PlatformMovementPhys : MonoBehaviour
 
         velocityVector = new Vector2(0, 0);
 
-        mode = pc.getMode();
     }
 
     // Fixed update is called 50 times per second, regardless of framerate (this can be changed in the project settings)
     private void FixedUpdate()
     {
+        mode = pc.getMode();
         //Controls the movemement of the player when in flying mode
         if (mode == 1)
         {
