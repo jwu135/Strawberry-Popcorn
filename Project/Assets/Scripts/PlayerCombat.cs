@@ -29,10 +29,12 @@ public class PlayerCombat : MonoBehaviour
     public Flame Flame;
     public harpoon harpoonthrow;
 
-
+    
     // Update is called once per frame
     void Update()
     {
+
+        //Debug.Log(usingController);
         //Debug.Log(harpoonthrow.thrown);
 
         if (Input.GetKeyDown(KeyCode.Q))

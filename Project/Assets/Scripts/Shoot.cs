@@ -8,8 +8,18 @@ public class Shoot : MonoBehaviour
     private float nextTime = 0f;
     private float cooldown = 1f;
 
+    private int usingController = 0; //0=keyboard 1=controller
     void Update()
     {
+        if (Input.GetAxis("Aim_Vertical") != 0 || Input.GetAxis("Aim_Horizontal") != 0)
+        {
+            usingController = 1;
+        }
+        else if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0 )
+        {
+            usingController = 0;
+        }
+        Debug.Log(usingController);
         if (nextTime<Time.time) { 
             if (Input.GetButton("Fire1")) {
                 int max = 1;
