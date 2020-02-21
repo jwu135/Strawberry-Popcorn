@@ -11,7 +11,7 @@ public class Shoot : MonoBehaviour
     void Update()
     {
         if (nextTime<Time.time) { 
-            if (Input.GetKeyDown(KeyCode.Q) || Input.GetButton("Fire1")) {
+            if (Input.GetButton("Fire1")) {
                 int max = 1;
                 for (int i = 0; i < max; i++) {
                     //float offset = (max / 2 - i) * 5; // Makes multiple projectiles offset from each other
