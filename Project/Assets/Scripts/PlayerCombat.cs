@@ -55,7 +55,7 @@ public class PlayerCombat : MonoBehaviour
         }
         if (timeBtwAttack <= 0)
         {
-            if (Input.GetButton("Fire1") && weaponCycle == 2 && !Input.GetButton("Fire2"))
+            if (Input.GetButton("Fire1") && weaponCycle == 2 && (!Input.GetButton("Fire2") && Input.GetAxis("Roll") <= 0)) //Axis Roll being greater than zero is Fire2 on controller
             {
                 Collider2D[] enemiesToDamage1 = Physics2D.OverlapCircleAll(attackPos1.position, attackRange, enemyGroup);
                 Collider2D[] enemiesToDamage2 = Physics2D.OverlapCircleAll(attackPos2.position, attackRange, enemyGroup);
@@ -97,23 +97,23 @@ public class PlayerCombat : MonoBehaviour
                 timeBtwAttack = startTimeBtwAttack - 0.25;
             }
 
-            if (Input.GetButton("Fire1") && weaponCycle == 1 && !Input.GetButton("Fire2"))
+            if (Input.GetButton("Fire1") && weaponCycle == 1 && (!Input.GetButton("Fire2") && Input.GetAxis("Roll") <= 0))//Axis Roll being greater than zero is Fire2 on controller
             {
                 Shoot1();
                 timeBtwAttack = startTimeBtwAttack;
             }
-            if (Input.GetButton("Fire2") && weaponCycle == 1 && !Input.GetButton("Fire1"))
+            if ((Input.GetButton("Fire2") || Input.GetAxis("Roll") > 0) && weaponCycle == 1 && !Input.GetButton("Fire1"))//Axis Roll being greater than zero is Fire2 on controller
             {
                 Shoot2();
                 timeBtwAttack = startTimeBtwAttack + 0.7;
             }
-            if (Input.GetButton("Fire1") && weaponCycle == 3 && !Input.GetButton("Fire2") && harpoonthrow.thrown != true)
+            if (Input.GetButton("Fire1") && weaponCycle == 3 && (!Input.GetButton("Fire2") && Input.GetAxis("Roll") <= 0) && harpoonthrow.thrown != true)//Axis Roll being greater than zero is Fire2 on controller
             {
                 Flame.size();
                 Enemy.TakeDamage4(damage4);
                 timeBtwAttack = startTimeBtwAttack + 0.2;
             }
-            if (Input.GetButton("Fire2") && weaponCycle == 3 && !Input.GetButton("Fire1") && harpoonthrow.thrown != true)
+            if ((Input.GetButton("Fire2") || Input.GetAxis("Roll") > 0) && weaponCycle == 3 && !Input.GetButton("Fire1") && harpoonthrow.thrown != true)//Axis Roll being greater than zero is Fire2 on controller
             {
                 Shoot3();
                 timeBtwAttack = startTimeBtwAttack + 1;

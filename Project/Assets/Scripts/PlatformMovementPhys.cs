@@ -135,7 +135,7 @@ public class PlatformMovementPhys : MonoBehaviour
             jump();
         }
 
-        if (( (Input.GetButton("Roll") == true) || (Input.GetAxis("Roll") < 0) )  && ( rollingFrame == 0 && stickInput.magnitude > 0) || rollingFrame >= 1 )
+        if (( (Input.GetButton("Roll") == true) || (Input.GetAxis("Roll") < 0) )  && ( rollingFrame == 0 && stickInput.magnitude > 0 ) || rollingFrame >= 1 )
         {
             if (rollingFrame == 0)
             {
