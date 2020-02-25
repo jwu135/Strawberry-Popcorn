@@ -33,11 +33,9 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //Debug.Log(usingController);
         //Debug.Log(harpoonthrow.thrown);
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetButton("cycleUp")) //cycle - 1
         {
             weaponCycle = weaponCycle - 1;
             if (weaponCycle == 0)
@@ -46,7 +44,7 @@ public class PlayerCombat : MonoBehaviour
             }
             Debug.Log(weaponCycle);
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetButton("cycleDown")) //cycle + 1
         {
            weaponCycle = weaponCycle + 1;
             if (weaponCycle == 4)
