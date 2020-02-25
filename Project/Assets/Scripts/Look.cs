@@ -7,7 +7,8 @@ public class Look : MonoBehaviour
     private int usingController = 0; //mouse=0 controller=1;
     void Update()
     {
-        if (Input.GetAxis("Aim_Vertical") != 0 || Input.GetAxis("Aim_Horizontal") != 0)
+        Vector2 inputVector = new Vector2(Input.GetAxis("Aim_Horizontal"), Input.GetAxis("Aim_Vertical"));
+        if (inputVector.magnitude > 0.5)
         {
             usingController = 1;
         }

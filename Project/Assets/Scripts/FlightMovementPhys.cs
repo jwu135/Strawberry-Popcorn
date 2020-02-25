@@ -47,7 +47,7 @@ public class FlightMovementPhys : MonoBehaviour
         rollSlowSpeedMult = pc.getStat("rollSlowSpeedMult");
         rollCooldown = pc.getStat("rollCooldown");
 
-        deadzone = 0.0007f;
+        deadzone = 0.12f;
         controlFrozen = false;
         rollingFrame = 0;
 
@@ -133,7 +133,7 @@ public class FlightMovementPhys : MonoBehaviour
 
 
 
-        if ( (Input.GetButton("Roll") == true && rollingFrame == 0 && stickInput.magnitude > 0 ) || rollingFrame >= 1)
+        if (((Input.GetButton("Roll") == true) || (Input.GetAxis("Roll") < 0)) && (rollingFrame == 0 && stickInput.magnitude > 0) || rollingFrame >= 1)
         {
             if(rollingFrame == 0)
             {
