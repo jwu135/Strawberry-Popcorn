@@ -40,7 +40,7 @@ public class BossShoot : MonoBehaviour
     void physicalPattern() {
         int pattern = Random.Range(0,3);
         int pos = Random.Range(0, 4);
-        Physical(3);
+        Physical(pos);
         nextTime += cooldown;
     }
     void Physical(int pos) {
