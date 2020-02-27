@@ -39,27 +39,50 @@ public class BossShoot : MonoBehaviour
     }
     void physicalPattern() {
         int pattern = Random.Range(0,3);
-        int pos = Random.Range(0, 4);
-        Physical(pos);
+        if (pattern == 0 || pattern == 1) {
+            int pos = Random.Range(0, 4);
+            Physical(pos,true);
+        } else {
+            int pos = Random.Range(0, 3);
+            StartCoroutine("PhysicalWave",pos);
+        }
+
         nextTime += cooldown;
     }
-    void Physical(int pos) {
+    IEnumerator PhysicalWave(int pos)
+    {
+        for(int i = 0; i < 5; i++) {
+            Physical(pos,false,i);
+            yield return new WaitForSeconds(.2f);
+        }
+    }
+    void Physical(int pos,bool random = true,int place = 0) {
         //int pos =;
         GameObject physicalAttack = null;
         if (pos != 3) {
+            Vector3 position = new Vector3(0, 0, 0);
             if (pos == 0) {
                 // For now, make pop up instantly
                 int rand = Random.Range(0, spawnPointsX.Length);
-                Vector3 position = new Vector3(spawnPointsX[rand], -13, 0);
+                if(random)
+                    position = new Vector3(spawnPointsX[rand], -13, 0);
+                else
+                    position = new Vector3(spawnPointsX[place], -13, 0);
                 physicalAttack = Instantiate(hitObj, position, hitObj.transform.rotation) as GameObject;
             } else if (pos == 1) {
                 int rand = Random.Range(0, spawnPointsY.Length);
-                Vector3 position = new Vector3(17.5f, spawnPointsY[rand], 0);
+                if (random)
+                    position = new Vector3(17.5f, spawnPointsY[rand], 0);
+                else
+                    position = new Vector3(17.5f, spawnPointsY[place], 0);
                 Quaternion tempRotation = Quaternion.Euler(0, 0, 180);
                 physicalAttack = Instantiate(hitObj, position, tempRotation) as GameObject;
             } else if (pos == 2) {
                 int rand = Random.Range(0, spawnPointsY.Length);
-                Vector3 position = new Vector3(-17, spawnPointsY[rand], 0);
+                if (random)
+                    position = new Vector3(-17, spawnPointsY[rand], 0);
+                else
+                    position = new Vector3(-17, spawnPointsY[place], 0);
                 physicalAttack = Instantiate(hitObj, position, transform.rotation) as GameObject;
             }
             physicalAttack.GetComponent<Animator>().SetTrigger("Spike");
