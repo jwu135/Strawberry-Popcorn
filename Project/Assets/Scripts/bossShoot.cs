@@ -47,18 +47,22 @@ public class BossShoot : MonoBehaviour
             StartCoroutine("PhysicalWave",pos);
         }
 
-        nextTime += cooldown;
+        nextTime = Time.time + cooldown;
     }
     IEnumerator PhysicalWave(int pos)
     {
+        int Reverse = 0;
+        if (Random.Range(0, 2) > 0)
+            Reverse = 4;
         for(int i = 0; i < 5; i++) {
-            Physical(pos,false,i);
+            Physical(pos,false,(int)Mathf.Abs(Reverse-i));
             yield return new WaitForSeconds(.2f);
         }
     }
     void Physical(int pos,bool random = true,int place = 0) {
         //int pos =;
         GameObject physicalAttack = null;
+        Debug.Log(place);
         if (pos != 3) {
             Vector3 position = new Vector3(0, 0, 0);
             if (pos == 0) {
@@ -89,6 +93,7 @@ public class BossShoot : MonoBehaviour
             physicalAttack.GetComponent<AttackTimer>().disappear();
         } else {
             physicalAttack = Instantiate(AoE, transform.position, AoE.transform.rotation) as GameObject;
+            physicalAttack.transform.parent = transform;
             physicalAttack.GetComponent<Animator>().SetTrigger("Expand");
             physicalAttack.GetComponent<AttackTimer>().disappear();
         }
@@ -105,6 +110,6 @@ public class BossShoot : MonoBehaviour
             Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
             bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * bulletSpeed;
         }
-        nextTime += cooldown;
+        nextTime = Time.time + cooldown;
     }
 }

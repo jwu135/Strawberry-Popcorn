@@ -613,7 +613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db5dd6c556a3cd4a9782e3fd9800011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 8
+  bulletSpeed: 7
   projectile: {fileID: 6887859871426871690}
   hitObj: {fileID: 176314249}
   AoE: {fileID: 987772548}
@@ -724,7 +724,7 @@ Transform:
   m_GameObject: {fileID: 176314249}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -14.64, y: -9.83, z: 0}
-  m_LocalScale: {x: 14.699705, y: 1, z: 1}
+  m_LocalScale: {x: 14.699709, y: 1.0000002, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
