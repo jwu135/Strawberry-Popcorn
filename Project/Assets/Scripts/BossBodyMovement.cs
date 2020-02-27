@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class BossBodyMovement : MonoBehaviour
 {
+    public static bool triggered; 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("FlipFirst",1f,4.0f);
+        InvokeRepeating("FlipFirst",1f,9.0f);
     }
 
     void FlipFirst()
@@ -15,7 +16,7 @@ public class BossBodyMovement : MonoBehaviour
         StartCoroutine(Flip());
     }
 
-    IEnumerator Flip()
+    public IEnumerator Flip()
     {
         GetComponent<Animator>().SetTrigger("Move");
         yield return new WaitForSeconds(0.5f);
