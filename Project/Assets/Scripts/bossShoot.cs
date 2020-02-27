@@ -5,15 +5,19 @@ using UnityEngine;
 public class BossShoot : MonoBehaviour
 {
     public GameObject projectile;
+    public float bulletSpeed;
     public GameObject hitObj;
+    
 
     private int[] spawnPointsX = new int[] { -8, -4, 0, 4, 8 };
     private float[] spawnPointsY = new float[] { -3f, -1.5f, 0, 1.5f, 3f};
-    private float nextTime = 0f;
-    private float cooldown = 1f;
+    private float nextTime;
+    private float cooldown;
     private GameObject player;
     private void Start()
     {
+        nextTime = Time.time + 2f;
+        cooldown = Time.time + 1f;
         player = GameObject.FindWithTag("Player");
     }
     void Update()
@@ -23,13 +27,19 @@ public class BossShoot : MonoBehaviour
             if (Random.Range(0f, 1f) > 0.5f)
                 Shoot();
             else
-                Physical();
+                physicalPattern();
             
-            nextTime += cooldown;
+            
         }
     }
-    void Physical() {
-        int pos = Random.Range(0,3);
+    void physicalPattern() {
+        int pattern = Random.Range(0,3);
+        int pos = Random.Range(0, 3);
+        Physical(pos);
+        nextTime += cooldown;
+    }
+    void Physical(int pos) {
+        //int pos =;
         GameObject physicalAttack = null;
         if (pos == 0) {
             // For now, make pop up instantly
@@ -59,7 +69,8 @@ public class BossShoot : MonoBehaviour
             Vector3 temp = transform.position;
             GameObject bullet = Instantiate(projectile, temp, transform.rotation ) as GameObject;
             Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
-            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * 4;
+            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * bulletSpeed;
         }
+        nextTime += cooldown;
     }
 }

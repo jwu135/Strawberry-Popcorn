@@ -19,7 +19,6 @@ public class BossBodyMovement : MonoBehaviour
     {
         GetComponent<Animator>().SetTrigger("Move");
         yield return new WaitForSeconds(0.5f);
-        Debug.Log("Flipped");
         Vector3 temp = transform.position;
         temp.x *= -1;
         transform.position = temp;
