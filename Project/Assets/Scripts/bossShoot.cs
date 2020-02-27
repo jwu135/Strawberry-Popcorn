@@ -62,7 +62,6 @@ public class BossShoot : MonoBehaviour
     void Physical(int pos,bool random = true,int place = 0) {
         //int pos =;
         GameObject physicalAttack = null;
-        Debug.Log(place);
         if (pos != 3) {
             Vector3 position = new Vector3(0, 0, 0);
             if (pos == 0) {
