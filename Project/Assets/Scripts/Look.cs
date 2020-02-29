@@ -57,10 +57,12 @@ public class Look : MonoBehaviour
         if (Input.mousePosition.x > playerPosition.x)
         {
             scaleVector.x = -0.5f;
+            player.GetComponent<Movement>().direction = 0;
         }
         else if (Input.mousePosition.x < playerPosition.x)
         {
             scaleVector.x = 0.5f;
+            player.GetComponent<Movement>().direction = 1;
         }
     }
 
@@ -81,10 +83,12 @@ public class Look : MonoBehaviour
         if(Input.GetAxis("Aim_Horizontal") > 0.1)
         {
             scaleVector.x = 0.5f;
+            player.GetComponent<Movement>().direction = 1;
         }
         else if(Input.GetAxis("Aim_Horizontal") < 0.1)
         {
             scaleVector.x = -0.5f;
+            player.GetComponent<Movement>().direction = 0;
         }
 
         armatureTransform.localScale = scaleVector;

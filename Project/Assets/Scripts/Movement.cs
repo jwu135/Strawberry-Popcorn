@@ -1,27 +1,61 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DragonBones;
 
 public class Movement : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private GameObject legs;
-    private GameObject arm;
-    private HealthManager healthManager;
-    private float dodgeCounter;
-    //private float offset = 0;
-
+    private UnityArmatureComponent armatureComponent;
+    [HideInInspector]
+    public float direction = 0; // left is 0, right is 1;
+    private float lastdirection = 0;
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        legs = transform.GetChild(1).gameObject; // temporarily getting sprites this way
-        arm = transform.GetChild(0).gameObject;
-        healthManager = GetComponent<HealthManager>();
-        dodgeCounter = 0;
+        armatureComponent = GameObject.FindGameObjectWithTag("ArmatureTag").GetComponent<UnityArmatureComponent>();
     }
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.Space)) {
+            armatureComponent.animation.timeScale = 3;
+            armatureComponent.animation.Play("Jumping",1);
+        }
+        bool moving = Input.GetAxisRaw("Horizontal") > 0 || (Input.GetAxisRaw("Horizontal") < 0);
+        bool last = armatureComponent.animation.lastAnimationName == "Running" || armatureComponent.animation.lastAnimationName == "backRunning";
+        Vector2 pos = transform.Find("Arm").transform.localPosition;
+        if (direction > 0) {
+            pos.x = 0.21f;
+        } else
+            pos.x = -0.185f;
+        transform.Find("Arm").transform.localPosition = pos;
+
+        if (moving) {
+            
+            if (Input.GetAxisRaw("Horizontal")< 0) {
+                if (armatureComponent.animation.isCompleted || armatureComponent.animation.lastAnimationName == "Idle" || direction!=lastdirection) {
+                    if (direction > 0)
+                        armatureComponent.animation.Play("Running", 1);
+                    else
+                        armatureComponent.animation.Play("backRunning", 1);
+                }
+            }
+            if (Input.GetAxisRaw("Horizontal") > 0) {
+                if (armatureComponent.animation.isCompleted || armatureComponent.animation.lastAnimationName == "Idle" || direction != lastdirection)
+                    if (direction > 0)
+                        armatureComponent.animation.Play("backRunning", 1);
+                    else
+                        armatureComponent.animation.Play("Running", 1);
+            }
+            if (direction != lastdirection) {
+
+                lastdirection = direction;
+            }
+        } else if (armatureComponent.animation.isCompleted||last) {
+            armatureComponent.animation.timeScale = 1;
+            armatureComponent.animation.Play("Idle");
+            
+        }
+        // Leaving this here just in case
         /*if (Input.GetKey(KeyCode.Space)) {
             Vector3 Jump = new Vector3(0, 6, 0);
             rb.velocity = Jump;
@@ -55,7 +89,7 @@ public class Movement : MonoBehaviour
         //arm.transform.rotation = Quaternion.Slerp(arm.transform.rotation,target,0);
 
         rb.transform.position +=  Movement.normalized  * Time.deltaTime * 4;*/
-        if (Input.GetKey(KeyCode.LeftShift) && dodgeCounter <= 0)
+        /*if (Input.GetKey(KeyCode.LeftShift) && dodgeCounter <= 0)
         {
             dodgeCounter = 0.5f;
             // Invicibility
@@ -78,6 +112,7 @@ public class Movement : MonoBehaviour
         {
             dodgeCounter -= Time.deltaTime;
         }
+        */
 
     }
 }
