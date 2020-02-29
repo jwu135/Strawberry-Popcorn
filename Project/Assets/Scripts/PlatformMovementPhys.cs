@@ -58,7 +58,7 @@ public class PlatformMovementPhys : MonoBehaviour
 
         state = 1; //0 is grounded, 1 is in the air
         
-        deadzone = 0.0007f;
+        deadzone = 0.15f;
         controlFrozen = false;
         rollingFrame = 0;
 

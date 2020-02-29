@@ -14,6 +14,7 @@ public class Look : MonoBehaviour
     // get player position
     private Vector3 playerPosition;
     private Camera m_camera;
+    private float aimDeadzone;
 
     private Vector3 scaleVector;
 
@@ -23,6 +24,7 @@ public class Look : MonoBehaviour
         player = GameObject.Find("Player");
         armature = GameObject.FindGameObjectsWithTag("ArmatureTag");
         armatureTransform = armature[0].GetComponent<Transform>();
+        aimDeadzone = 0.9f;
 
         scaleVector = new Vector3(0.5f, 0.5f, 0.5f);
     }
@@ -31,7 +33,7 @@ public class Look : MonoBehaviour
     void Update()
     {
         Vector2 inputVector = new Vector2(Input.GetAxis("Aim_Horizontal"), Input.GetAxis("Aim_Vertical"));
-        if (inputVector.magnitude > 0.5)
+        if (inputVector.magnitude > 0.3)
         {
             usingController = 1;
         }
@@ -70,22 +72,22 @@ public class Look : MonoBehaviour
     {
         Vector2 aimAxis = new Vector2(Input.GetAxis("Aim_Horizontal"), Input.GetAxis("Aim_Vertical"));
 
-        if(aimAxis.magnitude > 0.1)
+        if(aimAxis.magnitude > aimDeadzone)
         {
             float angle = Mathf.Atan2(Input.GetAxis("Aim_Horizontal"), Input.GetAxis("Aim_Vertical")) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
-        else
+        /*else
         {
             transform.rotation = Quaternion.AngleAxis(90, Vector3.forward);
-        }
+        }*/
 
-        if(Input.GetAxis("Aim_Horizontal") > 0.1)
+        if(Input.GetAxis("Aim_Horizontal") > 0.1f && aimAxis.magnitude > aimDeadzone)
         {
             scaleVector.x = 0.5f;
             player.GetComponent<Movement>().direction = 1;
         }
-        else if(Input.GetAxis("Aim_Horizontal") < 0.1)
+        else if(Input.GetAxis("Aim_Horizontal") < -0.1f && aimAxis.magnitude > aimDeadzone)
         {
             scaleVector.x = -0.5f;
             player.GetComponent<Movement>().direction = 0;

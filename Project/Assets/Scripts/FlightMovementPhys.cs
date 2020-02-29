@@ -47,7 +47,7 @@ public class FlightMovementPhys : MonoBehaviour
         rollSlowSpeedMult = pc.getStat("rollSlowSpeedMult");
         rollCooldown = pc.getStat("rollCooldown");
 
-        deadzone = 0.12f;
+        deadzone = 0.15f;
         controlFrozen = false;
         rollingFrame = 0;
 
