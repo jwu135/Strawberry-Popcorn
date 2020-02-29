@@ -10,6 +10,7 @@ TagManager:
   - chargeAttack2
   - chargeAttack1
   - normalAttack1
+  - ArmatureTag
   layers:
   - Default
   - TransparentFX
