@@ -11,6 +11,7 @@ TagManager:
   - chargeAttack1
   - normalAttack1
   - ArmatureTag
+  - Floor
   layers:
   - Default
   - TransparentFX

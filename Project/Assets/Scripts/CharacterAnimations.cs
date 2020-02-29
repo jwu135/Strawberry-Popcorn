@@ -5,6 +5,7 @@ using DragonBones;
 
 public class CharacterAnimations : MonoBehaviour
 {
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,7 @@ public class CharacterAnimations : MonoBehaviour
         UnityFactory.factory.LoadTextureAtlasData("CharacterAnimations/firstProg_tex"); //Texture atlas file path (without suffix) 
 
         // Create armature.
+        
         var armatureComponent = UnityFactory.factory.BuildArmatureComponent("Armature");
         // Input armature name
 
