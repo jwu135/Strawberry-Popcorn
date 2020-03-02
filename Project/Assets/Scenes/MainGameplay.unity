@@ -4008,7 +4008,7 @@ MonoBehaviour:
   moveSpeed: 12
   acceleration: 2
   deceleration: 2
-  numJumps: 1
+  numAirJumps: 1
   jumpVelocity: 20
   gravity: 1
   fallingGravity: 6
