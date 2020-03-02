@@ -130,7 +130,7 @@ public class PlatformMovementPhys : MonoBehaviour
             }
         }
 
-        if(Input.GetButton("Jump") == true && velocityVector.y == 0)//if jump button is pressed and conditions are met, then jump (add double jump later)
+        if(Input.GetKey(KeyCode.W) == true && velocityVector.y == 0)//if jump button is pressed and conditions are met, then jump (add double jump later)
         {
             jump();
         }
@@ -154,7 +154,7 @@ public class PlatformMovementPhys : MonoBehaviour
             actingGravity = gravity;
         }
 
-        if( velocityVector.y > 0 && Input.GetButton("Jump") == false)
+        if( velocityVector.y > 0 && Input.GetKey(KeyCode.W) == false)
         {
             velocityVector.y = velocityVector.y / 1.15f;
         }

@@ -18,10 +18,10 @@ public class harpoon : MonoBehaviour
         this.transform.Rotate(0, 0, -90);
     }
 
-    public void OnTriggerEnter2D(Collider2D hitInfo)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(hitInfo.name);
-        if (hitInfo.name == "Enemy")
+        Debug.Log(other.tag);
+        if (other.tag == "Enemy")
         {
             Destroy(gameObject);
             thrown = false;

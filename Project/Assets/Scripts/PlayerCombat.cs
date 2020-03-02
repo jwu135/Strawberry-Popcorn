@@ -6,11 +6,27 @@ public class PlayerCombat : MonoBehaviour
 {
     private double timeBtwAttack;
     public double startTimeBtwAttack;
-    private int weaponCycle = 1;
+    private float weaponCycle = 1;
     private bool hit = false;
+    public bool fuse = false;
+    public bool LASER = false;
+    public float evolution;
     public GameObject bullet1Prefab;
     public GameObject bullet2Prefab;
     public GameObject harpoonPrefab;
+    public GameObject cloudPrefab;
+    public GameObject shield1Prefab;
+    public GameObject shield2Prefab;
+    public GameObject Laser;
+
+    public BoxCollider2D LaserCollider;
+    public BoxCollider2D FlameCollider;
+    public BoxCollider2D HarpoonCollider;
+
+    public SpriteRenderer LaserRenderer;
+    public SpriteRenderer FlameRenderer;
+    public SpriteRenderer HarpoonRenderer;
+    public SpriteRenderer ArmRenderer;
 
     public Transform attackPos1;
     public Transform attackPos2;
@@ -19,6 +35,8 @@ public class PlayerCombat : MonoBehaviour
     public Transform firePoint;
     public Transform firePoint2;
     public Transform harpoon;
+    public Transform shieldPosition1;
+    public Transform shieldPosition2;
     public LayerMask enemyGroup;
     public float attackRange;
     public double damage;
@@ -27,98 +45,150 @@ public class PlayerCombat : MonoBehaviour
     public double damage4;
     public Enemy Enemy;
     public Flame Flame;
+    //public Spread Spread;
     public harpoon harpoonthrow;
+    public HealthManager HM;
+    public Flamethrower Flamethrower;
 
-    
     // Update is called once per frame
     void Update()
     {
         //Debug.Log(harpoonthrow.thrown);
-
-        if (Input.GetButton("cycleUp")) //cycle - 1
+        // fuse = false;
+        // LASER = false;
+       // Debug.Log(LASER);
+        if (Input.GetMouseButton(0))
         {
-            weaponCycle = weaponCycle - 1;
+            //LASER = true;
+          
+        }
+
+        if (!Input.GetKey(KeyCode.Space))
+        {
+            LASER = false;
+            LaserCollider.enabled = false;
+            LaserRenderer.enabled = false;
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            weaponCycle = weaponCycle - 1;   
             if (weaponCycle == 0)
             {
-                weaponCycle = 3;
+                weaponCycle = evolution;
             }
             Debug.Log(weaponCycle);
         }
-        if (Input.GetButton("cycleDown")) //cycle + 1
+        if (Input.GetKeyDown(KeyCode.E))
         {
-           weaponCycle = weaponCycle + 1;
-            if (weaponCycle == 4)
+            if (weaponCycle + 1 > evolution)
             {
                 weaponCycle = 1;
             }
+            else
+            {
+                weaponCycle = weaponCycle + 1;
+            }
             Debug.Log(weaponCycle);
+        }
+        if (weaponCycle == 1)
+        {
+            ArmRenderer.enabled = true;
+            FlameCollider.enabled = false;
+            FlameRenderer.enabled = false;
+            HarpoonCollider.enabled = false;
+            HarpoonRenderer.enabled = false;
+        }
+        if (weaponCycle == 2)
+        {
+            ArmRenderer.enabled = false;
+            FlameCollider.enabled = false;
+            FlameRenderer.enabled = false;
+            HarpoonCollider.enabled = true;
+            HarpoonRenderer.enabled = true;
+        }
+        if (weaponCycle == 3)
+        {
+            ArmRenderer.enabled = false;
+            FlameCollider.enabled = true;
+            FlameRenderer.enabled = true;
+            HarpoonCollider.enabled = false;
+            HarpoonRenderer.enabled = false;
         }
         if (timeBtwAttack <= 0)
         {
-            if (Input.GetButton("Fire1") && weaponCycle == 2 && (!Input.GetButton("Fire2") && Input.GetAxis("Roll") <= 0)) //Axis Roll being greater than zero is Fire2 on controller
-            {
-                Collider2D[] enemiesToDamage1 = Physics2D.OverlapCircleAll(attackPos1.position, attackRange, enemyGroup);
-                Collider2D[] enemiesToDamage2 = Physics2D.OverlapCircleAll(attackPos2.position, attackRange, enemyGroup);
-                Collider2D[] enemiesToDamage3 = Physics2D.OverlapCircleAll(attackPos3.position, attackRange, enemyGroup);
-                Collider2D[] enemiesToDamage4 = Physics2D.OverlapCircleAll(attackPos4.position, attackRange, enemyGroup);
-                for (int i = 0; i < enemiesToDamage1.Length; i++)
-                {
-                    if (hit == false)
-                    {
-                        enemiesToDamage1[i].GetComponent<Enemy>().TakeDamage(damage);
-                        hit = true;
-                    }
-                }
-                for (int i = 0; i < enemiesToDamage2.Length; i++)
-                {
-                    if (hit == false)
-                    {
-                        enemiesToDamage2[i].GetComponent<Enemy>().TakeDamage(damage);
-                        hit = true;
-                    }
-                }
-                for (int i = 0; i < enemiesToDamage3.Length; i++)
-                {
-                    if (hit == false)
-                    {
-                        enemiesToDamage3[i].GetComponent<Enemy>().TakeDamage(damage);
-                        hit = true;
-                    }
-                }
-                for (int i = 0; i < enemiesToDamage4.Length; i++)
-                {
-                    if (hit == false)
-                    {
-                        enemiesToDamage4[i].GetComponent<Enemy>().TakeDamage(damage);
-                        hit = true;
-                    }
-                }
-                hit = false;
-                timeBtwAttack = startTimeBtwAttack - 0.25;
-            }
-
-            if (Input.GetButton("Fire1") && weaponCycle == 1 && (!Input.GetButton("Fire2") && Input.GetAxis("Roll") <= 0))//Axis Roll being greater than zero is Fire2 on controller
+            //strawberry shooter
+            if (Input.GetMouseButton(0) && weaponCycle == 1 && !Input.GetMouseButton(1))
             {
                 Shoot1();
                 timeBtwAttack = startTimeBtwAttack;
             }
-            if ((Input.GetButton("Fire2") || Input.GetAxis("Roll") > 0) && weaponCycle == 1 && !Input.GetButton("Fire1"))//Axis Roll being greater than zero is Fire2 on controller
+            //strawberry cannon
+            if (Input.GetMouseButton(1) && weaponCycle == 1 && !Input.GetMouseButton(0))
             {
                 Shoot2();
                 timeBtwAttack = startTimeBtwAttack + 0.7;
             }
-            if (Input.GetButton("Fire1") && weaponCycle == 3 && (!Input.GetButton("Fire2") && Input.GetAxis("Roll") <= 0) && harpoonthrow.thrown != true)//Axis Roll being greater than zero is Fire2 on controller
+            //Tentacle or pineapple stab
+            if (Input.GetMouseButton(0) && weaponCycle == 2 && !Input.GetMouseButton(1) && harpoonthrow.thrown != true && evolution > 1)
             {
                 Flame.size();
+                
                 Enemy.TakeDamage4(damage4);
                 timeBtwAttack = startTimeBtwAttack + 0.2;
             }
-            if ((Input.GetButton("Fire2") || Input.GetAxis("Roll") > 0) && weaponCycle == 3 && !Input.GetButton("Fire1") && harpoonthrow.thrown != true)//Axis Roll being greater than zero is Fire2 on controller
+            //tentacle or pineaple harpoon
+            if (Input.GetMouseButton(1) && weaponCycle == 2 && !Input.GetMouseButton(0) && harpoonthrow.thrown != true && evolution > 1)
             {
                 Shoot3();
                 timeBtwAttack = startTimeBtwAttack + 1;
             }
+            //jello avalanche
+            if (Input.GetMouseButtonDown(0) && weaponCycle == 3 && !Input.GetMouseButton(1) && evolution > 2)
+            {
+                // fuse = true;
+                Flamethrower.size();
+                //Debug.Log(fuse);
+                //LASER = false;
 
+                timeBtwAttack = startTimeBtwAttack;
+                Debug.Log(timeBtwAttack);
+            }
+            //jello wiggle shield
+            if (Input.GetMouseButtonDown(1) && weaponCycle == 3 && !Input.GetMouseButton(0) && evolution > 2)
+            {
+                Shoot5();
+                timeBtwAttack = startTimeBtwAttack + 1;
+            }
+            //nomnomnomnomnom
+            if (Input.GetKeyDown(KeyCode.R) && evolution < 3)
+            {
+                evolution += 1;
+                weaponCycle = evolution;
+            }
+            //mushroom poison
+            if (Input.GetKeyDown(KeyCode.Space) && HM.mana >= 20 && HM.mana < 50)
+            {
+                Shoot4();
+                timeBtwAttack = startTimeBtwAttack + 1;
+            }
+            //LASER
+            if (Input.GetKeyDown(KeyCode.Space) && HM.mana >= 50 && HM.mana < 100)
+            {
+                LASER = true;
+                if (LASER)
+                {
+                    LaserCollider.enabled = true;
+                    LaserRenderer.enabled = true;
+                }
+                else if (!LASER)
+                {
+                    LaserCollider.enabled = false;
+                    LaserRenderer.enabled = false;
+                }
+                timeBtwAttack = startTimeBtwAttack + 1;
+                Debug.Log(timeBtwAttack);
+                
+            }
         }
         else
         {
@@ -149,6 +219,17 @@ public class PlayerCombat : MonoBehaviour
     void Shoot3()
     {
         Instantiate(harpoonPrefab, firePoint2.position, firePoint2.rotation);
+        //Enemy.TakeDamage4(damage4);
+    }
+    void Shoot4()
+    {
+        Instantiate(cloudPrefab, firePoint2.position, firePoint2.rotation);
+        //Enemy.TakeDamage4(damage4);
+    }
+    void Shoot5()
+    {
+        Instantiate(shield1Prefab, shieldPosition1.position, shieldPosition1.rotation);
+        Instantiate(shield2Prefab, shieldPosition2.position, shieldPosition2.rotation);
         //Enemy.TakeDamage4(damage4);
     }
 }

@@ -13,10 +13,10 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
-    void OnTriggerEnter2D(Collider2D hitInfo)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(hitInfo.name);
-        if (hitInfo.name == "Enemy")
+        Debug.Log(other.tag);
+        if (other.tag == "Enemy")
         {
             Destroy(gameObject);
         }

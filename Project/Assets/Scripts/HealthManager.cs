@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
-    public float maxHealth = 100f;
-    public float health = 100f;
-    public float maxMana = 100f;
-    public float mana = 100f;
+    public double maxHealth = 100;
+    public double health = 100;
+    public double maxMana = 100;
+    public double mana = 100;
 
-    public float invicibilityLength;
-    public float invicibilityCounter;
+    public double invicibilityLength;
+    public double invicibilityCounter;
 
     public Text helthText;
     public Text manaText;
@@ -58,12 +58,12 @@ public class HealthManager : MonoBehaviour
     }
 
 
-    public void updateHealth(float health, float maxHealth)
+    public void updateHealth(double health, double maxHealth)
     {
         helthText.text = health.ToString() + "/" + maxHealth.ToString();
     }
 
-    public void updateMana(float mana, float maxMana)
+    public void updateMana(double mana, double maxMana)
     {
         manaText.text = mana.ToString() + "/" + maxMana.ToString();
     }

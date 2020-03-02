@@ -7,6 +7,14 @@ TagManager:
   - Bullet
   - BossBullet
   - PieceOne
+  - chargeAttack2
+  - chargeAttack1
+  - normalAttack1
+  - specialAttack2
+  - Enemy
+  - normalAttack2
+  - normalAttack3
+  - specialAttack1
   layers:
   - Default
   - TransparentFX
