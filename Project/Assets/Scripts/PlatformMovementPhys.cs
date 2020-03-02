@@ -7,6 +7,7 @@ public class PlatformMovementPhys : MonoBehaviour
     private float moveSpeed; //the maximum movement speed
     private float acceleration; //the multiplier for speeding up
     private float deceleration; //the coefficient of drag
+    private float numAirJumps; //the amount of times the player can jump, where 1 is a single double jump
     private float jumpVelocity;
     private float gravity;
     private float fallingGravity;
@@ -30,7 +31,8 @@ public class PlatformMovementPhys : MonoBehaviour
 
     Vector2 velocityVector;
 
-    float remainingJumps;
+    float remainingAirJumps;
+    bool jumpButtonDown; //basically Input.GetButtonDown("Jump") but for fixed update instead of update
 
     int mode; //0 for flight, 1 for platforming
 
@@ -46,6 +48,7 @@ public class PlatformMovementPhys : MonoBehaviour
         moveSpeed = pc.getStat("moveSpeed");
         acceleration = pc.getStat("acceleration");
         deceleration = pc.getStat("deceleration");
+        numAirJumps = pc.getStat("numAirJumps");
         jumpVelocity = pc.getStat("jumpVelocity");
         gravity = pc.getStat("gravity") - 0.0001f;
         fallingGravity = pc.getStat("fallingGravity");
@@ -63,7 +66,16 @@ public class PlatformMovementPhys : MonoBehaviour
         rollingFrame = 0;
 
         velocityVector = new Vector2(0, 0);
+        remainingAirJumps = numAirJumps;
 
+    }
+
+    private void Update()
+    {
+        if(Input.GetButtonDown("Jump") == true)
+        {
+            jumpButtonDown = true;
+        } //workaround for disparity between update and fixedUpdate
     }
 
     // Fixed update is called 50 times per second, regardless of framerate (this can be changed in the project settings)
@@ -130,7 +142,12 @@ public class PlatformMovementPhys : MonoBehaviour
             }
         }
 
-        if(Input.GetButton("Jump") == true && velocityVector.y == 0)//if jump button is pressed and conditions are met, then jump (add double jump later)
+        if(velocityVector.y == 0)
+        {
+            state = 0;
+            remainingAirJumps = numAirJumps;
+        }
+        if(jumpButtonDown == true && (state == 0 || remainingAirJumps > 0) )//if jump button is pressed and conditions are met, then jump (add double jump later)
         {
             jump();
         }
@@ -169,11 +186,19 @@ public class PlatformMovementPhys : MonoBehaviour
         }
 
         body.velocity = velocityVector;
+        Debug.Log("JumpVel: " + velocityVector.y + "   state: " + state + "    Button: " + Input.GetButtonDown("Jump"));
+
+        jumpButtonDown = false; //should ALWAYS be the last line in fixedUpdate() part of the workaround mentioned in update();
     }
 
     void jump()
     {
         velocityVector.y = jumpVelocity;
+        if (remainingAirJumps > 0 && state == 1) //conditions for a double jump
+        {
+            remainingAirJumps -= 1;
+        }
+        state = 1;
     }
 
     void doRoll(float rollAngle)
