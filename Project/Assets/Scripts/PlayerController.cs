@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//Author: Ethan Rafael
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
