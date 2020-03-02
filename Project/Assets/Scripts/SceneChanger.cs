@@ -7,30 +7,20 @@ using UnityEngine.UI;
 public class SceneChanger : MonoBehaviour
 {
     public Button play;
-    /*public Button credits;
-    public Button back;
-    public GameObject Main;
-    public GameObject Credit;
-    bool swapper = true;*/
-
+    public Button quit;
     // Start is called before the first frame update
     void Start()
     {
         play.onClick.AddListener(playGame);
+        quit.onClick.AddListener(doExitGame);
     }
-
-    // 
-    /*void swap()
-    {
-        swapper = !swapper;
-        Main.SetActive(swapper);
-        Credit.SetActive(!swapper);
-    }*/
 
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetButtonDown("Jump")) {
+            playGame();
+        }
     }
     void playGame()
     {

@@ -20,7 +20,7 @@ public class DialogueSystem : MonoBehaviour
     }
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)){
+        if (Input.GetButtonDown("Jump")){
             if (dialogue.Length > index + 1) {
                 index++;
             } else {

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BossOnHit : MonoBehaviour
 {
     public Text text;
-
+    public Image HealthBar;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "normalAttack1"|| other.tag == "chargeAttack1" || other.tag == "chargeAttack2") {
@@ -18,6 +18,9 @@ public class BossOnHit : MonoBehaviour
             Boss boss = GetComponent<Boss>();
             boss.losehealth(damage);
             text.text = boss.health.ToString() + "/" + "100";
+            Vector2 temp = HealthBar.rectTransform.sizeDelta;
+            temp.x = 505f * ((float)boss.health / 100f);
+            HealthBar.rectTransform.sizeDelta = temp;
             if (boss.health <= 0) {
                 GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
             }

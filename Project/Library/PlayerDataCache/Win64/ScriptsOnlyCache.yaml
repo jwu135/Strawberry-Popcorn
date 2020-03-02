@@ -1,8 +1,13 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AttackTimer
+    - Boss
     - BossBodyMovement
     - BossBullet
+    - BossMovement
+    - BossOnHit
+    - BossShoot
     - Bullet
     - CutsceneSystem
     - DialogueSystem
@@ -14,6 +19,7 @@ ScriptsOnlyBuild:
     - FlightMovementPhys
     - HealthManager
     - Look
+    - Movement
     - PlatformMovementPhys
     - PlayerCombat
     - PlayerController
@@ -32,10 +38,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -68,21 +72,21 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11206}
+      Script: {instanceID: 11202}
     - Class: 114
-      Script: {instanceID: 11382}
+      Script: {instanceID: 11378}
     - Class: 114
-      Script: {instanceID: 11428}
+      Script: {instanceID: 11424}
     - Class: 114
-      Script: {instanceID: 11876}
+      Script: {instanceID: 11872}
     - Class: 114
-      Script: {instanceID: 12328}
+      Script: {instanceID: 12324}
     - Class: 114
-      Script: {instanceID: 12872}
+      Script: {instanceID: 12870}
     - Class: 114
-      Script: {instanceID: 12996}
+      Script: {instanceID: 12994}
     - Class: 114
-      Script: {instanceID: 13296}
+      Script: {instanceID: 13294}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -128,6 +132,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 62
       Script: {instanceID: 0}
+    - Class: 70
+      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
@@ -139,65 +145,67 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11206}
+      Script: {instanceID: 11202}
     - Class: 114
-      Script: {instanceID: 11382}
+      Script: {instanceID: 11378}
     - Class: 114
-      Script: {instanceID: 11384}
+      Script: {instanceID: 11380}
     - Class: 114
-      Script: {instanceID: 11404}
+      Script: {instanceID: 11400}
     - Class: 114
-      Script: {instanceID: 11428}
+      Script: {instanceID: 11424}
     - Class: 114
-      Script: {instanceID: 11470}
+      Script: {instanceID: 11466}
     - Class: 114
-      Script: {instanceID: 11836}
+      Script: {instanceID: 11812}
     - Class: 114
-      Script: {instanceID: 11876}
+      Script: {instanceID: 11832}
     - Class: 114
-      Script: {instanceID: 11882}
+      Script: {instanceID: 11872}
     - Class: 114
-      Script: {instanceID: 11906}
+      Script: {instanceID: 11878}
     - Class: 114
-      Script: {instanceID: 11984}
+      Script: {instanceID: 11902}
     - Class: 114
-      Script: {instanceID: 12016}
+      Script: {instanceID: 11980}
     - Class: 114
-      Script: {instanceID: 12046}
+      Script: {instanceID: 12012}
     - Class: 114
-      Script: {instanceID: 12126}
+      Script: {instanceID: 12042}
     - Class: 114
-      Script: {instanceID: 12354}
+      Script: {instanceID: 12122}
     - Class: 114
-      Script: {instanceID: 12532}
+      Script: {instanceID: 12350}
     - Class: 114
-      Script: {instanceID: 12632}
+      Script: {instanceID: 12528}
     - Class: 114
-      Script: {instanceID: 12668}
+      Script: {instanceID: 12628}
     - Class: 114
-      Script: {instanceID: 12732}
+      Script: {instanceID: 12664}
     - Class: 114
-      Script: {instanceID: 12864}
+      Script: {instanceID: 12728}
     - Class: 114
-      Script: {instanceID: 12872}
+      Script: {instanceID: 12862}
     - Class: 114
-      Script: {instanceID: 12890}
+      Script: {instanceID: 12870}
     - Class: 114
-      Script: {instanceID: 12912}
+      Script: {instanceID: 12888}
     - Class: 114
-      Script: {instanceID: 12954}
+      Script: {instanceID: 12910}
     - Class: 114
-      Script: {instanceID: 12968}
+      Script: {instanceID: 12952}
     - Class: 114
-      Script: {instanceID: 13218}
+      Script: {instanceID: 12966}
     - Class: 114
-      Script: {instanceID: 13296}
+      Script: {instanceID: 13216}
     - Class: 114
-      Script: {instanceID: 13316}
+      Script: {instanceID: 13294}
     - Class: 114
-      Script: {instanceID: 13330}
+      Script: {instanceID: 13314}
     - Class: 114
-      Script: {instanceID: 13352}
+      Script: {instanceID: 13328}
+    - Class: 114
+      Script: {instanceID: 13350}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -234,21 +242,21 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11206}
+      Script: {instanceID: 11202}
     - Class: 114
-      Script: {instanceID: 11382}
+      Script: {instanceID: 11378}
     - Class: 114
-      Script: {instanceID: 11428}
+      Script: {instanceID: 11424}
     - Class: 114
-      Script: {instanceID: 11876}
+      Script: {instanceID: 11872}
     - Class: 114
-      Script: {instanceID: 12328}
+      Script: {instanceID: 12324}
     - Class: 114
-      Script: {instanceID: 12872}
+      Script: {instanceID: 12870}
     - Class: 114
-      Script: {instanceID: 12996}
+      Script: {instanceID: 12994}
     - Class: 114
-      Script: {instanceID: 13296}
+      Script: {instanceID: 13294}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -454,10 +462,16 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 3a7a03ca94f9560af876026de8056699
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Movement
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BossMovement
   - hash:
       serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
@@ -476,6 +490,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ControlPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AttackTimer
   - hash:
       serializedVersion: 2
       Hash: b8a5e8091ab0b8861d2add371082c5e0
@@ -500,6 +520,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Bullet
+  - hash:
+      serializedVersion: 2
+      Hash: 21a916f9598eaf6c63d8f255252459fd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BossOnHit
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -652,6 +678,12 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
+      Hash: 14987a697f5c594dc8545a642f47743a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Boss
+  - hash:
+      serializedVersion: 2
       Hash: 6c6e4d4e330e192a5c8ed1c411b09a51
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -688,6 +720,12 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
+      Hash: e8e35c6351fbbb5eb173791faada3c69
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BossShoot
+  - hash:
+      serializedVersion: 2
       Hash: 88cc9df3c6fc697bfbeacd24c0d6f2d7
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
@@ -700,7 +738,7 @@ ScriptsOnlyBuild:
     className: PlayerCombat
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 835a7012d6a303cb5f4a44116218ea6d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BossBodyMovement
@@ -712,7 +750,7 @@ ScriptsOnlyBuild:
     className: Flame
   - hash:
       serializedVersion: 2
-      Hash: a93c130c8d9ced19fa6030a7bf328c25
+      Hash: 92dc6f06c479b58fbf38089c23a545a9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SceneChanger
@@ -865,4 +903,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/Gameover.unity
   - Assets/Scenes/MainGameplay.unity
-  playerPath: C:/Users/ethan/Downloads/build/Pre-production - Copy.exe
+  playerPath: C:/Users/kamfi/Pictures/Class/Popcorn/Pre-production - Copy.exe

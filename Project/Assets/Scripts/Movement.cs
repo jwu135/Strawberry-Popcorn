@@ -16,11 +16,13 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space)) {
+        //Debug.Log();
+        if (Input.GetButtonDown("Jump")) {
             armatureComponent.animation.timeScale = 3;
             armatureComponent.animation.Play("Jumping",1);
         }
-        bool moving = Input.GetAxisRaw("Horizontal") > 0 || (Input.GetAxisRaw("Horizontal") < 0);
+        float mag = new Vector2(Input.GetAxisRaw("Horizontal"), 0).magnitude; // technique from Ethan's script. Don't want to read it in from there yet to avoid making changes to other people's scripts. Making the deadzone variable public or adding a function call to add the value to this script would be fine for doing this.
+        bool moving = mag > 0.15f && (Input.GetAxisRaw("Horizontal") > 0 || (Input.GetAxisRaw("Horizontal") < 0)); 
         bool last = armatureComponent.animation.lastAnimationName == "Running" || armatureComponent.animation.lastAnimationName == "backRunning";
         Vector2 pos = transform.Find("Arm").transform.localPosition;
         if (direction > 0) {
@@ -51,7 +53,7 @@ public class Movement : MonoBehaviour
                 lastdirection = direction;
             }
         } else if (armatureComponent.animation.isCompleted||last) {
-            armatureComponent.animation.timeScale = 1;
+            armatureComponent.animation.timeScale = 2;
             armatureComponent.animation.Play("Idle");
             
         }
