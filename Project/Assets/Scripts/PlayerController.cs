@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public float rollSlowFrames; //How many frames after the fast animation ends does the player stay in slow state
     public float rollSlowSpeedMult; //Multiplier for how fast the player moves during slow frames of a roll
     public float rollCooldown; //frames after the roll ends before the player can roll again
+    public float movementDeadzone = 0.15f; //How far along the left stick for the controller to actually move
     public int mode;
     Rigidbody2D body;
     FlightMovementPhys mode0;
@@ -108,6 +109,10 @@ public class PlayerController : MonoBehaviour
         else if (string.Equals(stat, "rollCooldown"))
         {
             return rollCooldown;
+        }
+        else if (string.Equals(stat, "movementDeadzone"))
+        {
+            return movementDeadzone;
         }
         else
         {

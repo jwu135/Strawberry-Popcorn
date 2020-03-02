@@ -9,7 +9,7 @@ public class BossShoot : MonoBehaviour
     public GameObject hitObj;
     public GameObject AoE;
 
-    private int[] spawnPointsX = new int[] { -8, -4, 0, 4, 8 };
+    private int[] spawnPointsX = new int[] { -14, -7, 0, 7, 14 };
     private float[] spawnPointsY = new float[] { -3f, -1.5f, 0, 1.5f, 3f};
     [HideInInspector]
     public float nextTime;

@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Look : MonoBehaviour
 {
-    private int usingController = 0; //mouse=0 controller=1;
+    [HideInInspector]
+    public int usingController = 0; //mouse=0 controller=1;
     private GameObject[] armature;
     private UnityEngine.Transform armatureTransform;
 

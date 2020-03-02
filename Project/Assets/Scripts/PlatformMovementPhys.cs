@@ -60,10 +60,10 @@ public class PlatformMovementPhys : MonoBehaviour
         rollSlowFrames = pc.getStat("rollSlowFrames");
         rollSlowSpeedMult = pc.getStat("rollSlowSpeedMult");
         rollCooldown = pc.getStat("rollCooldown");
+        deadzone = pc.getStat("movementDeadzone");
 
         state = 1; //0 is grounded, 1 is in the air
         
-        deadzone = 0.15f;
         controlFrozen = false;
         rollingFrame = 0;
 
@@ -188,7 +188,8 @@ public class PlatformMovementPhys : MonoBehaviour
         }
 
         body.velocity = velocityVector;
-        Debug.Log("JumpVel: " + velocityVector.y + "   state: " + state + "    Button: " + Input.GetButtonDown("Jump"));
+        //Debug.Log("JumpVel: " + velocityVector.y + "   state: " + state + "    Button: " + Input.GetButtonDown("Jump"));
+        Debug.Log(deadzone);
 
         jumpButtonDown = false; //should ALWAYS be the last line in fixedUpdate() part of the workaround mentioned in update();
     }

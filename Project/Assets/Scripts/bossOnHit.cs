@@ -7,6 +7,7 @@ public class BossOnHit : MonoBehaviour
 {
     public Text text;
     public Image HealthBar;
+    private bool piecePickedUp = false;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "normalAttack1"|| other.tag == "chargeAttack1" || other.tag == "chargeAttack2") {
@@ -24,7 +25,7 @@ public class BossOnHit : MonoBehaviour
             if (boss.health <= 0) {
                 GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
             }
-            if (boss.health%20==0) {
+            if (boss.health%25==0) {
                 GameObject Piece = Instantiate(GameObject.FindGameObjectWithTag("PieceOne"),transform.position,transform.rotation) as GameObject;
                 Piece.GetComponent<Rigidbody2D>().velocity = new Vector2(-0.5f, 0.5f)*5;
             }
