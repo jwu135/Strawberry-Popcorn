@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     public double damage7;
     public double damage8;
     public double damage9;
+    public bool SA1 = false;
     public bool SA2 = false;
     // Start is called before the first frame update
     void Start()
@@ -54,7 +55,7 @@ public class Enemy : MonoBehaviour
             text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
             health -= damage2;
             Debug.Log("damage");
-            Debug.Log(health);
+            //Debug.Log(health);
         }
         if (other.tag == "normalAttack3")
         {
@@ -62,7 +63,7 @@ public class Enemy : MonoBehaviour
             text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
             health -= damage3;
             Debug.Log("damage");
-            Debug.Log(health);
+            //Debug.Log(health);
         }
         if (other.tag == "chargeAttack1")
         {
@@ -70,7 +71,7 @@ public class Enemy : MonoBehaviour
             text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
             health -= damage4;
             Debug.Log("damage");
-            Debug.Log(health);
+            //Debug.Log(health);
         }
         if (other.tag == "chargeAttack2")
         {
@@ -78,11 +79,15 @@ public class Enemy : MonoBehaviour
             text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
             health -= damage5;
             Debug.Log("damage");
-            Debug.Log(health);
+            //Debug.Log(health);
         }
         if (other.tag == "chargeAttack3")
         {
 
+        }
+        if (other.tag == "specialAttack1")
+        {
+            SA1 = true;
         }
         if (other.tag == "specialAttack2")
         {
@@ -101,7 +106,19 @@ public class Enemy : MonoBehaviour
              }*/
             health -= damage3;
             Debug.Log("damage");
-            Debug.Log(health);
+            //Debug.Log(health);
+        }
+        if (other.tag == "specialAttack1" && SA1)
+        {
+            GetComponent<Boss>().losehealth(damage7);
+            text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
+            if (GetComponent<Boss>().health <= 0)
+            {
+                GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
+            }
+            health -= damage7;
+            Debug.Log("damage");
+            //Debug.Log(health);
         }
         if (other.tag == "specialAttack2" && SA2)
         {
@@ -113,12 +130,16 @@ public class Enemy : MonoBehaviour
             }*/
             health -= damage8;
             Debug.Log("damage");
-            Debug.Log(health);
+            //Debug.Log(health);
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        if (other.tag == "specialAttack1")
+        {
+            SA1 = false;
+        }
         if (other.tag == "specialAttack2")
         {
             SA2 = false;

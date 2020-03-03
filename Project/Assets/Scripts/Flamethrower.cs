@@ -13,7 +13,7 @@ public class Flamethrower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetButton("Fire1"))
         {
             lit = true;
             //Debug.Log(lit);
@@ -24,7 +24,7 @@ public class Flamethrower : MonoBehaviour
             }
         }
 
-        if (!Input.GetMouseButton(0))
+        if (!Input.GetButton("Fire1"))
         {
             lit = false;
            // Debug.Log(lit);

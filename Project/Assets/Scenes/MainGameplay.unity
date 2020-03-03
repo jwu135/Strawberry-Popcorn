@@ -856,6 +856,7 @@ MonoBehaviour:
   damage7: 0.2
   damage8: 0.4
   damage9: 0
+  SA1: 0
   SA2: 0
 --- !u!1 &128708580
 GameObject:
@@ -4858,7 +4859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1628249411
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5567,12 +5568,13 @@ MonoBehaviour:
   maxHealth: 100
   health: 100
   maxMana: 100
-  mana: 0
+  mana: 100
   invicibilityLength: 3
   invicibilityCounter: 0
   manaCounter: 1
   helthText: {fileID: 242097788}
   manaText: {fileID: 1942808331}
+  PlayerCombat: {fileID: 1814532874}
 --- !u!4 &1814532871
 Transform:
   m_ObjectHideFlags: 0
@@ -5693,9 +5695,9 @@ MonoBehaviour:
   delayBtwAttack1: 0.3
   delayBtwAttack2: 0.5
   delayBtwAttack3: 0.8
-  delayBtwChargeAttack1: 0.3
-  delayBtwChargeAttack2: 0.5
-  delayBtwChargeAttack3: 0.8
+  delayBtwChargeAttack1: 3
+  delayBtwChargeAttack2: 5
+  delayBtwChargeAttack3: 8
   delayAttackCD: 0
   delayChargeAttackCD: 0
   weaponSwapCD: 0.5
