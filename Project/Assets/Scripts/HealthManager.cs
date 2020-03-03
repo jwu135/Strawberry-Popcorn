@@ -19,6 +19,8 @@ public class HealthManager : MonoBehaviour
     public Text helthText;
     public Text manaText;
 
+    public PlayerCombat PlayerCombat;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +48,7 @@ public class HealthManager : MonoBehaviour
             if (other.tag == "BossBullet")
             {
                 health -= 1;
+                PlayerCombat.Hurt();
                 helthText.text = health.ToString() + "/" + maxHealth.ToString();
                
             }
@@ -54,7 +57,7 @@ public class HealthManager : MonoBehaviour
         {
             if (other.tag == "BossBullet" && manaCounter == 1)
             {
-                mana += 5;
+                mana += 10;
                 manaCounter = 0;
                 manaText.text = mana.ToString() + "/" + maxMana.ToString();
             }

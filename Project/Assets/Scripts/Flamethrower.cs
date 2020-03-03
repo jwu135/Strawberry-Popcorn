@@ -16,22 +16,22 @@ public class Flamethrower : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             lit = true;
-           // Debug.Log(lit);
+            //Debug.Log(lit);
             if (fuseTimer < flameDegrade)
             {
                 fuseTimer += (Time.deltaTime/2 );
-                //Debug.Log(fuseTimer);
+               // Debug.Log(fuseTimer);
             }
         }
 
         if (!Input.GetMouseButton(0))
         {
             lit = false;
-            //Debug.Log(lit);
+           // Debug.Log(lit);
             if (fuseTimer > 0)
             {
                 fuseTimer -= (Time.deltaTime/2 + Time.deltaTime / 4);
-                //Debug.Log(fuseTimer);
+             //   Debug.Log(fuseTimer);
             }
             transform.localScale = new Vector3(1,
             2, 1);

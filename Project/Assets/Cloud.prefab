@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 246356542504242148}
   - component: {fileID: 1763382908896158113}
   - component: {fileID: 1598942044850447589}
-  - component: {fileID: 246356542504242151}
   - component: {fileID: 246356542504242150}
   - component: {fileID: 246356542504242153}
+  - component: {fileID: -5562284846197035852}
   m_Layer: 0
   m_Name: Cloud
   m_TagString: specialAttack1
@@ -134,21 +134,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &246356542504242151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246356542504242152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3db93de69784294e90dc2ee050b3b70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 15
-  rb: {fileID: 1598942044850447589}
-  thrown: 0
 --- !u!114 &246356542504242150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explode: 0
-  harpoon: {fileID: 246356542504242151}
+  SpecialLaucher: {fileID: -5562284846197035852}
   rb: {fileID: 1598942044850447589}
 --- !u!114 &246356542504242153
 MonoBehaviour:
@@ -178,3 +163,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.5
   Spread: {fileID: 246356542504242150}
+--- !u!114 &-5562284846197035852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246356542504242152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4232b7f2b990d94ca5d770c6621ab2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 15
+  rb: {fileID: 1598942044850447589}
+  thrown: 0

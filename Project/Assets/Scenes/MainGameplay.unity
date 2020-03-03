@@ -853,6 +853,7 @@ MonoBehaviour:
   damage7: 0.2
   damage8: 0.4
   damage9: 0
+  SA1: 0
   SA2: 0
 --- !u!1 &128708580
 GameObject:
@@ -4763,7 +4764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1628249411
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5472,12 +5473,13 @@ MonoBehaviour:
   maxHealth: 100
   health: 100
   maxMana: 100
-  mana: 0
+  mana: 100
   invicibilityLength: 3
   invicibilityCounter: 0
   manaCounter: 1
   helthText: {fileID: 242097788}
   manaText: {fileID: 1942808331}
+  PlayerCombat: {fileID: 1814532874}
 --- !u!4 &1814532871
 Transform:
   m_ObjectHideFlags: 0
@@ -5554,10 +5556,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbd1929c34026b846af246389bd5c501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTimeBtwAttack: 0.3
-  fuse: 0
-  LASER: 0
-  evolution: 1
   bullet1Prefab: {fileID: 8268181802399273204, guid: bb43b499a57e9cc43bc39e995829ca0f,
     type: 3}
   bullet2Prefab: {fileID: 6902518495689191513, guid: 7baf7da9167eba949b87e17f80503dfd,
@@ -5578,6 +5576,8 @@ MonoBehaviour:
   FlameRenderer: {fileID: 699743583}
   HarpoonRenderer: {fileID: 430686160}
   ArmRenderer: {fileID: 1702266060}
+  BodyRenderer: {fileID: 250574892}
+  ShoeRenderer: {fileID: 790622898}
   attackPos1: {fileID: 1829006316}
   attackPos2: {fileID: 186426577}
   attackPos3: {fileID: 616929217}
@@ -5590,17 +5590,30 @@ MonoBehaviour:
   enemyGroup:
     serializedVersion: 2
     m_Bits: 256
-  attackRange: 0.1
-  damage: 0.25
-  damage2: 1
-  damage3: 3
-  damage4: 5
   Enemy: {fileID: 117516980}
   Flame: {fileID: 430686157}
   harpoonthrow: {fileID: 7594196970475129111, guid: 36b25f401beda1f40b819f064b52ae58,
     type: 3}
   HM: {fileID: 1814532870}
   Flamethrower: {fileID: 699743580}
+  timeBtwWeaponChange: 0.5
+  delayBtwAttack1: 0.3
+  delayBtwAttack2: 0.5
+  delayBtwAttack3: 0.8
+  delayBtwChargeAttack1: 3
+  delayBtwChargeAttack2: 5
+  delayBtwChargeAttack3: 8
+  delayAttackCD: 0
+  delayChargeAttackCD: 0
+  weaponSwapCD: 0.5
+  fuse: 0
+  LASER: 0
+  evolution: 1
+  attackRange: 0.1
+  damage: 0.25
+  damage2: 1
+  damage3: 3
+  damage4: 5
 --- !u!114 &1814532875
 MonoBehaviour:
   m_ObjectHideFlags: 0
