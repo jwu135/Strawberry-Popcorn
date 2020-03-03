@@ -12,6 +12,11 @@ TagManager:
   - normalAttack1
   - ArmatureTag
   - Floor
+  - specialAttack2
+  - Enemy
+  - normalAttack2
+  - normalAttack3
+  - specialAttack1
   layers:
   - Default
   - TransparentFX

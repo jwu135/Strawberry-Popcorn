@@ -19,6 +19,9 @@ public class Look : MonoBehaviour
 
     private Vector3 scaleVector;
 
+    public PlayerCombat PlayerCombat;
+    private bool switch1 = false;
+
     private void Start()
     {
         m_camera = Camera.main;
@@ -30,7 +33,6 @@ public class Look : MonoBehaviour
         scaleVector = new Vector3(0.5f, 0.5f, 0.5f);
     }
     
-
     void Update()
     {
         Vector2 inputVector = new Vector2(Input.GetAxis("Aim_Horizontal"), Input.GetAxis("Aim_Vertical"));
@@ -42,10 +44,24 @@ public class Look : MonoBehaviour
         {
             usingController = 0;
         }
+
         playerTransform = player.transform;
         playerPosition = m_camera.WorldToScreenPoint(playerTransform.position);
-        if (usingController == 0) FaceMouse();
+
+        if (usingController == 0 && !PlayerCombat.LASER) FaceMouse();
+        else if (usingController == 0 && PlayerCombat.LASER)
+        {
+            FaceMouseSlower();
+        }
+       // else if (usingController == 0 && PlayerCombat.LASER && !switch1)
+     //   {
+     //       switch1 = true;
+     //       FaceMouseSlow();
+    //    }
         else if (usingController == 1) FaceController();
+
+
+        //Debug.Log(usingController);
 
     }
 
@@ -67,6 +83,47 @@ public class Look : MonoBehaviour
             scaleVector.x = 0.5f;
             player.GetComponent<Movement>().direction = 1;
         }
+
+        //Debug.Log(transform.rotation);
+    }
+
+    //for now useless code
+    public void FaceMouseSlower()
+    {
+        Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.AngleAxis(angle - 90, Vector3.forward), ((Time.deltaTime / 4) + (Time.deltaTime/2)));
+        //Debug.Log(transform.rotation);
+    }
+
+    public void FaceMouseSlow()
+    {
+        Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        Debug.Log("yoooooooooooooooo");
+        //  Debug.Log(transform.rotation);
+
+        InvokeRepeating("FaceMouseSlowRepeat", 0.01f, 0.1f);
+
+
+        //1s delay, repeat every 1s
+        //StartCoroutine(size2());
+    }
+
+    private void FaceMouseSlowRepeat()
+    {
+        //yield return new WaitForSeconds(0.05f);
+        if (!PlayerCombat.LASER)
+        {
+            CancelInvoke();
+            switch1 = false;
+            
+        }
+        Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        Debug.Log(transform.rotation);
     }
 
     void FaceController()
