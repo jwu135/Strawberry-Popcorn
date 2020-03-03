@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//Author: Ethan Rafael
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed; //the maximum movement speed
     public float acceleration; //the multiplier for speeding up
     public float deceleration; //the coefficient of drag
-    public float numJumps; //the amount of times the player can jump before touching the ground again
+    public float numAirJumps; //the amount of times the player can jump before touching the ground again
     public float jumpVelocity; //the initial speed the player leaves the ground upon pressing jump
     public float gravity; //the amount of velocity removed from the players initial jump velocity until...
     public float fallingGravity; //effect of gravity while falling (should be higher than regular gravity)
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public float rollSlowFrames; //How many frames after the fast animation ends does the player stay in slow state
     public float rollSlowSpeedMult; //Multiplier for how fast the player moves during slow frames of a roll
     public float rollCooldown; //frames after the roll ends before the player can roll again
+    public float movementDeadzone = 0.15f; //How far along the left stick for the controller to actually move
     public int mode;
     Rigidbody2D body;
     FlightMovementPhys mode0;
@@ -67,9 +70,9 @@ public class PlayerController : MonoBehaviour
         {
             return deceleration;
         }
-        else if (string.Equals(stat, "numJumps"))
+        else if (string.Equals(stat, "numAirJumps"))
         {
-            return numJumps;
+            return numAirJumps;
         }
         else if (string.Equals(stat, "jumpVelocity"))
         {
@@ -107,9 +110,13 @@ public class PlayerController : MonoBehaviour
         {
             return rollCooldown;
         }
+        else if (string.Equals(stat, "movementDeadzone"))
+        {
+            return movementDeadzone;
+        }
         else
         {
-            print("Requested a stat that does not exist");
+            Debug.Log("Requested a stat that does not exist");
             return -1;
         }
     }

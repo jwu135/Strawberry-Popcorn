@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//Author: Ethan Rafael
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -46,8 +48,8 @@ public class FlightMovementPhys : MonoBehaviour
         rollSlowFrames = pc.getStat("rollSlowFrames");
         rollSlowSpeedMult = pc.getStat("rollSlowSpeedMult");
         rollCooldown = pc.getStat("rollCooldown");
+        deadzone = pc.getStat("movementDeadzone");
 
-        deadzone = 0.12f;
         controlFrozen = false;
         rollingFrame = 0;
 

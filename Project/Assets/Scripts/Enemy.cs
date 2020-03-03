@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
             }
             health -= damage1;
             Debug.Log("damage");
-            Debug.Log(health);
+            //Debug.Log(health);
         }
         if (other.tag == "normalAttack2")
         {

@@ -4,50 +4,110 @@ using UnityEngine;
 
 public class BossShoot : MonoBehaviour
 {
+    public float bulletSpeed;
     public GameObject projectile;
     public GameObject hitObj;
+    public GameObject AoE;
 
-    private int[] spawnPointsX = new int[] { -8, -4, 0, 4, 8 };
+    private int[] spawnPointsX = new int[] { -14, -7, 0, 7, 14 };
     private float[] spawnPointsY = new float[] { -3f, -1.5f, 0, 1.5f, 3f};
-    private float nextTime = 0f;
-    private float cooldown = 1f;
+    [HideInInspector]
+    public float nextTime;
+    private float cooldown;
     private GameObject player;
     private void Start()
     {
+        nextTime = Time.time + 2f;
+        cooldown = Time.time + 1f;
         player = GameObject.FindWithTag("Player");
+    }
+    public void startTime()
+    {
+        nextTime = Time.time + 1;
     }
     void Update()
     { 
         
+        /*
+         AoE always be present and independent
+         Always shoot if far
+         
+        10, 30 50 are the "thirds"
+        After a third, start wave/spikes
+        By second third, do everything at once.
+         By end, it can spike and shoot
+         These thirds are in the first half
+        Middle of health onwards, always shoot
+
+        */
         if (nextTime < Time.time) {
             if (Random.Range(0f, 1f) > 0.5f)
                 Shoot();
             else
-                Physical();
+                physicalPattern();
             
-            nextTime += cooldown;
+            
         }
     }
-    void Physical() {
-        int pos = Random.Range(0,3);
-        GameObject physicalAttack = null;
-        if (pos == 0) {
-            // For now, make pop up instantly
-            int rand = Random.Range(0, spawnPointsX.Length);
-            Vector3 position = new Vector3(spawnPointsX[rand], -13, 0);
-            physicalAttack = Instantiate(hitObj, position, hitObj.transform.rotation) as GameObject;
-        } else if (pos==1) {
-            int rand = Random.Range(0, spawnPointsY.Length);
-            Vector3 position = new Vector3(17.5f,spawnPointsY[rand], 0);
-            Quaternion tempRotation = Quaternion.Euler(0, 0, 180);
-            physicalAttack = Instantiate(hitObj, position,tempRotation ) as GameObject;
+    void physicalPattern() {
+        int pattern = Random.Range(0,3);
+        if (pattern == 0 || pattern == 1) {
+            int pos = Random.Range(0, 4);
+            Physical(pos,true);
         } else {
-            int rand = Random.Range(0, spawnPointsY.Length);
-            Vector3 position = new Vector3(-17, spawnPointsY[rand], 0);
-            physicalAttack = Instantiate(hitObj, position, transform.rotation) as GameObject;
+            int pos = Random.Range(0, 3);
+            StartCoroutine("PhysicalWave",pos);
         }
-        physicalAttack.GetComponent<Animator>().SetTrigger("Spike");
-        physicalAttack.GetComponent<AttackTimer>().disappear();
+
+        nextTime = Time.time + cooldown;
+    }
+    IEnumerator PhysicalWave(int pos)
+    {
+        int Reverse = 0;
+        if (Random.Range(0, 2) > 0)
+            Reverse = 4;
+        for(int i = 0; i < 5; i++) {
+            Physical(pos,false,(int)Mathf.Abs(Reverse-i));
+            yield return new WaitForSeconds(.2f);
+        }
+    }
+    void Physical(int pos,bool random = true,int place = 0) {
+        //int pos =;
+        GameObject physicalAttack = null;
+        if (pos != 3) {
+            Vector3 position = new Vector3(0, 0, 0);
+            if (pos == 0) {
+                // For now, make pop up instantly
+                int rand = Random.Range(0, spawnPointsX.Length);
+                if(random)
+                    position = new Vector3(spawnPointsX[rand], -13, 0);
+                else
+                    position = new Vector3(spawnPointsX[place], -13, 0);
+                physicalAttack = Instantiate(hitObj, position, hitObj.transform.rotation) as GameObject;
+            } else if (pos == 1) {
+                int rand = Random.Range(0, spawnPointsY.Length);
+                if (random)
+                    position = new Vector3(17.5f, spawnPointsY[rand], 0);
+                else
+                    position = new Vector3(17.5f, spawnPointsY[place], 0);
+                Quaternion tempRotation = Quaternion.Euler(0, 0, 180);
+                physicalAttack = Instantiate(hitObj, position, tempRotation) as GameObject;
+            } else if (pos == 2) {
+                int rand = Random.Range(0, spawnPointsY.Length);
+                if (random)
+                    position = new Vector3(-17, spawnPointsY[rand], 0);
+                else
+                    position = new Vector3(-17, spawnPointsY[place], 0);
+                physicalAttack = Instantiate(hitObj, position, transform.rotation) as GameObject;
+            }
+            physicalAttack.GetComponent<Animator>().SetTrigger("Spike");
+            physicalAttack.GetComponent<AttackTimer>().disappear();
+        } else {
+            physicalAttack = Instantiate(AoE, transform.position, AoE.transform.rotation) as GameObject;
+            physicalAttack.transform.parent = transform;
+            physicalAttack.GetComponent<Animator>().SetTrigger("Expand");
+            physicalAttack.GetComponent<AttackTimer>().disappear();
+        }
     }
     
 
@@ -59,7 +119,8 @@ public class BossShoot : MonoBehaviour
             Vector3 temp = transform.position;
             GameObject bullet = Instantiate(projectile, temp, transform.rotation ) as GameObject;
             Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
-            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * 4;
+            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * bulletSpeed;
         }
+        nextTime = Time.time + cooldown;
     }
 }

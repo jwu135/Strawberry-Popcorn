@@ -10,6 +10,8 @@ TagManager:
   - chargeAttack2
   - chargeAttack1
   - normalAttack1
+  - ArmatureTag
+  - Floor
   - specialAttack2
   - Enemy
   - normalAttack2
@@ -25,7 +27,7 @@ TagManager:
   - 
   - 
   - Enemy
-  - 
+  - BossPiece
   - 
   - 
   - 
