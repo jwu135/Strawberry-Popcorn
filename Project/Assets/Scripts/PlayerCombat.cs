@@ -69,11 +69,22 @@ public class PlayerCombat : MonoBehaviour
     public double damage3;
     public double damage4;
 
+    private bool fire2State;
+
 
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetButton("Fire2") == true || Input.GetAxis("Fire2") > 0.5f)
+        {
+            fire2State = true;
+        }
+        else
+        {
+            fire2State = false;
+        }
+           
         //Debug.Log(harpoonthrow.thrown);
         // fuse = false;
         // LASER = false;
@@ -145,18 +156,18 @@ public class PlayerCombat : MonoBehaviour
             HarpoonCollider.enabled = false;
             HarpoonRenderer.enabled = false;
         }
-        Debug.Log("Fire2: " + Input.GetButton("Fire2") + "   Fire1:" + Input.GetButton("Fire1") + "   cycleDown:" + Input.GetButtonDown("cycleDown"));
+        Debug.Log("Fire2: " + Input.GetAxis("Fire2") + "   Fire1:" + Input.GetButton("Fire1") + "   cycleDown:" + Input.GetButtonDown("cycleDown"));
         if (timeBtwAttack <= 0)
         {            
             //strawberry shooter
-            if (Input.GetButton("Fire1") && weaponCycle == 1 && !(Input.GetButton("Fire2")))
+            if (Input.GetButton("Fire1") && weaponCycle == 1 && !fire2State)
             {
                 Shoot1();
                 timeBtwAttack = delayBtwAttack1 - delayAttackCD;
             }
 
             //Tentacle or pineapple stab
-            if (Input.GetButton("Fire1") && weaponCycle == 2 && !Input.GetButton("Fire2") && harpoonthrow.thrown != true && evolution > 1)
+            if (Input.GetButton("Fire1") && weaponCycle == 2 && !fire2State && harpoonthrow.thrown != true && evolution > 1)
             {
                 Flame.size();
                 
@@ -165,7 +176,7 @@ public class PlayerCombat : MonoBehaviour
             }
 
             //jello avalanche
-            if (Input.GetButtonDown("Fire1") && weaponCycle == 3 && !Input.GetButton("Fire2") && evolution > 2)
+            if (Input.GetButtonDown("Fire1") && weaponCycle == 3 && !fire2State && evolution > 2)
             {
                 // fuse = true;
                 Flamethrower.size();
@@ -233,7 +244,7 @@ public class PlayerCombat : MonoBehaviour
         if (timeBtwChargeAttack1 <= 0)
         {
             //strawberry cannon
-            if (Input.GetButton("Fire2") && weaponCycle == 1 && !Input.GetButton("Fire1"))
+            if (fire2State && weaponCycle == 1 && !Input.GetButton("Fire1"))
             {
                 Shoot2();
                 timeBtwChargeAttack1 = delayBtwChargeAttack1 - delayChargeAttackCD;
@@ -247,7 +258,7 @@ public class PlayerCombat : MonoBehaviour
         if (timeBtwChargeAttack2 <= 0)
         {
             //tentacle or pineaple harpoon
-            if (Input.GetButton("Fire2") && weaponCycle == 2 && !Input.GetButton("Fire1") && harpoonthrow.thrown != true && evolution > 1)
+            if (fire2State && weaponCycle == 2 && !Input.GetButton("Fire1") && harpoonthrow.thrown != true && evolution > 1)
             {
                 Shoot3();
                 timeBtwChargeAttack2 = delayBtwChargeAttack2 - delayChargeAttackCD;
@@ -261,7 +272,7 @@ public class PlayerCombat : MonoBehaviour
         if (timeBtwChargeAttack3 <= 0)
         {
             //jello wiggle shield
-            if (Input.GetButton("Fire2") && weaponCycle == 3 && !Input.GetButton("Fire1") && evolution > 2)
+            if (fire2State && weaponCycle == 3 && !Input.GetButton("Fire1") && evolution > 2)
             {
                 Shoot5();
                 timeBtwChargeAttack3 = delayBtwChargeAttack3 - delayChargeAttackCD;
