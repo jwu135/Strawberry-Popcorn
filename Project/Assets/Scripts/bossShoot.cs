@@ -28,6 +28,18 @@ public class BossShoot : MonoBehaviour
     void Update()
     { 
         
+        /*
+         AoE always be present and independent
+         Always shoot if far
+         
+        10, 30 50 are the "thirds"
+        After a third, start wave/spikes
+        By second third, do everything at once.
+         By end, it can spike and shoot
+         These thirds are in the first half
+        Middle of health onwards, always shoot
+
+        */
         if (nextTime < Time.time) {
             if (Random.Range(0f, 1f) > 0.5f)
                 Shoot();

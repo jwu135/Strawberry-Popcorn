@@ -22,10 +22,8 @@ public class BossBodyMovement : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Checking");
         if (collision.gameObject.tag == "Floor") {
             grounded = true;
-            Debug.Log("touched floor");
         }
     }
 
@@ -44,7 +42,6 @@ public class BossBodyMovement : MonoBehaviour
             float rand = Random.Range(0f, 1f);
             if (rand > 0.5f) {
                 FlipFirst();
-                Debug.Log("flipped");
             } else  {
                 if (grounded) {
                     grounded = false;
@@ -84,15 +81,13 @@ public class BossBodyMovement : MonoBehaviour
 
     public IEnumerator Flip()
     {
-        //Rigidbody2D tempRidge = GetComponent<Rigidbody2D>();
         Destroy(GetComponent<Rigidbody2D>());
         GetComponent<Animator>().SetTrigger("Move");
         yield return new WaitForSeconds(0.5f);
         Vector3 temp = transform.position;
         temp.x *= -1;
         transform.position = temp;
-        yield return new WaitForSeconds(0.5f);
-       // this is probably the hackiest thing I've ever written in my entire life.  
+        yield return new WaitForSeconds(0.5f);   
         gameObject.AddComponent<Rigidbody2D>();
         GetComponent<Rigidbody2D>().gravityScale = 0f;
         GetComponent<Rigidbody2D>().interpolation= RigidbodyInterpolation2D.Interpolate;
