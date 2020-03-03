@@ -6,7 +6,7 @@ public class Spread : MonoBehaviour
 {
     float scale = 0.01f;
     public bool explode = false;
-    public harpoon harpoon;
+    public SpecialLaucher SpecialLaucher;
     public Rigidbody2D rb;
     // Update is called once per frame
     void Update()
@@ -14,7 +14,7 @@ public class Spread : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             explode = true;
-            harpoon.rb.velocity = transform.right*0;
+            SpecialLaucher.rb.velocity = transform.right*0;
             rb.gravityScale = 0;
         }
         if (explode)
