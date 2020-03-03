@@ -179,7 +179,7 @@ public class PlayerCombat : MonoBehaviour
             //nomnomnomnomnom
             if (Input.GetButtonDown("eat") && evolution < 3)
             {
-                timeBtwAttack += weaponSwapCD;
+                //timeBtwAttack += weaponSwapCD;
                 evolution += 1;
                 weaponCycle = evolution;
             }
