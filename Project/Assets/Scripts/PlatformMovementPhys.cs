@@ -68,8 +68,6 @@ public class PlatformMovementPhys : MonoBehaviour
 
         healthManager = GetComponent<HealthManager>();
 
-        deadzone = 0.0007f;
-
         controlFrozen = false;
         rollingFrame = 0;
 
@@ -201,7 +199,7 @@ public class PlatformMovementPhys : MonoBehaviour
 
         body.velocity = velocityVector;
         //Debug.Log("JumpVel: " + velocityVector.y + "   state: " + state + "    Button: " + Input.GetButtonDown("Jump"));
-        Debug.Log(deadzone);
+        //Debug.Log(deadzone);
 
         jumpButtonDown = false; //should ALWAYS be the last line in fixedUpdate() part of the workaround mentioned in update();
     }

@@ -92,7 +92,7 @@ public class PlayerCombat : MonoBehaviour
         }
         if (timeBtwWeaponChange <= 0)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetButtonDown("cycleUp") == true)
             {
                 timeBtwWeaponChange += weaponSwapCD;
 
@@ -103,7 +103,7 @@ public class PlayerCombat : MonoBehaviour
                 }
                 Debug.Log(weaponCycle);
             }
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetButtonDown("cycleDown") == true)
             {
                 timeBtwWeaponChange += weaponSwapCD;
                 if (weaponCycle + 1 > evolution)
@@ -145,6 +145,7 @@ public class PlayerCombat : MonoBehaviour
             HarpoonCollider.enabled = false;
             HarpoonRenderer.enabled = false;
         }
+        Debug.Log("Fire2: " + Input.GetButton("Fire2") + "   Fire1:" + Input.GetButton("Fire1") + "   cycleDown:" + Input.GetButtonDown("cycleDown"));
         if (timeBtwAttack <= 0)
         {            
             //strawberry shooter
@@ -176,21 +177,21 @@ public class PlayerCombat : MonoBehaviour
             }
 
             //nomnomnomnomnom
-            if (Input.GetKeyDown(KeyCode.R) && evolution < 3)
+            if (Input.GetButtonDown("eat") && evolution < 3)
             {
                 timeBtwAttack += weaponSwapCD;
                 evolution += 1;
                 weaponCycle = evolution;
             }
             //mushroom poison
-            if (Input.GetKeyDown(KeyCode.Space) && HM.mana >= 20 && HM.mana < 50)
+            if (Input.GetButtonDown("special") && HM.mana >= 20 && HM.mana < 50)
             {
                 HM.mana -= 20;
                 Shoot4();
                 timeBtwAttack = 1;
             }
             //LASER
-            if (Input.GetKeyDown(KeyCode.Space) && HM.mana >= 50 && HM.mana < 100)
+            if (Input.GetButtonDown("special") && HM.mana >= 50 && HM.mana < 100)
             {
                 LASER = true;
                 if (LASER)
@@ -209,7 +210,7 @@ public class PlayerCombat : MonoBehaviour
                 
             }
             //SPMAX
-            if (Input.GetKeyDown(KeyCode.Space) && HM.mana == 100)
+            if (Input.GetButtonDown("special") && HM.mana >= 100)
             {
                 HM.mana -= 100;
                 Enemy.damage1 = Enemy.damage1 * 1.5;
