@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
     {
       if(health <= 0)
         {
-            Destroy(gameObject);
+           // Destroy(gameObject);
         }
     }
 
@@ -44,10 +44,6 @@ public class Enemy : MonoBehaviour
         {
             GetComponent<Boss>().losehealth(damage1);
             text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
-            if (GetComponent<Boss>().health <= 0)
-            {
-                GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
-            }
             health -= damage1;
             Debug.Log("damage");
             //Debug.Log(health);
@@ -56,10 +52,6 @@ public class Enemy : MonoBehaviour
         {
             GetComponent<Boss>().losehealth(damage2);
             text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
-            if (GetComponent<Boss>().health <= 0)
-            {
-                GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
-            }
             health -= damage2;
             Debug.Log("damage");
             Debug.Log(health);
@@ -68,10 +60,6 @@ public class Enemy : MonoBehaviour
         {
             GetComponent<Boss>().losehealth(damage3);
             text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
-            if (GetComponent<Boss>().health <= 0)
-            {
-                GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
-            }
             health -= damage3;
             Debug.Log("damage");
             Debug.Log(health);
@@ -80,10 +68,6 @@ public class Enemy : MonoBehaviour
         {
             GetComponent<Boss>().losehealth(damage4);
             text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
-            if (GetComponent<Boss>().health <= 0)
-            {
-                GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
-            }
             health -= damage4;
             Debug.Log("damage");
             Debug.Log(health);
@@ -92,10 +76,6 @@ public class Enemy : MonoBehaviour
         {
             GetComponent<Boss>().losehealth(damage5);
             text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
-            if (GetComponent<Boss>().health <= 0)
-            {
-                GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
-            }
             health -= damage5;
             Debug.Log("damage");
             Debug.Log(health);
@@ -115,10 +95,10 @@ public class Enemy : MonoBehaviour
         {
             GetComponent<Boss>().losehealth(damage3);
             text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
-            if (GetComponent<Boss>().health <= 0)
-            {
-                GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
-            }
+            /*if (GetComponent<Boss>().health <= 0)
+             {
+                 GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
+             }*/
             health -= damage3;
             Debug.Log("damage");
             Debug.Log(health);
@@ -127,10 +107,10 @@ public class Enemy : MonoBehaviour
         {
             GetComponent<Boss>().losehealth(damage8);
             text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
-            if (GetComponent<Boss>().health <= 0)
+            /*if (GetComponent<Boss>().health <= 0)
             {
                 GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
-            }
+            }*/
             health -= damage8;
             Debug.Log("damage");
             Debug.Log(health);

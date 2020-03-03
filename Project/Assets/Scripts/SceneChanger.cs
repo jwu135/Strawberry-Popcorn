@@ -12,7 +12,8 @@ public class SceneChanger : MonoBehaviour
     void Start()
     {
         play.onClick.AddListener(playGame);
-        quit.onClick.AddListener(doExitGame);
+        if(quit!=null)
+            quit.onClick.AddListener(doExitGame);
     }
 
     // Update is called once per frame

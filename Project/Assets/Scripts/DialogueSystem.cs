@@ -26,6 +26,7 @@ public class DialogueSystem : MonoBehaviour
             } else {
                 dialogueBox.SetActive(false);
                 GetComponent<CutsceneSystem>().DialogueDone();
+                Destroy(this);
             }
             name.text = dialogue[index].name;
             sentence.text = dialogue[index].sentences;

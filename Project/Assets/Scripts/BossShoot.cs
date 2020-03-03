@@ -10,15 +10,24 @@ public class BossShoot : MonoBehaviour
     public GameObject AoE;
 
     private int[] spawnPointsX = new int[] { -14, -7, 0, 7, 14 };
-    private float[] spawnPointsY = new float[] { -3f, -1.5f, 0, 1.5f, 3f};
+    private float[] spawnPointsY = new float[] { -7f, -3.5f, 0, 3.5f, 7f};
     [HideInInspector]
     public float nextTime;
+    private float nextTimeShoot;
+    private float AoeNextTime;
     private float cooldown;
+    public float AoECooldown;
+    public float shootCooldown;
+    private int phase = 0;
     private GameObject player;
     private void Start()
     {
         nextTime = Time.time + 2f;
+        nextTimeShoot = Time.time + 1f;
+        AoeNextTime = Time.time + 1f;
         cooldown = Time.time + 1f;
+        AoECooldown = 2f;
+        shootCooldown =  2f;
         player = GameObject.FindWithTag("Player");
     }
     public void startTime()
@@ -26,8 +35,8 @@ public class BossShoot : MonoBehaviour
         nextTime = Time.time + 1;
     }
     void Update()
-    { 
-        
+    {
+
         /*
          AoE always be present and independent
          Always shoot if far
@@ -38,13 +47,33 @@ public class BossShoot : MonoBehaviour
          By end, it can spike and shoot
          These thirds are in the first half
         Middle of health onwards, always shoot
-
         */
+        // super jank just getting this done in time for release
+        if (GetComponent<Boss>().health < 100/3) {
+            phase = 2;
+        }else if (GetComponent<Boss>().health < 100 / 3) {
+            phase = 1;
+        }
+        if (phase > 1 && nextTimeShoot < Time.time) {
+            Shoot();
+            nextTimeShoot = Time.time + shootCooldown;
+            Debug.Log("Shot");
+        }
+        if (Vector2.Distance(player.transform.position, GameObject.Find("Mother").transform.position) > 9f && nextTimeShoot<Time.time) {
+            Shoot();
+            Debug.Log("Shot");
+            nextTimeShoot = Time.time + shootCooldown;
+        }
+
+        if (Vector2.Distance(player.transform.position, GameObject.Find("Mother").transform.position) < 4f && AoeNextTime<Time.time) {
+            Physical(3);
+            AoeNextTime = Time.time + AoECooldown;
+        }
+        
         if (nextTime < Time.time) {
-            if (Random.Range(0f, 1f) > 0.5f)
-                Shoot();
-            else
-                physicalPattern();
+           
+               if(phase>0)
+               physicalPattern();
             
             
         }
@@ -52,7 +81,7 @@ public class BossShoot : MonoBehaviour
     void physicalPattern() {
         int pattern = Random.Range(0,3);
         if (pattern == 0 || pattern == 1) {
-            int pos = Random.Range(0, 4);
+            int pos = Random.Range(0, 3);
             Physical(pos,true);
         } else {
             int pos = Random.Range(0, 3);
@@ -72,7 +101,6 @@ public class BossShoot : MonoBehaviour
         }
     }
     void Physical(int pos,bool random = true,int place = 0) {
-        //int pos =;
         GameObject physicalAttack = null;
         if (pos != 3) {
             Vector3 position = new Vector3(0, 0, 0);
@@ -112,15 +140,18 @@ public class BossShoot : MonoBehaviour
     
 
     void Shoot()
-    { 
-        int max = 1;
-        for (int i = 0; i < max; i++) {
-            //float offset = (max / 2 - i) * 5;
-            Vector3 temp = transform.position;
-            GameObject bullet = Instantiate(projectile, temp, transform.rotation ) as GameObject;
-            Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
-            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * bulletSpeed;
-        }
-        nextTime = Time.time + cooldown;
+    {
+        //if (projectile != null) {
+            int max = 1;
+            for (int i = 0; i < max; i++) {
+                //float offset = (max / 2 - i) * 5;
+                Vector3 temp = transform.position;
+                GameObject bullet = Instantiate(projectile, temp, transform.rotation) as GameObject;
+                Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
+                bullet.GetComponent<BossBullet>().enabled = true;
+                bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * bulletSpeed;
+            }
+            nextTime = Time.time + cooldown;
+       // }
     }
 }

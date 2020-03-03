@@ -34,7 +34,7 @@ public class HealthManager : MonoBehaviour
 
         if (health <= 0)
         {
-            GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
+            GameObject.Find("EventSystem").GetComponent<gameOver>().startGameOver(false);
         }
     }
 

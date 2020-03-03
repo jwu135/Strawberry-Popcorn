@@ -14,10 +14,11 @@ public class CutsceneSystem : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-       //player.SetActive(false);
+        //player.SetActive(false);
         //boss.SetActive(false);
         //MonoBehaviour[][] scripts = [2][2];
         //scripts[0] = boss.GetComponents<MonoBehaviour>();
+        //GameObject.FindGameObjectWithTag("DemoText").SetActive(false);
         MonoBehaviour[] scripts = boss.GetComponentsInChildren<MonoBehaviour>().Concat(player.GetComponentsInChildren<MonoBehaviour>()).ToArray();
         foreach (MonoBehaviour script in scripts) {
             if (script.GetType().Name != "BossMovement") {

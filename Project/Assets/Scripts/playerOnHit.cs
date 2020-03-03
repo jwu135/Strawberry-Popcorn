@@ -29,7 +29,7 @@ public class playerOnHit : MonoBehaviour
                 text.text = player.health.ToString() + "/" + player.maxHealth.ToString();
                 if (GetComponent<player>().health <= 0) 
                 {
-                    GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
+                    GameObject.Find("EventSystem").GetComponent<gameOver>().startGameOver(false);
                 }
             }
         }
