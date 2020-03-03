@@ -10,8 +10,11 @@ public class HealthManager : MonoBehaviour
     public double maxMana = 100;
     public double mana = 100;
 
-    public double invicibilityLength;
-    public double invicibilityCounter;
+
+    public float invicibilityLength;
+    public float invicibilityCounter;
+    public float manaCounter = 1;
+
 
     public Text helthText;
     public Text manaText;
@@ -49,9 +52,10 @@ public class HealthManager : MonoBehaviour
         }
         else
         {
-            if (other.tag == "BossBullet")
+            if (other.tag == "BossBullet" && manaCounter == 1)
             {
-                mana += 1;
+                mana += 5;
+                manaCounter = 0;
                 manaText.text = mana.ToString() + "/" + maxMana.ToString();
             }
         }

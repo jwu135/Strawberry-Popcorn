@@ -18,6 +18,8 @@ public class PlatformMovementPhys : MonoBehaviour
     private float rollCooldown; //frames after the roll ends before the player can roll again
     protected Rigidbody2D body;
 
+    private HealthManager healthManager;
+
     int state;
     float actingGravity; //the current gravity that is acting on the player. Changes to fallingGravity when y vel is < 0
     PlayerController pc;
@@ -57,7 +59,9 @@ public class PlatformMovementPhys : MonoBehaviour
         rollCooldown = pc.getStat("rollCooldown");
 
         state = 1; //0 is grounded, 1 is in the air
-        
+
+        healthManager = GetComponent<HealthManager>();
+
         deadzone = 0.0007f;
         controlFrozen = false;
         rollingFrame = 0;
@@ -137,8 +141,12 @@ public class PlatformMovementPhys : MonoBehaviour
 
         if (( (Input.GetButton("Roll") == true) || (Input.GetAxis("Roll") < 0) )  && ( rollingFrame == 0 && stickInput.magnitude > 0 ) || rollingFrame >= 1 )
         {
+            healthManager.invicibilityCounter = healthManager.invicibilityLength;
+            
+
             if (rollingFrame == 0)
             {
+                healthManager.manaCounter = 1;
                 controlFrozen = true;
                 rollInput = stickInput;
             }
