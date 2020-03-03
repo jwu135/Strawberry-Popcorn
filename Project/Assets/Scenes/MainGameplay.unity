@@ -2612,7 +2612,7 @@ MonoBehaviour:
   maxHealth: 100
   health: 100
   maxMana: 100
-  mana: 50
+  mana: 20
   invicibilityLength: 3
   invicibilityCounter: 0
   helthText: {fileID: 242097788}
