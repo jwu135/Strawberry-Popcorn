@@ -150,7 +150,8 @@ public class PlatformMovementPhys : MonoBehaviour
             }
         }
 
-        if(Input.GetKey(KeyCode.W) == true && velocityVector.y == 0)
+        //if(Input.GetKey(KeyCode.W) == true && velocityVector.y == 0)
+        if(velocityVector.y == 0)
         {
             state = 0;
             remainingAirJumps = numAirJumps;
@@ -184,7 +185,7 @@ public class PlatformMovementPhys : MonoBehaviour
             actingGravity = gravity;
         }
 
-        if( velocityVector.y > 0 && Input.GetKey(KeyCode.W) == false)
+        if( velocityVector.y > 0 && Input.GetButton("Jump") == false)
         {
             velocityVector.y = velocityVector.y / 1.15f;
         }

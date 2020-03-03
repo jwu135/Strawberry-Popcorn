@@ -57,7 +57,7 @@ public class PlayerCombat : MonoBehaviour
         // fuse = false;
         // LASER = false;
        // Debug.Log(LASER);
-        if (Input.GetMouseButton(0))
+        if (Input.GetButton("Fire1"))
         {
             //LASER = true;
           
@@ -117,19 +117,19 @@ public class PlayerCombat : MonoBehaviour
         if (timeBtwAttack <= 0)
         {
             //strawberry shooter
-            if (Input.GetMouseButton(0) && weaponCycle == 1 && !Input.GetMouseButton(1))
+            if (Input.GetButton("Fire1") && weaponCycle == 1 && !(Input.GetButton("Fire2")))
             {
                 Shoot1();
                 timeBtwAttack = startTimeBtwAttack;
             }
             //strawberry cannon
-            if (Input.GetMouseButton(1) && weaponCycle == 1 && !Input.GetMouseButton(0))
+            if ((Input.GetButton("Fire2") && weaponCycle == 1 && !Input.GetButton("Fire1")))
             {
                 Shoot2();
                 timeBtwAttack = startTimeBtwAttack + 0.7;
             }
             //Tentacle or pineapple stab
-            if (Input.GetMouseButton(0) && weaponCycle == 2 && !Input.GetMouseButton(1) && harpoonthrow.thrown != true && evolution > 1)
+            if (Input.GetButton("Fire1") && weaponCycle == 2 && !(Input.GetButton("Fire2") && harpoonthrow.thrown != true && evolution > 1))
             {
                 Flame.size();
                 
@@ -137,13 +137,13 @@ public class PlayerCombat : MonoBehaviour
                 timeBtwAttack = startTimeBtwAttack + 0.2;
             }
             //tentacle or pineaple harpoon
-            if (Input.GetMouseButton(1) && weaponCycle == 2 && !Input.GetMouseButton(0) && harpoonthrow.thrown != true && evolution > 1)
+            if ((Input.GetButton("Fire2") && weaponCycle == 2 && !Input.GetButton("Fire1") && harpoonthrow.thrown != true && evolution > 1))
             {
                 Shoot3();
                 timeBtwAttack = startTimeBtwAttack + 1;
             }
             //jello avalanche
-            if (Input.GetMouseButtonDown(0) && weaponCycle == 3 && !Input.GetMouseButton(1) && evolution > 2)
+            if ((Input.GetButton("Fire1") && weaponCycle == 3 && !(Input.GetButton("Fire2") && evolution > 2)))
             {
                 // fuse = true;
                 Flamethrower.size();
@@ -154,7 +154,7 @@ public class PlayerCombat : MonoBehaviour
                 Debug.Log(timeBtwAttack);
             }
             //jello wiggle shield
-            if (Input.GetMouseButtonDown(1) && weaponCycle == 3 && !Input.GetMouseButton(0) && evolution > 2)
+            if ((Input.GetButton("Fire2") && weaponCycle == 3 && !Input.GetButton("Fire1") && evolution > 2))
             {
                 Shoot5();
                 timeBtwAttack = startTimeBtwAttack + 1;

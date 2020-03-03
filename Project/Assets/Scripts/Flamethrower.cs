@@ -20,7 +20,7 @@ public class Flamethrower : MonoBehaviour
             if (fuseTimer < flameDegrade)
             {
                 fuseTimer += (Time.deltaTime/2 );
-                Debug.Log(fuseTimer);
+                //Debug.Log(fuseTimer);
             }
         }
 
@@ -31,7 +31,7 @@ public class Flamethrower : MonoBehaviour
             if (fuseTimer > 0)
             {
                 fuseTimer -= (Time.deltaTime/2 + Time.deltaTime / 4);
-                Debug.Log(fuseTimer);
+                //Debug.Log(fuseTimer);
             }
             transform.localScale = new Vector3(1,
             2, 1);
