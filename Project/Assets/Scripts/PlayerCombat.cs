@@ -100,7 +100,7 @@ public class PlayerCombat : MonoBehaviour
         }
         if (weaponCycle == 2)
         {
-            ArmRenderer.enabled = false;
+            ArmRenderer.enabled = true;
             FlameCollider.enabled = false;
             FlameRenderer.enabled = false;
             HarpoonCollider.enabled = true;
@@ -108,7 +108,7 @@ public class PlayerCombat : MonoBehaviour
         }
         if (weaponCycle == 3)
         {
-            ArmRenderer.enabled = false;
+            ArmRenderer.enabled = true;
             FlameCollider.enabled = true;
             FlameRenderer.enabled = true;
             HarpoonCollider.enabled = false;
