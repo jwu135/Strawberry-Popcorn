@@ -41,7 +41,9 @@ public class CutsceneSystem : MonoBehaviour
         //boss.SetActive(true);
         MonoBehaviour[] scripts = boss.GetComponentsInChildren<MonoBehaviour>().Concat(player.GetComponentsInChildren<MonoBehaviour>()).ToArray();
         foreach (MonoBehaviour script in scripts) {
-            script.enabled = true;
+            if (script.GetType().Name != "BossMovement") {
+                script.enabled = true;
+            }
         }
         boss.GetComponentInChildren<BossShoot>().startTime();
     }

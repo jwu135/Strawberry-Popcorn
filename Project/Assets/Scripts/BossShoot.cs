@@ -20,6 +20,10 @@ public class BossShoot : MonoBehaviour
     public float shootCooldown;
     private int phase = 0;
     private GameObject player;
+
+    private float[] healthmarks = {75f,50f};
+    //private float[] healthmarks = {66f,33f};
+    private int healthIndex = 0;
     private void Start()
     {
         nextTime = Time.time + 2f;
@@ -51,8 +55,13 @@ public class BossShoot : MonoBehaviour
         // super jank just getting this done in time for release
         if (GetComponent<Boss>().health < 100/3) {
             phase = 2;
-        }else if (GetComponent<Boss>().health < 100 / 3) {
+        }else if (GetComponent<Boss>().health < (100 / 3)*2) {
             phase = 1;
+        }
+        if (healthIndex < 2 && GetComponent<Boss>().health < healthmarks[healthIndex]) {
+            healthIndex++;
+            player.GetComponent<PlayerCombat>().evolution++;
+            player.GetComponent<PlayerCombat>().weaponCycle = player.GetComponent<PlayerCombat>().evolution;
         }
         if (phase > 1 && nextTimeShoot < Time.time) {
             Shoot();

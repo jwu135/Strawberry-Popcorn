@@ -12,7 +12,7 @@ public class gameOver : MonoBehaviour
     // Update is called once per frame
    public void startGameOver(bool boss)
     {
-        StartCoroutine("gameEnd",true);
+        StartCoroutine("gameEnd",boss);
     }
 
     IEnumerator gameEnd(bool boss)

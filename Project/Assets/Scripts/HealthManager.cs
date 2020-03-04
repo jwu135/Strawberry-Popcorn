@@ -57,7 +57,7 @@ public class HealthManager : MonoBehaviour
         {
             if (other.tag == "BossBullet" && manaCounter == 1)
             {
-                mana += 10;
+                mana += 5;
                 manaCounter = 0;
                 manaText.text = mana.ToString() + "/" + maxMana.ToString();
             }

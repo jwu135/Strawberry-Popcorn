@@ -8,7 +8,8 @@ public class PlayerCombat : MonoBehaviour
     private double timeBtwChargeAttack1;
     private double timeBtwChargeAttack2;
     private double timeBtwChargeAttack3;
-    private float weaponCycle = 1;
+    [HideInInspector]
+    public float weaponCycle = 1;
     private bool hit = false;
 
     public GameObject bullet1Prefab;
@@ -192,12 +193,12 @@ public class PlayerCombat : MonoBehaviour
             }
 
             //nomnomnomnomnom
-            if (Input.GetButtonDown("eat") && evolution < 3)
+            /*if (Input.GetButtonDown("eat") && evolution < 3)
             {
                 //timeBtwAttack += weaponSwapCD;
                 evolution += 1;
                 weaponCycle = evolution;
-            }
+            }*/
             //mushroom poison
             if (Input.GetButtonDown("special") && HM.mana >= 20 && HM.mana < 50)
             {

@@ -112,10 +112,10 @@ public class Enemy : MonoBehaviour
         {
             GetComponent<Boss>().losehealth(damage7);
             text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
-            if (GetComponent<Boss>().health <= 0)
+            /*if (GetComponent<Boss>().health <= 0)
             {
                 GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
-            }
+            }*/
             health -= damage7;
             Debug.Log("damage");
             //Debug.Log(health);
