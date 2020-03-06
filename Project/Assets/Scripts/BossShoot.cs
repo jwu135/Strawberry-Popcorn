@@ -29,8 +29,8 @@ public class BossShoot : MonoBehaviour
         nextTime = Time.time + 2f;
         nextTimeShoot = Time.time + 1f;
         AoeNextTime = Time.time + 1f;
-        cooldown = Time.time + 1f;
-        AoECooldown = 2f;
+        cooldown = 1f;
+        AoECooldown = 4f;
         shootCooldown =  2f;
         player = GameObject.FindWithTag("Player");
     }
@@ -53,9 +53,9 @@ public class BossShoot : MonoBehaviour
         Middle of health onwards, always shoot
         */
         // super jank just getting this done in time for release
-        if (GetComponent<Boss>().health < 100/3) {
+        if (GetComponent<Boss>().health < 50) {
             phase = 2;
-        }else if (GetComponent<Boss>().health < (100 / 3)*2) {
+        }else if (GetComponent<Boss>().health < 75) {
             phase = 1;
         }
         if (healthIndex < 2 && GetComponent<Boss>().health < healthmarks[healthIndex]) {
@@ -68,7 +68,7 @@ public class BossShoot : MonoBehaviour
             nextTimeShoot = Time.time + shootCooldown;
             Debug.Log("Shot");
         }
-        if (Vector2.Distance(player.transform.position, GameObject.Find("Mother").transform.position) > 9f && nextTimeShoot<Time.time) {
+        if (Vector2.Distance(player.transform.position, GameObject.Find("Mother").transform.position) > 6f && nextTimeShoot<Time.time) {
             Shoot();
             Debug.Log("Shot");
             nextTimeShoot = Time.time + shootCooldown;

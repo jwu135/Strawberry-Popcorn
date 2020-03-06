@@ -333,8 +333,8 @@ public class PlayerCombat : MonoBehaviour
 
     public void Hurt()
     {
-        BodyRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
-        ArmRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+        BodyRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
+        ArmRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
         StartCoroutine(HurtFlicker());
 
     }
@@ -349,8 +349,8 @@ public class PlayerCombat : MonoBehaviour
     private IEnumerator HurtFlicker1()
     {
         yield return new WaitForSeconds(0.2f);
-        BodyRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
-        ArmRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+        BodyRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
+        ArmRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
         StartCoroutine(HurtFlicker2());
 
     }
@@ -365,8 +365,8 @@ public class PlayerCombat : MonoBehaviour
     private IEnumerator HurtFlicker3()
     {
         yield return new WaitForSeconds(0.2f);
-        BodyRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
-        ArmRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+        BodyRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
+        ArmRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
         StartCoroutine(HurtFlicker4());
 
     }

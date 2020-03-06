@@ -651,7 +651,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 133}
-  m_SizeDelta: {x: 323, y: 31.5}
+  m_SizeDelta: {x: 252.6, y: 31.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1205778265
 MonoBehaviour:
@@ -684,9 +684,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Crimson pulp short(cake)
-
-'
+  m_Text: Strawberry Popcorn
 --- !u!222 &1205778266
 CanvasRenderer:
   m_ObjectHideFlags: 0
