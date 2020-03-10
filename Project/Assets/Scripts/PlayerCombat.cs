@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    private double timeBtwAttack;
-    private double timeBtwChargeAttack1;
-    private double timeBtwChargeAttack2;
-    private double timeBtwChargeAttack3;
-    private float weaponCycle = 1;
+    public double timeBtwAttack;
+    public double timeBtwChargeAttack1;
+    public double timeBtwChargeAttack2;
+    public double timeBtwChargeAttack3;
+    public float weaponCycle = 1;
     private bool hit = false;
 
     public GameObject bullet1Prefab;
@@ -49,6 +49,7 @@ public class PlayerCombat : MonoBehaviour
     public harpoon harpoonthrow;
     public HealthManager HM;
     public Flamethrower Flamethrower;
+    public Cannon Cannon;
 
     public double timeBtwWeaponChange;
     public double delayBtwAttack1;
@@ -62,12 +63,15 @@ public class PlayerCombat : MonoBehaviour
     public double weaponSwapCD;
     public bool fuse = false;
     public bool LASER = false;
+    public bool fire2Switch = false;
+    public bool stop1 = false;
     public float evolution;
     public float attackRange;
     public double damage;
     public double damage2;
     public double damage3;
     public double damage4;
+    public double specialChargeAttack1Timer;
 
 
 
@@ -77,14 +81,44 @@ public class PlayerCombat : MonoBehaviour
         //Debug.Log(harpoonthrow.thrown);
         // fuse = false;
         // LASER = false;
-       // Debug.Log(LASER);
         if (Input.GetButton("Fire1"))
         {
             //LASER = true;
           
         }
+        if (Input.GetButton("Fire2"))
+        {
+            fire2Switch = true;
+            Debug.Log(fire2Switch);
 
-        if (!Input.GetKey(KeyCode.Space))
+        }
+        if (!Input.GetButton("Fire2"))
+        {
+            fire2Switch = false;
+            Debug.Log(fire2Switch);
+
+        }
+
+        if (Input.GetButton("Fire2") && weaponCycle == 1 && fire2Switch && timeBtwChargeAttack1 > 0)
+        {
+            specialChargeAttack1Timer -= Time.deltaTime;
+        }
+        if (!Input.GetButton("Fire2") && weaponCycle == 1 && !fire2Switch && timeBtwChargeAttack1 > 0)
+        {
+            specialChargeAttack1Timer = 0;
+        }
+
+        if (weaponCycle == 1 && fire2Switch && specialChargeAttack1Timer > 0)
+        {
+            stop1 = true;
+        }
+        else
+        {
+            stop1 = false;
+        }
+
+
+            if (!Input.GetKey(KeyCode.Space))
         {
             LASER = false;
             LaserCollider.enabled = false;
@@ -232,15 +266,19 @@ public class PlayerCombat : MonoBehaviour
         if (timeBtwChargeAttack1 <= 0)
         {
             //strawberry cannon
-            if (Input.GetButton("Fire2") && weaponCycle == 1 && !Input.GetButton("Fire1"))
+            if (Input.GetButtonDown("Fire2") && weaponCycle == 1 && !Input.GetButton("Fire1"))
             {
                 Shoot2();
                 timeBtwChargeAttack1 = delayBtwChargeAttack1 - delayChargeAttackCD;
+                specialChargeAttack1Timer = 1.75;
             }
         }
-        else
+        else 
         {
-            timeBtwChargeAttack1 -= Time.deltaTime;
+            if (!Input.GetButtonDown("Fire2") || specialChargeAttack1Timer <= 0)
+            {
+                timeBtwChargeAttack1 -= Time.deltaTime;
+            }
         }
 
         if (timeBtwChargeAttack2 <= 0)

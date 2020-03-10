@@ -22,6 +22,7 @@ public class PlatformMovementPhys : MonoBehaviour
     protected Rigidbody2D body;
 
     private HealthManager healthManager;
+    public PlayerCombat PlayerCombat;
 
     int state;
     float actingGravity; //the current gravity that is acting on the player. Changes to fallingGravity when y vel is < 0
@@ -34,6 +35,8 @@ public class PlatformMovementPhys : MonoBehaviour
     Vector2 rollInput = Vector2.zero;
 
     Vector2 velocityVector;
+    Vector2 velocityVectorStorage;
+    private bool froze = false;
 
     float remainingAirJumps;
     bool jumpButtonDown; //basically Input.GetButtonDown("Jump") but for fixed update instead of update
@@ -80,7 +83,7 @@ public class PlatformMovementPhys : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetButtonDown("Jump") == true)
+        if(Input.GetButtonDown("Jump") == true && !PlayerCombat.stop1)
         {
             jumpButtonDown = true;
         } //workaround for disparity between update and fixedUpdate
@@ -100,110 +103,132 @@ public class PlatformMovementPhys : MonoBehaviour
 
     void doMovement()
     {
-        stickInput = new Vector2(Input.GetAxisRaw("Horizontal"), 0); //gets the stick input and puts it in a vector
-        if (stickInput.magnitude < deadzone)
+        
+        if (!PlayerCombat.stop1)
         {
-            stickInput = Vector2.zero;
-        }
-
-        if (controlFrozen == false)
-        {
-            velocityVector = new Vector2((body.velocity + (stickInput * acceleration)).x, body.velocity.y);
-        }
-
-
-        //clamp the move speed
-        if (velocityVector.x > moveSpeed && controlFrozen == false)
-        {
-            velocityVector.x = moveSpeed;
-        }
-        else if (velocityVector.x < -moveSpeed)
-        {
-            velocityVector.x = -moveSpeed;
-        }
-
-
-        //first do velocity based on stick movement
-        if (stickInput.magnitude == Vector2.zero.magnitude && controlFrozen == false)//if player is not pressing anything horizontal
-        {
-            if (velocityVector.x > 0)
+            if (froze)
             {
-                if (velocityVector.x - deceleration < 0)
+                velocityVector = new Vector2(1, 1);
+                body.velocity = velocityVector;
+                //body.velocity = velocityVectorStorage;
+                froze = false;
+            }
+
+            stickInput = new Vector2(Input.GetAxisRaw("Horizontal"), 0); //gets the stick input and puts it in a vector
+            if (stickInput.magnitude < deadzone)
+            {
+                stickInput = Vector2.zero;
+            }
+
+            if (controlFrozen == false)
+            {
+                velocityVector = new Vector2((body.velocity + (stickInput * acceleration)).x, body.velocity.y);
+                velocityVectorStorage = new Vector2((body.velocity + (stickInput * acceleration)).x, body.velocity.y);
+            }
+
+
+            //clamp the move speed
+            if (velocityVector.x > moveSpeed && controlFrozen == false)
+            {
+                velocityVector.x = moveSpeed;
+            }
+            else if (velocityVector.x < -moveSpeed)
+            {
+                velocityVector.x = -moveSpeed;
+            }
+
+
+            //first do velocity based on stick movement
+            if (stickInput.magnitude == Vector2.zero.magnitude && controlFrozen == false)//if player is not pressing anything horizontal
+            {
+                if (velocityVector.x > 0)
                 {
-                    velocityVector.x = 0;
+                    if (velocityVector.x - deceleration < 0)
+                    {
+                        velocityVector.x = 0;
+                    }
+                    else
+                    {
+                        velocityVector.x -= deceleration;
+                    }
                 }
-                else
+                if (velocityVector.x < 0)
                 {
-                    velocityVector.x -= deceleration;
+                    if (velocityVector.x + deceleration > 0)
+                    {
+                        velocityVector.x = 0;
+                    }
+                    else
+                    {
+                        velocityVector.x += deceleration;
+                    }
                 }
             }
-            if (velocityVector.x < 0)
+
+            //if(Input.GetKey(KeyCode.W) == true && velocityVector.y == 0)
+            if (velocityVector.y == 0)
             {
-                if (velocityVector.x + deceleration > 0)
-                {
-                    velocityVector.x = 0;
-                }
-                else
-                {
-                    velocityVector.x += deceleration;
-                }
+                state = 0;
+                remainingAirJumps = numAirJumps;
             }
-        }
+            if (jumpButtonDown == true && (state == 0 || remainingAirJumps > 0))//if jump button is pressed and conditions are met, then jump (add double jump later)
 
-        //if(Input.GetKey(KeyCode.W) == true && velocityVector.y == 0)
-        if(velocityVector.y == 0)
-        {
-            state = 0;
-            remainingAirJumps = numAirJumps;
-        }
-        if(jumpButtonDown == true && (state == 0 || remainingAirJumps > 0) )//if jump button is pressed and conditions are met, then jump (add double jump later)
-
-        {
-            jump();
-        }
-
-        if (( (Input.GetButton("Roll") == true) || (Input.GetAxis("Roll") < 0) )  && ( rollingFrame == 0 && stickInput.magnitude > 0 ) || rollingFrame >= 1 )
-        {
-            healthManager.invicibilityCounter = healthManager.invicibilityLength;
-            
-
-            if (rollingFrame == 0)
             {
-                healthManager.manaCounter = 1;
-                controlFrozen = true;
-                rollInput = stickInput;
+                jump();
             }
-            doRoll(Vector2.SignedAngle(Vector2.up, rollInput)); //calls roll with the angle (0 degrees is vertical)
-        }
 
-        if (velocityVector.y < 0) //tells the player to fall at the speed of falling vs. ascending
-        {
-            actingGravity = fallingGravity;
+            if (((Input.GetButton("Roll") == true) || (Input.GetAxis("Roll") < 0)) && (rollingFrame == 0 && stickInput.magnitude > 0) || rollingFrame >= 1)
+            {
+                healthManager.invicibilityCounter = healthManager.invicibilityLength;
+
+
+                if (rollingFrame == 0)
+                {
+                    healthManager.manaCounter = 1;
+                    controlFrozen = true;
+                    rollInput = stickInput;
+                }
+                doRoll(Vector2.SignedAngle(Vector2.up, rollInput)); //calls roll with the angle (0 degrees is vertical)
+            }
+
+            if (velocityVector.y < 0) //tells the player to fall at the speed of falling vs. ascending
+            {
+                actingGravity = fallingGravity;
+            }
+            else
+            {
+                actingGravity = gravity;
+            }
+
+            if (velocityVector.y > 0 && Input.GetButton("Jump") == false)
+            {
+                velocityVector.y = velocityVector.y / 1.15f;
+            }
+
+            if (state == 1 && velocityVector.y - actingGravity <= -fallSpeedCap)//if player is in the air and falling at terminal velocity
+            {
+                velocityVector.y = -fallSpeedCap;
+            }
+            else if (state == 1 && velocityVector.y - gravity > -fallSpeedCap)
+            {
+                velocityVector.y -= actingGravity;
+            }
+
+            body.velocity = velocityVector;
+            //Debug.Log("JumpVel: " + velocityVector.y + "   state: " + state + "    Button: " + Input.GetButtonDown("Jump"));
+            // Debug.Log(deadzone);
+
+            jumpButtonDown = false; //should ALWAYS be the last line in fixedUpdate() part of the workaround mentioned in update();
         }
         else
         {
-            actingGravity = gravity;
+            
+            //velocityVector.x = 0;
+            //velocityVector.y = 0;
+            velocityVector = new Vector2(0, 0);
+            body.velocity = velocityVector;
+            froze = true;
         }
-
-        if( velocityVector.y > 0 && Input.GetButton("Jump") == false)
-        {
-            velocityVector.y = velocityVector.y / 1.15f;
-        }
-
-        if(state == 1 && velocityVector.y - actingGravity <= -fallSpeedCap )//if player is in the air and falling at terminal velocity
-        {
-            velocityVector.y = -fallSpeedCap;
-        }
-        else if(state == 1 && velocityVector.y - gravity > -fallSpeedCap)
-        {
-            velocityVector.y -= actingGravity;
-        }
-
-        body.velocity = velocityVector;
-        //Debug.Log("JumpVel: " + velocityVector.y + "   state: " + state + "    Button: " + Input.GetButtonDown("Jump"));
-        Debug.Log(deadzone);
-
-        jumpButtonDown = false; //should ALWAYS be the last line in fixedUpdate() part of the workaround mentioned in update();
     }
 
     void jump()
