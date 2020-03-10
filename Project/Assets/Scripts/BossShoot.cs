@@ -38,53 +38,37 @@ public class BossShoot : MonoBehaviour
     {
         nextTime = Time.time + 1;
     }
+    public void setPhase(int p)
+    {
+        phase = p;
+    }
     void Update()
     {
-
-        /*
-         AoE always be present and independent
-         Always shoot if far
-         
-        10, 30 50 are the "thirds"
-        After a third, start wave/spikes
-        By second third, do everything at once.
-         By end, it can spike and shoot
-         These thirds are in the first half
-        Middle of health onwards, always shoot
-        */
         // super jank just getting this done in time for release
-        if (GetComponent<Boss>().health < 50) {
-            phase = 2;
-        }else if (GetComponent<Boss>().health < 75) {
-            phase = 1;
-        }
-        if (healthIndex < 2 && GetComponent<Boss>().health < healthmarks[healthIndex]) {
-            healthIndex++;
-            player.GetComponent<PlayerCombat>().evolution++;
-            player.GetComponent<PlayerCombat>().weaponCycle = player.GetComponent<PlayerCombat>().evolution;
-        }
-        if (phase > 1 && nextTimeShoot < Time.time) {
-            Shoot();
-            nextTimeShoot = Time.time + shootCooldown;
-            Debug.Log("Shot");
-        }
-        if (Vector2.Distance(player.transform.position, GameObject.Find("Mother").transform.position) > 6f && nextTimeShoot<Time.time) {
-            Shoot();
-            Debug.Log("Shot");
-            nextTimeShoot = Time.time + shootCooldown;
-        }
+        if (GameObject.Find("Mother").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle")) {
+            if (phase > 1 && nextTimeShoot < Time.time) {
+                Shoot();
+                nextTimeShoot = Time.time + shootCooldown;
+                Debug.Log("Shot");
+            }
+            if (Vector2.Distance(player.transform.position, GameObject.Find("Mother").transform.position) > 6f && nextTimeShoot < Time.time) {
+                Shoot();
+                Debug.Log("Shot");
+                nextTimeShoot = Time.time + shootCooldown;
+            }
 
-        if (Vector2.Distance(player.transform.position, GameObject.Find("Mother").transform.position) < 4f && AoeNextTime<Time.time) {
-            Physical(3);
-            AoeNextTime = Time.time + AoECooldown;
-        }
-        
-        if (nextTime < Time.time) {
-           
-               if(phase>0)
-               physicalPattern();
-            
-            
+            if (Vector2.Distance(player.transform.position, GameObject.Find("Mother").transform.position) < 4f && AoeNextTime < Time.time) {
+                Physical(3);
+                AoeNextTime = Time.time + AoECooldown;
+            }
+
+            if (nextTime < Time.time) {
+
+                if (phase > 0)
+                    physicalPattern();
+
+
+            }
         }
     }
     void physicalPattern() {

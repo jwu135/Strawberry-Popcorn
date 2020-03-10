@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
         if (other.tag == "normalAttack1")
         {
             GetComponent<Boss>().losehealth(damage1);
-            text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
+            /*text.text = GetComponent<Boss>().health.ToString() + "/" + "100";*/
             health -= damage1;
             Debug.Log("damage");
             //Debug.Log(health);
@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
         if (other.tag == "normalAttack2")
         {
             GetComponent<Boss>().losehealth(damage2);
-            text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
+            /*text.text = GetComponent<Boss>().health.ToString() + "/" + "100";*/
             health -= damage2;
             Debug.Log("damage");
             //Debug.Log(health);
@@ -60,7 +60,7 @@ public class Enemy : MonoBehaviour
         if (other.tag == "normalAttack3")
         {
             GetComponent<Boss>().losehealth(damage3);
-            text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
+            /*text.text = GetComponent<Boss>().health.ToString() + "/" + "100";*/
             health -= damage3;
             Debug.Log("damage");
             //Debug.Log(health);
@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour
         if (other.tag == "chargeAttack1")
         {
             GetComponent<Boss>().losehealth(damage4);
-            text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
+            /*text.text = GetComponent<Boss>().health.ToString() + "/" + "100";*/
             health -= damage4;
             Debug.Log("damage");
             //Debug.Log(health);
@@ -76,7 +76,7 @@ public class Enemy : MonoBehaviour
         if (other.tag == "chargeAttack2")
         {
             GetComponent<Boss>().losehealth(damage5);
-            text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
+            /*text.text = GetComponent<Boss>().health.ToString() + "/" + "100";*/
             health -= damage5;
             Debug.Log("damage");
             //Debug.Log(health);
@@ -99,8 +99,8 @@ public class Enemy : MonoBehaviour
         if (other.tag == "normalAttack3")
         {
             GetComponent<Boss>().losehealth(damage3);
-            text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
-            /*if (GetComponent<Boss>().health <= 0)
+            /*text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
+            if (GetComponent<Boss>().health <= 0)
              {
                  GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
              }*/
@@ -111,8 +111,8 @@ public class Enemy : MonoBehaviour
         if (other.tag == "specialAttack1" && SA1)
         {
             GetComponent<Boss>().losehealth(damage7);
-            text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
-            /*if (GetComponent<Boss>().health <= 0)
+            /*text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
+            if (GetComponent<Boss>().health <= 0)
             {
                 GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
             }*/
@@ -123,8 +123,8 @@ public class Enemy : MonoBehaviour
         if (other.tag == "specialAttack2" && SA2)
         {
             GetComponent<Boss>().losehealth(damage8);
-            text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
-            /*if (GetComponent<Boss>().health <= 0)
+            /*text.text = GetComponent<Boss>().health.ToString() + "/" + "100";
+            if (GetComponent<Boss>().health <= 0)
             {
                 GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
             }*/

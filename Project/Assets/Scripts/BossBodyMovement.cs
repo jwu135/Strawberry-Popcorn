@@ -40,15 +40,16 @@ public class BossBodyMovement : MonoBehaviour
         
         if (flipTime < Time.time) {
             float rand = Random.Range(0f, 1f);
-            if (rand > 0.5f) {
+            if (rand > 0.8f) {
                 FlipFirst();
             } else  {
                 if (grounded) {
                     grounded = false;
                     uVeloctiy = upwardVel;
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(0,upwardVel);
                 }
             }
-            flipTime = Time.time + 5f;
+            flipTime = Time.time + 6f;
         }
 
         if (!grounded) {

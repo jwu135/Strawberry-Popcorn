@@ -16,9 +16,7 @@ public class BossBullet : MonoBehaviour
     void Update()
     {
         if (Vector2.Distance(transform.position, Boss.transform.position) > 50f) {
-            Debug.Log("Destroyed");
-            Destroy(gameObject);
-            
+            Destroy(gameObject);   
         }
     }
 }
