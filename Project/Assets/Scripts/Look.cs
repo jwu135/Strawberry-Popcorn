@@ -99,20 +99,23 @@ public class Look : MonoBehaviour
     {
         float step = laserTurnSpeed * Time.deltaTime;
         Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        Vector3 axis;
+        float currAngle;
         float finalAngle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Inverse(Quaternion.AngleAxis(finalAngle, Vector3.forward)), step);
+        transform.rotation.ToAngleAxis(out currAngle, out axis);
 
         armatureTransform.localScale = scaleVector;
 
-        if (Input.mousePosition.x > playerPosition.x)
-        {
-            scaleVector.x = -0.5f;
-            player.GetComponent<Movement>().direction = 0;
-        }
-        else if (Input.mousePosition.x < playerPosition.x)
+        if (axis.z > 0)
         {
             scaleVector.x = 0.5f;
             player.GetComponent<Movement>().direction = 1;
+        }
+        else if (axis.z < 0)
+        {
+            scaleVector.x = -0.5f;
+            player.GetComponent<Movement>().direction = 0;
         }
     }
     void FaceController()
@@ -154,7 +157,7 @@ public class Look : MonoBehaviour
             float currAngle;
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(finalAngle, Vector3.forward), step);
             transform.rotation.ToAngleAxis(out currAngle,out axis);
-            Debug.Log("#########################axis: " + axis.ToString());
+            //Debug.Log("#########################axis: " + axis.ToString());
 
             armatureTransform.localScale = scaleVector;
 
