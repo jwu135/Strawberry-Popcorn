@@ -779,8 +779,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9278d5e88d76e43959b2c679186388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  HealthBar: {fileID: 0}
 --- !u!114 &117516977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6319,7 +6317,7 @@ MonoBehaviour:
   jumpVelocity: 23
   gravity: 1
   fallingGravity: 6
-  fallSpeedCap: 15
+  fallSpeedCap: 25
   rollDistance: 150
   rollDuration: 5
   rollSlowFrames: 6
