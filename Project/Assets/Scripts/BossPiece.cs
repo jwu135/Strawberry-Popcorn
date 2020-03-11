@@ -4,23 +4,33 @@ using UnityEngine;
 
 public class BossPiece : MonoBehaviour
 {
-    void OnCollisionEnter2D(Collision2D collision)
+    bool over = false;
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Colliding with "+collision.gameObject.tag);
-        Debug.Log("Collided");
-        if (collision.gameObject.tag == "Player") {
-            Debug.Log("On Player");
+        if (collision.gameObject.tag == "Floor") {
+            Destroy(GetComponent<Rigidbody2D>());
+            Vector2 temp = transform.position;
+            temp.y += 0.1f;
+            transform.position = temp;
+        }
+        if (collision.gameObject.tag=="Player") {
+            over = true;
         }
     }
-        // Start is called before the first frame update
-        void Start()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Alive");
+        if (collision.gameObject.tag == "Player") {
+            over = false;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("eat")&&over) {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().evolution++;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().weaponCycle = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().evolution;
+            GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossShoot>().setPhase(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
+            Destroy(gameObject);    
+        }
     }
 }

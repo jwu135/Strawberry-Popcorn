@@ -17,6 +17,8 @@ TagManager:
   - normalAttack2
   - normalAttack3
   - specialAttack1
+  - EventSystem
+  - DemoText
   layers:
   - Default
   - TransparentFX

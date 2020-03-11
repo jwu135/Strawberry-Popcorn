@@ -12,6 +12,9 @@ public class AttackTimer : MonoBehaviour
         disappearTime = Time.time + 0.99f;
         if(GetComponent<BoxCollider2D>())
         GetComponent<BoxCollider2D>().enabled = false;
+        else if (GetComponent<CircleCollider2D>()) {
+            GetComponent<CircleCollider2D>().enabled = false;
+        }
     }
 
     // Update is called once per frame
@@ -21,6 +24,8 @@ public class AttackTimer : MonoBehaviour
             if (disappearTime - 1f + hits < Time.time) {
                 if (GetComponent<BoxCollider2D>())
                     GetComponent<BoxCollider2D>().enabled = true;
+                else if (GetComponent<CircleCollider2D>())
+                    GetComponent<CircleCollider2D>().enabled = true;
             }
             if (disappearTime < Time.time) {
                 Destroy(gameObject);
