@@ -57,6 +57,7 @@ public class BossBodyMovement : MonoBehaviour
             uVeloctiy /= 200;
             Vector2 temp = transform.transform.position;
             temp.y -= dVelocity;
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(0, temp.y);
             transform.transform.position = temp;
         } else {
             dVelocity = 0;

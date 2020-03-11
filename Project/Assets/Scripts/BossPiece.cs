@@ -29,7 +29,7 @@ public class BossPiece : MonoBehaviour
         if (Input.GetButtonDown("eat")&&over) {
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().evolution++;
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().weaponCycle = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().evolution;
-            GetComponent<BossShoot>().setPhase(GetComponent<Boss>().getPhase());
+            GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossShoot>().setPhase(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
             Destroy(gameObject);    
         }
     }

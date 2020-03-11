@@ -38,7 +38,7 @@ public class Cannon : MonoBehaviour
                 transform.localScale = new Vector2(1 + scale, 1 + scale);
             }
 
-            if (scale >= 5f)
+            if (scale >= 7f)
             {               
                 maxCharge = true;
                 Debug.Log("hi");

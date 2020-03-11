@@ -77,7 +77,6 @@ public class PlayerCombat : MonoBehaviour
 
 
 
-
     // Update is called once per frame
     void Update()
     {
@@ -191,9 +190,7 @@ public class PlayerCombat : MonoBehaviour
             HarpoonCollider.enabled = false;
             HarpoonRenderer.enabled = false;
         }
-
         Debug.Log("Fire2: " + Input.GetAxis("Fire2") + "   Fire1:" + Input.GetButton("Fire1") + "   cycleDown:" + Input.GetButtonDown("cycleDown"));
-
         if (timeBtwAttack <= 0)
         {            
             //strawberry shooter
@@ -204,7 +201,6 @@ public class PlayerCombat : MonoBehaviour
             }
 
             //Tentacle or pineapple stab
-
             if (Input.GetButton("Fire1") && weaponCycle == 2 && !fire2State && harpoonthrow.thrown != true && evolution > 1)
             {
                 Flame.size();
@@ -226,12 +222,12 @@ public class PlayerCombat : MonoBehaviour
             }
 
             //nomnomnomnomnom
-            /*if (Input.GetButtonDown("eat") && evolution < 3)
+            if (Input.GetButtonDown("eat") && evolution < 3)
             {
-                //timeBtwAttack += weaponSwapCD;
+                timeBtwAttack += weaponSwapCD;
                 evolution += 1;
                 weaponCycle = evolution;
-            }*/
+            }
             //mushroom poison
             if (Input.GetButtonDown("special") && HM.mana >= 20 && HM.mana < 50)
             {
@@ -282,8 +278,7 @@ public class PlayerCombat : MonoBehaviour
         if (timeBtwChargeAttack1 <= 0)
         {
             //strawberry cannon
-        	if (fire2State && weaponCycle == 1 && !Input.GetButton("Fire1"))
-
+            if (fire2State && weaponCycle == 1 && !Input.GetButton("Fire1"))
             {
                 Shoot2();
                 timeBtwChargeAttack1 = delayBtwChargeAttack1 - delayChargeAttackCD;
@@ -370,8 +365,8 @@ public class PlayerCombat : MonoBehaviour
 
     public void Hurt()
     {
-        BodyRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
-        ArmRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
+        BodyRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+        ArmRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
         StartCoroutine(HurtFlicker());
 
     }
@@ -386,8 +381,8 @@ public class PlayerCombat : MonoBehaviour
     private IEnumerator HurtFlicker1()
     {
         yield return new WaitForSeconds(0.2f);
-        BodyRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
-        ArmRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
+        BodyRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+        ArmRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
         StartCoroutine(HurtFlicker2());
 
     }
@@ -402,8 +397,8 @@ public class PlayerCombat : MonoBehaviour
     private IEnumerator HurtFlicker3()
     {
         yield return new WaitForSeconds(0.2f);
-        BodyRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
-        ArmRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.3f);
+        BodyRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+        ArmRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
         StartCoroutine(HurtFlicker4());
 
     }
