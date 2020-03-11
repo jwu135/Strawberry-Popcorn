@@ -32,13 +32,13 @@ public class Cannon : MonoBehaviour
 
         if (explode && !release)
         {
-            if (scale < 5)
+            if (scale < 7)
             {
                 scale += 0.02f;
                 transform.localScale = new Vector2(1 + scale, 1 + scale);
             }
 
-            if (scale >= 5f)
+            if (scale >= 7f)
             {               
                 maxCharge = true;
                 Debug.Log("hi");
