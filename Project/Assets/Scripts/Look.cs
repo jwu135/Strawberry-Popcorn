@@ -50,23 +50,23 @@ public class Look : MonoBehaviour
         playerPosition = m_camera.WorldToScreenPoint(playerTransform.position);
 
         if (usingController == 0 && !PlayerCombat.LASER) FaceMouse();
-        else if (PlayerCombat.LASER)
+        else if (usingController == 1 && !PlayerCombat.LASER) FaceController();
+        else if (PlayerCombat.LASER && gameObject.tag == "specialAttack2")
         {
-            if(usingController == 0)
+            if (usingController == 0)
             {
                 FaceMouseSlow();
             }
-            else if(usingController == 1)
+            else if (usingController == 1)
             {
                 FaceControllerSlow();
             }
         }
-       // else if (usingController == 0 && PlayerCombat.LASER && !switch1)
-     //   {
-     //       switch1 = true;
-     //       FaceMouseSlow();
-    //    }
-        else if (usingController == 1) FaceController();
+        // else if (usingController == 0 && PlayerCombat.LASER && !switch1)
+        //   {
+        //       switch1 = true;
+        //       FaceMouseSlow();
+        //   }
 
 
         //Debug.Log(usingController);
@@ -101,6 +101,19 @@ public class Look : MonoBehaviour
         Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
         float finalAngle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Inverse(Quaternion.AngleAxis(finalAngle, Vector3.forward)), step);
+
+        armatureTransform.localScale = scaleVector;
+
+        if (Input.mousePosition.x > playerPosition.x)
+        {
+            scaleVector.x = -0.5f;
+            player.GetComponent<Movement>().direction = 0;
+        }
+        else if (Input.mousePosition.x < playerPosition.x)
+        {
+            scaleVector.x = 0.5f;
+            player.GetComponent<Movement>().direction = 1;
+        }
     }
     void FaceController()
     {
@@ -137,7 +150,25 @@ public class Look : MonoBehaviour
         if (aimAxis.magnitude > aimDeadzone)
         {
             float finalAngle = Mathf.Atan2(Input.GetAxis("Aim_Horizontal"), Input.GetAxis("Aim_Vertical")) * Mathf.Rad2Deg;
+            Vector3 axis;
+            float currAngle;
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(finalAngle, Vector3.forward), step);
+            transform.rotation.ToAngleAxis(out currAngle,out axis);
+            Debug.Log("#########################axis: " + axis.ToString());
+
+            armatureTransform.localScale = scaleVector;
+
+
+            if (axis.z > 0 && aimAxis.magnitude > aimDeadzone)
+            {
+                scaleVector.x = 0.5f;
+                player.GetComponent<Movement>().direction = 1;
+            }
+            else if (axis.z < 0 && aimAxis.magnitude > aimDeadzone)
+            {
+                scaleVector.x = -0.5f;
+                player.GetComponent<Movement>().direction = 0;
+            }
         }
     }
 }
