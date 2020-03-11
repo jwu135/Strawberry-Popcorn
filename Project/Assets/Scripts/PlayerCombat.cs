@@ -129,7 +129,7 @@ public class PlayerCombat : MonoBehaviour
         }
 
 
-            if (!Input.GetKey(KeyCode.Space))
+        if (!Input.GetKey(KeyCode.Space) && !Input.GetButton("special"))
         {
             LASER = false;
             LaserCollider.enabled = false;
