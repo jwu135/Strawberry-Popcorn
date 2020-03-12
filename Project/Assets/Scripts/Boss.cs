@@ -15,12 +15,13 @@ public class Boss : MonoBehaviour
     private Text text;
     private GameObject player;
     private float[] healthPoints = new float[4];
-    private int healthIndex = 1;
+    private int healthIndex = 0;
     private int phase = 0;
     // Start is called before the first frame update
     void Start()
     {
-        maxhealthNew = healthNew;
+        maxhealthNew = new double[healthNew.Length+1];
+        Array.Copy(healthNew, maxhealthNew, healthNew.Length);
         for(int i = 0; i < healthPoints.Length; i++) {
             healthPoints[i] = maxhealth - i*maxhealth/healthPoints.Length;
         }
@@ -35,23 +36,23 @@ public class Boss : MonoBehaviour
     private void updateHealth()
     {
         Vector2 temp = HealthBar.rectTransform.sizeDelta;
-        text.text = (health % 25).ToString() + "/" + (maxhealth / 4).ToString();
-        temp.x = 505f * ((float)health % 25 / (maxhealth / 4)); // changing here to show health
+        text.text = (healthNew[healthIndex]).ToString() + "/" + (maxhealthNew[healthIndex]).ToString();
+        temp.x = 505f * (float)((healthNew[healthIndex]) / (maxhealthNew[healthIndex])); // changing here to show health
         HealthBar.rectTransform.sizeDelta = temp;
     }
     public void losehealth(double amnt)
     {
-        health -= amnt;
-        updateHealth();
+        healthNew[healthIndex] -= amnt;
         if (healthNew[healthNew.Length-1] <= 0) {
             GameObject.FindGameObjectWithTag("EventSystem").GetComponent<gameOver>().startGameOver(true);     
-        }
-        if (health <= healthPoints[healthIndex]) {
+        }else if (healthNew[healthIndex] <= 0) {
             GameObject Piece = Instantiate(GameObject.FindGameObjectWithTag("PieceOne"), transform.position, transform.rotation) as GameObject;
             Piece.GetComponent<Rigidbody2D>().velocity = new Vector2(-0.5f, 0.5f) * 5;
             healthIndex++;
+            Debug.Log(healthIndex);
             phase++;
         }            
+        updateHealth();
     }
     
 }

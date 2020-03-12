@@ -5,25 +5,32 @@ using UnityEngine;
 public class BossShoot : MonoBehaviour
 {
     public float bulletSpeed;
+    public GameObject laserobj;
     public GameObject projectile;
     public GameObject hitObj;
     public GameObject AoE;
 
     private int[] spawnPointsX = new int[] { -14, -7, 0, 7, 14 };
     private float[] spawnPointsY = new float[] { -7f, -3.5f, 0, 3.5f, 7f};
+
     [HideInInspector]
     public float nextTime;
     private float nextTimeShoot;
     private float AoeNextTime;
+
     private float cooldown;
     public float AoECooldown;
     public float shootCooldown;
+
+
+
     private int phase = 0;
     private GameObject player;
 
     private float[] healthmarks = {75f,50f};
-    //private float[] healthmarks = {66f,33f};
     private int healthIndex = 0;
+
+
     private void Start()
     {
         nextTime = Time.time + 2f;
@@ -47,12 +54,12 @@ public class BossShoot : MonoBehaviour
         // super jank just getting this done in time for release
         if (GameObject.Find("Mother").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle")) {
             if (phase > 1 && nextTimeShoot < Time.time) {
-                Shoot();
+                Shoot(false);
                 nextTimeShoot = Time.time + shootCooldown;
                 Debug.Log("Shot");
             }
             if (Vector2.Distance(player.transform.position, GameObject.Find("Mother").transform.position) > 6f && nextTimeShoot < Time.time) {
-                Shoot();
+                Shoot(false);
                 Debug.Log("Shot");
                 nextTimeShoot = Time.time + shootCooldown;
             }
@@ -63,11 +70,8 @@ public class BossShoot : MonoBehaviour
             }
 
             if (nextTime < Time.time) {
-
                 if (phase > 0)
                     physicalPattern();
-
-
             }
         }
     }
@@ -132,9 +136,18 @@ public class BossShoot : MonoBehaviour
     }
     
 
-    void Shoot()
+    void Shoot(bool laser = false)
     {
-        //if (projectile != null) {
+        if (laser) {
+            Vector3 temp = transform.position;
+            GameObject bullet = Instantiate(laserobj, temp, transform.rotation) as GameObject;
+            Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            bullet.GetComponent<AttackTimer>().setTimer(0.1f);
+            bullet.GetComponent<AttackTimer>().setHits(0f);
+            bullet.GetComponent<AttackTimer>().disappear();
+        } else {
             int max = 1;
             for (int i = 0; i < max; i++) {
                 //float offset = (max / 2 - i) * 5;
@@ -144,7 +157,7 @@ public class BossShoot : MonoBehaviour
                 bullet.GetComponent<BossBullet>().enabled = true;
                 bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * bulletSpeed;
             }
-            nextTime = Time.time + cooldown;
-       // }
+        }
+        nextTime = Time.time + cooldown;
     }
 }
