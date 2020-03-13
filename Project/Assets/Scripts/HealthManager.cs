@@ -31,14 +31,12 @@ public class HealthManager : MonoBehaviour
     void Update()
     {
 
-        print("Timeleft: " + (pauseTime - timer));
         if (Time.timeScale == 0 && timer <= pauseTime)
         {
             timer += Time.unscaledDeltaTime * 1000;
         }
         else if(timer >= pauseTime)
         {
-            print("Play");
             Time.timeScale = 1;
             timer = 0;
         }
@@ -66,7 +64,6 @@ public class HealthManager : MonoBehaviour
             if (other.tag == "BossBullet")
             {
                 Time.timeScale = 0;
-                print("Pause");
                 health -= 1;
                 PlayerCombat.Hurt();
                 helthText.text = health.ToString() + "/" + maxHealth.ToString();

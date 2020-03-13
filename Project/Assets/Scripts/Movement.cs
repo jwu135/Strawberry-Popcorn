@@ -15,7 +15,16 @@ public class Movement : MonoBehaviour
         armatureComponent = GameObject.FindGameObjectWithTag("ArmatureTag").GetComponent<UnityArmatureComponent>();
     }
 
+
     void Update()
+    {
+        if (Time.timeScale != 0)
+        {
+            animate();
+        }
+    }
+
+    void animate()
     {
         /* DO NOT DELETE. Gonna look more at this later
         //Debug.Log();
