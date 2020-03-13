@@ -100,13 +100,11 @@ public class PlayerCombat : MonoBehaviour
         if (Input.GetButton("Fire2"))
         {
             fire2Switch = true;
-            Debug.Log(fire2Switch);
 
         }
         if (!Input.GetButton("Fire2"))
         {
             fire2Switch = false;
-            Debug.Log(fire2Switch);
 
         }
 
@@ -146,7 +144,6 @@ public class PlayerCombat : MonoBehaviour
                 {
                     weaponCycle = evolution;
                 }
-                Debug.Log(weaponCycle);
             }
             if (Input.GetButtonDown("cycleDown") == true)
             {
@@ -159,7 +156,6 @@ public class PlayerCombat : MonoBehaviour
                 {
                     weaponCycle = weaponCycle + 1;
                 }
-                Debug.Log(weaponCycle);
             }
         }
         else
@@ -190,7 +186,6 @@ public class PlayerCombat : MonoBehaviour
             HarpoonCollider.enabled = false;
             HarpoonRenderer.enabled = false;
         }
-        Debug.Log("Fire2: " + Input.GetAxis("Fire2") + "   Fire1:" + Input.GetButton("Fire1") + "   cycleDown:" + Input.GetButtonDown("cycleDown"));
         if (timeBtwAttack <= 0)
         {            
             //strawberry shooter
@@ -218,7 +213,6 @@ public class PlayerCombat : MonoBehaviour
                 //LASER = false;
 
                 timeBtwAttack = delayBtwAttack3 - delayAttackCD;
-                Debug.Log(timeBtwAttack);
             }
 
             //nomnomnomnomnom
@@ -251,7 +245,6 @@ public class PlayerCombat : MonoBehaviour
                     LaserRenderer.enabled = false;
                 }
                 timeBtwAttack = 1;
-                Debug.Log(timeBtwAttack);
                 
             }
             //SPMAX
@@ -266,7 +259,6 @@ public class PlayerCombat : MonoBehaviour
                 delayAttackCD = 0.1;
                 delayChargeAttackCD = 1;
                 timeBtwAttack = 1;
-                Debug.Log(timeBtwAttack);
 
             }
         }
