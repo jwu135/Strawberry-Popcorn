@@ -9,11 +9,15 @@ public class BossBodyMovement : MonoBehaviour
     public float distanceBeforeMoving;
     private float flipTime;
 
+    private bool ableToMove = true;
     private bool grounded = false;
+
+    // Gravity stuff
     private float dVelocity = 0.01f;
     private float gravity = 0.001f;
     private float upwardVel = -0.1f;
     private float uVeloctiy = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,26 +48,38 @@ public class BossBodyMovement : MonoBehaviour
                 FlipFirst();
             } else  {
                 if (grounded) {
+                    /* working jump
+                    grounded = false;
+                    uVeloctiy = upwardVel;
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(0,upwardVel);*/
+
                     grounded = false;
                     uVeloctiy = upwardVel;
                     GetComponent<Rigidbody2D>().velocity = new Vector2(0,upwardVel);
+                    ableToMove = false;
+                    StartCoroutine("Dash");
+                    /*
+                    Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
+                    bullet.GetComponent<BossBullet>().enabled = true;
+                    bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * bulletSpeed; 
+                    */
                 }
             }
             flipTime = Time.time + 6f;
         }
+ 
+            if (!grounded) {
+                dVelocity += gravity + uVeloctiy;
+                uVeloctiy /= 200;
+                Vector2 temp = transform.transform.position;
+                temp.y -= dVelocity;
+                //GetComponent<Rigidbody2D>().velocity = new Vector2(0, temp.y);
+                transform.transform.position = temp;
+            } else {
+                dVelocity = 0;
+            }
 
-        if (!grounded) {
-            dVelocity += gravity +uVeloctiy;
-            uVeloctiy /= 200;
-            Vector2 temp = transform.transform.position;
-            temp.y -= dVelocity;
-            //GetComponent<Rigidbody2D>().velocity = new Vector2(0, temp.y);
-            transform.transform.position = temp;
-        } else {
-            dVelocity = 0;
-        }
-
-        if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle")) {
+        if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle")&&ableToMove) {
             if (Vector2.Distance(player.transform.position, transform.transform.position) > distanceBeforeMoving) {
                 Vector2 temp = transform.transform.position;
                 Vector2 tempPlay = player.transform.position;
@@ -79,6 +95,16 @@ public class BossBodyMovement : MonoBehaviour
     void FlipFirst()
     {
         StartCoroutine(Flip());
+    }
+
+    private IEnumerator Dash()
+    {
+        //Debug.Log("Gonna do the thing");
+        yield return new WaitForSeconds(0.3f);
+        //Debug.Log("Did the thing");
+        Vector3 direction = (Vector2)(GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).normalized;
+        GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * 500;
+        ableToMove = true;
     }
 
     public IEnumerator Flip()

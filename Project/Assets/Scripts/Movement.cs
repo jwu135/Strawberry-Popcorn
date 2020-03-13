@@ -6,6 +6,7 @@ using DragonBones;
 public class Movement : MonoBehaviour
 {
     private UnityArmatureComponent armatureComponent;
+    public UnityDragonBonesData things;
     [HideInInspector]
     public float direction = 0; // left is 0, right is 1;
     private float lastdirection = 0;
@@ -16,8 +17,17 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        /* DO NOT DELETE. Gonna look more at this later
         //Debug.Log();
+        if (Input.GetKeyDown(KeyCode.L)) {
+            
+            armatureComponent.unityData = things;
+            armatureComponent.GetComponent<UnityCombineMeshs>().BeginCombineMesh();
+            Debug.Log("Changed");
+        }
+        */
         if (Input.GetButtonDown("Jump")) {
+
             armatureComponent.animation.timeScale = 3;
             armatureComponent.animation.Play("Jumping",1);
         }
