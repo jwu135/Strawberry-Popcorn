@@ -49,7 +49,7 @@ public class Boss : MonoBehaviour
             GameObject Piece = Instantiate(GameObject.FindGameObjectWithTag("PieceOne"), transform.position, transform.rotation) as GameObject;
             Piece.GetComponent<Rigidbody2D>().velocity = new Vector2(-0.5f, 0.5f) * 5;
             healthIndex++;
-            Debug.Log(healthIndex);
+            //Debug.Log(healthIndex);
             phase++;
         }            
         updateHealth();

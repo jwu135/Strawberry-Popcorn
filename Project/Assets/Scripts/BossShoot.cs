@@ -54,13 +54,13 @@ public class BossShoot : MonoBehaviour
         // super jank just getting this done in time for release
         if (GameObject.Find("Mother").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle")) {
             if (phase > 1 && nextTimeShoot < Time.time) {
-                Shoot(false);
+                Shoot(true);
                 nextTimeShoot = Time.time + shootCooldown;
-                Debug.Log("Shot");
+                //Debug.Log("Shot");
             }
             if (Vector2.Distance(player.transform.position, GameObject.Find("Mother").transform.position) > 6f && nextTimeShoot < Time.time) {
-                Shoot(false);
-                Debug.Log("Shot");
+                Shoot(true);
+                //Debug.Log("Shot");
                 nextTimeShoot = Time.time + shootCooldown;
             }
 
@@ -141,12 +141,14 @@ public class BossShoot : MonoBehaviour
         if (laser) {
             Vector3 temp = transform.position;
             GameObject bullet = Instantiate(laserobj, temp, transform.rotation) as GameObject;
+            bullet.transform.parent = transform;
             Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
             bullet.GetComponent<AttackTimer>().setTimer(0.1f);
             bullet.GetComponent<AttackTimer>().setHits(0f);
             bullet.GetComponent<AttackTimer>().disappear();
+
         } else {
             int max = 1;
             for (int i = 0; i < max; i++) {

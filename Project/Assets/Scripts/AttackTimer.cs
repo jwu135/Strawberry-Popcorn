@@ -26,7 +26,6 @@ public class AttackTimer : MonoBehaviour
     {
         hits = hit;
     }
-
     // Update is called once per frame
     void Update()
     {

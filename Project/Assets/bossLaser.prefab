@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 349775662642372697}
   - component: {fileID: 1342115458925601701}
   - component: {fileID: 289896377306530527}
+  - component: {fileID: -9061388757760685620}
   m_Layer: 0
   m_Name: bossLaser
   m_TagString: BossBullet
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1dce4f3c98ef7354c82c4f11a0795e25, type: 3}
-  m_Color: {r: 1, g: 0.27058825, b: 0.27058825, a: 1}
+  m_Color: {r: 0.99215686, g: 0.21960784, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -111,3 +112,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8c122599279c3408d7cafa94688f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &-9061388757760685620
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349775662642372696}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3d5ffbff8cc5c8640beb2eb4748f9927, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
