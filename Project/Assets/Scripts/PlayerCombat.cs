@@ -330,6 +330,7 @@ public class PlayerCombat : MonoBehaviour
     {
         Instantiate(bullet1Prefab, firePoint.position, firePoint.rotation);
         //Enemy.TakeDamage2(damage2);
+        SoundManager.PlaySound("playerShoot");
 
     }
 
