@@ -28,6 +28,17 @@ public class PlayerController : MonoBehaviour
     FlightMovementPhys mode0;
     PlatformMovementPhys mode1;
 
+    private void Update()
+    {
+        if(Input.GetKey("p") == true)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+    }
 
     private void Start()
     {
