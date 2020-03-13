@@ -207,6 +207,10 @@ public class PlatformMovementPhys : MonoBehaviour
             {
                 velocityVector.y = -fallSpeedCap;
             }
+            else if (state == 0 && transform.localPosition.y > -2.14)
+            {
+                velocityVector.y -= actingGravity/2;
+            }
             else if (state == 1 && velocityVector.y - gravity > -fallSpeedCap)
             {
                 velocityVector.y -= actingGravity;
