@@ -177,7 +177,6 @@ public class PlatformMovementPhys : MonoBehaviour
 
             if (((Input.GetButton("Roll") == true) || (Input.GetAxis("Roll") < 0)) && (rollingFrame == 0 && stickInput.magnitude > 0) || rollingFrame >= 1)
             {
-                healthManager.invicibilityCounter = healthManager.invicibilityLength;
 
 
                 if (rollingFrame == 0)
@@ -185,6 +184,7 @@ public class PlatformMovementPhys : MonoBehaviour
                     healthManager.manaCounter = 1;
                     controlFrozen = true;
                     rollInput = stickInput;
+                    healthManager.invicibilityCounter = healthManager.invicibilityLength;
                 }
                 doRoll(Vector2.SignedAngle(Vector2.up, rollInput)); //calls roll with the angle (0 degrees is vertical)
             }
@@ -242,7 +242,6 @@ public class PlatformMovementPhys : MonoBehaviour
 
     void doRoll(float rollAngle)
     {
-        print(controlFrozen);
         if (rollingFrame < rollDuration)
         {
             if( rollAngle < 0 )

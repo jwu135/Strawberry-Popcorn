@@ -26,12 +26,13 @@ public class HealthManager : MonoBehaviour
     {
     }
 
-    // Update is called once per frame
-    void Update()
+    // FixedUpdate is called 50 times a second
+    void FixedUpdate()
     {
         if (invicibilityCounter > 0)
         {
-            invicibilityCounter -= Time.deltaTime;
+            //Debug.Log("Invincible");
+            invicibilityCounter -= 1;
         }
 
         if (health <= 0)
