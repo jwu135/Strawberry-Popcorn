@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         {
             Time.timeScale = 0;
         }
-        else
+        else if(Input.GetKeyUp("p") == true)
         {
             Time.timeScale = 1;
         }

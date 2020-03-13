@@ -14,6 +14,8 @@ public class HealthManager : MonoBehaviour
     public float invicibilityLength;
     public float invicibilityCounter;
     public float manaCounter = 1;
+    public float pauseTime = 100; //in milliseconds
+    private float timer = 0; //used for pause frames
 
 
     public Text helthText;
@@ -26,6 +28,21 @@ public class HealthManager : MonoBehaviour
     {
     }
 
+    void Update()
+    {
+
+        print("Timeleft: " + (pauseTime - timer));
+        if (Time.timeScale == 0 && timer <= pauseTime)
+        {
+            timer += Time.unscaledDeltaTime * 1000;
+        }
+        else if(timer >= pauseTime)
+        {
+            print("Play");
+            Time.timeScale = 1;
+            timer = 0;
+        }
+    }
     // FixedUpdate is called 50 times a second
     void FixedUpdate()
     {
@@ -48,10 +65,11 @@ public class HealthManager : MonoBehaviour
         {
             if (other.tag == "BossBullet")
             {
+                Time.timeScale = 0;
+                print("Pause");
                 health -= 1;
                 PlayerCombat.Hurt();
                 helthText.text = health.ToString() + "/" + maxHealth.ToString();
-               
             }
         }
         else
