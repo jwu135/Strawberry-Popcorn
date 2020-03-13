@@ -37,8 +37,13 @@ public class BossBodyMovement : MonoBehaviour
             grounded = false;
         }
     }
-
-    private void Update()
+    void Update()
+    {
+        if (Time.timeScale != 0) {
+            lookAround();
+        }
+    }
+    void lookAround()
     {
         GameObject player =  GameObject.FindGameObjectWithTag("Player");
         
