@@ -13,8 +13,14 @@ public class BossMovement : MonoBehaviour
         startX = transform.localPosition.x;
         startY = transform.localPosition.y;
     }
-    // Update is called once per frame
     void Update()
+    {
+        if (Time.timeScale != 0) {
+            lookAround();
+        }
+    }
+    // Update is called once per frame
+    void lookAround()
     {
         Vector3 temp = transform.position;
         temp.x = (Mathf.Sin(Time.time*timeMod)) / mod + transform.parent.transform.position.x + startX;

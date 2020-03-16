@@ -26,10 +26,18 @@ public class BossPiece : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale != 0) {
+            lookAround();
+        }
+    }
+
+    void lookAround()
+    {
         if (Input.GetButtonDown("eat")&&over) {
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().evolution++;
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().weaponCycle = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().evolution;
             GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossShoot>().setPhase(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
+            Debug.Log(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
             Destroy(gameObject);    
         }
     }

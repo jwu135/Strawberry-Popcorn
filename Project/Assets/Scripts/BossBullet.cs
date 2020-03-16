@@ -12,8 +12,14 @@ public class BossBullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    // Update is called once per frame
     void Update()
+    {
+        if (Time.timeScale != 0) {
+            lookAround();
+        }
+    }
+    // Update is called once per frame
+    void lookAround()
     {
         if (Vector2.Distance(transform.position, Boss.transform.position) > 50f) {
             Destroy(gameObject);   

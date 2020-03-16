@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class DialogueSystem : MonoBehaviour
 {
     public GameObject dialogueBox;
-    //public GameObject cutsceneSystem;
-    public Text name;
+    public new Text name;
     public Text sentence;
     public float textspeed;
     [HideInInspector]
@@ -25,7 +24,13 @@ public class DialogueSystem : MonoBehaviour
         sentence.text = currSentence;
         StartCoroutine("textScroll");
     }
-    public void Update()
+    void Update()
+    {
+        if (Time.timeScale != 0) {
+            lookAround();
+        }
+    }
+    public void lookAround()
     {
         if (Input.GetButtonDown("Jump")){
             if (currSentence.Length < finalSentence.Length) {

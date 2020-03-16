@@ -780,6 +780,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9278d5e88d76e43959b2c679186388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  HealthBar: {fileID: 0}
 --- !u!114 &117516977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,7 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db5dd6c556a3cd4a9782e3fd9800011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 7
+  bulletSpeed: 10
   laserobj: {fileID: 349775662642372696, guid: 1188ac9800436794e9e188cf3d1c013b, type: 3}
   projectile: {fileID: 6887859871426871690}
   hitObj: {fileID: 176314249}
@@ -1171,6 +1173,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501793522159212033, guid: 1188ac9800436794e9e188cf3d1c013b,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1188ac9800436794e9e188cf3d1c013b, type: 3}
@@ -4202,7 +4209,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1297109251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4215,7 +4222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dbe86ec3780a9042adca60b66a6c57e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveTowardsPlayer: 0.01
+  moveTowardsPlayer: 10
   distanceBeforeMoving: 3
 --- !u!1 &1312915777
 GameObject:
@@ -6583,6 +6590,7 @@ MonoBehaviour:
   invicibilityLength: 7
   invicibilityCounter: 0
   manaCounter: 1
+  pauseTime: 100
   helthText: {fileID: 242097788}
   manaText: {fileID: 1942808331}
   PlayerCombat: {fileID: 1814532874}

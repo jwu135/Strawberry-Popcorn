@@ -51,32 +51,61 @@ public class BossShoot : MonoBehaviour
     }
     void Update()
     {
-        // super jank just getting this done in time for release
-        if (GameObject.Find("Mother").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle")) {
-            if (phase > 1 && nextTimeShoot < Time.time) {
-                Shoot(true);
-                nextTimeShoot = Time.time + shootCooldown;
-                //Debug.Log("Shot");
-            }
-            if (Vector2.Distance(player.transform.position, GameObject.Find("Mother").transform.position) > 6f && nextTimeShoot < Time.time) {
-                Shoot(true);
-                //Debug.Log("Shot");
-                nextTimeShoot = Time.time + shootCooldown;
-            }
-
-            if (Vector2.Distance(player.transform.position, GameObject.Find("Mother").transform.position) < 4f && AoeNextTime < Time.time) {
-                Physical(3);
-                AoeNextTime = Time.time + AoECooldown;
-            }
-
-            if (nextTime < Time.time) {
-                if (phase > 0)
-                    physicalPattern();
-            }
+        if (Time.timeScale != 0) {
+            lookAround();
         }
     }
-    void physicalPattern() {
-        int pattern = Random.Range(0,3);
+    void lookAround()
+    {
+        // super jank just getting this done in time for release
+        if (GameObject.Find("Mother").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle")) {
+            
+
+            /*if (Vector2.Distance(player.transform.position, GameObject.Find("Mother").transform.position) > 6f && nextTimeShoot < Time.time) {
+                Shoot(true);
+                //Debug.Log("Shot");
+                nextTimeShoot = Time.time + shootCooldown;
+            } // Projectile Shoot*/
+
+            if (phase == 0 || phase == 3) { // Main Projectile
+                if (nextTimeShoot < Time.time) {
+                    Shoot(false);
+                    nextTimeShoot = Time.time + shootCooldown;
+                    //Debug.Log("Shot");
+                }
+
+            }
+            if (phase == 0 || phase == 2 || phase == 3) { // AoE
+                if (Vector2.Distance(player.transform.position, GameObject.Find("Mother").transform.position) < 4f && AoeNextTime < Time.time) {
+                    Physical(3);
+                    AoeNextTime = Time.time + AoECooldown;
+                } 
+            }
+            if (phase==0||phase == 1) { // Spike
+                if (nextTime < Time.time) {
+                    if (phase == 0) {
+                        Physical(phase); // doing it this way because phase number and the pos variable happen to have the same parameters
+                    } else {
+                        if (player.transform.position.x > 0) {
+                            Physical(phase);
+                        } else {
+                            Physical(phase+1);
+                        }
+                    }
+                    nextTime = Time.time + cooldown;
+                }               
+            }
+            /*
+            if (phase==2||phase == 3) { // AoE
+                if (nextTime < Time.time) {
+                    if (phase > 0)
+                        physicalPattern(2);
+                }
+            }*/
+        }
+    }
+    void physicalPattern(int pattern = -1) {
+        if(pattern == -1) pattern = Random.Range(0, 3);
         if (pattern == 0 || pattern == 1) {
             int pos = Random.Range(0, 3);
             Physical(pos,true);
@@ -145,8 +174,8 @@ public class BossShoot : MonoBehaviour
             Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-            bullet.GetComponent<AttackTimer>().setTimer(0.1f);
-            bullet.GetComponent<AttackTimer>().setHits(0f);
+            bullet.GetComponent<AttackTimer>().setTimer(1f);
+            bullet.GetComponent<AttackTimer>().setHits(5f);
             bullet.GetComponent<AttackTimer>().disappear();
 
         } else {

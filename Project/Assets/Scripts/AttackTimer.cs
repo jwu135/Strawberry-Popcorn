@@ -11,11 +11,7 @@ public class AttackTimer : MonoBehaviour
     public void disappear(){
         spawned = true;
         disappearTime = Time.time + timeToDisappearAfter;
-        if(GetComponent<BoxCollider2D>())
-        GetComponent<BoxCollider2D>().enabled = false;
-        else if (GetComponent<CircleCollider2D>()) {
-            GetComponent<CircleCollider2D>().enabled = false;
-        }
+        enable(0);
     }
 
     public void setTimer(float time)
@@ -26,18 +22,30 @@ public class AttackTimer : MonoBehaviour
     {
         hits = hit;
     }
+
+    public void enable(float togg) // because the animator doesn't like bools :/
+    {
+        bool toggled = togg > 0 ? true : false;
+        if (GetComponent<BoxCollider2D>())
+            GetComponent<BoxCollider2D>().enabled = toggled;
+        else if (GetComponent<CircleCollider2D>())
+            GetComponent<CircleCollider2D>().enabled = toggled;
+        else if (GetComponent<PolygonCollider2D>())
+            GetComponent<PolygonCollider2D>().enabled = toggled;
+    }
+    public void destroy()
+    {
+        Destroy(gameObject);
+    }
     // Update is called once per frame
     void Update()
     {
         if (spawned) {
             if (disappearTime - timeToDisappearAfter -0.01f + hits < Time.time) {
-                if (GetComponent<BoxCollider2D>())
-                    GetComponent<BoxCollider2D>().enabled = true;
-                else if (GetComponent<CircleCollider2D>())
-                    GetComponent<CircleCollider2D>().enabled = true;
+                enable(1);
             }
             if (disappearTime < Time.time) {
-                Destroy(gameObject);
+                destroy();
             }
         }
     }
