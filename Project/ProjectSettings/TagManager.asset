@@ -19,6 +19,7 @@ TagManager:
   - specialAttack1
   - EventSystem
   - DemoText
+  - HitOverlay
   layers:
   - Default
   - TransparentFX
