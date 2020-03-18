@@ -34,8 +34,24 @@ public class BossPiece : MonoBehaviour
     void lookAround()
     {
         if (Input.GetButtonDown("eat")&&over) {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().evolution++;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().weaponCycle = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().evolution;
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player.GetComponent<PlayerCombat>().evolution < 3) {
+                player.GetComponent<PlayerCombat>().evolution++;
+                player.GetComponent<PlayerCombat>().weaponCycle = player.GetComponent<PlayerCombat>().evolution;
+            }
+            //Debug.Log(GetComponent<Boss>().getPhase());
+            if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 1) {
+                (player.transform.Find("Armature").gameObject).SetActive(false);
+                (player.transform.Find("ArmatureMid").gameObject).SetActive(true);
+                player.GetComponent<Movement>().setArmature();
+                player.transform.Find("Arm").gameObject.GetComponent<Look>().setArmature();
+            }
+            if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 3) {
+                player.transform.Find("ArmatureMid").gameObject.SetActive(false);
+                player.transform.Find("ArmatureLast").gameObject.SetActive(true);
+                player.GetComponent<Movement>().setArmature();
+                player.transform.Find("Arm").gameObject.GetComponent<Look>().setArmature();
+            }
             GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossShoot>().setPhase(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
             Debug.Log(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
             Destroy(gameObject);    

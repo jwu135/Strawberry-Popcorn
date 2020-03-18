@@ -33,7 +33,14 @@ public class Look : MonoBehaviour
 
         scaleVector = new Vector3(0.5f, 0.5f, 0.5f);
     }
-    
+
+    public void setArmature()
+    {
+        armature[0] = GameObject.FindGameObjectWithTag("ArmatureTag");
+        armatureTransform = armature[0].GetComponent<Transform>();
+
+    }
+
     void Update()
     {
         if (Time.timeScale != 0)

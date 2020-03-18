@@ -10,12 +10,17 @@ public class Movement : MonoBehaviour
     [HideInInspector]
     public float direction = 0; // left is 0, right is 1;
     private float lastdirection = 0;
+
     void Start()
     {
         armatureComponent = GameObject.FindGameObjectWithTag("ArmatureTag").GetComponent<UnityArmatureComponent>();
+        armatureComponent.animation.Play("Idle");
     }
 
-
+    public void setArmature()
+    {
+        armatureComponent = GameObject.FindGameObjectWithTag("ArmatureTag").GetComponent<UnityArmatureComponent>();
+    }
     void Update()
     {
         if (Time.timeScale != 0)

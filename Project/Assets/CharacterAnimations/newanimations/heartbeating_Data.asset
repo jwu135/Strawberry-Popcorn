@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eec99bffe7ebe84e97f379bbdf2e0f2, type: 3}
+  m_Name: heartbeating_Data
+  m_EditorClassIdentifier: 
+  dataName: heartbeating
+  dragonBonesJSON: {fileID: 4900000, guid: a9848c9a8d64b54468e9174205195fa6, type: 3}
+  textureAtlas:
+  - textureAtlasJSON: {fileID: 4900000, guid: 7970b2d545c58504e8da46317131be62, type: 3}
+    texture: {fileID: 2800000, guid: b70cb1375e7eb95458bd45aa5f3679ff, type: 3}
+    material: {fileID: 2100000, guid: 4c1369205efbe204081b58340420998b, type: 2}
+    uiMaterial: {fileID: 0}
