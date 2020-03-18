@@ -14,8 +14,8 @@ public class BossBodyMovement : MonoBehaviour
 
     // Gravity stuff
     private float dVelocity = 1f;
-    private float gravity = 0.8f;
-    private float upwardVel = 100f;
+    private float gravity = 10f;
+    private float upwardVel = 400f;
     private float uVeloctiy = 0;
 
     // Start is called before the first frame update
@@ -28,6 +28,7 @@ public class BossBodyMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Floor") {
             grounded = true;
+            Debug.Log("Hit");
         }
     }
 
@@ -37,7 +38,7 @@ public class BossBodyMovement : MonoBehaviour
             grounded = false;
         }
     }
-    void Update()
+    void FixedUpdate()
     {
         if (Time.timeScale != 0) {
             lookAround();
@@ -86,6 +87,9 @@ public class BossBodyMovement : MonoBehaviour
             //transform.transform.position = temp;
         } else {
             dVelocity = 0;
+            Vector2 temp = GetComponent<Rigidbody2D>().velocity;
+            temp.y = dVelocity;
+            GetComponent<Rigidbody2D>().velocity = temp;
         }
 
         if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle")&&ableToMove) {

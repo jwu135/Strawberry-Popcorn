@@ -128,15 +128,15 @@ public class BossShoot : MonoBehaviour
     }
     void Physical(int pos,bool random = true,int place = 0) {
         GameObject physicalAttack = null;
-        if (pos != 3) {
+        if (pos < 3) {
             Vector3 position = new Vector3(0, 0, 0);
             if (pos == 0) {
                 // For now, make pop up instantly
                 int rand = Random.Range(0, spawnPointsX.Length);
                 if(random)
-                    position = new Vector3(spawnPointsX[rand], -13, 0);
+                    position = new Vector3(spawnPointsX[rand], -5, 0);
                 else
-                    position = new Vector3(spawnPointsX[place], -13, 0);
+                    position = new Vector3(spawnPointsX[place], -5, 0);
                 physicalAttack = Instantiate(hitObj, position, hitObj.transform.rotation) as GameObject;
             } else if (pos == 1) {
                 int rand = Random.Range(0, spawnPointsY.Length);
@@ -156,10 +156,22 @@ public class BossShoot : MonoBehaviour
             }
             physicalAttack.GetComponent<Animator>().SetTrigger("Spike");
             physicalAttack.GetComponent<AttackTimer>().disappear();
-        } else {
+        } else if (pos==3) {
             physicalAttack = Instantiate(AoE, transform.position, AoE.transform.rotation) as GameObject;
             physicalAttack.transform.parent = transform;
             physicalAttack.GetComponent<Animator>().SetTrigger("Expand");
+            physicalAttack.GetComponent<AttackTimer>().disappear();
+        } else {
+            Debug.Log("Shooted");
+            float posX = Random.Range(-14, 14);
+            float posY = Random.Range(-7, 7);
+            Vector2 position = new Vector2(posX, posY);
+            Quaternion tempRotation = Quaternion.Euler(0, 0, 180);
+            physicalAttack = Instantiate(hitObj, position, tempRotation) as GameObject;
+            Vector3 direction = (Vector2)(player.transform.position - physicalAttack.transform.position).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            physicalAttack.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            physicalAttack.GetComponent<Animator>().SetTrigger("Spike");
             physicalAttack.GetComponent<AttackTimer>().disappear();
         }
     }
