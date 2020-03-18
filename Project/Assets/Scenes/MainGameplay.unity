@@ -1215,8 +1215,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.8, y: 4.175004}
-  m_SizeDelta: {x: 607.2, y: 104.45}
+  m_AnchoredPosition: {x: 11.81, y: -6.13}
+  m_SizeDelta: {x: 575.7, y: 95.18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &105300496
 GameObject:
@@ -8693,7 +8693,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -226.43, y: 41.4}
+  m_AnchoredPosition: {x: -226.43, y: 44.41}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1270335222
@@ -8724,10 +8724,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -9678,28 +9678,36 @@ MonoBehaviour:
   dialogueBox: {fileID: 1628249410}
   name: {fileID: 1270335223}
   sentence: {fileID: 99830069}
-  textspeed: 0.001
+  textspeed: 0.01
   done: 0
   dialogue:
-  - name: 
-    sentences: "Something is Rotten in Miskatonic Gardens\nMother\u2019s only child,
-      Strawberry Popcorn, started rotting from the inside, making her prone to negative
-      emotions and rebellion. Mother, who wants her sweet child back, plans to kill
-      Strawberry Popcorn so that she can be reborn clean and with no past memories.\r\n"
-  - name: 
-    sentences: Fight back so that you can end this cycle!
-  - name: 
-    sentences: "Move with \u201CA\u201D and \u201CD\u201D or with the Left Stick\r\nJump
-      with \u201CW\u201D or L1\r\nDodge with \u201CSHIFT\u201D or L2\r\nAim with
-      the Mouse or with the Right Stick\r\nShoot with Left Mouse Click or R1\r\nAlternate
-      Shoot with Right Mouse Click or R2\r\n"
-  - name: 
-    sentences: "If you damage the boss enough, you gain new attacks\nDodge attacks
-      to gain mana. With enough mana you can use special attacks\r\nUse Special attacks
-      with \u201CSPACEBAR\u201D or with the \u201CCircle/B\u201D button on the controller\r\nIf
-      you have different weapons unlocked, cycle through them with \u201CQ\u201D
-      and \u201CE\u201D or with the \u201CSquare/X\u201D and \u201CTriangle/Y\u201D
-      buttons on the controller.\r\n"
+  - name: 'Strawberry Popcorn:'
+    sentences: "Mother. I see you\u2019re already taken your true form. Here to eat
+      me?"
+  - name: 'Mother:'
+    sentences: "Poppy\u2026 How do you know that?"
+  - name: 'Strawberry Popcorn:'
+    sentences: "Lately I\u2019ve been having these strange memories and feelings.
+      And I didn\u2019t want to believe they were true."
+  - name: 'Mother:'
+    sentences: So you found out the truth.
+  - name: 'Strawberry Popcorn:'
+    sentences: Yes. For how long have you been doing this? Raising me to slaughter?
+  - name: 'Mother:'
+    sentences: "Slaughter? Such harsh words, Poppy. My darling daughter, do you really
+      think that\u2019s my goal here? Everything I do, I do thinking about your wellbeing."
+  - name: 'Strawberry Popcorn:'
+    sentences: "My wellbeing? Is not letting me grow up to my benefit? Looking back,
+      all my past lives, all I\u2019ve been is just a doll to you. A toy. Junk food,
+      to be used, discarded and then brought back anew."
+  - name: 'Mother:'
+    sentences: "Is this what you really think of your Mother? I understand you\u2019re
+      anguished. It must be the rot talking, not my pretty little Strawberry Popcorn.
+      Come to Mother and we\u2019ll put all this nastiness behind us. It\u2019s for
+      the best."
+  - name: 'Strawberry Popcorn:'
+    sentences: "No. This ends now, Mother. I won\u2019t let you keep using my like
+      that ever again. This cycle ends now."
 --- !u!1 &1412927429
 GameObject:
   m_ObjectHideFlags: 1
@@ -11640,7 +11648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
+  m_Color: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

@@ -29,7 +29,7 @@ public class SceneChanger : MonoBehaviour
         if(scene.name.Equals("Gameover"))
             SceneManager.LoadScene("Scenes/MainMenu");
         else
-            SceneManager.LoadScene("Scenes/MainGameplay");
+            SceneManager.LoadScene("Scenes/Intro");
     }
     void doExitGame()
     {
