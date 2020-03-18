@@ -28,7 +28,6 @@ public class BossBodyMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Floor") {
             grounded = true;
-            Debug.Log("Hit");
         }
     }
 
@@ -54,24 +53,12 @@ public class BossBodyMovement : MonoBehaviour
                 FlipFirst();
             } else  {
                 if (grounded) {
-                    /* working jump
-                    grounded = false;
-                    uVeloctiy = upwardVel;
-                    GetComponent<Rigidbody2D>().velocity = new Vector2(0,upwardVel);*/
-                    Debug.Log("jumped");
                     grounded = false;
                     uVeloctiy = upwardVel;
                     Vector2 temp = GetComponent<Rigidbody2D>().velocity;
-                    //GetComponent<Rigidbody2D>().velocity = transform.up*-upwardVel*10000000;
                     dVelocity = uVeloctiy;
-                    //GetComponent<Rigidbody2D>().AddForce(transform.up*-upwardVel*1000000000,ForceMode2D.Impulse);
                     ableToMove = false;
                     StartCoroutine("Dash");
-                    /*
-                    Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
-                    bullet.GetComponent<BossBullet>().enabled = true;
-                    bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * bulletSpeed; 
-                    */
                 }else
                     Debug.Log("Couldn't jump");
             }
@@ -80,11 +67,7 @@ public class BossBodyMovement : MonoBehaviour
 
         if (!grounded) {
             dVelocity -= gravity;
-            //Vector2 temp = transform.transform.position;
-            //temp.y -= dVelocity;
             GetComponent<Rigidbody2D>().AddForce(transform.up * dVelocity);
-            //GetComponent<Rigidbody2D>().velocity = new Vector2(0, temp.y);
-            //transform.transform.position = temp;
         } else {
             dVelocity = 0;
             Vector2 temp = GetComponent<Rigidbody2D>().velocity;
@@ -92,19 +75,27 @@ public class BossBodyMovement : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = temp;
         }
 
-        if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle")&&ableToMove) {
-            if (Vector2.Distance(player.transform.position, transform.transform.position) > distanceBeforeMoving) {
-                Vector2 temp = transform.transform.position;
-                Vector2 tempPlay = player.transform.position;
-                if (tempPlay.x - temp.x > 0) {
-                    //temp.x += moveTowardsPlayer;
-                    GetComponent<Rigidbody2D>().AddForce(new Vector2(moveTowardsPlayer,0));
-                } else
-                    GetComponent<Rigidbody2D>().AddForce(new Vector2(-moveTowardsPlayer, 0));
-                //transform.transform.position = temp;
-            }
-        }
 
+        if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle") && ableToMove) {
+            Vector2 temp = transform.transform.position;
+            Vector2 scale = transform.transform.localScale;
+            Vector2 tempPlay = player.transform.position;
+            if (Vector2.Distance(player.transform.position, transform.transform.position) > distanceBeforeMoving) {
+                if (tempPlay.x - temp.x > 0) {
+                    GetComponent<Rigidbody2D>().AddForce(new Vector2(moveTowardsPlayer, 0));
+
+                } else {
+                    GetComponent<Rigidbody2D>().AddForce(new Vector2(-moveTowardsPlayer, 0));
+
+                }
+            }
+            if (tempPlay.x - temp.x > 0) {
+                scale.x = Mathf.Abs(scale.x) * -1;
+            } else {
+                scale.x = Mathf.Abs(scale.x);
+            }
+            transform.localScale = scale;
+        }
     }
     void FlipFirst()
     {
@@ -113,14 +104,10 @@ public class BossBodyMovement : MonoBehaviour
 
     private IEnumerator Dash()
     {
-        //Debug.Log("Gonna do the thing");
         while(dVelocity>0)
             yield return new WaitForSeconds(0.1f);
         Vector3 direction = (Vector2)(GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).normalized;
-        //GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * 500;
-        Debug.Log("Dashed");
         GetComponent<Rigidbody2D>().AddForce(direction.normalized*10000);
-        //Debug.Log(GetComponent<Rigidbody2D>().velocity);
         ableToMove = true;
     }
 

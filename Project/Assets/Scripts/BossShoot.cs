@@ -59,14 +59,6 @@ public class BossShoot : MonoBehaviour
     {
         // super jank just getting this done in time for release
         if (GameObject.Find("Mother").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle")) {
-            
-
-            /*if (Vector2.Distance(player.transform.position, GameObject.Find("Mother").transform.position) > 6f && nextTimeShoot < Time.time) {
-                Shoot(true);
-                //Debug.Log("Shot");
-                nextTimeShoot = Time.time + shootCooldown;
-            } // Projectile Shoot*/
-
             if (phase == 0 || phase == 3) { // Main Projectile
                 if (nextTimeShoot < Time.time) {
                     Shoot(false);
@@ -95,26 +87,24 @@ public class BossShoot : MonoBehaviour
                     nextTime = Time.time + cooldown;
                 }               
             }
-            /*
-            if (phase==2||phase == 3) { // AoE
+            
+            if (phase==2||phase == 3) { // Ground spikes
                 if (nextTime < Time.time) {
-                    if (phase > 0)
-                        physicalPattern(2);
+                        physicalPattern(2,0);
+                    nextTime = Time.time + cooldown*2;
                 }
-            }*/
+            }
         }
     }
-    void physicalPattern(int pattern = -1) {
+    void physicalPattern(int pattern = -1,int pos = -1) {
         if(pattern == -1) pattern = Random.Range(0, 3);
         if (pattern == 0 || pattern == 1) {
-            int pos = Random.Range(0, 3);
+            pos = Random.Range(0, 3);
             Physical(pos,true);
         } else {
-            int pos = Random.Range(0, 3);
+            if(pos==-1)pos = Random.Range(0, 3);
             StartCoroutine("PhysicalWave",pos);
         }
-
-        nextTime = Time.time + cooldown;
     }
     IEnumerator PhysicalWave(int pos)
     {
@@ -125,19 +115,20 @@ public class BossShoot : MonoBehaviour
             Physical(pos,false,(int)Mathf.Abs(Reverse-i));
             yield return new WaitForSeconds(.2f);
         }
+        nextTime = Time.time + cooldown;
     }
     void Physical(int pos,bool random = true,int place = 0) {
         GameObject physicalAttack = null;
         if (pos < 3) {
             Vector3 position = new Vector3(0, 0, 0);
             if (pos == 0) {
-                // For now, make pop up instantly
                 int rand = Random.Range(0, spawnPointsX.Length);
                 if(random)
                     position = new Vector3(spawnPointsX[rand], -5, 0);
                 else
                     position = new Vector3(spawnPointsX[place], -5, 0);
                 physicalAttack = Instantiate(hitObj, position, hitObj.transform.rotation) as GameObject;
+                physicalAttack.GetComponent<Animator>().SetTrigger("Spike");
             } else if (pos == 1) {
                 int rand = Random.Range(0, spawnPointsY.Length);
                 if (random)
@@ -146,6 +137,7 @@ public class BossShoot : MonoBehaviour
                     position = new Vector3(17.5f, spawnPointsY[place], 0);
                 Quaternion tempRotation = Quaternion.Euler(0, 0, 180);
                 physicalAttack = Instantiate(hitObj, position, tempRotation) as GameObject;
+                physicalAttack.GetComponent<Animator>().SetTrigger("SpikeLonger");
             } else if (pos == 2) {
                 int rand = Random.Range(0, spawnPointsY.Length);
                 if (random)
@@ -153,8 +145,9 @@ public class BossShoot : MonoBehaviour
                 else
                     position = new Vector3(-17, spawnPointsY[place], 0);
                 physicalAttack = Instantiate(hitObj, position, transform.rotation) as GameObject;
+                physicalAttack.GetComponent<Animator>().SetTrigger("SpikeLonger");
             }
-            physicalAttack.GetComponent<Animator>().SetTrigger("Spike");
+            
             physicalAttack.GetComponent<AttackTimer>().disappear();
         } else if (pos==3) {
             physicalAttack = Instantiate(AoE, transform.position, AoE.transform.rotation) as GameObject;

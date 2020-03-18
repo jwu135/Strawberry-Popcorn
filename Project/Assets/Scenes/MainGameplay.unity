@@ -1562,7 +1562,7 @@ MonoBehaviour:
   ConnectCA1: 0
   ConnectCA2: 0
   ConnectCA3: 0
-  damage1: 1
+  damage1: 20
   damage2: 4
   damage3: 0.1
   damage4: 3
@@ -8970,7 +8970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dbe86ec3780a9042adca60b66a6c57e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveTowardsPlayer: 20
+  moveTowardsPlayer: 25
   distanceBeforeMoving: 3
 --- !u!1 &1312915777
 GameObject:
