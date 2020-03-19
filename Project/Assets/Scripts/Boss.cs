@@ -56,6 +56,7 @@ public class Boss : MonoBehaviour
                 Piece.GetComponent<Rigidbody2D>().velocity = new Vector2(-0.5f, 0.5f) * 5;
                 healthIndex++;
                 phase++;
+                GameObject.FindGameObjectWithTag("EventSystem").GetComponent<CutsceneSystem>().cutscene(Piece);
             }
             updateHealth();
         }

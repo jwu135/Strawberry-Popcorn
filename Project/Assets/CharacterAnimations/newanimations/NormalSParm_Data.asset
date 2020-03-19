@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eec99bffe7ebe84e97f379bbdf2e0f2, type: 3}
+  m_Name: NormalSParm_Data
+  m_EditorClassIdentifier: 
+  dataName: NormalSParm
+  dragonBonesJSON: {fileID: 4900000, guid: 39bbccac33a7da54a8e3d5a11b4fa133, type: 3}
+  textureAtlas:
+  - textureAtlasJSON: {fileID: 4900000, guid: 52a9bb59a175b464d921bd50dc963bd8, type: 3}
+    texture: {fileID: 2800000, guid: 158fa15eb84787c46a4e14df1b11834a, type: 3}
+    material: {fileID: 2100000, guid: 5ee832b8a8a9b3f469a223769f978b4c, type: 2}
+    uiMaterial: {fileID: 0}

@@ -66,6 +66,7 @@ public class HealthManager : MonoBehaviour
                 Time.timeScale = 0;
                 health -= 1;
                 PlayerCombat.Hurt();
+                GameObject.Find("EventSystem").GetComponent<PlayerHeartsController>().losehealth();
                 helthText.text = health.ToString() + "/" + maxHealth.ToString();
             }
         }

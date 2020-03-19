@@ -44,6 +44,8 @@ public class BossShoot : MonoBehaviour
     public void startTime()
     {
         nextTime = Time.time + 1;
+        AoeNextTime = Time.time + AoECooldown;
+        nextTimeShoot = Time.time + shootCooldown;
     }
     public void setPhase(int p)
     {
@@ -59,13 +61,18 @@ public class BossShoot : MonoBehaviour
     {
         // super jank just getting this done in time for release
         if (GameObject.Find("Mother").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle")) {
-            if (phase == 0 || phase == 3) { // Main Projectile
+            if (phase == 0) { // Main Projectile
                 if (nextTimeShoot < Time.time) {
-                    Shoot(true);
+                    Shoot(false);
                     nextTimeShoot = Time.time + shootCooldown;
                     //Debug.Log("Shot");
                 }
-
+            }
+            if (phase == 3) { // Main Projectile
+                if (nextTimeShoot < Time.time) {
+                    Shoot(true);
+                    nextTimeShoot = Time.time + shootCooldown;
+                }
             }
             if (phase == 0 || phase == 2 || phase == 3) { // AoE
                 if (Vector2.Distance(player.transform.position, GameObject.Find("Mother").transform.position) < 4f && AoeNextTime < Time.time) {
