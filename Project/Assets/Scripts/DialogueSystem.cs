@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DialogueSystem : MonoBehaviour
 {
+    public Sprite[] box = new Sprite[2];
     public GameObject dialogueBox;
     public new Text name;
     public Text sentence;
@@ -44,6 +45,11 @@ public class DialogueSystem : MonoBehaviour
                     Destroy(this);
                 }
                 name.text = dialogue[index].name;
+                if (dialogue[index].name == "Mother:") {
+                    dialogueBox.GetComponent<Image>().sprite = box[0];
+                } else {
+                    dialogueBox.GetComponent<Image>().sprite = box[1];
+                }
                 finalSentence = dialogue[index].sentences;
                 currSentence = "";
                 StartCoroutine("textScroll");

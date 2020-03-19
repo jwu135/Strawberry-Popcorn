@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DragonBones;
 public class BossBodyMovement : MonoBehaviour
 {
     public static bool triggered;
@@ -78,7 +78,6 @@ public class BossBodyMovement : MonoBehaviour
 
         if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle") && ableToMove) {
             Vector2 temp = transform.transform.position;
-            Vector2 scale = transform.transform.localScale;
             Vector2 tempPlay = player.transform.position;
             if (Vector2.Distance(player.transform.position, transform.transform.position) > distanceBeforeMoving) {
                 if (tempPlay.x - temp.x > 0) {
@@ -90,11 +89,10 @@ public class BossBodyMovement : MonoBehaviour
                 }
             }
             if (tempPlay.x - temp.x > 0) {
-                scale.x = Mathf.Abs(scale.x) * -1;
+                transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>()._armature.flipX = true;
             } else {
-                scale.x = Mathf.Abs(scale.x);
+                transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>()._armature.flipX = false;
             }
-            transform.localScale = scale;
         }
     }
     void FlipFirst()

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eec99bffe7ebe84e97f379bbdf2e0f2, type: 3}
+  m_Name: Bhealth1_Data
+  m_EditorClassIdentifier: 
+  dataName: Bhealth1
+  dragonBonesJSON: {fileID: 4900000, guid: 462107d8dceccfc4c9a68b42ac87e5f0, type: 3}
+  textureAtlas:
+  - textureAtlasJSON: {fileID: 4900000, guid: fbc18420d703aa645ac206a1d652107a, type: 3}
+    texture: {fileID: 2800000, guid: a0911f835f7a21942981f549440f40e7, type: 3}
+    material: {fileID: 2100000, guid: 8d921ea83d36d5845ab049d17351be52, type: 2}
+    uiMaterial: {fileID: 0}

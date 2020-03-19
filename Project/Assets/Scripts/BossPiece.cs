@@ -5,6 +5,8 @@ using UnityEngine;
 public class BossPiece : MonoBehaviour
 {
     bool over = false;
+    public Sprite[] arms = new Sprite[2];
+    public GameObject[] healthbars = new GameObject[3];
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Floor") {
@@ -45,12 +47,21 @@ public class BossPiece : MonoBehaviour
                 (player.transform.Find("ArmatureMid").gameObject).SetActive(true);
                 player.GetComponent<Movement>().setArmature();
                 player.transform.Find("Arm").gameObject.GetComponent<Look>().setArmature();
+                player.transform.Find("Arm").gameObject.GetComponent<SpriteRenderer>().sprite = arms[0];
+                healthbars[0].SetActive(false);
+                healthbars[1].SetActive(true);
+
+            }
+            if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 2) {
+                healthbars[1].SetActive(false);
+                healthbars[2].SetActive(true);
             }
             if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 3) {
                 player.transform.Find("ArmatureMid").gameObject.SetActive(false);
                 player.transform.Find("ArmatureLast").gameObject.SetActive(true);
                 player.GetComponent<Movement>().setArmature();
                 player.transform.Find("Arm").gameObject.GetComponent<Look>().setArmature();
+                player.transform.Find("Arm").gameObject.GetComponent<SpriteRenderer>().sprite = arms[1];
             }
             GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossShoot>().setPhase(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
             Debug.Log(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());

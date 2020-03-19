@@ -17,6 +17,7 @@ public class Boss : MonoBehaviour
     private float[] healthPoints = new float[4];
     private int healthIndex = 0;
     private int phase = 0;
+    private bool damageable = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,25 +34,31 @@ public class Boss : MonoBehaviour
     {
         return phase;
     }
+    public void setDamageable(bool truth)
+    {
+        damageable = truth;
+    }
     private void updateHealth()
     {
         Vector2 temp = HealthBar.rectTransform.sizeDelta;
         text.text = (healthNew[healthIndex]).ToString() + "/" + (maxhealthNew[healthIndex]).ToString();
-        temp.x = 505f * (float)((healthNew[healthIndex]) / (maxhealthNew[healthIndex])); // changing here to show health
+        temp.x = 375.56f * (float)((healthNew[healthIndex]) / (maxhealthNew[healthIndex])); // changing here to show health
         HealthBar.rectTransform.sizeDelta = temp;
     }
     public void losehealth(double amnt)
     {
-        healthNew[healthIndex] -= amnt;
-        if (healthNew[healthNew.Length-1] <= 0) {
-            GameObject.FindGameObjectWithTag("EventSystem").GetComponent<gameOver>().startGameOver(true);     
-        }else if (healthNew[healthIndex] <= 0) {
-            GameObject Piece = Instantiate(GameObject.FindGameObjectWithTag("PieceOne"), transform.position, transform.rotation) as GameObject;
-            Piece.GetComponent<Rigidbody2D>().velocity = new Vector2(-0.5f, 0.5f) * 5;
-            healthIndex++;
-            phase++;
-        }            
-        updateHealth();
+        if (damageable) {
+            healthNew[healthIndex] -= amnt;
+            if (healthNew[healthNew.Length - 1] <= 0) {
+                GameObject.FindGameObjectWithTag("EventSystem").GetComponent<gameOver>().startGameOver(true);
+            } else if (healthNew[healthIndex] <= 0) {
+                GameObject Piece = Instantiate(GameObject.FindGameObjectWithTag("PieceOne"), transform.position, transform.rotation) as GameObject;
+                Piece.GetComponent<Rigidbody2D>().velocity = new Vector2(-0.5f, 0.5f) * 5;
+                healthIndex++;
+                phase++;
+            }
+            updateHealth();
+        }
     }
     
 }

@@ -61,7 +61,7 @@ public class BossShoot : MonoBehaviour
         if (GameObject.Find("Mother").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle")) {
             if (phase == 0 || phase == 3) { // Main Projectile
                 if (nextTimeShoot < Time.time) {
-                    Shoot(false);
+                    Shoot(true);
                     nextTimeShoot = Time.time + shootCooldown;
                     //Debug.Log("Shot");
                 }
@@ -178,6 +178,8 @@ public class BossShoot : MonoBehaviour
             bullet.transform.parent = transform;
             Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+           // if(transform.parent.localScale.x<0)
+           //  angle += 180;
             bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
             bullet.GetComponent<AttackTimer>().setTimer(1f);
             bullet.GetComponent<AttackTimer>().setHits(5f);

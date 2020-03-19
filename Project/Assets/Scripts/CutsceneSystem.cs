@@ -31,6 +31,11 @@ public class CutsceneSystem : MonoBehaviour
         };
     }
 
+    public void cutscene()
+    {
+
+    }
+
     public void DialogueDone()
     {
         foreach (GameObject i in objects) {
