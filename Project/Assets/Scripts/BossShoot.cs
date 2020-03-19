@@ -49,11 +49,11 @@ public class BossShoot : MonoBehaviour
             if (phase > 1 && nextTimeShoot < Time.time) {
                 Shoot();
                 nextTimeShoot = Time.time + shootCooldown;
-                Debug.Log("Shot");
+               // Debug.Log("Shot");
             }
             if (Vector2.Distance(player.transform.position, GameObject.Find("Mother").transform.position) > 6f && nextTimeShoot < Time.time) {
                 Shoot();
-                Debug.Log("Shot");
+               // Debug.Log("Shot");
                 nextTimeShoot = Time.time + shootCooldown;
             }
 

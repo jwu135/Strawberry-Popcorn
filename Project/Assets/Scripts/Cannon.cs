@@ -10,40 +10,25 @@ public class Cannon : MonoBehaviour
     public bool release = false;
     public Bullet Bullet;
     public Rigidbody2D rb;
+    public SpriteRenderer Bullet2;
     // Update is called once per frame
-    void Update()
+     void Start()
     {
-        if (Input.GetButton("Fire2") && !maxCharge && !release)
+        if (Input.GetButton("Fire2") )
         {
-            explode = true;
-            Bullet.rb.velocity = transform.right * 0;
-            rb.gravityScale = 0;
-            // Debug.Log(maxCharge);
-            Debug.Log(explode);
-        }
-        if (!Input.GetButton("Fire2") || maxCharge)
-        {
-            explode = false;
-            release = true;
             Bullet.rb.velocity = transform.right * 6;
-            //  Debug.Log(maxCharge);
-            Debug.Log(explode);
-        }
+            release = true;
 
-        if (explode && !release)
+        }
+        if (!Input.GetButton("Fire2") )
         {
-            if (scale < 7)
-            {
-                scale += 0.02f;
-                transform.localScale = new Vector2(1 + scale, 1 + scale);
-            }
 
-            if (scale >= 7f)
-            {               
-                maxCharge = true;
-                Debug.Log("hi");
-            }
+            Bullet.rb.velocity = transform.right * 6;
+            release = true;
+
         }
+
+
 
     }
 }

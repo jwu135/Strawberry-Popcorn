@@ -19,6 +19,7 @@ TagManager:
   - specialAttack1
   - EventSystem
   - DemoText
+  - enemyBody
   layers:
   - Default
   - TransparentFX
