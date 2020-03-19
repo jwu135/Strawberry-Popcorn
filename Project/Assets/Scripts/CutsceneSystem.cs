@@ -60,6 +60,7 @@ public class CutsceneSystem : MonoBehaviour
         while (Mathf.Abs(player.transform.position.x - currPiece.transform.position.x)>1) {
             yield return new WaitForSeconds(0.05f);
         }
+        currPiece.GetComponent<BossPiece>().eat();
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         player.transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("Idle", 0);
         yield return new WaitForSeconds(0.5f);

@@ -15,7 +15,7 @@ public class HealthManager : MonoBehaviour
     public float invicibilityCounter;
     public float manaCounter = 1;
     public float pauseTime = 100; //in milliseconds
-    private float timer = 0; //used for pause frames
+    public float timer = 0; //used for pause frames
 
 
     public Text helthText;

@@ -69,9 +69,9 @@ public class DialogueSystem : MonoBehaviour
                     dialogueBox.SetActive(false);
                     if (continuing) {
                         GetComponent<CutsceneSystem>().StartCoroutine("buffer");
-                    }else if(continuing2)
+                    } else if (continuing2) {
                         GetComponent<CutsceneSystem>().DialogueDone(true);
-                    else
+                    } else
                         GetComponent<CutsceneSystem>().DialogueDone();
                     
                 }

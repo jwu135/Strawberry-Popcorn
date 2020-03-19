@@ -18,6 +18,7 @@ public class Boss : MonoBehaviour
     private int healthIndex = 0;
     private int phase = 0;
     private bool damageable = true;
+    private bool disablePause = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +46,14 @@ public class Boss : MonoBehaviour
         temp.x = 375.56f * (float)((healthNew[healthIndex]) / (maxhealthNew[healthIndex])); // changing here to show health
         HealthBar.rectTransform.sizeDelta = temp;
     }
+    private void Update()
+    {
+        if (disablePause) {
+            Time.timeScale = 1;
+            player.GetComponent<HealthManager>().timer = 0;
+            disablePause = false;
+        }
+    }
     public void losehealth(double amnt)
     {
         if (damageable) {
@@ -57,6 +66,7 @@ public class Boss : MonoBehaviour
                 healthIndex++;
                 phase++;
                 GameObject.FindGameObjectWithTag("EventSystem").GetComponent<CutsceneSystem>().cutscene(Piece);
+                disablePause = true;
             }
             updateHealth();
         }
