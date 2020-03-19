@@ -5,7 +5,7 @@ using UnityEngine;
 public class Linger : MonoBehaviour
 {
     public float speed;
-    public Spread Spread;
+    public Spread2 Spread2;
 
     private Transform target;
 
@@ -17,7 +17,7 @@ public class Linger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector2.Distance(transform.position, target.position) > 0 && Spread.explode)
+        if(Vector2.Distance(transform.position, target.position) > 0 && Spread2.explode)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }

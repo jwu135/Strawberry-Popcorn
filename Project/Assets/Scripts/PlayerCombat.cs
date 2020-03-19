@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -43,13 +44,17 @@ public class PlayerCombat : MonoBehaviour
 
     public LayerMask enemyGroup;
 
+    public PlayableDirector cutscene1;
+
     public Enemy Enemy;
     public Flame Flame;
     //public Spread Spread;
     public harpoon harpoonthrow;
     public HealthManager HM;
     public Flamethrower Flamethrower;
-    public Cannon Cannon;
+    public BossStick BossStick;
+    public Stick Stick;
+    public FakeCannon FakeCannon;
 
     public double timeBtwWeaponChange;
     public double delayBtwAttack1;
@@ -65,6 +70,9 @@ public class PlayerCombat : MonoBehaviour
     public bool LASER = false;
     public bool fire2Switch = false;
     public bool stop1 = false;
+    public bool launch = false;
+    public bool launch2 = false;
+    public bool launchVisible = false;
     public float evolution;
     public float attackRange;
     public double damage;
@@ -75,12 +83,16 @@ public class PlayerCombat : MonoBehaviour
 
     private bool fire2State;
 
+    public Vector2 aPosition1 = new Vector2(5, 5);
+    public float hookspeed;
+
 
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButton("Fire2") == true || Input.GetAxis("Fire2") > 0.5f)
+
+        if (Input.GetButton("Fire2") == true || Input.GetAxis("Fire2") > 0.5f)
         {
             fire2State = true;
         }
@@ -105,7 +117,6 @@ public class PlayerCombat : MonoBehaviour
         if (!Input.GetButton("Fire2"))
         {
             fire2Switch = false;
-
         }
 
         if (Input.GetButton("Fire2") && weaponCycle == 1 && fire2Switch && timeBtwChargeAttack1 > 0)
@@ -119,7 +130,7 @@ public class PlayerCombat : MonoBehaviour
 
         if (weaponCycle == 1 && fire2Switch && specialChargeAttack1Timer > 0)
         {
-            stop1 = true;
+            //stop1 = true;
         }
         else
         {
@@ -181,8 +192,8 @@ public class PlayerCombat : MonoBehaviour
         if (weaponCycle == 3)
         {
             ArmRenderer.enabled = true;
-            FlameCollider.enabled = true;
-            FlameRenderer.enabled = true;
+            //FlameCollider.enabled = true;
+            //FlameRenderer.enabled = true;
             HarpoonCollider.enabled = false;
             HarpoonRenderer.enabled = false;
         }
@@ -218,10 +229,13 @@ public class PlayerCombat : MonoBehaviour
             //nomnomnomnomnom
             /*if (Input.GetButtonDown("eat") && evolution < 3)
             {
+                
                 timeBtwAttack += weaponSwapCD;
                 evolution += 1;
                 weaponCycle = evolution;
+                cutscene1.Play();
             }*/
+
             //mushroom poison
             if (Input.GetButtonDown("special") && HM.mana >= 20 && HM.mana < 50)
             {
@@ -260,6 +274,7 @@ public class PlayerCombat : MonoBehaviour
                 delayChargeAttackCD = 1;
                 timeBtwAttack = 1;
 
+
             }
         }
         else
@@ -267,18 +282,29 @@ public class PlayerCombat : MonoBehaviour
             timeBtwAttack -= Time.deltaTime;
         }
 
+
+
         if (timeBtwChargeAttack1 <= 0)
         {
             //strawberry cannon
-            if (fire2State && weaponCycle == 1 && !Input.GetButton("Fire1"))
+            if (fire2State && weaponCycle == 1 && !Input.GetButton("Fire1") && !FakeCannon.maxCharge)
             {
-                Shoot2();
+                launch = true;
+                launchVisible = true;
                 timeBtwChargeAttack1 = delayBtwChargeAttack1 - delayChargeAttackCD;
                 specialChargeAttack1Timer = 1.75;
             }
         }
         else 
         {
+            if (!Input.GetButtonUp("Fire2") || specialChargeAttack1Timer <= 0)
+            {
+                //launch = true;
+                //specialChargeAttack1Timer = 0;
+
+            }
+
+
             if (!Input.GetButtonDown("Fire2") || specialChargeAttack1Timer <= 0)
             {
                 timeBtwChargeAttack1 -= Time.deltaTime;
@@ -288,15 +314,25 @@ public class PlayerCombat : MonoBehaviour
         if (timeBtwChargeAttack2 <= 0)
         {
             //tentacle or pineaple harpoon
-            if (fire2State && weaponCycle == 2 && !Input.GetButton("Fire1") && harpoonthrow.thrown != true && evolution > 1)
+            if (fire2State && weaponCycle == 2 && !Input.GetButton("Fire1") && BossStick.pierced != true && evolution > 1)
             {
+                launch2 = true;
                 Shoot3();
                 timeBtwChargeAttack2 = delayBtwChargeAttack2 - delayChargeAttackCD;
+
             }
+
         }
         else
         {
             timeBtwChargeAttack2 -= Time.deltaTime;
+        }
+
+        //tentacle or pineaple harpoon
+        if (fire2State && weaponCycle == 2 && !Input.GetButton("Fire1") && BossStick.pierced == true && evolution > 1)
+        {
+            Debug.Log("fsdehkjfebwjfeswjufbswejukibeju");
+            BossStick.pierced = false;
         }
 
         if (timeBtwChargeAttack3 <= 0)
@@ -334,14 +370,28 @@ public class PlayerCombat : MonoBehaviour
 
     }
 
-    void Shoot2()
+    public void Shoot2()
     {
-        Instantiate(bullet2Prefab, firePoint.position, firePoint.rotation);
+        GameObject spawnedObject = (GameObject)Instantiate(bullet2Prefab, firePoint.position, firePoint.rotation);
+        spawnedObject.transform.localScale = new Vector2( (float)(FakeCannon.copyscalex/ (float)2.5) , (float)(FakeCannon.copyscaley/ (float)2.5) );
         //Enemy.TakeDamage3(damage3);
+        
     }
     void Shoot3()
     {
-        Instantiate(harpoonPrefab, firePoint2.position, firePoint2.rotation);
+      //  if (!launch2)
+      //  {
+            GameObject spawnedObject2 = (GameObject)Instantiate(harpoonPrefab, firePoint2.position, firePoint2.rotation);
+            Debug.Log(spawnedObject2.transform.position.x);
+            launch2 = true;
+      //  }
+        if (BossStick.pierced == true)
+        {
+            //BossStick.aPosition1
+            transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), new Vector2(spawnedObject2.transform.position.x, spawnedObject2.transform.position.y), (hookspeed * 3) * Time.deltaTime);
+            hookspeed = Mathf.Clamp(Vector2.Distance(new Vector2(transform.position.x, transform.position.y), new Vector2(spawnedObject2.transform.position.x, spawnedObject2.transform.position.y)), 5, 10);
+            Debug.Log(BossStick.aPosition1);
+        }
         //Enemy.TakeDamage4(damage4);
     }
     void Shoot4()

@@ -10,6 +10,8 @@ public class Flamethrower : MonoBehaviour
     public PlayerCombat PCom;
     public float flameLength;
     public float flameDegrade;
+    public SpriteRenderer LaserRenderer;
+    public BoxCollider2D LaserCollider;
     // Update is called once per frame
     void Update()
     {
@@ -19,7 +21,7 @@ public class Flamethrower : MonoBehaviour
             //Debug.Log(lit);
             if (fuseTimer < flameDegrade)
             {
-                fuseTimer += (Time.deltaTime/2 );
+                fuseTimer += ((float)(Time.deltaTime/2 )/6)*((float)2 /3);
                // Debug.Log(fuseTimer);
             }
         }
@@ -30,20 +32,21 @@ public class Flamethrower : MonoBehaviour
            // Debug.Log(lit);
             if (fuseTimer > 0)
             {
-                fuseTimer -= (Time.deltaTime/2 + Time.deltaTime / 4);
+                fuseTimer -= ((float)(Time.deltaTime/2 + Time.deltaTime / 4)/ 6)*((float)2 / 3);
              //   Debug.Log(fuseTimer);
             }
-            transform.localScale = new Vector3(1,
-            2, 1);
+            transform.localScale = new Vector3((float)5 /100,
+            (float)3 /10, 1);
         }
     }
 
     public void size()
     {
-        transform.localScale = new Vector3(1,
-           2, 1);
-        transform.localScale = new Vector3(transform.localScale.x,
-            transform.localScale.y + flameLength - (fuseTimer * 4), transform.localScale.z);
+        
+        transform.localScale = new Vector3((float)5 / 100,
+            (float)3 / 10, 1);
+        transform.localScale = new Vector3(transform.localScale.x + flameLength - (fuseTimer * 4),
+            transform.localScale.y, transform.localScale.z);
        
         
             InvokeRepeating("size2", 0.1f, 0.1f);
@@ -61,15 +64,20 @@ public class Flamethrower : MonoBehaviour
             CancelInvoke();
         }
             Debug.Log("hi");
-        if (transform.localScale.y - fuseTimer > 0)
+        if (transform.localScale.x - fuseTimer > 0)
         {
-            transform.localScale = new Vector3(transform.localScale.x,
-                transform.localScale.y - fuseTimer, transform.localScale.z);
+            LaserCollider.enabled = true;
+            LaserRenderer.enabled = true;
+            Debug.Log("seen");
+            transform.localScale = new Vector3(transform.localScale.x - fuseTimer,
+                transform.localScale.y, transform.localScale.z);
         }
         else
         {
-            transform.localScale = new Vector3(1,
-            2, 1);
+            LaserCollider.enabled = false;
+            LaserRenderer.enabled = false;
+            transform.localScale = new Vector3((float)5 / 100,
+            (float)3 / 10, 1);
         }
         //StartCoroutine(size3());
     }

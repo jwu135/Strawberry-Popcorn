@@ -25,9 +25,9 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentValue < 100)
+        if (currentValue < PlayerCombat.timeBtwChargeAttack1)
         {
-            currentValue += Time.deltaTime/2;
+            currentValue += Time.deltaTime;
             ProgressIndicator.text = ((int)currentValue).ToString();
             NormalAttackCD.SetActive(true);
             NormalAttack1UI.SetActive(true);
