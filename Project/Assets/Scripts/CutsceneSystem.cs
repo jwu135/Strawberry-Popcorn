@@ -37,9 +37,11 @@ public class CutsceneSystem : MonoBehaviour
     public void cutscene(GameObject piece)
     {
         Stop();
+        GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossShoot>().destroyProjectiles();
         Time.timeScale = 1;
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         boss.GetComponent<Rigidbody2D>().velocity = transform.up * -20;
+        player.GetComponent<Rigidbody2D>().velocity = transform.up * -20;
         boss.transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("hurt", 0);
         player.transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("Idle", 0);
         GetComponent<DialogueSystem>().dialogueBox.SetActive(true); 
@@ -61,6 +63,7 @@ public class CutsceneSystem : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
         currPiece.GetComponent<BossPiece>().eat();
+        player.transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("Idle", 0);
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         player.transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("Idle", 0);
         yield return new WaitForSeconds(0.5f);

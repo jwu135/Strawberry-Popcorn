@@ -9,6 +9,7 @@ public class BossShoot : MonoBehaviour
     public GameObject projectile;
     public GameObject hitObj;
     public GameObject AoE;
+    private Stack allProjectiles = new Stack();
 
     private int[] spawnPointsX = new int[] { -14, -7, 0, 7, 14 };
     private float[] spawnPointsY = new float[] { -7f, -3.5f, 0, 3.5f, 7f};
@@ -30,7 +31,12 @@ public class BossShoot : MonoBehaviour
     private float[] healthmarks = {75f,50f};
     private int healthIndex = 0;
 
-
+    public void destroyProjectiles()
+    {
+        foreach(GameObject projectile in allProjectiles) {
+            Destroy(projectile);
+        }
+    }
     private void Start()
     {
         nextTime = Time.time + 2f;
@@ -174,6 +180,7 @@ public class BossShoot : MonoBehaviour
             physicalAttack.GetComponent<Animator>().SetTrigger("Spike");
             physicalAttack.GetComponent<AttackTimer>().disappear();
         }
+        allProjectiles.Push(physicalAttack);
     }
     
 
@@ -191,7 +198,7 @@ public class BossShoot : MonoBehaviour
             bullet.GetComponent<AttackTimer>().setTimer(1f);
             bullet.GetComponent<AttackTimer>().setHits(5f);
             bullet.GetComponent<AttackTimer>().disappear();
-
+            allProjectiles.Push(bullet);
         } else {
             int max = 1;
             for (int i = 0; i < max; i++) {
@@ -201,6 +208,7 @@ public class BossShoot : MonoBehaviour
                 Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
                 bullet.GetComponent<BossBullet>().enabled = true;
                 bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * bulletSpeed;
+                allProjectiles.Push(bullet);
             }
         }
         nextTime = Time.time + cooldown;

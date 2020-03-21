@@ -51,6 +51,7 @@ public class Boss : MonoBehaviour
         if (disablePause) {
             Time.timeScale = 1;
             player.GetComponent<HealthManager>().timer = 0;
+            //player.tag = "";
             disablePause = false;
         }
     }
