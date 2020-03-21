@@ -16,7 +16,7 @@ public class IntroHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump")|| Input.GetButtonDown("Fire")) {
+        if (Input.GetButtonDown("Jump")|| Input.GetButtonDown("Fire1")) {
             index++;
             if(index>images.Length-1)
                 SceneManager.LoadScene("Scenes/MainGameplay");
