@@ -23,7 +23,7 @@ public class HealthManager : MonoBehaviour
     public Text helthText;
     public Text manaText;
 
-    private float alphaLevel = 1f; //Used to control the opacity of the hit overlay
+    private float alphaLevel = 0f; //Used to control the opacity of the hit overlay
     public float alphaStep = 0.005f; //how fast the opacity decays 1f is fully opaque, 0f is full transparent
 
     public PlayerCombat PlayerCombat;

@@ -21,6 +21,10 @@ public class Movement : MonoBehaviour
     {
         armatureComponent = GameObject.FindGameObjectWithTag("ArmatureTag").GetComponent<UnityArmatureComponent>();
     }
+    public UnityArmatureComponent getArmature()
+    {
+        return armatureComponent;
+    }
     void Update()
     {
         if (Time.timeScale != 0)

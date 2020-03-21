@@ -20,6 +20,7 @@ public class DialogueSystem : MonoBehaviour
     private int stopsIndex;
     bool continuing = false;
     bool continuing2 = false;
+    public bool dialogueGoing = true;
     public void Start()
     {
         finalSentence = dialogue[index].sentences;
@@ -37,36 +38,53 @@ public class DialogueSystem : MonoBehaviour
     }
     public void restart()
     {
+        index++;
+        dialogueGoing = true;
         finalSentence = dialogue[index].sentences;
         currSentence = "";
         continuing = true;
         name.text = dialogue[index].name;
         sentence.text = currSentence;
+        boxChange();
         StartCoroutine("textScroll");
     }
     public void restart2()
     {
         index++;
+        dialogueGoing = true;
         finalSentence = dialogue[index].sentences;
         currSentence = "";
         continuing = false;
         continuing2 = true;
         name.text = dialogue[index].name;
         sentence.text = currSentence;
+        boxChange();
         StartCoroutine("textScroll");
 
     }
+    private void boxChange()
+    {
+        if (dialogue[index].name == "Mother:") {
+            dialogueBox.GetComponent<Image>().sprite = box[0];
+        } else if (dialogue[index].name == "Strawberry Popcorn:") {
+            dialogueBox.GetComponent<Image>().sprite = box[1];
+        } else {
+            dialogueBox.GetComponent<Image>().sprite = box[2];
+        }
+    }
     public void lookAround()
     {
-        if (Input.GetButtonDown("Jump")){
+        if (Input.GetButtonDown("Jump")&&dialogueGoing){
+            Debug.Log("Currently viewing dialogue #: "+index);
             if (currSentence.Length < finalSentence.Length) {
                 sentence.text = currSentence = finalSentence;
             } else {
-                if (stops[stopsIndex] > index + 1) {
+                if (stops[stopsIndex] > index + 1&& stopsIndex<8) {
                     index++;
                 } else {
                     stopsIndex++;
                     dialogueBox.SetActive(false);
+                    dialogueGoing = false;
                     if (continuing) {
                         GetComponent<CutsceneSystem>().StartCoroutine("buffer");
                     } else if (continuing2) {
@@ -76,13 +94,7 @@ public class DialogueSystem : MonoBehaviour
                     
                 }
                 name.text = dialogue[index].name;
-                if (dialogue[index].name == "Mother:") {
-                    dialogueBox.GetComponent<Image>().sprite = box[0];
-                } else if (dialogue[index].name == "Strawberry Popcorn:") {
-                    dialogueBox.GetComponent<Image>().sprite = box[1];
-                } else {
-                    dialogueBox.GetComponent<Image>().sprite = box[2];
-                }
+                boxChange();
                 finalSentence = dialogue[index].sentences;
                 currSentence = "";
                 StartCoroutine("textScroll");

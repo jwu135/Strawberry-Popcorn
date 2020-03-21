@@ -783,6 +783,87 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &64434505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 64434506}
+  - component: {fileID: 64434507}
+  m_Layer: 0
+  m_Name: GotHitFilter
+  m_TagString: HitOverlay
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &64434506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64434505}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.166, y: -0.06699991, z: 4.07}
+  m_LocalScale: {x: 1.25104, y: 1.2577599, z: 1}
+  m_Children: []
+  m_Father: {fileID: 519420032}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &64434507
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64434505}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: 505768e87417fd04ab497f7a8aca4bf6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 25.6, y: 14.4}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &79134341
 GameObject:
   m_ObjectHideFlags: 1
@@ -1437,7 +1518,7 @@ MonoBehaviour:
   ConnectCA1: 0
   ConnectCA2: 0
   ConnectCA3: 0
-  damage1: 1
+  damage1: 10
   damage2: 4
   damage3: 0.1
   damage4: 3
@@ -1982,7 +2063,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.9324446, y: 0.3305748}
+  m_Size: {x: 4.714547, y: 0.19080126}
   m_EdgeRadius: 0
 --- !u!95 &176314255
 Animator:
@@ -4707,7 +4788,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3.7, z: -10.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 64434506}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10642,7 +10724,7 @@ MonoBehaviour:
     sentences: "Poppy\u2026"
   - name: 'Strawberry Popcorn:'
     sentences: This must be done, Mother.
-  - name: Mother
+  - name: 'Mother:'
     sentences: "\u2026 "
   - name: 
     sentences: "\rYou Just gained the final Special Attack tier 3: Eldritch Berry.\r\nWith
@@ -10656,6 +10738,7 @@ MonoBehaviour:
     sentences: "No. This ends now, Mother. I won\u2019t let you keep using my like
       that ever again. This cycle ends now."
   stops: 0c000000140000001c00000021000000290000002e00000033000000
+  dialogueGoing: 1
 --- !u!114 &1407061492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13598,8 +13681,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b159e4ed17ed047a71f92a80dd64ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  health: 10
+  maxHealth: 100
+  health: 100
   maxMana: 100
   mana: 0
   invicibilityLength: 7
@@ -13609,6 +13692,7 @@ MonoBehaviour:
   timer: 0
   helthText: {fileID: 242097788}
   manaText: {fileID: 1942808331}
+  alphaStep: 0.005
   PlayerCombat: {fileID: 1814532874}
 --- !u!4 &1814532871
 Transform:
@@ -13664,7 +13748,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.1447973}
+  m_Size: {x: 0.8340735, y: 2.1447973}
   m_EdgeRadius: 0
 --- !u!114 &1814532873
 MonoBehaviour:
@@ -13726,8 +13810,10 @@ MonoBehaviour:
   firePoint: {fileID: 2125743940}
   firePoint2: {fileID: 1437380691}
   harpoon: {fileID: 430686156}
-  shieldPosition1: {fileID: 573651887}
-  shieldPosition2: {fileID: 128708581}
+  shieldPosition1: {fileID: 5434724060040344454, guid: c5070aa7d3e688c49bba9418d8297a07,
+    type: 3}
+  shieldPosition2: {fileID: 956237293602390015, guid: 984ec65e5d4e64940bfc3c251e44ce98,
+    type: 3}
   enemyGroup:
     serializedVersion: 2
     m_Bits: 256

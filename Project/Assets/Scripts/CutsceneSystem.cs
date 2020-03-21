@@ -43,7 +43,7 @@ public class CutsceneSystem : MonoBehaviour
         boss.GetComponent<Rigidbody2D>().velocity = transform.up * -20;
         player.GetComponent<Rigidbody2D>().velocity = transform.up * -20;
         boss.transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("hurt", 0);
-        player.transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("Idle", 0);
+        player.GetComponent<Movement>().getArmature().animation.Play("Idle", 0);
         GetComponent<DialogueSystem>().dialogueBox.SetActive(true); 
         GetComponent<DialogueSystem>().restart();
         currPiece = piece;
@@ -51,21 +51,22 @@ public class CutsceneSystem : MonoBehaviour
     }
     IEnumerator buffer()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         int direction = (player.transform.position.x > currPiece.transform.position.x) ? 0 : 1;
-        float speed = 4;
+        float speed = 6;
         if (direction == 0) {
             speed *= -1;
         }
         player.GetComponent<Rigidbody2D>().velocity = transform.right*speed;
-        player.transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("Running", 0);
+        player.GetComponent<Movement>().getArmature().animation.Play("Running", 0);
         while (Mathf.Abs(player.transform.position.x - currPiece.transform.position.x)>1) {
             yield return new WaitForSeconds(0.05f);
         }
         currPiece.GetComponent<BossPiece>().eat();
-        player.transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("Idle", 0);
+        //yield return new WaitForSeconds(0.1f);
+        player.GetComponent<Movement>().getArmature().animation.Play("Idle", 0);
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-        player.transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("Idle", 0);
+        //player.transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("Idle", 0);
         yield return new WaitForSeconds(0.5f);
 
         boss.transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("bossIdle", 0);

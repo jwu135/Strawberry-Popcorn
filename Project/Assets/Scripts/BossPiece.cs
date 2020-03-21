@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DragonBones;
 public class BossPiece : MonoBehaviour
 {
     bool over = false;
