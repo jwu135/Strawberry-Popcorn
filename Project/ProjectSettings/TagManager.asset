@@ -20,6 +20,7 @@ TagManager:
   - EventSystem
   - DemoText
   - enemyBody
+  - HitOverlay
   layers:
   - Default
   - TransparentFX

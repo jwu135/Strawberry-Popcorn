@@ -16,16 +16,23 @@ public class HealthManager : MonoBehaviour
     public float manaCounter = 1;
     public float pauseTime = 100; //in milliseconds
     public float timer = 0; //used for pause frames
+    private GameObject[] HitOverlayArr;
+    private SpriteRenderer HitOverlay;
 
 
     public Text helthText;
     public Text manaText;
+
+    private float alphaLevel = 1f; //Used to control the opacity of the hit overlay
+    public float alphaStep = 0.005f; //how fast the opacity decays 1f is fully opaque, 0f is full transparent
 
     public PlayerCombat PlayerCombat;
 
     // Start is called before the first frame update
     void Start()
     {
+        HitOverlayArr = GameObject.FindGameObjectsWithTag("HitOverlay");
+        HitOverlay = HitOverlayArr[0].GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -34,11 +41,24 @@ public class HealthManager : MonoBehaviour
         if (Time.timeScale == 0 && timer <= pauseTime)
         {
             timer += Time.unscaledDeltaTime * 1000;
+            
         }
         else if(timer >= pauseTime)
         {
             Time.timeScale = 1;
             timer = 0;
+            HitOverlay.color = new Color(1f, 1f, 1f, 0f);
+        }
+
+        if (alphaLevel - alphaStep > 0 && timer == 0 )
+        {
+            alphaLevel -= alphaStep;
+            HitOverlay.color = new Color(1f, 1f, 1f, alphaLevel);
+        }
+        else if(alphaLevel - alphaStep < 0 && timer == 0 )
+        {
+            alphaLevel = 0;
+            HitOverlay.color = new Color(1f, 1f, 1f, alphaLevel);
         }
     }
     // FixedUpdate is called 50 times a second
@@ -69,6 +89,8 @@ public class HealthManager : MonoBehaviour
                 GameObject.Find("EventSystem").GetComponent<PlayerHeartsController>().losehealth();
                 invicibilityCounter = invicibilityLength;
                 helthText.text = health.ToString() + "/" + maxHealth.ToString();
+                alphaLevel = 1f;
+                HitOverlay.color = new Color(1f, 1f, 1f, 1f);
             }
         }
         else
