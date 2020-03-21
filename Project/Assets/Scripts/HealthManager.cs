@@ -67,6 +67,7 @@ public class HealthManager : MonoBehaviour
                 health -= 1;
                 PlayerCombat.Hurt();
                 GameObject.Find("EventSystem").GetComponent<PlayerHeartsController>().losehealth();
+                invicibilityCounter = invicibilityLength;
                 helthText.text = health.ToString() + "/" + maxHealth.ToString();
             }
         }
