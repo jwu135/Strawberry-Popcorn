@@ -15,6 +15,7 @@ public class dodge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.LogError("Using Deprecated Script dodge.cs");
         if (Input.GetKey(KeyCode.E))
         {
             invicibilityCounter = invicibilityLength;
