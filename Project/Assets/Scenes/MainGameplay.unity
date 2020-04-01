@@ -6665,7 +6665,7 @@ MonoBehaviour:
   invicibilityLength: 7
   invicibilityCounter: 0
   manaCounter: 1
-  pauseTime: 100
+  pauseTime: 135
   helthText: {fileID: 242097788}
   manaText: {fileID: 1942808331}
   alphaStep: 0.005
