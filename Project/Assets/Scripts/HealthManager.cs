@@ -38,7 +38,7 @@ public class HealthManager : MonoBehaviour
     void Update()
     {
 
-        if (Time.timeScale == 0 && timer <= pauseTime)
+        if (Time.timeScale == 0.3f && timer <= pauseTime)
         {
             timer += Time.unscaledDeltaTime * 1000;
             
@@ -83,7 +83,7 @@ public class HealthManager : MonoBehaviour
         {
             if (other.tag == "BossBullet")
             {
-                Time.timeScale = 0;
+                Time.timeScale = 0.3f;
                 health -= 1;
                 PlayerCombat.Hurt();
                 helthText.text = health.ToString() + "/" + maxHealth.ToString();
@@ -95,6 +95,8 @@ public class HealthManager : MonoBehaviour
         {
             if (other.tag == "BossBullet" && manaCounter == 1)
             {
+                Debug.Log("dodge!");
+                Time.timeScale = 0.3f;
                 mana += 5;
                 manaCounter = 0;
                 manaText.text = mana.ToString() + "/" + maxMana.ToString();
