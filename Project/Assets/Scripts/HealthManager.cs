@@ -10,7 +10,6 @@ public class HealthManager : MonoBehaviour
     public double maxMana = 100;
     public double mana = 100;
 
-
     public float invicibilityLength;
     public float invicibilityCounter;
     public float manaCounter = 1;
@@ -73,6 +72,7 @@ public class HealthManager : MonoBehaviour
 
         if (health <= 0)
         {
+            GlobalVariable.deathCounter += 1;
             GameObject.Find("EventSystem").GetComponent<gameOver>().startGameOver(false);
         }
     }
