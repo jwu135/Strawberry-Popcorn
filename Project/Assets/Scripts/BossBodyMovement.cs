@@ -38,7 +38,15 @@ public class BossBodyMovement : MonoBehaviour
         }
     }
 
-    private void Update()
+    void Update()
+    {
+        if (Time.timeScale != 0f)
+        {
+            Move();
+        }
+    }
+
+    private void Move()
     {
         GameObject player =  GameObject.FindGameObjectWithTag("Player");
         
