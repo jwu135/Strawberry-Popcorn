@@ -75,7 +75,6 @@ public class DialogueSystem : MonoBehaviour
     public void lookAround()
     {
         if (Input.GetButtonDown("Jump")&&dialogueGoing){
-            Debug.Log("Currently viewing dialogue #: "+index);
             if (currSentence.Length < finalSentence.Length) {
                 sentence.text = currSentence = finalSentence;
             } else {
