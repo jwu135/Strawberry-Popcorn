@@ -7,10 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class gameOver : MonoBehaviour
 {
-    // Start is called before the first frame update
 
-    // Update is called once per frame
-   public void startGameOver(bool boss)
+    public void startGameOver(bool boss)
     {
         StartCoroutine("gameEnd",boss);
     }

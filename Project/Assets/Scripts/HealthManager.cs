@@ -10,12 +10,12 @@ public class HealthManager : MonoBehaviour
     public double maxMana = 100;
     public double mana = 100;
 
-
     public float invicibilityLength;
     public float invicibilityCounter;
     public float manaCounter = 1;
     public float pauseTime = 100; //in milliseconds
     public float timer = 0; //used for pause frames
+    private float scaleTime = 0f;
     private GameObject[] HitOverlayArr;
     private SpriteRenderer HitOverlay;
 
@@ -38,7 +38,7 @@ public class HealthManager : MonoBehaviour
     void Update()
     {
 
-        if (Time.timeScale == 0 && timer <= pauseTime)
+        if (Time.timeScale == scaleTime && timer <= pauseTime)
         {
             timer += Time.unscaledDeltaTime * 1000;
             
@@ -72,6 +72,7 @@ public class HealthManager : MonoBehaviour
 
         if (health <= 0)
         {
+            GlobalVariable.deathCounter += 1;
             GameObject.Find("EventSystem").GetComponent<gameOver>().startGameOver(false);
         }
     }
@@ -83,7 +84,7 @@ public class HealthManager : MonoBehaviour
         {
             if (other.tag == "BossBullet")
             {
-                Time.timeScale = 0;
+                Time.timeScale = scaleTime;
                 health -= 1;
                 PlayerCombat.Hurt();
                 GameObject.Find("EventSystem").GetComponent<PlayerHeartsController>().losehealth();
@@ -97,6 +98,7 @@ public class HealthManager : MonoBehaviour
         {
             if (other.tag == "BossBullet" && manaCounter == 1)
             {
+                Time.timeScale = scaleTime;
                 mana += 5;
                 manaCounter = 0;
                 manaText.text = mana.ToString() + "/" + maxMana.ToString();
