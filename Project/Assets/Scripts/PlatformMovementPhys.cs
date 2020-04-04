@@ -84,6 +84,7 @@ public class PlatformMovementPhys : MonoBehaviour
         if(Input.GetButtonDown("Jump") == true && !PlayerCombat.stop1)
         {
             jumpButtonDown = true;
+
         } //workaround for disparity between update and fixedUpdate
     }
 
@@ -236,6 +237,7 @@ public class PlatformMovementPhys : MonoBehaviour
 
     void jump()
     {
+        SoundManager.PlaySound("playerJump");
         velocityVector.y = jumpVelocity;
         if (remainingAirJumps > 0 && state == 1) //conditions for a double jump
         {
