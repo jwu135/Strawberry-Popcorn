@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eec99bffe7ebe84e97f379bbdf2e0f2, type: 3}
+  m_Name: dodgeSPr_Data
+  m_EditorClassIdentifier: 
+  dataName: dodgeSPr
+  dragonBonesJSON: {fileID: 4900000, guid: 0c36e32afd7d98a41bd69f6408e3b9a3, type: 3}
+  textureAtlas:
+  - textureAtlasJSON: {fileID: 4900000, guid: 69a4fbb9be712954387232284e33465a, type: 3}
+    texture: {fileID: 2800000, guid: 928df326121a8a6459cd4279c35cf8b8, type: 3}
+    material: {fileID: 2100000, guid: 59613f661e601c44c8182f2dafac8462, type: 2}
+    uiMaterial: {fileID: 0}

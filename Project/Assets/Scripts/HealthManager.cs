@@ -89,7 +89,7 @@ public class HealthManager : MonoBehaviour
                 PlayerCombat.Hurt();
                 GameObject.Find("EventSystem").GetComponent<PlayerHeartsController>().losehealth();
                 invicibilityCounter = invicibilityLength;
-                helthText.text = health.ToString() + "/" + maxHealth.ToString();
+                //helthText.text = health.ToString() + "/" + maxHealth.ToString();
                 alphaLevel = 1f;
                 HitOverlay.color = new Color(1f, 1f, 1f, 1f);
             }

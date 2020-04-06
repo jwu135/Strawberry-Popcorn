@@ -40,7 +40,6 @@ public class BossPiece : MonoBehaviour
             player.GetComponent<PlayerCombat>().evolution++;
             player.GetComponent<PlayerCombat>().weaponCycle = player.GetComponent<PlayerCombat>().evolution;
         }
-        //Debug.Log(GetComponent<Boss>().getPhase());
         if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 1) {
             (player.transform.Find("Armature").gameObject).SetActive(false);
             (player.transform.Find("ArmatureMid").gameObject).SetActive(true);

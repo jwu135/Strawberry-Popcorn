@@ -25,6 +25,9 @@ public class SceneChanger : MonoBehaviour
         if (Input.GetButtonDown("Jump")) {
             playGame();
         }
+        if (Input.GetButtonDown("Fire1")) {
+            startGame();
+        }
     }
     void startGame()
     {

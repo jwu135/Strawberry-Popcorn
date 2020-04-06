@@ -192,8 +192,6 @@ public class BossShoot : MonoBehaviour
             bullet.transform.parent = transform;
             Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-           // if(transform.parent.localScale.x<0)
-           //  angle += 180;
             bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
             bullet.GetComponent<AttackTimer>().setTimer(1f);
             bullet.GetComponent<AttackTimer>().setHits(5f);
@@ -206,6 +204,8 @@ public class BossShoot : MonoBehaviour
                 Vector3 temp = transform.position;
                 GameObject bullet = Instantiate(projectile, temp, transform.rotation) as GameObject;
                 Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
                 bullet.GetComponent<BossBullet>().enabled = true;
                 bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * bulletSpeed;
                 allProjectiles.Push(bullet);

@@ -21,7 +21,7 @@ public class CutsceneSystem : MonoBehaviour
     {
         MonoBehaviour[] scripts = boss.GetComponentsInChildren<MonoBehaviour>().Concat(player.GetComponentsInChildren<MonoBehaviour>()).ToArray();
         foreach (MonoBehaviour script in scripts) {
-            if (script.GetType().Name != "BossMovement"&& script.GetType().Name != "UnityArmatureComponent"&& script.GetType().Name != "UnityCombineMeshs") {
+            if (script.GetType().Name != "UnityArmatureComponent"&& script.GetType().Name != "UnityCombineMeshs") {
                 script.enabled = false;
             }
         }
