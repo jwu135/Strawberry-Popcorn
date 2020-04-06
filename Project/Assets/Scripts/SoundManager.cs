@@ -6,14 +6,16 @@ public class SoundManager : MonoBehaviour
 {
     public static AudioClip playerShootSound;
     public static AudioClip playerJumpSound;
+    public static AudioClip bossLaserSound;
+    public static AudioClip bossAOESound;
     static AudioSource audioSrc;
     // Start is called before the first frame update
     void Start()
     {
         playerShootSound = Resources.Load<AudioClip>("Sounds/shoot1");
         playerJumpSound = Resources.Load<AudioClip>("Sounds/jump1");
-
-
+        bossLaserSound = Resources.Load<AudioClip>("Sounds/bossLaser");
+        bossAOESound = Resources.Load<AudioClip>("Sounds/bossAOE");
         audioSrc = GetComponent<AudioSource>();
     }
 
@@ -33,6 +35,13 @@ public class SoundManager : MonoBehaviour
             case "playerJump":
                 audioSrc.PlayOneShot(playerJumpSound);
                 break;
+            case "bossLaser":
+                audioSrc.PlayOneShot(bossLaserSound);
+                break;
+            case "bossAOE":
+                audioSrc.PlayOneShot(bossAOESound);
+                break;
+
         }
     }
 }
