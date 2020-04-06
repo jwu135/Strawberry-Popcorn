@@ -131,6 +131,7 @@ public class BossShoot : MonoBehaviour
         nextTime = Time.time + cooldown;
     }
     void Physical(int pos,bool random = true,int place = 0) {
+        SoundManager.PlaySound("bossAOE");
         GameObject physicalAttack = null;
         if (pos < 3) {
             Vector3 position = new Vector3(0, 0, 0);
@@ -187,6 +188,7 @@ public class BossShoot : MonoBehaviour
     void Shoot(bool laser = false)
     {
         if (laser) {
+            SoundManager.PlaySound("bossLaser");
             Vector3 temp = transform.position;
             GameObject bullet = Instantiate(laserobj, temp, transform.rotation) as GameObject;
             bullet.transform.parent = transform;
