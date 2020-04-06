@@ -9,6 +9,7 @@ public class HealthManager : MonoBehaviour
     public double health = 100;
     public double maxMana = 100;
     public double mana = 100;
+    private double lastmana = 0;
 
     public float invicibilityLength;
     public float invicibilityCounter;
@@ -19,7 +20,8 @@ public class HealthManager : MonoBehaviour
     private GameObject[] HitOverlayArr;
     private SpriteRenderer HitOverlay;
 
-
+    public GameObject manaSprite;
+    public Sprite[] allManaSprites;
     public Text helthText;
     public Text manaText;
 
@@ -75,8 +77,38 @@ public class HealthManager : MonoBehaviour
             GlobalVariable.deathCounter += 1;
             GameObject.Find("EventSystem").GetComponent<gameOver>().startGameOver(false);
         }
+        if (mana != lastmana) {
+            updateMana();
+            lastmana = mana;
+        }
     }
 
+    private void updateMana()
+    {
+        if (mana < 20) {
+            manaSprite.GetComponent<SpriteRenderer>().sprite = allManaSprites[0];
+        } else if (mana >= 20 && mana < 50) {
+            manaSprite.GetComponent<SpriteRenderer>().sprite = allManaSprites[1];
+        } else if (mana >= 50 && mana < 100) {
+            manaSprite.GetComponent<SpriteRenderer>().sprite = allManaSprites[2];
+        } else {
+            manaSprite.GetComponent<SpriteRenderer>().sprite = allManaSprites[3];
+        }
+        if (mana >= 20 && mana < 50 && lastmana < 20) {
+            GameObject manaObject = GameObject.FindGameObjectWithTag("ManaOverlay");
+            manaObject.GetComponent<Animator>().SetTrigger("Play");
+        }
+        if (mana >= 50 && mana < 100 && lastmana < 50) {
+            GameObject manaObject = GameObject.FindGameObjectWithTag("ManaOverlay");
+            manaObject.GetComponent<Animator>().SetTrigger("Play");
+        }
+        if (mana >= 100 && lastmana < 100) {
+            GameObject manaObject = GameObject.FindGameObjectWithTag("ManaOverlay");
+            manaObject.GetComponent<Animator>().SetTrigger("Play");
+        }
+
+        //GameObject.FindGameObjectWithTag("ManaOverlay");
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -96,12 +128,12 @@ public class HealthManager : MonoBehaviour
         }
         else
         {
-            if (other.tag == "BossBullet" && manaCounter == 1)
-            {
+            if (other.tag == "BossBullet" && manaCounter == 1) {
+                GameObject.Find("PerfectDodgeFlash").GetComponent<Animator>().speed = 2;
+                GameObject.Find("PerfectDodgeFlash").GetComponent<Animator>().SetTrigger("Play");
                 Time.timeScale = scaleTime;
                 mana += 5;
                 manaCounter = 0;
-                manaText.text = mana.ToString() + "/" + maxMana.ToString();
             }
         }
     }

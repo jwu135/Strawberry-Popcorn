@@ -22,10 +22,10 @@ public class SceneChanger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump")) {
+        /*if (Input.GetButtonDown("Jump")) {
             playGame();
-        }
-        if (Input.GetButtonDown("Fire1")) {
+        }*/
+        if (Input.GetButtonDown("Jump")) {
             startGame();
         }
     }
