@@ -21,6 +21,7 @@ TagManager:
   - DemoText
   - enemyBody
   - HitOverlay
+  - ManaOverlay
   layers:
   - Default
   - TransparentFX

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eec99bffe7ebe84e97f379bbdf2e0f2, type: 3}
+  m_Name: tenticlearm_Data
+  m_EditorClassIdentifier: 
+  dataName: tenticlearm
+  dragonBonesJSON: {fileID: 4900000, guid: 72dc9480c6c8cf9429db1ef20990762f, type: 3}
+  textureAtlas:
+  - textureAtlasJSON: {fileID: 4900000, guid: 314b331b3e5dcb14182a0a29cb0d53ba, type: 3}
+    texture: {fileID: 2800000, guid: ac9a074be7aafa948ad9a0ac5ca1abc0, type: 3}
+    material: {fileID: 2100000, guid: 31262a238c55cfd4e9d7c24e2b99b94a, type: 2}
+    uiMaterial: {fileID: 0}

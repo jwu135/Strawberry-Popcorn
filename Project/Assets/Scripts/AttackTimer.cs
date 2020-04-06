@@ -23,6 +23,11 @@ public class AttackTimer : MonoBehaviour
         hits = hit;
     }
 
+    public void spikeChange()
+    {
+        //GetComponent<SpriteRenderer>().sprite = ;
+    }
+
     public void enable(float togg) // because the animator doesn't like bools :/
     {
         bool toggled = togg > 0 ? true : false;
