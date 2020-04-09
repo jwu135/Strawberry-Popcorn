@@ -24,7 +24,8 @@ public class PlatformMovementPhys : MonoBehaviour
     private HealthManager healthManager;
     public PlayerCombat PlayerCombat;
 
-    int state;
+    public LayerMask whatIsGround;
+    bool state;
     float actingGravity; //the current gravity that is acting on the player. Changes to fallingGravity when y vel is < 0
     PlayerController pc;
 
@@ -67,7 +68,7 @@ public class PlatformMovementPhys : MonoBehaviour
         rollCooldown = pc.getStat("rollCooldown");
         deadzone = pc.getStat("movementDeadzone");
 
-        state = 1; //0 is grounded, 1 is in the air
+        state = true; //flase is grounded, true is in the air
 
         healthManager = GetComponent<HealthManager>();
 
@@ -167,10 +168,10 @@ public class PlatformMovementPhys : MonoBehaviour
             //if(Input.GetKey(KeyCode.W) == true && velocityVector.y == 0)
             if (velocityVector.y == 0)
             {
-                state = 0;
+                state = false;
                 remainingAirJumps = numAirJumps;
             }
-            if (jumpButtonDown == true && (state == 0 || remainingAirJumps > 0))//if jump button is pressed and conditions are met, then jump (add double jump later)
+            if (jumpButtonDown == true && (state == false || remainingAirJumps > 0))//if jump button is pressed and conditions are met, then jump (add double jump later)
 
             {
                 jump();
@@ -204,17 +205,26 @@ public class PlatformMovementPhys : MonoBehaviour
                 velocityVector.y = velocityVector.y / 1.15f;
             }
 
-            if (state == 1 && velocityVector.y - actingGravity <= -fallSpeedCap)//if player is in the air and falling at terminal velocity
+            if (state == true && velocityVector.y - actingGravity <= -fallSpeedCap)//if player is in the air and falling at terminal velocity
             {
                 velocityVector.y = -fallSpeedCap;
             }
-            else if (state == 0 && transform.localPosition.y > -2.14)
+            else if (state == false && gameObject.layer != 12)
+            {
+                gameObject.layer = 12;
+            }
+            else if (state == false && transform.localPosition.y > -2.14)
             {
                 velocityVector.y -= actingGravity/2;
             }
-            else if (state == 1 && velocityVector.y - gravity > -fallSpeedCap)
+            else if (state == true && velocityVector.y - gravity > -fallSpeedCap)
             {
                 velocityVector.y -= actingGravity;
+            }
+
+            if (state == true && Input.GetKey(KeyCode.DownArrow))
+            {
+                gameObject.layer = 10;
             }
 
             body.velocity = velocityVector;
@@ -239,11 +249,11 @@ public class PlatformMovementPhys : MonoBehaviour
     {
         SoundManager.PlaySound("playerJump");
         velocityVector.y = jumpVelocity;
-        if (remainingAirJumps > 0 && state == 1) //conditions for a double jump
+        if (remainingAirJumps > 0 && state == true) //conditions for a double jump
         {
             remainingAirJumps -= 1;
         }
-        state = 1;
+        state = true;
     }
 
     void doRoll(float rollAngle)
