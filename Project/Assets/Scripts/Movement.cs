@@ -30,6 +30,7 @@ public class Movement : MonoBehaviour
     public void setArmature()
     {
         armatureComponent = GameObject.FindGameObjectWithTag("ArmatureTag").GetComponent<UnityArmatureComponent>();
+        transform.Find("Arm").transform.GetComponent<Look>().setArmature();
     }
     public UnityArmatureComponent getArmature()
     {
@@ -59,9 +60,20 @@ public class Movement : MonoBehaviour
             setPrimaryArmature(0);
         }
         if (Input.GetButtonDown("Roll") || armatureComponent.animation.lastAnimationName == "") {
+            
             setPrimaryArmature(1);
-            armatureComponent.animation.timeScale = 2;
-            armatureComponent.animation.Play("dodge",1);
+            armatureComponent.animation.timeScale = 2f  ;
+            if (Input.GetAxisRaw("Horizontal") < 0) {
+                if (direction > 0) // direction set in Look.cs
+                    armatureComponent.animation.Play("dodge", 1);
+                else
+                    armatureComponent.animation.Play("dodgeback", 1);
+            } else if (Input.GetAxisRaw("Horizontal") > 0) {
+                if (direction > 0)
+                    armatureComponent.animation.Play("dodgeback", 1);
+                else
+                    armatureComponent.animation.Play("dodge", 1);
+            }
         } else  {
             if (Input.GetButtonDown("Jump")) {
 

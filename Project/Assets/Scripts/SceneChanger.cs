@@ -9,10 +9,12 @@ public class SceneChanger : MonoBehaviour
     public Button play;
     public Button quit;
     public Button retry;
+    public bool intro = false;
     // Start is called before the first frame update
     void Start()
     {
-        play.onClick.AddListener(playGame);
+        if (play != null)
+            play.onClick.AddListener(playGame);
         if(quit!=null)
             quit.onClick.AddListener(doExitGame);
         if(retry!=null)
@@ -25,7 +27,7 @@ public class SceneChanger : MonoBehaviour
         /*if (Input.GetButtonDown("Jump")) {
             playGame();
         }*/
-        if (Input.GetButtonDown("Jump")) {
+        if (Input.GetButtonDown("Jump")&&!intro) {
             startGame();
         }
     }

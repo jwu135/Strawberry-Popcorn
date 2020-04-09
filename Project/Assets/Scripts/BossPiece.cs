@@ -63,6 +63,7 @@ public class BossPiece : MonoBehaviour
         }
         GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossShoot>().setPhase(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
         Debug.Log(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
+        player.transform.Find("Arm").transform.GetComponent<Look>().setArmature();
         Destroy(gameObject);
     }
 

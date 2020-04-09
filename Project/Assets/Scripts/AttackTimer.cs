@@ -8,6 +8,11 @@ public class AttackTimer : MonoBehaviour
     private float disappearTime = 1;
     private float timeToDisappearAfter = 0.99f;
     private float hits = 0.5f; // how long til the spike goes up, according to the animation frames
+
+    public Sprite[] orangeSprites;
+    public Sprite[] purpleSprites;
+
+
     public void disappear(){
         spawned = true;
         disappearTime = Time.time + timeToDisappearAfter;
@@ -25,7 +30,7 @@ public class AttackTimer : MonoBehaviour
 
     public void spikeChange()
     {
-        //GetComponent<SpriteRenderer>().sprite = ;
+        GetComponent<SpriteRenderer>().sprite = orangeSprites[0];
     }
 
     public void enable(float togg) // because the animator doesn't like bools :/
