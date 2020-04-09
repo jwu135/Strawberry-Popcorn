@@ -130,7 +130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 31538604}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackPos4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 49785326}
   - component: {fileID: 49785328}
   - component: {fileID: 49785327}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: brown leaf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 73602469}
   - component: {fileID: 73602468}
   - component: {fileID: 73602467}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Laser
   m_TagString: specialAttack2
   m_Icon: {fileID: 0}
@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 91863086}
   - component: {fileID: 91863088}
   - component: {fileID: 91863087}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: right leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -870,7 +870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 128708581}
   - component: {fileID: 128708582}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ShieldPosition2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1025,7 +1025,7 @@ Transform:
   m_LocalScale: {x: 14.699709, y: 1.0000002, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &176314252
 MonoBehaviour:
@@ -1183,7 +1183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 186426577}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackPos2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1215,7 +1215,7 @@ GameObject:
   - component: {fileID: 205721630}
   - component: {fileID: 205721629}
   - component: {fileID: 205721628}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Floor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1413,7 +1413,7 @@ GameObject:
   - component: {fileID: 250574890}
   - component: {fileID: 250574892}
   - component: {fileID: 250574891}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: backhair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1571,7 +1571,7 @@ GameObject:
   - component: {fileID: 384810451}
   - component: {fileID: 384810453}
   - component: {fileID: 384810452}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: leftfootS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1718,7 +1718,7 @@ Transform:
   m_LocalScale: {x: 0.89927596, y: 0.89623857, z: 0.031000001}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &398432647
 GameObject:
@@ -1966,7 +1966,7 @@ GameObject:
   - component: {fileID: 430686159}
   - component: {fileID: 430686158}
   - component: {fileID: 430686157}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Harpoon
   m_TagString: normalAttack2
   m_Icon: {fileID: 0}
@@ -2102,7 +2102,7 @@ GameObject:
   - component: {fileID: 489248391}
   - component: {fileID: 489248393}
   - component: {fileID: 489248392}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2512,7 +2512,7 @@ GameObject:
   m_Component:
   - component: {fileID: 573651887}
   - component: {fileID: 573651888}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ShieldPosition1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2749,7 +2749,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 616929217}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackPos3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2783,7 +2783,7 @@ GameObject:
   - component: {fileID: 699743582}
   - component: {fileID: 699743581}
   - component: {fileID: 699743580}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Flamethrower
   m_TagString: normalAttack3
   m_Icon: {fileID: 0}
@@ -2924,7 +2924,7 @@ GameObject:
   - component: {fileID: 778559280}
   - component: {fileID: 778559282}
   - component: {fileID: 778559281}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: dress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3003,7 +3003,7 @@ GameObject:
   - component: {fileID: 790622896}
   - component: {fileID: 790622898}
   - component: {fileID: 790622897}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Rightfoots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3082,7 +3082,7 @@ GameObject:
   - component: {fileID: 809356654}
   - component: {fileID: 809356651}
   - component: {fileID: 809356652}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Floor
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -3340,7 +3340,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &987772551
 Animator:
@@ -3727,7 +3727,7 @@ GameObject:
   - component: {fileID: 1230932598}
   - component: {fileID: 1230932600}
   - component: {fileID: 1230932599}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: right arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3806,7 +3806,7 @@ GameObject:
   - component: {fileID: 1238668895}
   - component: {fileID: 1238668897}
   - component: {fileID: 1238668896}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3885,7 +3885,7 @@ GameObject:
   - component: {fileID: 1248375459}
   - component: {fileID: 1248375458}
   - component: {fileID: 1248375457}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Floor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3980,7 +3980,7 @@ Transform:
   m_LocalScale: {x: 45.534237, y: 1.159, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &1270335220
 GameObject:
@@ -4137,14 +4137,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297109244}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5348253, y: 0.02, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.5348244, y: 0.020000458, z: 0}
+  m_LocalScale: {x: 1.4999999, y: 1.4999999, z: 1}
   m_Children:
   - {fileID: 1447711481}
   - {fileID: 117516975}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1297109247
 Animator:
@@ -4227,7 +4227,7 @@ GameObject:
   - component: {fileID: 1312915778}
   - component: {fileID: 1312915780}
   - component: {fileID: 1312915779}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: right foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4396,7 +4396,7 @@ GameObject:
   - component: {fileID: 1369534292}
   - component: {fileID: 1369534294}
   - component: {fileID: 1369534293}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: left leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4689,7 +4689,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1407061489
 MonoBehaviour:
@@ -4769,7 +4769,7 @@ GameObject:
   - component: {fileID: 1412927430}
   - component: {fileID: 1412927432}
   - component: {fileID: 1412927431}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: leaf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4848,7 +4848,8 @@ GameObject:
   - component: {fileID: 1421048412}
   - component: {fileID: 1421048411}
   - component: {fileID: 1421048410}
-  m_Layer: 0
+  - component: {fileID: 1421048413}
+  m_Layer: 10
   m_Name: right Floor
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -4895,7 +4896,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b77c95495d163104d8f09c2274aad0f6, type: 3}
-  m_Color: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
+  m_Color: {r: 0.16470589, g: 0.09411766, b: 0.09411766, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4916,7 +4917,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -4945,6 +4946,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &1421048413
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421048409}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 6967
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1437380690
 GameObject:
   m_ObjectHideFlags: 0
@@ -4954,7 +4974,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1437380691}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5289,7 +5309,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1551109803
 GameObject:
@@ -5458,7 +5478,8 @@ GameObject:
   - component: {fileID: 1578342476}
   - component: {fileID: 1578342475}
   - component: {fileID: 1578342474}
-  m_Layer: 0
+  - component: {fileID: 1578342477}
+  m_Layer: 10
   m_Name: left Floor
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -5526,7 +5547,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -5548,13 +5569,32 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578342473}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.32, y: 3.8, z: 0}
-  m_LocalScale: {x: 10.882682, y: 1.302716, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -13.32, y: 3.8000007, z: 0}
+  m_LocalScale: {x: 10.882683, y: 1.302716, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &1578342477
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578342473}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 6967
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1581175710
 GameObject:
   m_ObjectHideFlags: 0
@@ -5566,7 +5606,7 @@ GameObject:
   - component: {fileID: 1581175711}
   - component: {fileID: 1581175713}
   - component: {fileID: 1581175712}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Armature
   m_TagString: ArmatureTag
   m_Icon: {fileID: 0}
@@ -5945,7 +5985,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1631284884
 MonoBehaviour:
@@ -6043,7 +6083,7 @@ GameObject:
   - component: {fileID: 1679549862}
   - component: {fileID: 1679549864}
   - component: {fileID: 1679549863}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: left foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6122,7 +6162,7 @@ GameObject:
   - component: {fileID: 1702266059}
   - component: {fileID: 1702266060}
   - component: {fileID: 1702266061}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6221,7 +6261,7 @@ GameObject:
   - component: {fileID: 1758878669}
   - component: {fileID: 1758878671}
   - component: {fileID: 1758878670}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6427,7 +6467,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1792099007
 GameObject:
@@ -6607,7 +6647,7 @@ GameObject:
   - component: {fileID: 1814532868}
   - component: {fileID: 1814532875}
   - component: {fileID: 1814532873}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -6894,6 +6934,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCombat: {fileID: 1814532874}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 3072
 --- !u!1 &1818777922
 GameObject:
   m_ObjectHideFlags: 0
@@ -7166,7 +7209,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1829006316}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackPos1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7352,7 +7395,7 @@ GameObject:
   - component: {fileID: 1846895107}
   - component: {fileID: 1846895109}
   - component: {fileID: 1846895108}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: emotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7431,7 +7474,7 @@ GameObject:
   - component: {fileID: 1850372326}
   - component: {fileID: 1850372328}
   - component: {fileID: 1850372327}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: front hair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7510,7 +7553,7 @@ GameObject:
   - component: {fileID: 1885588691}
   - component: {fileID: 1885588690}
   - component: {fileID: 1885588689}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Floor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7943,7 +7986,7 @@ GameObject:
   - component: {fileID: 2119951183}
   - component: {fileID: 2119951185}
   - component: {fileID: 2119951184}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8020,7 +8063,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2125743940}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
