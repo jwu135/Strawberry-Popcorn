@@ -40,10 +40,18 @@ public class BossBodyMovement : MonoBehaviour
 
     void Update()
     {
-        if (Time.timeScale != 0f)
-        {
+        if (Time.timeScale != 0f) {
             Move();
         }
+    }
+
+    private void Jump(){
+        grounded = false;
+        uVeloctiy = upwardVel;
+        Vector2 temp = GetComponent<Rigidbody2D>().velocity;
+        dVelocity = uVeloctiy;
+        ableToMove = false;
+        StartCoroutine("Dash");
     }
 
     private void Move()
@@ -52,16 +60,11 @@ public class BossBodyMovement : MonoBehaviour
         
         if (flipTime < Time.time) {
             float rand = Random.Range(0f, 1f);
-            if (rand > 1f) {
+            if (rand > 0.8f) {
                 FlipFirst();
             } else  {
                 if (grounded) {
-                    grounded = false;
-                    uVeloctiy = upwardVel;
-                    Vector2 temp = GetComponent<Rigidbody2D>().velocity;
-                    dVelocity = uVeloctiy;
-                    ableToMove = false;
-                    StartCoroutine("Dash");
+                    StartCoroutine("JumpDelay");
                 }else
                     Debug.Log("Couldn't jump");
             }
@@ -103,6 +106,16 @@ public class BossBodyMovement : MonoBehaviour
         StartCoroutine(Flip());
     }
 
+    private IEnumerator JumpDelay()
+    {
+        transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("jumpprepare",1);
+        ableToMove = false;
+        yield return new WaitForSeconds(0.5f);
+        ableToMove = true;
+        transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("bossIdle");
+        Jump();
+    }
+
     private IEnumerator Dash()
     {
         while(dVelocity>0)
@@ -118,7 +131,9 @@ public class BossBodyMovement : MonoBehaviour
         GetComponent<Animator>().SetTrigger("Move");
         yield return new WaitForSeconds(0.5f);
         Vector3 temp = transform.position;
-        temp.x *= -1;
+        if (Random.Range(0, 1) > 0.5f) temp.x = 10.34f;
+        else
+            temp.x = -10.34f;
         transform.position = temp;
         yield return new WaitForSeconds(0.5f);   
         gameObject.AddComponent<Rigidbody2D>();
