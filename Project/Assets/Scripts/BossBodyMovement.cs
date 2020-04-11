@@ -68,7 +68,7 @@ public class BossBodyMovement : MonoBehaviour
                 }else
                     Debug.Log("Couldn't jump");
             }
-            flipTime = Time.time + 3f;
+            flipTime = Time.time + 6f;
         }
 
         if (!grounded) {
@@ -121,17 +121,20 @@ public class BossBodyMovement : MonoBehaviour
         while(dVelocity>0)
             yield return new WaitForSeconds(0.1f);
         Vector3 direction = (Vector2)(GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).normalized;
-        GetComponent<Rigidbody2D>().AddForce(direction.normalized*10000);
+        GetComponent<Rigidbody2D>().AddForce(direction.normalized*20000);
         ableToMove = true;
     }
 
     public IEnumerator Flip()
     {
+        transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.timeScale = 2;
+        transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("digging",1);
+        yield return new WaitForSeconds(0.5f);
         Destroy(GetComponent<Rigidbody2D>());
         GetComponent<Animator>().SetTrigger("Move");
         yield return new WaitForSeconds(0.5f);
         Vector3 temp = transform.position;
-        if (Random.Range(0, 1) > 0.5f) temp.x = 10.34f;
+        if (Random.Range(0f, 1f) > 0.5f) temp.x = 10.34f;
         else
             temp.x = -10.34f;
         transform.position = temp;
@@ -139,6 +142,11 @@ public class BossBodyMovement : MonoBehaviour
         gameObject.AddComponent<Rigidbody2D>();
         GetComponent<Rigidbody2D>().gravityScale = 0f;
         GetComponent<Rigidbody2D>().interpolation= RigidbodyInterpolation2D.Interpolate;
+        transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.timeScale = -2;
+        transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("digging",1);
+        yield return new WaitForSeconds(0.5f);
+        transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.timeScale = 1;
+        transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("bossIdle", 1);
         yield return 0; 
     }
 

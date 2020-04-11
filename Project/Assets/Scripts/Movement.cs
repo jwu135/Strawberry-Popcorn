@@ -56,6 +56,9 @@ public class Movement : MonoBehaviour
         */
         //This comes from having a seperate armature for the dodge. 
         Debug.Log(armatureComponent.animationName);
+        if (Input.GetKeyDown(KeyCode.W)) {
+
+        }
         if (armatureComponent.animationName.Equals("dodge")&&armatureComponent.animation.isCompleted) {
             setPrimaryArmature(0);
         }
