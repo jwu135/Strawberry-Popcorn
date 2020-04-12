@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eec99bffe7ebe84e97f379bbdf2e0f2, type: 3}
+  m_Name: orangeboss_Data
+  m_EditorClassIdentifier: 
+  dataName: orangeboss
+  dragonBonesJSON: {fileID: 4900000, guid: 78c2186fc89550449887a862f348126d, type: 3}
+  textureAtlas:
+  - textureAtlasJSON: {fileID: 4900000, guid: 1ccb2e1f8fe77d4499be0149e937f23a, type: 3}
+    texture: {fileID: 2800000, guid: e7f31df39a63d0048b63f1afb02b7820, type: 3}
+    material: {fileID: 2100000, guid: 2ff4f584e9769534f918566f40ee0dba, type: 2}
+    uiMaterial: {fileID: 0}

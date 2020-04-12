@@ -5,6 +5,7 @@ using DragonBones;
 
 public class Movement : MonoBehaviour
 {
+    public Material next;
     private UnityArmatureComponent armatureComponent;
     public GameObject[] armatures;
     public UnityDragonBonesData things;
@@ -56,8 +57,9 @@ public class Movement : MonoBehaviour
         */
         //This comes from having a seperate armature for the dodge. 
         Debug.Log(armatureComponent.animationName);
-        if (Input.GetKeyDown(KeyCode.W)) {
-
+        if (Input.GetKeyDown(KeyCode.K)) {
+           armatureComponent.unityData.textureAtlas[0].material = next;
+            armatureComponent.GetComponent<UnityCombineMeshs>().BeginCombineMesh();
         }
         if (armatureComponent.animationName.Equals("dodge")&&armatureComponent.animation.isCompleted) {
             setPrimaryArmature(0);

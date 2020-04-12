@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eec99bffe7ebe84e97f379bbdf2e0f2, type: 3}
+  m_Name: redeyeboss_Data
+  m_EditorClassIdentifier: 
+  dataName: redeyeboss
+  dragonBonesJSON: {fileID: 4900000, guid: 54bfe0e703e6b134b809459dba15b7e3, type: 3}
+  textureAtlas:
+  - textureAtlasJSON: {fileID: 4900000, guid: fb3b33cc434f38a4a8b20f42e71a6a0f, type: 3}
+    texture: {fileID: 2800000, guid: 731d3d2ac476f364ab35e882d3a37721, type: 3}
+    material: {fileID: 2100000, guid: 28c3df7330a0e1a469aa2e28738cc827, type: 2}
+    uiMaterial: {fileID: 0}
