@@ -48,8 +48,6 @@ ScriptsOnlyBuild:
     - harpoon
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
-    - UnityEditor.Tilemaps.GridPaletteBrushes
-    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
@@ -1122,5 +1120,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Intro.unity
   - Assets/Scenes/MainGameplay.unity
   - Assets/Scenes/Gameover.unity
-  playerPath: C:/Users/kamfi/Pictures/Class/Popcorn/Strawberry/Build For Alex/Pre-production
+  playerPath: C:/Users/kamfi/Pictures/Class/Popcorn/Strawberry/Strawberry/Strawberry/Pre-production
     - Copy.exe

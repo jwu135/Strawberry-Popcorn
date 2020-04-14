@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using DragonBones;
 
 public class Boss : MonoBehaviour
 {
     public double health = 100;
     public float maxhealth = 100;
+    public GameObject[] armatures;
+    public Texture[] textures;
     private double[] healthNew = {25f,25f,25f,30f};
     private double[] maxhealthNew;
     public Image HealthBar;
@@ -59,6 +61,7 @@ public class Boss : MonoBehaviour
     {
         if (damageable) {
             healthNew[healthIndex] -= amnt;
+            StartCoroutine("hit");
             if (healthNew[healthNew.Length - 1] <= 0) {
                 GameObject.FindGameObjectWithTag("EventSystem").GetComponent<gameOver>().startGameOver(true);
             } else if (healthNew[healthIndex] <= 0) {
@@ -72,5 +75,11 @@ public class Boss : MonoBehaviour
             updateHealth();
         }
     }
-    
+    // So happy that I finally figured out how this works
+    IEnumerator hit() 
+    {
+        armatures[0].GetComponent<UnityArmatureComponent>().unityData.textureAtlas[0].material.mainTexture = textures[1];
+        yield return new WaitForSeconds(.2f);
+        armatures[0].GetComponent<UnityArmatureComponent>().unityData.textureAtlas[0].material.mainTexture = textures[0];
+    }
 }
