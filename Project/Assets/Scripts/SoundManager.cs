@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static AudioClip playerShootSound;
+    public static AudioClip playerShootSound1;
+    public static AudioClip playerShootSound2;
+    public static AudioClip playerShootSound3;
     public static AudioClip playerJumpSound;
     public static AudioClip bossLaserSound;
     public static AudioClip bossAOESound;
@@ -12,7 +14,9 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerShootSound = Resources.Load<AudioClip>("Sounds/shoot1");
+        playerShootSound1 = Resources.Load<AudioClip>("Sounds/shoot1");
+        playerShootSound2 = Resources.Load<AudioClip>("Sounds/shoot2");
+        playerShootSound3 = Resources.Load<AudioClip>("Sounds/shoot3");
         playerJumpSound = Resources.Load<AudioClip>("Sounds/jump1");
         bossLaserSound = Resources.Load<AudioClip>("Sounds/bossLaser");
         bossAOESound = Resources.Load<AudioClip>("Sounds/bossAOE");
@@ -29,8 +33,14 @@ public class SoundManager : MonoBehaviour
     {
         switch (clip)
         {
-            case "playerShoot":
-                audioSrc.PlayOneShot(playerShootSound);
+            case "playerShoot1":
+                audioSrc.PlayOneShot(playerShootSound1);
+                break;
+            case "playerShoot2":
+                audioSrc.PlayOneShot(playerShootSound2);
+                break;
+            case "playerShoot3":
+                audioSrc.PlayOneShot(playerShootSound3);
                 break;
             case "playerJump":
                 audioSrc.PlayOneShot(playerJumpSound);

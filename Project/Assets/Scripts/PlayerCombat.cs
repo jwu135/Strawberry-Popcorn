@@ -366,7 +366,19 @@ public class PlayerCombat : MonoBehaviour
     {
         Instantiate(bullet1Prefab, firePoint.position, firePoint.rotation);
         //Enemy.TakeDamage2(damage2);
-        //SoundManager.PlaySound("playerShoot");
+        var randomInt = Random.Range(1, 4);
+        switch (randomInt)
+        {
+            case 1:
+                SoundManager.PlaySound("playerShoot1");
+                break;
+            case 2:
+                SoundManager.PlaySound("playerShoot2");
+                break;
+            case 3:
+                SoundManager.PlaySound("playerShoot3");
+                break;
+        }
 
     }
 
