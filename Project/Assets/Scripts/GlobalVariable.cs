@@ -15,6 +15,6 @@ public class GlobalVariable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(deathCounter); 
+        //Debug.Log(deathCounter); 
     }
 }
