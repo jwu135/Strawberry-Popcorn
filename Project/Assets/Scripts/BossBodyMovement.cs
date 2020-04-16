@@ -147,7 +147,7 @@ public class BossBodyMovement : MonoBehaviour
         transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("digging",1);
         yield return new WaitForSeconds(0.5f);
         transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.timeScale = 1;
-        transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("bossIdle", 1);
+        transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("bossIdle");
     }
 
 }
