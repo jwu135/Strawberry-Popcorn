@@ -142,12 +142,12 @@ public class BossBodyMovement : MonoBehaviour
         gameObject.AddComponent<Rigidbody2D>();
         GetComponent<Rigidbody2D>().gravityScale = 0f;
         GetComponent<Rigidbody2D>().interpolation= RigidbodyInterpolation2D.Interpolate;
+        GetComponent<Rigidbody2D>().freezeRotation= true;
         transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.timeScale = -2;
         transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("digging",1);
         yield return new WaitForSeconds(0.5f);
         transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.timeScale = 1;
         transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("bossIdle", 1);
-        yield return 0; 
     }
 
 }

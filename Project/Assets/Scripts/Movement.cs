@@ -56,7 +56,6 @@ public class Movement : MonoBehaviour
         }
         */
         //This comes from having a seperate armature for the dodge. 
-        Debug.Log(armatureComponent.animationName);
         if (Input.GetKeyDown(KeyCode.K)) {
            armatureComponent.unityData.textureAtlas[0].material = next;
             armatureComponent.GetComponent<UnityCombineMeshs>().BeginCombineMesh();
