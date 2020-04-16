@@ -69,6 +69,10 @@ public class Boss : MonoBehaviour
                 Piece.GetComponent<Rigidbody2D>().velocity = new Vector2(-0.5f, 0.5f) * 5;
                 healthIndex++;
                 phase++;
+                Movement movement = player.GetComponent<Movement>();
+                movement.getArmature().animation.Stop();
+                movement.setPrimaryArmature(movement.getPrimaryIndex());
+                movement.getArmature().animation.Play("Idle");
                 GameObject.FindGameObjectWithTag("EventSystem").GetComponent<CutsceneSystem>().cutscene(Piece);
                 disablePause = true;
             }

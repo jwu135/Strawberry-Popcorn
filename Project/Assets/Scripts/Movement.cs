@@ -12,13 +12,21 @@ public class Movement : MonoBehaviour
     [HideInInspector]
     public float direction = 0; // left is 0, right is 1;
     private float lastdirection = 0;
-
+    private int primaryIndex = 0;
     void Start()
     {
         armatureComponent = GameObject.FindGameObjectWithTag("ArmatureTag").GetComponent<UnityArmatureComponent>();
         armatureComponent.animation.Play("Idle");
     }
 
+    public void setPrimaryIndex(int index)
+    {
+        primaryIndex = index;
+    }
+    public int getPrimaryIndex()
+    {
+        return primaryIndex;
+    }
     public void setPrimaryArmature(int index)
     {
         foreach (GameObject i in armatures) {
@@ -36,6 +44,14 @@ public class Movement : MonoBehaviour
     public UnityArmatureComponent getArmature()
     {
         return armatureComponent;
+    }
+    public int findIndex(string name)
+    {
+        for(int i = 0; i < armatures.Length; i++) {
+            if (string.Equals(armatures[i].name, name))
+                return i;
+        }
+        return 0;
     }
     void Update()
     {
@@ -61,7 +77,7 @@ public class Movement : MonoBehaviour
             armatureComponent.GetComponent<UnityCombineMeshs>().BeginCombineMesh();
         }
         if (armatureComponent.animationName.Equals("dodge")&&armatureComponent.animation.isCompleted) {
-            setPrimaryArmature(0);
+            setPrimaryArmature(primaryIndex);
         }
         if (Input.GetButtonDown("Roll") || armatureComponent.animation.lastAnimationName == "") {
             
