@@ -12,7 +12,7 @@ public class ScreenShake : MonoBehaviour
     public float decreaseVal = 5; //how long in seconds the shake lasts
     float shakeAmount;
 
-    public void shakeCamera( int magnitude )
+    public void shakeCamera( float magnitude )
     {
         Debug.Log("CameraShake " + magnitude);
         shakeAmount = magnitude * shakeMultiplier;

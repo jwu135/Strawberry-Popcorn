@@ -124,7 +124,7 @@ public class HealthManager : MonoBehaviour
                 //helthText.text = health.ToString() + "/" + maxHealth.ToString();
                 alphaLevel = 1f;
                 HitOverlay.color = new Color(1f, 1f, 1f, 1f);
-                activateScreenShake(1);
+                //activateScreenShake(1);
             }
         }
         else
@@ -149,7 +149,7 @@ public class HealthManager : MonoBehaviour
     {
         manaText.text = mana.ToString() + "/" + maxMana.ToString();
     }
-    public void activateScreenShake( int magnitude )
+    public void activateScreenShake( float magnitude )
     {
         GameObject camera = GameObject.Find("Main Camera");
         camera.GetComponent<ScreenShake>().shakeCamera( magnitude );

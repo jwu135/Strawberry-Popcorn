@@ -12,7 +12,7 @@ public class BossShoot : MonoBehaviour
     private Stack allProjectiles = new Stack();
 
     private int[] spawnPointsX = new int[] { -14, -7, 0, 7, 14 };
-    private float[] spawnPointsY = new float[] { -7f, -3.5f, 0, 3.5f, 7f};
+    private float[] spawnPointsY = new float[] { -3f, -.75f, 1.5f, 3.75f, 6f};
 
     [HideInInspector]
     public float nextTime;

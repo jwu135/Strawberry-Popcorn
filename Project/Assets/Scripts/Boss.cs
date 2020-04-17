@@ -61,6 +61,7 @@ public class Boss : MonoBehaviour
     {
         if (damageable) {
             healthNew[healthIndex] -= amnt;
+            player.GetComponent<HealthManager>().activateScreenShake((float)amnt/4);
             StartCoroutine("hit");
             if (healthNew[healthNew.Length - 1] <= 0) {
                 GameObject.FindGameObjectWithTag("EventSystem").GetComponent<gameOver>().startGameOver(true);

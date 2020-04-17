@@ -40,9 +40,12 @@ public class BossPiece : MonoBehaviour
             player.GetComponent<PlayerCombat>().evolution++;
             player.GetComponent<PlayerCombat>().weaponCycle = player.GetComponent<PlayerCombat>().evolution;
         }
+        Movement movement = player.GetComponent<Movement>();
+        Vector2 scale = movement.getArmature().transform.localScale;
         if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 1) {
             (player.transform.Find("Armature").gameObject).SetActive(false);
             (player.transform.Find("ArmatureMid").gameObject).SetActive(true);
+            movement.setPrimaryIndex(movement.findIndex("ArmatureMid"));
             player.GetComponent<Movement>().setArmature();
             player.transform.Find("Arm").gameObject.GetComponent<Look>().setArmature();
             player.transform.Find("Arm").gameObject.GetComponent<SpriteRenderer>().sprite = arms[0];
@@ -57,10 +60,13 @@ public class BossPiece : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 3) {
             player.transform.Find("ArmatureMid").gameObject.SetActive(false);
             player.transform.Find("ArmatureLast").gameObject.SetActive(true);
+            movement.setPrimaryIndex(movement.findIndex("ArmatureLast"));
             player.GetComponent<Movement>().setArmature();
             player.transform.Find("Arm").gameObject.GetComponent<Look>().setArmature();
             player.transform.Find("Arm").gameObject.GetComponent<SpriteRenderer>().sprite = arms[1];
         }
+        player.GetComponent<Movement>().getArmature().transform.localScale = scale;
+
         GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossShoot>().setPhase(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
         Debug.Log(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
         player.transform.Find("Arm").transform.GetComponent<Look>().setArmature();
