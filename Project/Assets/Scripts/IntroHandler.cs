@@ -19,7 +19,7 @@ public class IntroHandler : MonoBehaviour
         if (Input.GetButtonDown("Jump")){//|| Input.GetButtonDown("Fire1")) {
             index++;
             if(index>images.Length-1)
-                SceneManager.LoadScene("Scenes/MainGameplay");
+                SceneManager.LoadScene("Scenes/Intro2");
             else
                 GetComponent<SpriteRenderer>().sprite = images[index];
         }
