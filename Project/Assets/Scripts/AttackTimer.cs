@@ -34,6 +34,11 @@ public class AttackTimer : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = orangeSprites[0];
         if (GetComponent<BoxCollider2D>())
             Debug.Log("Yup");
+        StartCoroutine("enableDelay");
+    }
+
+    IEnumerator enableDelay() {
+        yield return new WaitForSeconds(.1f);
         enable(1);
     }
 

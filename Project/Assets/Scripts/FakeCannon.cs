@@ -53,8 +53,8 @@ public class FakeCannon : MonoBehaviour
                 if (scale< 4.6)
                 {
                     scale += 0.013f;
-                    transform.localScale = new Vector2((float)2.5 + scale, (float)2 + scale);
-                    copyscalex = (float)2.5 + scale;
+                    transform.localScale = new Vector2((float)2 + scale, (float)2 + scale);
+                    copyscalex = (float)2 + scale;
                     copyscaley = (float)2 + scale;
                 }
 
@@ -74,7 +74,7 @@ public class FakeCannon : MonoBehaviour
                 Debug.Log("messy");
                 PlayerCombat.launchVisible = false;
             }
-            transform.localScale = new Vector2((float)2.5 , (float)2);
+            transform.localScale = new Vector2((float)2 , (float)2);
             scale = 0;
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
             maxCharge = false;
