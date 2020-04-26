@@ -24951,10 +24951,13 @@ MonoBehaviour:
   gravity: 1
   fallingGravity: 6
   fallSpeedCap: 25
-  rollDistance: 150
-  rollDuration: 5
-  rollSlowFrames: 9
-  rollSlowSpeedMult: 0.7
+  fastFallingGravity: 12
+  fastFallSpeedCap: 35
+  fastFallMinVel: 7
+  rollDistance: 350
+  rollDuration: 12
+  rollSlowFrames: 5
+  rollSlowSpeedMult: 0.2
   rollCooldown: 25
   movementDeadzone: 0.15
   mode: 1
