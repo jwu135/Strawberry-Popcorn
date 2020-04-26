@@ -62,6 +62,7 @@ public class AttackTimer : MonoBehaviour
     {
         if (GetComponent<BoxCollider2D>())
             Debug.Log("Tried to destroy spike");
+        Debug.Log("Destroyed");
         Destroy(gameObject);
     }
     // Update is called once per frame
