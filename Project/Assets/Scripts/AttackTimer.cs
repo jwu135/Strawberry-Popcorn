@@ -10,6 +10,7 @@ public class AttackTimer : MonoBehaviour
     private float hits = 0.5f; // how long til the spike goes up, according to the animation frames
 
     public Sprite[] orangeSprites;
+    public Sprite orangeAoE;
     public Sprite[] purpleSprites;
 
 
@@ -31,6 +32,15 @@ public class AttackTimer : MonoBehaviour
     public void spikeChange()
     {
         GetComponent<SpriteRenderer>().sprite = orangeSprites[0];
+        if (GetComponent<BoxCollider2D>())
+            Debug.Log("Yup");
+        enable(1);
+    }
+
+    public void AoEChange()
+    {
+        GetComponent<SpriteRenderer>().sprite = orangeAoE;
+        enable(1);
     }
 
     public void enable(float togg) // because the animator doesn't like bools :/
@@ -45,18 +55,20 @@ public class AttackTimer : MonoBehaviour
     }
     public void destroy()
     {
+        if (GetComponent<BoxCollider2D>())
+            Debug.Log("Tried to destroy spike");
         Destroy(gameObject);
     }
     // Update is called once per frame
     void Update()
     {
         if (spawned) {
-            if (disappearTime - timeToDisappearAfter -0.01f + hits < Time.time) {
+            /*if (disappearTime - timeToDisappearAfter -0.01f + hits < Time.time) {
                 enable(1);
             }
             if (disappearTime < Time.time) {
                 destroy();
-            }
+            }*/
         }
     }
 }

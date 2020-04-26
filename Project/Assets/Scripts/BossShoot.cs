@@ -24,7 +24,6 @@ public class BossShoot : MonoBehaviour
     public float shootCooldown;
 
 
-
     private int phase = 0;
     private GameObject player;
 
@@ -37,6 +36,7 @@ public class BossShoot : MonoBehaviour
             Destroy(projectile);
         }
     }
+    
     private void Start()
     {
         nextTime = Time.time + 2f;
@@ -164,8 +164,8 @@ public class BossShoot : MonoBehaviour
             
             physicalAttack.GetComponent<AttackTimer>().disappear();
         } else if (pos==3) {
-            physicalAttack = Instantiate(AoE, transform.position, AoE.transform.rotation) as GameObject;
-            physicalAttack.transform.parent = transform;
+            physicalAttack = Instantiate(AoE, transform.Find("AoEAnchor").transform.position, AoE.transform.rotation) as GameObject;
+            physicalAttack.transform.parent = transform.Find("AoEAnchor").transform;
             physicalAttack.GetComponent<Animator>().SetTrigger("Expand");
             physicalAttack.GetComponent<AttackTimer>().disappear();
         } else {

@@ -28,7 +28,7 @@ public class ScreenShake : MonoBehaviour
     }
     public void FixedUpdate()
     {
-        Debug.Log("doShake " + doShake);
+        //Debug.Log("doShake " + doShake);
         if ( doShake > 0 )
         {
             Vector3 shakeVector = new Vector3(Random.value * shakeAmount * doShake, Random.value * shakeAmount * doShake, -10);
