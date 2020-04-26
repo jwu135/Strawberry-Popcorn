@@ -15,8 +15,11 @@ public class PlayerController : MonoBehaviour
     public float numAirJumps; //the amount of times the player can jump before touching the ground again
     public float jumpVelocity; //the initial speed the player leaves the ground upon pressing jump
     public float gravity; //the amount of velocity removed from the players initial jump velocity until...
-    public float fallingGravity; //effect of gravity while falling (should be higher than regular gravity)
+    public float fallingGravity; //effect of gravity while falling (should be higher than regular gravity)\
     public float fallSpeedCap; //it reaches the fall speed cap
+    public float fastFallingGravity = 12; //the downwards acceleration of the player when they initate fast fall by holding down in midair
+    public float fastFallSpeedCap = 35; //speed the player falls at when they press down
+    public float fastFallMinVel = 7; //velocity the player must be moving vertically in order for fast fall to work
     public float rollDistance; //How far should a dodge move the player?
     public float rollDuration; //How many frames should the dodge take
     public float rollSlowFrames; //How many frames after the fast animation ends does the player stay in slow state
@@ -100,6 +103,18 @@ public class PlayerController : MonoBehaviour
         else if (string.Equals(stat, "fallSpeedCap"))
         {
             return fallSpeedCap;
+        }
+        else if (string.Equals(stat, "fastFallingGravity"))
+        {
+            return fastFallingGravity;
+        }
+        else if (string.Equals(stat, "fastFallSpeedCap"))
+        {
+            return fastFallSpeedCap;
+        }
+        else if (string.Equals(stat, "fastFallMinVel"))
+        {
+            return fastFallMinVel;
         }
         else if (string.Equals(stat, "rollDistance"))
         {
