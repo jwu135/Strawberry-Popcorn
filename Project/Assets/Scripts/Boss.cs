@@ -7,11 +7,11 @@ using DragonBones;
 
 public class Boss : MonoBehaviour
 {
-    public double health = 100;
+    private double health = 100;
     public float maxhealth = 100;
     public GameObject[] armatures;
     public Texture[] textures;
-    private double[] healthNew = {25f,25f,25f,30f};
+    public double[] healthNew = {25f,25f,25f,30f};
     private double[] maxhealthNew;
     public Image HealthBar;
     private Text text;
