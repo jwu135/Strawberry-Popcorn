@@ -55,6 +55,7 @@ public class PlayerCombat : MonoBehaviour
     public BossStick BossStick;
     public Stick Stick;
     public FakeCannon FakeCannon;
+    public HealthManager HealthManager;
 
     public double timeBtwWeaponChange;
     public double delayBtwAttack1;
@@ -73,6 +74,7 @@ public class PlayerCombat : MonoBehaviour
     public bool launch = false;
     public bool launch2 = false;
     public bool launchVisible = false;
+    public bool longPress = false;
     public float evolution;
     public float attackRange;
     public double damage;
@@ -80,8 +82,10 @@ public class PlayerCombat : MonoBehaviour
     public double damage3;
     public double damage4;
     public double specialChargeAttack1Timer;
+    public double normalAttack1Buffer;
 
     private bool fire2State;
+    
 
     public Vector2 aPosition1 = new Vector2(5, 5);
     public float hookspeed;
@@ -104,11 +108,38 @@ public class PlayerCombat : MonoBehaviour
         //Debug.Log(harpoonthrow.thrown);
         // fuse = false;
         // LASER = false;
-        if (Input.GetButton("Fire1"))
+
+        //combo normal a1
+        if (Input.GetButton("Fire1") && normalAttack1Buffer < 2 && weaponCycle == 1)
         {
             //LASER = true;
-          
+            normalAttack1Buffer += Time.deltaTime;
         }
+
+        if (!Input.GetButton("Fire1") && normalAttack1Buffer > 0)
+        {
+            //LASER = true;
+            normalAttack1Buffer -= Time.deltaTime;
+        }
+
+        if (Input.GetButton("Fire1") && weaponCycle == 1)
+        {
+            if(normalAttack1Buffer < 0.3)
+            {
+                longPress = false;
+            }
+
+            if (normalAttack1Buffer >= 0.3)
+            {
+                longPress = true;
+            }
+
+        }
+
+
+
+
+
         if (Input.GetButton("Fire2"))
         {
             fire2Switch = true;
@@ -200,7 +231,7 @@ public class PlayerCombat : MonoBehaviour
         if (timeBtwAttack <= 0)
         {            
             //strawberry shooter
-            if (Input.GetButton("Fire1") && weaponCycle == 1 && !fire2State)
+            if (Input.GetButtonUp("Fire1") && weaponCycle == 1 && !fire2State && !longPress)
             {
                 Shoot1();
                 timeBtwAttack = delayBtwAttack1 - delayAttackCD;
@@ -287,7 +318,8 @@ public class PlayerCombat : MonoBehaviour
         if (timeBtwChargeAttack1 <= 0)
         {
             //strawberry cannon
-            if (fire2State && weaponCycle == 1 && !Input.GetButton("Fire1") && !FakeCannon.maxCharge)
+            //if (fire2State && weaponCycle == 1 && !Input.GetButton("Fire1") && !FakeCannon.maxCharge && !FakeCannon.charging)
+            if (Input.GetButton("Fire1") && weaponCycle == 1 && !fire2State && !FakeCannon.maxCharge && !FakeCannon.charging)
             {
                 launch = true;
                 launchVisible = true;
@@ -385,7 +417,7 @@ public class PlayerCombat : MonoBehaviour
     public void Shoot2()
     {
         GameObject spawnedObject = (GameObject)Instantiate(bullet2Prefab, firePoint.position, firePoint.rotation);
-        spawnedObject.transform.localScale = new Vector2( (float)(FakeCannon.copyscalex/ (float)2.5) , (float)(FakeCannon.copyscaley/ (float)2.5) );
+        spawnedObject.transform.localScale = new Vector2( (float)(FakeCannon.copyscalex/ (float)3.1) , (float)(FakeCannon.copyscaley/ (float)3.1) );
         //Enemy.TakeDamage3(damage3);
         
     }

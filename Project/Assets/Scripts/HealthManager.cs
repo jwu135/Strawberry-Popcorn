@@ -20,6 +20,8 @@ public class HealthManager : MonoBehaviour
     private GameObject[] HitOverlayArr;
     private SpriteRenderer HitOverlay;
 
+    public bool hit;
+
     public GameObject manaSprite;
     public Sprite[] allManaSprites;
     public Text helthText;
@@ -29,17 +31,19 @@ public class HealthManager : MonoBehaviour
     public float alphaStep = 0.005f; //how fast the opacity decays 1f is fully opaque, 0f is full transparent
 
     public PlayerCombat PlayerCombat;
+    public FakeCannon FakeCannon;
 
     // Start is called before the first frame update
     void Start()
     {
         HitOverlayArr = GameObject.FindGameObjectsWithTag("HitOverlay");
         HitOverlay = HitOverlayArr[0].GetComponent<SpriteRenderer>();
+        hit = false;
     }
 
     void Update()
     {
-
+        
         if (Time.timeScale == scaleTime && timer <= pauseTime)
         {
             timer += Time.unscaledDeltaTime * 1000;
@@ -120,6 +124,10 @@ public class HealthManager : MonoBehaviour
                 health -= 1;
                 PlayerCombat.Hurt();
                 GameObject.Find("EventSystem").GetComponent<PlayerHeartsController>().losehealth();
+                if (FakeCannon.charging)
+                {
+                    hit = true; 
+                }
                 invicibilityCounter = invicibilityLength;
                 //helthText.text = health.ToString() + "/" + maxHealth.ToString();
                 alphaLevel = 1f;

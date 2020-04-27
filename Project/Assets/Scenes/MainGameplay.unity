@@ -1716,6 +1716,7 @@ MonoBehaviour:
   damage9: 0
   SA1: 0
   SA2: 0
+  FakeCannon: {fileID: 874735801}
 --- !u!1 &128708580
 GameObject:
   m_ObjectHideFlags: 0
@@ -8043,6 +8044,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8058,6 +8060,37 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_CameraOutput: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -12427,13 +12460,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 0.01
+  damageScale: 0.01
   explode: 0
   maxCharge: 0
   release: 0
+  charging: 0
   copyscalex: 0
   copyscaley: 0
   CannonStandIn: {fileID: 874735803}
   PlayerCombat: {fileID: 1814532874}
+  HealthManager: {fileID: 1814532870}
 --- !u!114 &874735802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18964,13 +19000,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 0.005
+  damageScale: 0.01
   explode: 0
   maxCharge: 0
   release: 0
+  charging: 0
   copyscalex: 0
   copyscaley: 0
   CannonStandIn: {fileID: 1366208697}
   PlayerCombat: {fileID: 1814532874}
+  HealthManager: {fileID: 1814532870}
 --- !u!114 &1366208696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24739,8 +24778,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b159e4ed17ed047a71f92a80dd64ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 7
-  health: 7
+  maxHealth: 15
+  health: 15
   maxMana: 100
   mana: 0
   invicibilityLength: 7
@@ -24748,6 +24787,7 @@ MonoBehaviour:
   manaCounter: 1
   pauseTime: 100
   timer: 0
+  hit: 0
   manaSprite: {fileID: 936413351}
   allManaSprites:
   - {fileID: 21300000, guid: 086dab79fa3fa9b48864b8dc2717d942, type: 3}
@@ -24758,6 +24798,7 @@ MonoBehaviour:
   manaText: {fileID: 1942808331}
   alphaStep: 0.005
   PlayerCombat: {fileID: 1814532874}
+  FakeCannon: {fileID: 874735801}
 --- !u!4 &1814532871
 Transform:
   m_ObjectHideFlags: 0
@@ -24905,6 +24946,7 @@ MonoBehaviour:
   BossStick: {fileID: 1297109250}
   Stick: {fileID: 4906663276128700508, guid: 36b25f401beda1f40b819f064b52ae58, type: 3}
   FakeCannon: {fileID: 1366208695}
+  HealthManager: {fileID: 1814532870}
   timeBtwWeaponChange: 0.5
   delayBtwAttack1: 0.3
   delayBtwAttack2: 0.5

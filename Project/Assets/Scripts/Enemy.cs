@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     public double damage9;
     public bool SA1 = false;
     public bool SA2 = false;
+    public FakeCannon FakeCannon;
     // Start is called before the first frame update
     void Start()
     {
@@ -67,9 +68,10 @@ public class Enemy : MonoBehaviour
         }
         if (other.tag == "chargeAttack1")
         {
-            GetComponent<Boss>().losehealth(damage4);
+            GetComponent<Boss>().losehealth(damage4 + FakeCannon.damageScale);
             /*text.text = GetComponent<Boss>().health.ToString() + "/" + "100";*/
-            health -= damage4;
+            Debug.Log(FakeCannon.damageScale);
+            health -= (damage4 + FakeCannon.damageScale);
             Debug.Log("damage");
             //Debug.Log(health);
         }
