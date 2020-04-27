@@ -47,6 +47,10 @@ public class SceneChanger : MonoBehaviour
             Debug.Log(i);
             GameObject groundBody = Instantiate(berryBody, item, berryBody.transform.rotation);
             groundBody.GetComponent<SpriteRenderer>().sprite = bodies[i];
+            if (groundBody.GetComponent<SpriteRenderer>().sprite.name.Equals("DeadStrawberry1Blood")){
+                groundBody.transform.localScale = new Vector3(0.75f, 0.75f, 1f);
+            }
+                    
             i++;
         }
         // -4.73
@@ -69,6 +73,9 @@ public class SceneChanger : MonoBehaviour
                 currBody.transform.position = temp;
             } else if(currBody.GetComponent<SpriteRenderer>().sprite.name.Equals("fallingStrawberry")){
                 currBody.GetComponent<SpriteRenderer>().sprite = tempBerrySprite;
+                if (currBody.GetComponent<SpriteRenderer>().sprite.name.Equals("DeadStrawberry1Blood")) {
+                    currBody.transform.localScale = new Vector3(0.75f, 0.75f, 1f);
+                }
                 GameObject camera = GameObject.Find("Main Camera");
                 camera.GetComponent<ScreenShake>().shakeCamera(0.5f);
             }
