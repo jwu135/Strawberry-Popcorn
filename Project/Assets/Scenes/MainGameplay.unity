@@ -1656,7 +1656,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61d28cda481f4b54798ddf5b77811519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
   maxhealth: 100
   armatures:
   - {fileID: 966595828}
@@ -1664,6 +1663,11 @@ MonoBehaviour:
   textures:
   - {fileID: 2800000, guid: 936c8eacc5cbda648b20d75a8b5b89e4, type: 3}
   - {fileID: 2800000, guid: 731d3d2ac476f364ab35e882d3a37721, type: 3}
+  healthNew:
+  - 40
+  - 25
+  - 25
+  - 30
   HealthBar: {fileID: 1662189587}
 --- !u!114 &117516979
 MonoBehaviour:
@@ -7565,7 +7569,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2d7b2dcc09cc841429356d65ba35b454, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12387,7 +12391,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 1628468707755039991, guid: d097fd1de7c9831419e1399a2f705a81,
     type: 3}
-  m_Color: {r: 0.7843138, g: 0.7843138, b: 0.7843138, a: 1}
+  m_Color: {r: 0.7843138, g: 0.7843138, b: 0.7843138, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -18843,7 +18847,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366208693}
   m_LocalRotation: {x: -0, y: -0, z: -0.9998552, w: 0.017016217}
-  m_LocalPosition: {x: 1.2508439, y: -1.7478533, z: -1.2}
+  m_LocalPosition: {x: -0.01, y: 2.45, z: -1.2}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1702266059}
@@ -18921,7 +18925,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5405596655806329163, guid: c69ac1a404acfed459b1bdb1f42b71fd,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -24546,6 +24550,7 @@ GameObject:
   - component: {fileID: 1814532868}
   - component: {fileID: 1814532875}
   - component: {fileID: 1814532873}
+  - component: {fileID: 1814532877}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -24875,6 +24880,20 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &1814532877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814532866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7afedc3899bb32e46bef6800b0618e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  muzzleflash: {fileID: 4113938222911785807, guid: 733b6932d613d3147a7cb0cdc10b9096,
+    type: 3}
 --- !u!1 &1818777922
 GameObject:
   m_ObjectHideFlags: 0

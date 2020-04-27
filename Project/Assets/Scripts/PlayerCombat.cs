@@ -366,6 +366,7 @@ public class PlayerCombat : MonoBehaviour
     {
         Instantiate(bullet1Prefab, firePoint.position, firePoint.rotation);
         //Enemy.TakeDamage2(damage2);
+        
         var randomInt = Random.Range(1, 4);
         switch (randomInt)
         {
@@ -379,15 +380,16 @@ public class PlayerCombat : MonoBehaviour
                 SoundManager.PlaySound("playerShoot3");
                 break;
         }
-
+        transform.GetComponent<PlayerMuzzleFlash>().spawnFlash(new Vector3(1f,1f,1f));
     }
 
     public void Shoot2()
     {
         GameObject spawnedObject = (GameObject)Instantiate(bullet2Prefab, firePoint.position, firePoint.rotation);
         spawnedObject.transform.localScale = new Vector2( (float)(FakeCannon.copyscalex/ (float)2.5) , (float)(FakeCannon.copyscaley/ (float)2.5) );
+        transform.GetComponent<PlayerMuzzleFlash>().spawnFlash(spawnedObject.transform.localScale);
         //Enemy.TakeDamage3(damage3);
-        
+
     }
     void Shoot3()
     {

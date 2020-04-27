@@ -40,6 +40,7 @@ public class Boss : MonoBehaviour
     public void setDamageable(bool truth)
     {
         damageable = truth;
+        GetComponent<CircleCollider2D>().enabled = (damageable) ? true : false;
     }
     private void updateHealth()
     {

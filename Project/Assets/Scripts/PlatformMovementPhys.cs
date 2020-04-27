@@ -111,7 +111,7 @@ public class PlatformMovementPhys : MonoBehaviour
     void doMovement()
     {
         //Debug.Log("actingGravity = " + actingGravity);
-        Debug.Log("vertical vel = " + velocityVector.y);
+        //Debug.Log("vertical vel = " + velocityVector.y);
         //Debug.Log("fast falling = " + isFastFalling);
         if (!PlayerCombat.stop1)
         {
