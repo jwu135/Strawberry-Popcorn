@@ -5,6 +5,7 @@ using DragonBones;
 
 public class Movement : MonoBehaviour
 {
+    public GameObject airJumpEffect;
     public Material next;
     private UnityArmatureComponent armatureComponent;
     public GameObject[] armatures;
@@ -17,6 +18,13 @@ public class Movement : MonoBehaviour
     {
         armatureComponent = GameObject.FindGameObjectWithTag("ArmatureTag").GetComponent<UnityArmatureComponent>();
         armatureComponent.animation.Play("Idle");
+    }
+
+    public void airJump()
+    {
+        Vector3 temp = transform.position;
+        temp.y -= -2f; // somewhat arbitrary number for offset
+        GameObject airJump = Instantiate(airJumpEffect, transform.position, transform.rotation) as GameObject;
     }
 
     public void setPrimaryIndex(int index)

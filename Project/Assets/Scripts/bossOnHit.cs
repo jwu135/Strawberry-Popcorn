@@ -7,7 +7,7 @@ public class BossOnHit : MonoBehaviour
 {
     public Text text;
     public Image HealthBar;
-    private bool piecePickedUp = false;
+    //private bool piecePickedUp = false;
     private void OnTriggerEnter2D(Collider2D other)
     {
        /* if (other.tag == "normalAttack1"|| other.tag == "chargeAttack1" || other.tag == "chargeAttack2") {

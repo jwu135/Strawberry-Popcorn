@@ -7,7 +7,7 @@ using DragonBones;
 
 public class Boss : MonoBehaviour
 {
-    private double health = 100;
+    //private double health = 100;
     public float maxhealth = 100;
     public GameObject[] armatures;
     public Texture[] textures;

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DialogueSystem : MonoBehaviour
 {
+    public Sprite[] cursors;
     public Sprite[] box = new Sprite[3];
     public GameObject dialogueBox;
     public new Text name;
@@ -24,8 +25,8 @@ public class DialogueSystem : MonoBehaviour
     public void Start()
     {
         finalSentence = dialogue[index].sentences;
-        currSentence = "";  
-
+        currSentence = "";
+        GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[1];
         name.text = dialogue[index].name;
         sentence.text = currSentence;
         StartCoroutine("textScroll");
@@ -38,6 +39,7 @@ public class DialogueSystem : MonoBehaviour
     }
     public void restart()
     {
+        GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[1];
         index++;
         dialogueGoing = true;
         finalSentence = dialogue[index].sentences;
@@ -50,6 +52,7 @@ public class DialogueSystem : MonoBehaviour
     }
     public void restart2()
     {
+        GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[1];
         index++;
         dialogueGoing = true;
         finalSentence = dialogue[index].sentences;
@@ -64,6 +67,7 @@ public class DialogueSystem : MonoBehaviour
     }
     private void boxChange()
     {
+        //GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[1];
         if (dialogue[index].name == "Mother:") {
             dialogueBox.GetComponent<Image>().sprite = box[0];
         } else if (dialogue[index].name == "Strawberry Popcorn:") {
@@ -74,7 +78,7 @@ public class DialogueSystem : MonoBehaviour
     }
     public void lookAround()
     {
-        if (Input.GetButtonDown("Jump")&&dialogueGoing){
+        if (Input.GetButtonDown("Fire1")&&dialogueGoing){
             if (currSentence.Length < finalSentence.Length) {
                 sentence.text = currSentence = finalSentence;
             } else {
@@ -88,9 +92,11 @@ public class DialogueSystem : MonoBehaviour
                         GetComponent<CutsceneSystem>().StartCoroutine("buffer");
                     } else if (continuing2) {
                         GetComponent<CutsceneSystem>().DialogueDone(true);
-                    } else
+                        GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[0];
+                    } else {
                         GetComponent<CutsceneSystem>().DialogueDone();
-                    
+                        GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[0];
+                    }
                 }
                 name.text = dialogue[index].name;
                 boxChange();

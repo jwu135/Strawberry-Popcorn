@@ -289,6 +289,7 @@ public class PlatformMovementPhys : MonoBehaviour
         velocityVector.y = jumpVelocity;
         if (remainingAirJumps > 0 && state == true) //conditions for a double jump
         {
+            GetComponent<Movement>().airJump();
             remainingAirJumps -= 1;
         }
         state = true;

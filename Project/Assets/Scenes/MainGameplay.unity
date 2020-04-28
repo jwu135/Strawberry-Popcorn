@@ -4427,7 +4427,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: 21300000, guid: 0e349eb1f6d28b74aa534ff939c4dbd8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7a5bd4988010834ca6acec0afbd4ae0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4447,7 +4447,7 @@ Transform:
   m_GameObject: {fileID: 307272881}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -8.34551, y: 3.8720329, z: 1}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -5993,7 +5993,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press W or L1 To Continue...
+  m_Text: Click M1 or R2 To Continue...
 --- !u!222 &398432650
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19428,6 +19428,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d604c6f9e8c39514fbf7dc184fdff97c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursors:
+  - {fileID: 21300000, guid: e7a5bd4988010834ca6acec0afbd4ae0, type: 3}
+  - {fileID: 21300000, guid: bcb8ee50e6adc5443935efa21f0bd193, type: 3}
   box:
   - {fileID: 21300000, guid: af6a224451ed563479302e145be32f28, type: 3}
   - {fileID: 21300000, guid: 24c2c11333866ed44b6d3e8d240920ce, type: 3}
@@ -24828,6 +24831,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4301d4740e9b59c47abb6f1069e8861f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  airJumpEffect: {fileID: 3752852464684553587, guid: e56ebdc85066be34cab7c6b801d90ce0,
+    type: 3}
   next: {fileID: 2100000, guid: f63b5fd29a1f5154ca1fd643243605ef, type: 2}
   armatures:
   - {fileID: 727157427}
@@ -30636,6 +30641,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Boss: {fileID: 1297109244}
+  explodingEye: {fileID: 7334491772667889448, guid: 5a3ee2e796715a24b84003283a9a95c3,
+    type: 3}
 --- !u!50 &6887859871426871693
 Rigidbody2D:
   serializedVersion: 4
