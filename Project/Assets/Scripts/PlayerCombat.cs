@@ -56,6 +56,7 @@ public class PlayerCombat : MonoBehaviour
     public Stick Stick;
     public FakeCannon FakeCannon;
     public HealthManager HealthManager;
+    public PlatformMovementPhys PlatformMovementPhys;
 
     public double timeBtwWeaponChange;
     public double delayBtwAttack1;
@@ -110,16 +111,16 @@ public class PlayerCombat : MonoBehaviour
         // LASER = false;
 
         //combo normal a1
-        if (Input.GetButton("Fire1") && normalAttack1Buffer < 2 && weaponCycle == 1)
+        if (Input.GetButton("Fire1") && normalAttack1Buffer < 0.4 && weaponCycle == 1 && PlatformMovementPhys.rollingFrame == 0)
         {
             //LASER = true;
             normalAttack1Buffer += Time.deltaTime;
         }
 
-        if (!Input.GetButton("Fire1") && normalAttack1Buffer > 0)
+        if ((!Input.GetButton("Fire1") && normalAttack1Buffer > 0) || PlatformMovementPhys.rollingFrame > 0)
         {
             //LASER = true;
-            normalAttack1Buffer -= Time.deltaTime;
+            normalAttack1Buffer = 0;
         }
 
         if (Input.GetButton("Fire1") && weaponCycle == 1)
@@ -231,7 +232,7 @@ public class PlayerCombat : MonoBehaviour
         if (timeBtwAttack <= 0)
         {            
             //strawberry shooter
-            if (Input.GetButtonUp("Fire1") && weaponCycle == 1 && !fire2State && !longPress)
+            if (Input.GetButtonUp("Fire1") && weaponCycle == 1 && !fire2State && !longPress && PlatformMovementPhys.rollingFrame == 0)
             {
                 Shoot1();
                 timeBtwAttack = delayBtwAttack1 - delayAttackCD;
@@ -319,7 +320,7 @@ public class PlayerCombat : MonoBehaviour
         {
             //strawberry cannon
             //if (fire2State && weaponCycle == 1 && !Input.GetButton("Fire1") && !FakeCannon.maxCharge && !FakeCannon.charging)
-            if (Input.GetButton("Fire1") && weaponCycle == 1 && !fire2State && !FakeCannon.maxCharge && !FakeCannon.charging)
+            if (Input.GetButton("Fire1") && weaponCycle == 1 && !fire2State && !FakeCannon.maxCharge && !FakeCannon.charging )
             {
                 launch = true;
                 launchVisible = true;
@@ -329,7 +330,7 @@ public class PlayerCombat : MonoBehaviour
         }
         else 
         {
-            if (!Input.GetButtonUp("Fire2") || specialChargeAttack1Timer <= 0)
+            if (!Input.GetButtonUp("Fire1") || specialChargeAttack1Timer <= 0)
             {
                 //launch = true;
                 //specialChargeAttack1Timer = 0;
@@ -337,7 +338,7 @@ public class PlayerCombat : MonoBehaviour
             }
 
 
-            if (!Input.GetButtonDown("Fire2") || specialChargeAttack1Timer <= 0)
+            if (!Input.GetButtonDown("Fire1") || specialChargeAttack1Timer <= 0)
             {
                 timeBtwChargeAttack1 -= Time.deltaTime;
             }

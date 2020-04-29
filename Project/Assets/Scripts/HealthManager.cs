@@ -124,7 +124,7 @@ public class HealthManager : MonoBehaviour
                 health -= 1;
                 PlayerCombat.Hurt();
                 GameObject.Find("EventSystem").GetComponent<PlayerHeartsController>().losehealth();
-                if (FakeCannon.charging)
+                if (FakeCannon.charging && PlayerCombat.longPress)
                 {
                     hit = true; 
                 }

@@ -32,7 +32,7 @@ public class PlatformMovementPhys : MonoBehaviour
     float deadzone; //joystick deadzone
     Vector2 stickInput;
     bool controlFrozen;
-    int rollingFrame;
+    public int rollingFrame;
     Vector2 rollInput = Vector2.zero;
 
     Vector2 velocityVector;
