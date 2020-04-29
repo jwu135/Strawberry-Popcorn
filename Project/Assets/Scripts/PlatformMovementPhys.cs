@@ -10,10 +10,13 @@ public class PlatformMovementPhys : MonoBehaviour
     private float acceleration; //the multiplier for speeding up
     private float deceleration; //the coefficient of drag
     private float numAirJumps; //the amount of times the player can jump, where 1 is a single double jump
-    private float jumpVelocity;
-    private float gravity;
-    private float fallingGravity;
-    private float fallSpeedCap;
+    private float jumpVelocity; // instantaneous velocity given to the player when they press jump
+    private float gravity; //how fast the player accelerates downwards when velocity is upwards
+    private float fallingGravity; //how fast the player accelerates downwards when velocity is downwards
+    private float fallSpeedCap; // the fastest fall speed the player can go when they are not pressing down
+    private float fastFallingGravity; // the speed at which the player accelerates downwards when fast fall is initiated
+    private float fastFallSpeedCap; //how fast the player falls when they hold down 
+    private float fastFallMinVel; //velocity the player must be moving vertically in order for fast fall to work
     private float rollDistance; //How far should a dodge move the player?
     private float rollDuration; //How many frames to complete the dodge?
     private float rollSlowFrames; //How many frames after the fast animation ends does the player stay in slow state
@@ -26,6 +29,7 @@ public class PlatformMovementPhys : MonoBehaviour
 
     public LayerMask whatIsGround;
     bool state;
+    bool isFastFalling = false;
     float actingGravity; //the current gravity that is acting on the player. Changes to fallingGravity when y vel is < 0
     PlayerController pc;
 
@@ -58,9 +62,12 @@ public class PlatformMovementPhys : MonoBehaviour
         deceleration = pc.getStat("deceleration");
         numAirJumps = pc.getStat("numAirJumps");
         jumpVelocity = pc.getStat("jumpVelocity");
-        gravity = pc.getStat("gravity") - 0.0001f;
-        fallingGravity = pc.getStat("fallingGravity");
-        fallSpeedCap = pc.getStat("fallSpeedCap");
+        gravity = pc.getStat("gravity") - 0.00001f;
+        fallingGravity = pc.getStat("fallingGravity") - 0.00001f;
+        fallSpeedCap = pc.getStat("fallSpeedCap") - 0.00001f;
+        fastFallingGravity = pc.getStat("fastFallingGravity") - 0.00001f;
+        fastFallSpeedCap = pc.getStat("fastFallSpeedCap") - 0.00001f;
+        fastFallMinVel = pc.getStat("fastFallMinVel");
         rollDistance = pc.getStat("rollDistance");
         rollDuration = pc.getStat("rollDuration");
         rollSlowFrames = pc.getStat("rollSlowFrames");
@@ -103,7 +110,9 @@ public class PlatformMovementPhys : MonoBehaviour
 
     void doMovement()
     {
-        
+        //Debug.Log("actingGravity = " + actingGravity);
+        //Debug.Log("vertical vel = " + velocityVector.y);
+        //Debug.Log("fast falling = " + isFastFalling);
         if (!PlayerCombat.stop1)
         {
             if (froze)
@@ -169,6 +178,7 @@ public class PlatformMovementPhys : MonoBehaviour
             if (velocityVector.y == 0)
             {
                 state = false;
+                isFastFalling = false;
                 remainingAirJumps = numAirJumps;
             }
             if (jumpButtonDown == true && (state == false || remainingAirJumps > 0))//if jump button is pressed and conditions are met, then jump (add double jump later)
@@ -191,7 +201,11 @@ public class PlatformMovementPhys : MonoBehaviour
                 doRoll(Vector2.SignedAngle(Vector2.up, rollInput)); //calls roll with the angle (0 degrees is vertical)
             }
 
-            if (velocityVector.y < 0) //tells the player to fall at the speed of falling vs. ascending
+            if( isFastFalling == true )
+            {
+                actingGravity = fastFallingGravity;
+            }
+            else if (velocityVector.y < 0) //tells the player to fall at the speed of falling vs. ascending
             {
                 actingGravity = fallingGravity;
             }
@@ -205,25 +219,49 @@ public class PlatformMovementPhys : MonoBehaviour
                 velocityVector.y = velocityVector.y / 1.15f;
             }
 
-            if (state == true && velocityVector.y - actingGravity <= -fallSpeedCap)//if player is in the air and falling at terminal velocity
+            if (state == true && isFastFalling == true && velocityVector.y - actingGravity <= -fastFallSpeedCap)//if player is in the air and falling at terminal velocity and is fast falling
             {
+                Debug.Log("fastFall!");
+                velocityVector.y = -fastFallSpeedCap;
+            }
+            else if (state == true && isFastFalling == false && velocityVector.y - actingGravity <= -fallSpeedCap)//if player is in the air and falling at terminal velocity and is not fast falling
+            {
+                Debug.Log("1");
                 velocityVector.y = -fallSpeedCap;
             }
             else if (state == false && gameObject.layer != 12)
             {
+                //Debug.Log("2");
                 gameObject.layer = 12;
             }
             else if (state == false && transform.localPosition.y > -2.14)
             {
+                //Debug.Log("3");
                 velocityVector.y -= actingGravity/2;
             }
-            else if (state == true && velocityVector.y - gravity > -fallSpeedCap)
+            else if (state == true && isFastFalling == false && velocityVector.y - gravity > -fallSpeedCap)
             {
+                //Debug.Log("4");
+                velocityVector.y -= actingGravity;
+            }
+            else if (state == true && isFastFalling == true && velocityVector.y - gravity > -fastFallSpeedCap)
+            {
+                //Debug.Log("5");
                 velocityVector.y -= actingGravity;
             }
 
-            if (state == true && Input.GetKey(KeyCode.DownArrow))
+            if (state == true && Input.GetAxis("Vertical") < -0.5f && velocityVector.y < fastFallMinVel)
             {
+                isFastFalling = true;
+            }
+
+            if (state == true && Input.GetAxis("Vertical") < -0.5f)
+            {
+                gameObject.layer = 10;
+            }
+            else if (state == false && Input.GetAxis("Vertical") < -0.5f) //if player is grounded, give them a nudge downwards
+            {
+                velocityVector.y = -fallSpeedCap;
                 gameObject.layer = 10;
             }
 
@@ -251,6 +289,7 @@ public class PlatformMovementPhys : MonoBehaviour
         velocityVector.y = jumpVelocity;
         if (remainingAirJumps > 0 && state == true) //conditions for a double jump
         {
+            GetComponent<Movement>().airJump();
             remainingAirJumps -= 1;
         }
         state = true;

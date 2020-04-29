@@ -5,12 +5,24 @@ using UnityEngine;
 public class BossBullet : MonoBehaviour
 {
     public GameObject Boss;
+    public GameObject explodingEye;
     // Start is called before the first frame update
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "Player") {
-            Destroy(gameObject);
+            explode();
         }
+    }
+    void explode()
+    {
+        GameObject temp = Instantiate(explodingEye, transform.position, transform.rotation) as GameObject;
+        temp.transform.localScale = transform.localScale;
+        destroy();
+
+    }
+    public void destroy()
+    {
+        Destroy(gameObject);
     }
     void Update()
     {
@@ -22,7 +34,7 @@ public class BossBullet : MonoBehaviour
     void lookAround()
     {
         if (Vector2.Distance(transform.position, Boss.transform.position) > 50f) {
-            Destroy(gameObject);   
+            explode();  
         }
     }
 }

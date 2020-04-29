@@ -78,11 +78,13 @@ public class FakeCannon : MonoBehaviour
             if (PlayerCombat.launch)
             {
 
+
                 damageScale = scale;
                 PlayerCombat.Shoot2();
                 PlayerCombat.launch = false;
                 PlayerCombat.launchVisible = false;
                 charging = false;
+
             }
 
         }
@@ -163,6 +165,7 @@ public class FakeCannon : MonoBehaviour
                 charging = false;
                 maxCharge = false;
             }
+            
             transform.localScale = new Vector2((float)1.5 , (float)1.2);
             //scale = 0;
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
