@@ -23,8 +23,8 @@ public class Movement : MonoBehaviour
     public void airJump()
     {
         Vector3 temp = transform.position;
-        temp.y -= -2f; // somewhat arbitrary number for offset
-        GameObject airJump = Instantiate(airJumpEffect, transform.position, transform.rotation) as GameObject;
+        temp.y -= 1.2f; // somewhat arbitrary number for offset
+        GameObject airJump = Instantiate(airJumpEffect, temp, transform.rotation) as GameObject;
     }
 
     public void setPrimaryIndex(int index)
@@ -55,7 +55,7 @@ public class Movement : MonoBehaviour
     }
     public int findIndex(string name)
     {
-        for(int i = 0; i < armatures.Length; i++) {
+        for (int i = 0; i < armatures.Length; i++) {
             if (string.Equals(armatures[i].name, name))
                 return i;
         }
@@ -63,8 +63,7 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
-        if (Time.timeScale != 0)
-        {
+        if (Time.timeScale != 0) {
             animate();
         }
     }
@@ -80,14 +79,14 @@ public class Movement : MonoBehaviour
         }
         */
         //This comes from having a seperate armature for the dodge. 
- 
-        if (armatureComponent.animationName.Equals("dodge")&&armatureComponent.animation.isCompleted) {
+
+        if (armatureComponent.animationName.Equals("dodge") && armatureComponent.animation.isCompleted) {
             setPrimaryArmature(primaryIndex);
         }
         if (Input.GetButtonDown("Roll") || armatureComponent.animation.lastAnimationName == "") {
-            
+
             setPrimaryArmature(1);
-            armatureComponent.animation.timeScale = 2f  ;
+            armatureComponent.animation.timeScale = 2f;
             if (Input.GetAxisRaw("Horizontal") < 0) {
                 if (direction > 0) // direction set in Look.cs
                     armatureComponent.animation.Play("dodge", 1);
@@ -99,7 +98,7 @@ public class Movement : MonoBehaviour
                 else
                     armatureComponent.animation.Play("dodge", 1);
             }
-        } else  {
+        } else {
             if (Input.GetButtonDown("Jump")) {
 
                 armatureComponent.animation.timeScale = 3;
@@ -108,6 +107,7 @@ public class Movement : MonoBehaviour
             float mag = new Vector2(Input.GetAxisRaw("Horizontal"), 0).magnitude; // technique from Ethan's script. Don't want to read it in from there yet to avoid making changes to other people's scripts. Making the deadzone variable public or adding a function call to add the value to this script would be fine for doing this.
             //bool moving = mag > 0.15f && (Input.GetAxisRaw("Horizontal") > 0 || (Input.GetAxisRaw("Horizontal") < 0));
             bool moving = Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) > 0;
+            bool falling = GetComponent<Rigidbody2D>().velocity.y != 0; // add last velocity to compare
             bool last = armatureComponent.animation.lastAnimationName == "Running" || armatureComponent.animation.lastAnimationName == "backRunning";
             Vector2 pos = transform.Find("Arm").transform.localPosition;
             if (direction > 0) {
@@ -115,10 +115,13 @@ public class Movement : MonoBehaviour
             } else
                 pos.x = -0.185f;
             transform.Find("Arm").transform.localPosition = pos;
-
-            if (moving) {
-                armatureComponent.animation.timeScale = Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x)/6;
+            //Debug.Log(GetComponent<Rigidbody2D>().velocity);
+            if (falling) {
                 //Debug.Log(GetComponent<Rigidbody2D>().velocity);
+            } else if (moving) {
+                Debug.Log(armatureComponent.animation.timeScale);
+                if (armatureComponent.animation.lastAnimationName != "dodge" || armatureComponent.animation.lastAnimationName != "dodgeback")
+                    armatureComponent.animation.timeScale = Mathf.Clamp(Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) / 6,1.0f,2f);
                 //if (Input.GetAxisRaw("Horizontal") < 0) {
                 if (GetComponent<Rigidbody2D>().velocity.x < 0) {
                     if (armatureComponent.animation.isCompleted || armatureComponent.animation.lastAnimationName == "Idle" || direction != lastdirection) {
@@ -140,11 +143,13 @@ public class Movement : MonoBehaviour
                     lastdirection = direction;
                 }
 
-            } else if (armatureComponent.animation.isCompleted || last) {
+            //} else if (armatureComponent.animation.isCompleted || last) {
+            } else if (armatureComponent.animation.lastAnimationName != "Idle") {
                 armatureComponent.animation.timeScale = 2;
                 armatureComponent.animation.Play("Idle");
 
             }
         }
+
     }
 }

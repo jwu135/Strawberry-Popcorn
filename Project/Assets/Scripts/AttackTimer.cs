@@ -19,7 +19,17 @@ public class AttackTimer : MonoBehaviour
         disappearTime = Time.time + timeToDisappearAfter;
         enable(0);
     }
+    public void playSound()
+    {
+        SoundManager.PlaySound("bossAOE");
+    }
 
+    public void animationPlay()
+    {
+        GetComponent<Animator>().SetTrigger("Spike");
+        playSound();
+    }
+ 
     public void setTimer(float time)
     {
         timeToDisappearAfter = time;

@@ -1,0 +1,583 @@
+fileFormatVersion: 2
+guid: 3ece914959381ac48b83f0b97b427ff4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7078636651052072764
+    second: tenticleanimationNew_0
+  - first:
+      213: -3739651173425024120
+    second: tenticleanimationNew_1
+  - first:
+      213: 2958996323654999990
+    second: tenticleanimationNew_2
+  - first:
+      213: 3381725967436814973
+    second: tenticleanimationNew_3
+  - first:
+      213: -8328765547144570961
+    second: tenticleanimationNew_4
+  - first:
+      213: -4925681166607214253
+    second: tenticleanimationNew_5
+  - first:
+      213: -2586528373557966475
+    second: tenticleanimationNew_6
+  - first:
+      213: -6325091166820852013
+    second: tenticleanimationNew_7
+  - first:
+      213: 7103400274190720851
+    second: tenticleanimationNew_8
+  - first:
+      213: -8751101391622444210
+    second: tenticleanimationNew_9
+  - first:
+      213: -2084440994855647328
+    second: tenticleanimationNew_10
+  - first:
+      213: -348002687033032402
+    second: tenticleanimationNew_11
+  - first:
+      213: -5755639503470834368
+    second: tenticleanimationNew_12
+  - first:
+      213: 2513385597572640966
+    second: tenticleanimationNew_13
+  - first:
+      213: 7693526188662050756
+    second: tenticleanimationNew_14
+  - first:
+      213: -8435444611833335623
+    second: tenticleanimationNew_15
+  - first:
+      213: -7669927338038507708
+    second: tenticleanimationNew_16
+  - first:
+      213: -7533782496497653957
+    second: tenticleanimationNew_17
+  - first:
+      213: -7261224161476698865
+    second: tenticleanimationNew_18
+  - first:
+      213: -6869569459899601862
+    second: tenticleanimationNew_19
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tenticleanimationNew_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2320
+        width: 245
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c00bf75871a3cd90800000000000000
+      internalID: -7078636651052072764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tenticleanimationNew_1
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 2320
+        width: 245
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 883f02042171a1cc0800000000000000
+      internalID: -3739651173425024120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tenticleanimationNew_2
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 2320
+        width: 245
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bf942b9a77701920800000000000000
+      internalID: 2958996323654999990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tenticleanimationNew_3
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 2320
+        width: 245
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7a19c8a9dd4eee20800000000000000
+      internalID: 3381725967436814973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tenticleanimationNew_4
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 2320
+        width: 245
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa79fe0dcd74a6c80800000000000000
+      internalID: -8328765547144570961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tenticleanimationNew_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1740
+        width: 245
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3599b8b831774abb0800000000000000
+      internalID: -4925681166607214253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tenticleanimationNew_6
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 1740
+        width: 245
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 579cb94f52eca1cd0800000000000000
+      internalID: -2586528373557966475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tenticleanimationNew_7
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 1740
+        width: 245
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3de9ea57813c838a0800000000000000
+      internalID: -6325091166820852013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tenticleanimationNew_8
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1740
+        width: 245
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35fdc88f9e8549260800000000000000
+      internalID: 7103400274190720851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tenticleanimationNew_9
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 1740
+        width: 245
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4beaee46a7dd8680800000000000000
+      internalID: -8751101391622444210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tenticleanimationNew_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1160
+        width: 245
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a70e5285f39213e0800000000000000
+      internalID: -2084440994855647328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tenticleanimationNew_11
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 1160
+        width: 245
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e21c3826665ab2bf0800000000000000
+      internalID: -348002687033032402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tenticleanimationNew_12
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 1160
+        width: 245
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04d4a64cd5cdf10b0800000000000000
+      internalID: -5755639503470834368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tenticleanimationNew_13
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1160
+        width: 245
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c076ee62e651e220800000000000000
+      internalID: 2513385597572640966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tenticleanimationNew_14
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 1160
+        width: 245
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cfcd597e45e4ca60800000000000000
+      internalID: 7693526188662050756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tenticleanimationNew_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 580
+        width: 245
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b0f03581d74fea80800000000000000
+      internalID: -8435444611833335623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tenticleanimationNew_16
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 580
+        width: 245
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 447482b19b1fe8590800000000000000
+      internalID: -7669927338038507708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tenticleanimationNew_17
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 580
+        width: 245
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b37a3313cb0a27790800000000000000
+      internalID: -7533782496497653957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tenticleanimationNew_18
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 580
+        width: 245
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0d92b4c813fa3b90800000000000000
+      internalID: -7261224161476698865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tenticleanimationNew_19
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 580
+        width: 245
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3cefc609f26aa0a0800000000000000
+      internalID: -6869569459899601862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

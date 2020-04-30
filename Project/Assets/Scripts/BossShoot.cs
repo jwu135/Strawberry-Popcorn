@@ -131,16 +131,16 @@ public class BossShoot : MonoBehaviour
         nextTime = Time.time + cooldown;
     }
     void Physical(int pos,bool random = true,int place = 0) {
-        SoundManager.PlaySound("bossAOE");
+        
         GameObject physicalAttack = null;
         if (pos < 3) {
             Vector3 position = new Vector3(0, 0, 0);
             if (pos == 0) {
                 int rand = Random.Range(0, spawnPointsX.Length);
                 if(random)
-                    position = new Vector3(spawnPointsX[rand], -5, 0);
+                    position = new Vector3(spawnPointsX[rand], -1.370086f, 0);
                 else
-                    position = new Vector3(spawnPointsX[place], -5, 0);
+                    position = new Vector3(spawnPointsX[place], -1.370086f, 0);
                 physicalAttack = Instantiate(hitObj, position, hitObj.transform.rotation) as GameObject;
                 physicalAttack.GetComponent<Animator>().SetTrigger("Spike");
             } else if (pos == 1) {
@@ -164,6 +164,7 @@ public class BossShoot : MonoBehaviour
             
             physicalAttack.GetComponent<AttackTimer>().disappear();
         } else if (pos==3) {
+            SoundManager.PlaySound("bossAOE");
             physicalAttack = Instantiate(AoE, transform.Find("AoEAnchor").transform.position, AoE.transform.rotation) as GameObject;
             physicalAttack.transform.parent = transform.Find("AoEAnchor").transform;
             physicalAttack.GetComponent<Animator>().SetTrigger("Expand");
