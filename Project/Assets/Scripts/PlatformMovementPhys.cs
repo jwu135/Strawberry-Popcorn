@@ -9,6 +9,7 @@ public class PlatformMovementPhys : MonoBehaviour
     private float moveSpeed; //the maximum movement speed
     private float acceleration; //the multiplier for speeding up
     private float deceleration; //the coefficient of drag
+    private float turnAroundSpeed; //speed of turning around
     private float numAirJumps; //the amount of times the player can jump, where 1 is a single double jump
     private float jumpVelocity; // instantaneous velocity given to the player when they press jump
     private float gravity; //how fast the player accelerates downwards when velocity is upwards
@@ -61,6 +62,7 @@ public class PlatformMovementPhys : MonoBehaviour
         moveSpeed = pc.getStat("moveSpeed");
         acceleration = pc.getStat("acceleration");
         deceleration = pc.getStat("deceleration");
+        turnAroundSpeed = pc.getStat("turnAroundSpeed");
         numAirJumps = pc.getStat("numAirJumps");
         jumpVelocity = pc.getStat("jumpVelocity");
         gravity = pc.getStat("gravity") - 0.00001f;
@@ -139,8 +141,8 @@ public class PlatformMovementPhys : MonoBehaviour
                 }
                 else if( (velocityVector.x > 0 && stickInput.x < 0) || (velocityVector.x < 0 && stickInput.x > 0) )
                 {
-                    //Debug.Log(stickInput.ToString());
-                    velocityVector = new Vector2((body.velocity + (stickInput * deceleration)).x, body.velocity.y);
+                    Debug.Log("Decelerate");
+                    velocityVector = new Vector2((body.velocity + (stickInput * turnAroundSpeed)).x, body.velocity.y);
                 }
                 else
                 {
