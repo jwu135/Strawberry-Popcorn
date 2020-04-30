@@ -117,10 +117,11 @@ public class Movement : MonoBehaviour
             transform.Find("Arm").transform.localPosition = pos;
             //Debug.Log(GetComponent<Rigidbody2D>().velocity);
             if (falling) {
-                Debug.Log(GetComponent<Rigidbody2D>().velocity);
+                //Debug.Log(GetComponent<Rigidbody2D>().velocity);
             } else if (moving) {
+                Debug.Log(armatureComponent.animation.timeScale);
                 if (armatureComponent.animation.lastAnimationName != "dodge" || armatureComponent.animation.lastAnimationName != "dodgeback")
-                    armatureComponent.animation.timeScale = Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) / 6;
+                    armatureComponent.animation.timeScale = Mathf.Clamp(Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) / 6,1.0f,2f);
                 //if (Input.GetAxisRaw("Horizontal") < 0) {
                 if (GetComponent<Rigidbody2D>().velocity.x < 0) {
                     if (armatureComponent.animation.isCompleted || armatureComponent.animation.lastAnimationName == "Idle" || direction != lastdirection) {

@@ -1684,7 +1684,7 @@ MonoBehaviour:
   bulletSpeed: 10
   laserobj: {fileID: 349775662642372696, guid: 1188ac9800436794e9e188cf3d1c013b, type: 3}
   projectile: {fileID: 6887859871426871690}
-  hitObj: {fileID: 176314249}
+  hitObj: {fileID: 4889125177576347146, guid: 3f1ba6d58a023d644bd4030dbfedd5d5, type: 3}
   AoE: {fileID: 1311504387978517729, guid: 11f3499048b11df4b93c56ebd281adf3, type: 3}
   nextTime: 0
   AoECooldown: 1
@@ -2844,7 +2844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &176314250
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18978,7 +18978,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366208693}
   m_LocalRotation: {x: -0, y: -0, z: -0.034027506, w: -0.9994209}
-  m_LocalPosition: {x: -19.341585, y: -6.0866714, z: 0}
+  m_LocalPosition: {x: 0, y: 2.61, z: 0}
   m_LocalScale: {x: 2.5000002, y: 2.5000002, z: 1}
   m_Children: []
   m_Father: {fileID: 1702266059}
@@ -19060,7 +19060,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -24811,8 +24811,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b159e4ed17ed047a71f92a80dd64ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  health: 20
+  maxHealth: 7
+  health: 7
   maxMana: 100
   mana: 0
   invicibilityLength: 7
@@ -25177,7 +25177,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!1 &1828813185
 GameObject:
