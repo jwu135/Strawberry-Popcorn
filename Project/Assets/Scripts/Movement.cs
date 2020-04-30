@@ -118,7 +118,7 @@ public class Movement : MonoBehaviour
 
             if (moving) {
                 armatureComponent.animation.timeScale = Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x)/6;
-                Debug.Log(GetComponent<Rigidbody2D>().velocity);
+                //Debug.Log(GetComponent<Rigidbody2D>().velocity);
                 //if (Input.GetAxisRaw("Horizontal") < 0) {
                 if (GetComponent<Rigidbody2D>().velocity.x < 0) {
                     if (armatureComponent.animation.isCompleted || armatureComponent.animation.lastAnimationName == "Idle" || direction != lastdirection) {
