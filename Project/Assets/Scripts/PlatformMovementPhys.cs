@@ -21,6 +21,7 @@ public class PlatformMovementPhys : MonoBehaviour
     private float rollDuration; //How many frames to complete the dodge?
     private float rollSlowFrames; //How many frames after the fast animation ends does the player stay in slow state
     private float rollSlowSpeedMult; //Multiplier for how fast the player moves during slow frames of a roll
+    private float rollOutSpeedMult; //Speed mult after a roll
     private float rollCooldown; //frames after the roll ends before the player can roll again
     protected Rigidbody2D body;
 
@@ -72,6 +73,7 @@ public class PlatformMovementPhys : MonoBehaviour
         rollDuration = pc.getStat("rollDuration");
         rollSlowFrames = pc.getStat("rollSlowFrames");
         rollSlowSpeedMult = pc.getStat("rollSlowSpeedMult");
+        rollOutSpeedMult = pc.getStat("rollOutSpeedMult");
         rollCooldown = pc.getStat("rollCooldown");
         deadzone = pc.getStat("movementDeadzone");
 
@@ -131,8 +133,21 @@ public class PlatformMovementPhys : MonoBehaviour
 
             if (controlFrozen == false)
             {
-                velocityVector = new Vector2((body.velocity + (stickInput * acceleration)).x, body.velocity.y);
-                velocityVectorStorage = new Vector2((body.velocity + (stickInput * acceleration)).x, body.velocity.y);
+                if((velocityVector.x < 0 && stickInput.x < 0) || (velocityVector.x > 0 && stickInput.x > 0) )//check if it should use acceleration or deceleration
+                {
+                    velocityVector = new Vector2((body.velocity + (stickInput * acceleration)).x, body.velocity.y);
+                }
+                else if( (velocityVector.x > 0 && stickInput.x < 0) || (velocityVector.x < 0 && stickInput.x > 0) )
+                {
+                    //Debug.Log(stickInput.ToString());
+                    velocityVector = new Vector2((body.velocity + (stickInput * deceleration)).x, body.velocity.y);
+                }
+                else
+                {
+                    velocityVector = new Vector2((body.velocity + (stickInput * acceleration)).x, body.velocity.y);
+                }
+
+                //velocityVectorStorage = new Vector2((body.velocity + (stickInput * acceleration)).x, body.velocity.y);
             }
 
 
@@ -141,7 +156,7 @@ public class PlatformMovementPhys : MonoBehaviour
             {
                 velocityVector.x = moveSpeed;
             }
-            else if (velocityVector.x < -moveSpeed)
+            else if (velocityVector.x < -moveSpeed && controlFrozen == false)
             {
                 velocityVector.x = -moveSpeed;
             }
@@ -152,24 +167,24 @@ public class PlatformMovementPhys : MonoBehaviour
             {
                 if (velocityVector.x > 0)
                 {
-                    if (velocityVector.x - deceleration < 0)
+                    if (velocityVector.x - (deceleration) < 0)
                     {
                         velocityVector.x = 0;
                     }
                     else
                     {
-                        velocityVector.x -= deceleration;
+                        velocityVector.x -= (deceleration);
                     }
                 }
                 if (velocityVector.x < 0)
                 {
-                    if (velocityVector.x + deceleration > 0)
+                    if (velocityVector.x + (deceleration) > 0)
                     {
                         velocityVector.x = 0;
                     }
                     else
                     {
-                        velocityVector.x += deceleration;
+                        velocityVector.x += (deceleration);
                     }
                 }
             }
@@ -295,9 +310,9 @@ public class PlatformMovementPhys : MonoBehaviour
         state = true;
     }
 
-    void doRoll(float rollAngle)
+    void doRoll(float rollAngle) 
     {
-        if (rollingFrame < rollDuration)
+        if (rollingFrame < rollDuration) //roll in full speed frames
         {
             if( rollAngle < 0 )
             {
@@ -310,7 +325,7 @@ public class PlatformMovementPhys : MonoBehaviour
 
             rollingFrame++;
         }
-        else if (rollingFrame < rollDuration + rollSlowFrames)
+        else if (rollingFrame < rollDuration + rollSlowFrames) //roll in slow frames
         {
             if (rollAngle < 0)
             {
@@ -322,12 +337,27 @@ public class PlatformMovementPhys : MonoBehaviour
             }
             rollingFrame++;
         }
-        else if (rollingFrame < rollDuration + rollSlowFrames + rollCooldown)
+        else if (rollingFrame == rollDuration + rollSlowFrames) //roll is over
+        {
+            if(stickInput.x > 0 || stickInput.x < 0) //if player is moving left or right
+            {
+                if (rollAngle < 0)
+                {
+                    velocityVector.x = (rollDistance / rollDuration) * rollOutSpeedMult;
+                }
+                if (rollAngle > 0)
+                {
+                    velocityVector.x = -(rollDistance / rollDuration) * rollOutSpeedMult;
+                }
+            }
+            rollingFrame++;
+        }
+        else if (rollingFrame < rollDuration + rollSlowFrames + rollCooldown) //roll on cooldown
         {
             controlFrozen = false;
             rollingFrame++;
         }
-        else
+        else //roll reset
         {
             rollingFrame = 0;
         }

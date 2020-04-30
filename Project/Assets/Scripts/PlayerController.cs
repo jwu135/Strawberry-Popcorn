@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public float rollDuration; //How many frames should the dodge take
     public float rollSlowFrames; //How many frames after the fast animation ends does the player stay in slow state
     public float rollSlowSpeedMult; //Multiplier for how fast the player moves during slow frames of a roll
+    public float rollOutSpeedMult; //Multiplier for how fast the player should be moving after their slow frames, affects starting speed after a roll
     public float rollCooldown; //frames after the roll ends before the player can roll again
     public float movementDeadzone = 0.15f; //How far along the left stick for the controller to actually move
     public int mode;
@@ -131,6 +132,10 @@ public class PlayerController : MonoBehaviour
         else if (string.Equals(stat, "rollSlowSpeedMult"))
         {
             return rollSlowSpeedMult;
+        }
+        else if (string.Equals(stat, "rollOutSpeedMult"))
+        {
+            return rollOutSpeedMult;
         }
         else if (string.Equals(stat, "rollCooldown"))
         {
