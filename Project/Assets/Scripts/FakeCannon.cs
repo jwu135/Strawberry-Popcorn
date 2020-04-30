@@ -20,7 +20,8 @@ public class FakeCannon : MonoBehaviour
 
     void Start()
     {
-        misfire = true;
+        misfire = false;
+        //misfire = true;
     }
 
     // Update is called once per frame
@@ -33,14 +34,21 @@ public class FakeCannon : MonoBehaviour
             // Debug.Log(maxCharge);
             //Debug.Log(explode);
         }
+
         if (!Input.GetButton("Fire1"))
         {
             explode = false;
             release = true;
+
+            if (Input.GetButtonUp("Fire1"))
+            {
+                damageScale = scale;
+            }
             scale = 0;
             //  Debug.Log(maxCharge);
             //Debug.Log(explode);
         }
+
 
         if (maxCharge && PlayerCombat.longPress && misfire)
         {
@@ -62,7 +70,7 @@ public class FakeCannon : MonoBehaviour
             //CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
             if (PlayerCombat.launch)
             {
-               // damageScale = scale;
+                //damageScale = scale;
                // PlayerCombat.Shoot2();
                 //PlayerCombat.launch = false;
                // Debug.Log("yellow");
@@ -89,7 +97,7 @@ public class FakeCannon : MonoBehaviour
 
         }
 
-        if (HealthManager.hit && !maxCharge && charging && PlayerCombat.longPress && !misfire)
+        if (HealthManager.hit && PlayerCombat.longPress && !misfire)
         {
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
             if (PlayerCombat.launch)
@@ -128,7 +136,7 @@ public class FakeCannon : MonoBehaviour
         }
 
         //charging
-        if (explode && !release && !charging && scale == 0)
+        if (explode && !release && !charging && scale == 0f)
         {
             charging = true;
             scale = 0.001f;
@@ -157,7 +165,7 @@ public class FakeCannon : MonoBehaviour
         {
             if (PlayerCombat.launch && PlayerCombat.longPress)
             {
-                damageScale = scale;
+                //damageScale = scale;
                 PlayerCombat.Shoot2();
                 PlayerCombat.launch = false;
                 Debug.Log("messy");
@@ -178,7 +186,7 @@ public class FakeCannon : MonoBehaviour
         {
             if (PlayerCombat.launch && PlayerCombat.longPress)
             {
-                damageScale = scale;
+                //damageScale = scale;
                 PlayerCombat.Shoot2();
                 PlayerCombat.launch = false;
                 PlayerCombat.launchVisible = false;
@@ -193,13 +201,28 @@ public class FakeCannon : MonoBehaviour
             HealthManager.hit = false;
         }
 
+        if (!explode && release && !misfire && HealthManager.hit)
+        {
+            transform.localScale = new Vector2((float)1.5, (float)1.2);
+            //scale = 0;
+            CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
+            charging = false;
+            maxCharge = false;
+            HealthManager.hit = false;
+            Debug.Log("WORD");
+        }
+
         if (!misfire && PlatformMovementPhys.rollingFrame > 0)
         {
             transform.localScale = new Vector2((float)1.5, (float)1.2);
             scale = 0.001f;
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
             charging = false;
-            maxCharge = false;
+            maxCharge = true;
+            PlayerCombat.launch = false;
+            PlayerCombat.launchVisible = false;
+            Debug.Log("doge");
+            //maxCharge = false;
             //HealthManager.hit = false;
         }
 
@@ -209,8 +232,9 @@ public class FakeCannon : MonoBehaviour
             scale = 0.001f;
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
             charging = false;
-            maxCharge = false;
-            HealthManager.hit = false;
+            PlayerCombat.launch = false;
+            PlayerCombat.launchVisible = false;
+            //HealthManager.hit = false;
             Debug.Log("hello");
         }
 

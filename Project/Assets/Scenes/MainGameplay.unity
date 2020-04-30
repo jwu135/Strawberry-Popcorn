@@ -1710,7 +1710,7 @@ MonoBehaviour:
   ConnectCA2: 0
   ConnectCA3: 0
   damage1: 1
-  damage2: 4
+  damage2: 3
   damage3: 0.1
   damage4: 3
   damage5: 5
@@ -18977,11 +18977,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366208693}
-  m_LocalRotation: {x: -0, y: -0, z: -0.9998552, w: 0.017016217}
-
-  m_LocalPosition: {x: -0.07, y: 2.61, z: -1.2}
-  m_LocalScale: {x: 2.5, y: 2, z: 1}
-
+  m_LocalRotation: {x: -0, y: -0, z: -0.034027506, w: -0.9994209}
+  m_LocalPosition: {x: -0.4596801, y: -0.09069428, z: 0}
+  m_LocalScale: {x: 2.5000002, y: 2.5000002, z: 1}
   m_Children: []
   m_Father: {fileID: 1702266059}
   m_RootOrder: 3
@@ -19062,19 +19060,16 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-
   m_SortingOrder: 2
-
-  m_Sprite: {fileID: -5405596655806329163, guid: c69ac1a404acfed459b1bdb1f42b71fd,
-    type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.28, y: 1.28}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &1366208698
@@ -24816,8 +24811,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b159e4ed17ed047a71f92a80dd64ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  health: 20
+  maxHealth: 12
+  health: 12
   maxMana: 100
   mana: 0
   invicibilityLength: 7
@@ -24992,7 +24987,7 @@ MonoBehaviour:
   delayBtwAttack1: 0.3
   delayBtwAttack2: 0.5
   delayBtwAttack3: 0.8
-  delayBtwChargeAttack1: 3
+  delayBtwChargeAttack1: 0.3
   delayBtwChargeAttack2: 5
   delayBtwChargeAttack3: 8
   delayAttackCD: 0
@@ -25062,7 +25057,6 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
-
   rollingFrame: 0
 --- !u!114 &1814532877
 MonoBehaviour:
@@ -25078,7 +25072,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzleflash: {fileID: 4113938222911785807, guid: 733b6932d613d3147a7cb0cdc10b9096,
     type: 3}
-
 --- !u!1 &1818777922
 GameObject:
   m_ObjectHideFlags: 0
