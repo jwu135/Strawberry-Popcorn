@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed; //the maximum movement speed
     public float acceleration; //the multiplier for speeding up
     public float deceleration; //the coefficient of drag
+    public float turnAroundSpeed; //the acceleration in play when turning around
     public float numAirJumps; //the amount of times the player can jump before touching the ground again
     public float jumpVelocity; //the initial speed the player leaves the ground upon pressing jump
     public float gravity; //the amount of velocity removed from the players initial jump velocity until...
@@ -84,6 +85,10 @@ public class PlayerController : MonoBehaviour
         else if (string.Equals(stat, "deceleration"))
         {
             return deceleration;
+        }
+        else if (string.Equals(stat, "turnAroundSpeed"))
+        {
+            return turnAroundSpeed;
         }
         else if (string.Equals(stat, "numAirJumps"))
         {

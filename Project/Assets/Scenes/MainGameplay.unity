@@ -25025,7 +25025,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 15
   acceleration: 1
-  deceleration: 3
+  deceleration: 2
+  turnAroundSpeed: 1
   numAirJumps: 1
   jumpVelocity: 23
   gravity: 1
