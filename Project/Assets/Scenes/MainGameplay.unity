@@ -12441,7 +12441,7 @@ Transform:
   m_LocalScale: {x: 11, y: 11, z: 1}
   m_Children: []
   m_Father: {fileID: 1702266059}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &874735801
 MonoBehaviour:
@@ -18977,14 +18977,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366208693}
-
-  m_LocalRotation: {x: -0, y: -0, z: -0.034027506, w: -0.9994209}
-  m_LocalPosition: {x: 0, y: 2.61, z: 0}
-  m_LocalScale: {x: 2.5000002, y: 2.5000002, z: 1}
-
+  m_LocalRotation: {x: -0, y: -0, z: -0.9998552, w: 0.017016217}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1702266059}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1366208695
 MonoBehaviour:
@@ -19062,9 +19060,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-
   m_SortingOrder: 2
-
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -19687,7 +19683,7 @@ Transform:
   m_LocalScale: {x: 1, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 1702266059}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -270}
 --- !u!1 &1446953199
 GameObject:
@@ -23097,10 +23093,10 @@ Transform:
   m_LocalPosition: {x: -0.185, y: -0.03, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
-  - {fileID: 1366208694}
   - {fileID: 874735800}
   - {fileID: 2125743940}
   - {fileID: 1437380691}
+  - {fileID: 1366208694}
   m_Father: {fileID: 1814532871}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 178.05}
@@ -24815,29 +24811,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b159e4ed17ed047a71f92a80dd64ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
-  maxHealth: 7
-  health: 7
-
+  maxHealth: 10
+  health: 10
   maxMana: 100
-  mana: 0
-  invicibilityLength: 7
+  mana: 100
+  invicibilityLength: 0
   invicibilityCounter: 0
   manaCounter: 1
   pauseTime: 100
   timer: 0
   hit: 0
-  manaSprite: {fileID: 936413351}
-  allManaSprites:
-  - {fileID: 21300000, guid: 086dab79fa3fa9b48864b8dc2717d942, type: 3}
-  - {fileID: 21300000, guid: 90deee18db80b0f47b82253f11b06c0f, type: 3}
-  - {fileID: 21300000, guid: 1d9c9a823d4e5184a8c25b80bc0da313, type: 3}
-  - {fileID: 21300000, guid: 795d29f57bdbcd2448bf48e04bee5e7f, type: 3}
+  manaSprite: {fileID: 0}
+  allManaSprites: []
   helthText: {fileID: 0}
-  manaText: {fileID: 1942808331}
+  manaText: {fileID: 0}
   alphaStep: 0.005
   PlayerCombat: {fileID: 1814532874}
-  FakeCannon: {fileID: 874735801}
+  FakeCannon: {fileID: 1366208695}
 --- !u!4 &1814532871
 Transform:
   m_ObjectHideFlags: 0
@@ -29853,7 +29843,7 @@ Transform:
   m_LocalScale: {x: 1, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 1702266059}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &2128704592
 GameObject:

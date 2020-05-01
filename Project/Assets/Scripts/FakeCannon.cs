@@ -20,8 +20,8 @@ public class FakeCannon : MonoBehaviour
 
     void Start()
     {
-        misfire = false;
-        //misfire = true;
+        //misfire = false;
+        misfire = true;
     }
 
     // Update is called once per frame
