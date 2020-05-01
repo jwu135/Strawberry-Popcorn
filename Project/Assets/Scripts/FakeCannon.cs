@@ -148,9 +148,9 @@ public class FakeCannon : MonoBehaviour
             if (scale < 2)
             {
                 scale += 0.012f;
-                transform.localScale = new Vector2((float)1.5 + scale, (float)1.2 + scale);
+                transform.localScale = new Vector2((float)1.5 + scale, (float)1.5 + scale);
                 copyscalex = (float)1.5 + scale;
-                copyscaley = (float)1.2 + scale;
+                copyscaley = (float)1.5 + scale;
             }
 
             if (scale >= 2f)
@@ -174,7 +174,7 @@ public class FakeCannon : MonoBehaviour
                 maxCharge = false;
             }
             
-            transform.localScale = new Vector2((float)1.5 , (float)1.2);
+            transform.localScale = new Vector2((float)1.5 , (float)1.5);
             //scale = 0;
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
             charging = false;
@@ -193,7 +193,7 @@ public class FakeCannon : MonoBehaviour
                 charging = false;
                 maxCharge = false;
             }
-            transform.localScale = new Vector2((float)1.5, (float)1.2);
+            transform.localScale = new Vector2((float)1.5, (float)1.5);
             //scale = 0;
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
             charging = false;
@@ -203,7 +203,7 @@ public class FakeCannon : MonoBehaviour
 
         if (!explode && release && !misfire && HealthManager.hit)
         {
-            transform.localScale = new Vector2((float)1.5, (float)1.2);
+            transform.localScale = new Vector2((float)1.5, (float)1.5);
             //scale = 0;
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
             charging = false;
@@ -214,7 +214,7 @@ public class FakeCannon : MonoBehaviour
 
         if (!misfire && PlatformMovementPhys.rollingFrame > 0)
         {
-            transform.localScale = new Vector2((float)1.5, (float)1.2);
+            transform.localScale = new Vector2((float)1.5, (float)1.5);
             scale = 0.001f;
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
             charging = false;
@@ -228,7 +228,7 @@ public class FakeCannon : MonoBehaviour
 
         if (!misfire && HealthManager.hit)
         {
-            transform.localScale = new Vector2((float)1.5, (float)1.2);
+            transform.localScale = new Vector2((float)1.5, (float)1.5);
             scale = 0.001f;
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
             charging = false;

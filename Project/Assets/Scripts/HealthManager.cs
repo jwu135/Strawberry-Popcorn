@@ -82,7 +82,7 @@ public class HealthManager : MonoBehaviour
             GameObject.Find("EventSystem").GetComponent<gameOver>().startGameOver(false);
         }
         if (mana != lastmana) {
-            updateMana();
+            //updateMana();
             lastmana = mana;
         }
     }
@@ -141,7 +141,7 @@ public class HealthManager : MonoBehaviour
                 GameObject.Find("PerfectDodgeFlash").GetComponent<Animator>().speed = 2;
                 GameObject.Find("PerfectDodgeFlash").GetComponent<Animator>().SetTrigger("Play");
                 Time.timeScale = scaleTime;
-                mana += 5;
+                //mana += 5;
                 manaCounter = 0;
             }
         }

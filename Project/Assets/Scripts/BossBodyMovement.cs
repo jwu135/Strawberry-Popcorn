@@ -61,7 +61,7 @@ public class BossBodyMovement : MonoBehaviour
         if (flipTime < Time.time) {
             float rand = Random.Range(0f, 1f);
             if (rand > 0.8f) {
-                FlipFirst();
+                //FlipFirst();
             } else  {
                 if (grounded) {
                     StartCoroutine("JumpDelay");
@@ -127,8 +127,9 @@ public class BossBodyMovement : MonoBehaviour
 
     public IEnumerator Flip()
     {
-        GetComponent<Boss>().setDamageable(false);
+        GameObject.Find("Mother's Eye").GetComponent<Boss>().setDamageable(false);
         if (transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.lastAnimationName != "hurt") {
+            ableToMove = false;
             transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.timeScale = 2;
             transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("digging", 1);
             yield return new WaitForSeconds(0.5f);
@@ -153,8 +154,9 @@ public class BossBodyMovement : MonoBehaviour
             transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.timeScale = 1;
             if (transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.lastAnimationName != "hurt")
                 transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("bossIdle");
+            ableToMove = true;
         }
-        GetComponent<Boss>().setDamageable(true);
+        GameObject.Find("Mother's Eye").GetComponent<Boss>().GetComponent<Boss>().setDamageable(true);
     }
 
 }

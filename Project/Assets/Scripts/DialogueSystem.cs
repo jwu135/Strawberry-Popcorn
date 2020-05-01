@@ -79,6 +79,7 @@ public class DialogueSystem : MonoBehaviour
     public void lookAround()
     {
         if (Input.GetButtonDown("Fire1")&&dialogueGoing){
+            index = stops[stopsIndex] - 1;
             if (currSentence.Length < finalSentence.Length) {
                 sentence.text = currSentence = finalSentence;
             } else {
