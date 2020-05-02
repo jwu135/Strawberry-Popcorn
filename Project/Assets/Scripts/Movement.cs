@@ -69,6 +69,12 @@ public class Movement : MonoBehaviour
         }
     }
 
+    IEnumerator afterImageStop()
+    {
+        yield return new WaitForSeconds(.3f);
+        GetComponent<ParticleSystem>().Stop();
+    }
+
     void animate()
     {
         /* DO NOT DELETE. Gonna look more at this later
@@ -88,9 +94,16 @@ public class Movement : MonoBehaviour
             setPrimaryArmature(primaryIndex);
         }
         // animation plays when you roll in place
-        if (Input.GetButtonDown("Roll") || armatureComponent.animation.lastAnimationName == "") {
+        if (Input.GetButtonDown("Roll") ){// add function call to PlatformMovementPhys
             setPrimaryArmature(1);
             armatureComponent.animation.timeScale = 2f;
+            GetComponent<ParticleSystem>().Play();
+            if(direction>0)
+                GetComponent<ParticleSystemRenderer>().flip = new Vector3(0f, 0f, 0f);
+            else
+                GetComponent<ParticleSystemRenderer>().flip = new Vector3(1f, 0f, 0f);
+            //ParticleSystem.EmissionModule pm = armatureComponent.transform.GetComponent<ParticleSystem>().emission;
+            //pm.enabled = true;
             if (Input.GetAxisRaw("Horizontal") < 0) {
                 if (direction > 0) // direction set in Look.cs
                     armatureComponent.animation.Play("dodge", 1);
@@ -102,6 +115,7 @@ public class Movement : MonoBehaviour
                 else
                     armatureComponent.animation.Play("dodge", 1);
             }
+            StartCoroutine("afterImageStop");
         } else {
             if (Input.GetButtonDown("Jump")) {
 
