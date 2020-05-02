@@ -138,9 +138,9 @@ public class BossShoot : MonoBehaviour
             if (pos == 0) {
                 int rand = Random.Range(0, spawnPointsX.Length);
                 if(random)
-                    position = new Vector3(spawnPointsX[rand], -1.370086f, 0);
+                    position = new Vector3(spawnPointsX[rand], -11.76245f, 0);
                 else
-                    position = new Vector3(spawnPointsX[place], -1.370086f, 0);
+                    position = new Vector3(spawnPointsX[place], -11.76245f, 0);
                 physicalAttack = Instantiate(hitObj, position, hitObj.transform.rotation) as GameObject;
                 physicalAttack.GetComponent<Animator>().SetTrigger("Spike");
             } else if (pos == 1) {

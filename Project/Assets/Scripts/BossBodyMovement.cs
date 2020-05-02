@@ -17,7 +17,8 @@ public class BossBodyMovement : MonoBehaviour
     private float gravity = 10f;
     private float upwardVel = 400f;
     private float uVeloctiy = 0;
-
+    public bool downwardsGravity = true;
+    private int downwardInt = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,16 +27,29 @@ public class BossBodyMovement : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Floor") {
-            grounded = true;
+        if (downwardsGravity) {
+            if (collision.gameObject.tag == "Floor") {
+                grounded = true;
+            }
+        } else {
+            if (collision.gameObject.tag == "Ceiling") {
+                grounded = true;
+            }
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Floor") {
-            grounded = false;
+        if (downwardsGravity) {
+            if (collision.gameObject.tag == "Floor") {
+                grounded = false;
+            }
+        } else {
+            if (collision.gameObject.tag == "Ceiling") {
+                grounded = false;
+            }
         }
+
     }
 
     void Update()
@@ -49,13 +63,22 @@ public class BossBodyMovement : MonoBehaviour
         grounded = false;
         uVeloctiy = upwardVel;
         Vector2 temp = GetComponent<Rigidbody2D>().velocity;
-        dVelocity = uVeloctiy;
+        dVelocity = uVeloctiy*downwardInt;
         ableToMove = false;
         StartCoroutine("Dash");
     }
 
     private void Move()
     {
+        Vector3 tempScale = transform.localScale;
+        tempScale.y = Mathf.Abs(tempScale.y);
+        if (downwardsGravity) {
+            downwardInt = 1;
+        } else {
+            downwardInt = -1;
+            tempScale.y = tempScale.y*-1f;
+        }
+        transform.localScale = tempScale;
         GameObject player =  GameObject.FindGameObjectWithTag("Player");
         
         if (flipTime < Time.time) {
@@ -72,7 +95,7 @@ public class BossBodyMovement : MonoBehaviour
         }
 
         if (!grounded) {
-            dVelocity -= gravity;
+            dVelocity -= gravity*downwardInt;
             GetComponent<Rigidbody2D>().AddForce(transform.up * dVelocity);
         } else {
             dVelocity = 0;
@@ -85,7 +108,8 @@ public class BossBodyMovement : MonoBehaviour
         if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle") && ableToMove) {
             Vector2 temp = transform.transform.position;
             Vector2 tempPlay = player.transform.position;
-            if (Vector2.Distance(player.transform.position, transform.transform.position) > distanceBeforeMoving) {
+            //if (Vector2.Distance(player.transform.position, transform.transform.position) > distanceBeforeMoving) {
+            if (Mathf.Abs(player.transform.position.x - transform.transform.position.x) > distanceBeforeMoving) {
                 if (tempPlay.x - temp.x > 0) {
                     GetComponent<Rigidbody2D>().AddForce(new Vector2(moveTowardsPlayer, 0));
 
