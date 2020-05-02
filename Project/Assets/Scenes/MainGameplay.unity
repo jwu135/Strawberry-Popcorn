@@ -1709,7 +1709,7 @@ MonoBehaviour:
   ConnectCA1: 0
   ConnectCA2: 0
   ConnectCA3: 0
-  damage1: 1
+  damage1: 100
   damage2: 3
   damage3: 0.1
   damage4: 3
@@ -29536,8 +29536,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b159e4ed17ed047a71f92a80dd64ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 12
-  health: 12
+  maxHealth: 100
+  health: 100
   maxMana: 100
   mana: 100
   invicibilityLength: 40

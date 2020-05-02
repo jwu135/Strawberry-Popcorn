@@ -20,8 +20,11 @@ public class SceneChanger : MonoBehaviour
     Vector2 temp;
     float finalPosY;
     private Sprite tempBerrySprite;
+    private int lastDeathCounter = 0;
+    private bool fallingBerry = false;
     void Start()
     {
+        lastDeathCounter = GlobalVariable.lastDeathCounter;
         if (play != null)
             play.onClick.AddListener(playGame);
         if(quit!=null)
@@ -53,32 +56,40 @@ public class SceneChanger : MonoBehaviour
                     
             i++;
         }
-        // -4.73
-        temp = new Vector2(Random.Range(-7f, 7f), Random.Range(-4.5f, -2.5f));
-        positions.Add(temp);
-        finalPosY = temp.y;
-        temp.y = 6;
-        currBody = Instantiate(berryBody, temp, berryBody.transform.rotation) as GameObject;
-        tempBerrySprite = (Random.Range(0f, 1f) > 0.5f ? berryImageDropped[0] : berryImageDropped[1]);
-        bodies.Add(tempBerrySprite);
+    // -4.73
+        if (lastDeathCounter != GlobalVariable.deathCounter) {
+            GlobalVariable.lastDeathCounter = GlobalVariable.deathCounter;
+            fallingBerry = true;
+            temp = new Vector2(Random.Range(-7f, 7f), Random.Range(-4.5f, -2.5f));
+            positions.Add(temp);
+            finalPosY = temp.y;
+            temp.y = 6;
+            currBody = Instantiate(berryBody, temp, berryBody.transform.rotation) as GameObject;
+            tempBerrySprite = (Random.Range(0f, 1f) > 0.5f ? berryImageDropped[0] : berryImageDropped[1]);
+            bodies.Add(tempBerrySprite);
+            
+        }
     }
 
 
     void Update()
     {
         if (scene.name.Equals("Gameover")){
-            if (currBody.transform.position.y > finalPosY) {
-                Vector2 temp = currBody.transform.position;
-                temp.y -= 0.1f;
-                currBody.transform.position = temp;
-            } else if(currBody.GetComponent<SpriteRenderer>().sprite.name.Equals("fallingStrawberry")){
-                currBody.GetComponent<SpriteRenderer>().sprite = tempBerrySprite;
-                if (currBody.GetComponent<SpriteRenderer>().sprite.name.Equals("DeadStrawberry1Blood")) {
-                    currBody.transform.localScale = new Vector3(0.75f, 0.75f, 1f);
+            if (fallingBerry) {
+                if (currBody.transform.position.y > finalPosY) {
+                    Vector2 temp = currBody.transform.position;
+                    temp.y -= 0.1f;
+                    currBody.transform.position = temp;
+                } else if (currBody.GetComponent<SpriteRenderer>().sprite.name.Equals("fallingStrawberry")) {
+                    currBody.GetComponent<SpriteRenderer>().sprite = tempBerrySprite;
+                    if (currBody.GetComponent<SpriteRenderer>().sprite.name.Equals("DeadStrawberry1Blood")) {
+                        currBody.transform.localScale = new Vector3(0.75f, 0.75f, 1f);
+                    }
+                    GameObject camera = GameObject.Find("Main Camera");
+                    camera.GetComponent<ScreenShake>().shakeCamera(0.5f);
                 }
-                GameObject camera = GameObject.Find("Main Camera");
-                camera.GetComponent<ScreenShake>().shakeCamera(0.5f);
             }
+
         }
         if (Input.GetButtonDown("Jump")&&!intro) {
             startGame();
@@ -90,7 +101,6 @@ public class SceneChanger : MonoBehaviour
     }
     void playGame()
     {
-        
         if(scene.name.Equals("Gameover"))
             SceneManager.LoadScene("Scenes/MainMenu");
         else
