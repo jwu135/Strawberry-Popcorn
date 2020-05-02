@@ -251,10 +251,10 @@ public class PlatformMovementPhys : MonoBehaviour
                 //Debug.Log("2");
                 gameObject.layer = 12;
             }
-            else if (state == false && transform.localPosition.y > -2.14)
+            else if (state == false && transform.localPosition.y > -25)
             {
                 //Debug.Log("3");
-                velocityVector.y -= actingGravity/2;
+                velocityVector.y -= fastFallSpeedCap/25;
             }
             else if (state == true && isFastFalling == false && velocityVector.y - gravity > -fallSpeedCap)
             {

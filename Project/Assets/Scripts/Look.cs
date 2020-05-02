@@ -43,6 +43,11 @@ public class Look : MonoBehaviour
 
     void Update()
     {
+        m_camera = Camera.main;
+        if(player.active == false)
+        {
+            player = GameObject.Find("Player2");
+        }
         if (Time.timeScale != 0)
         {
             lookAround();

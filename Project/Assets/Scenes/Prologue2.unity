@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6544,13 +6544,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 0.01
+  damageScale: 0.01
   explode: 0
   maxCharge: 0
   release: 0
+  charging: 0
   copyscalex: 0
   copyscaley: 0
   CannonStandIn: {fileID: 551857215}
   PlayerCombat: {fileID: 1412368838}
+  HealthManager: {fileID: 0}
+  PlatformMovementPhys: {fileID: 0}
 --- !u!212 &551857215
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7730,6 +7734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d604c6f9e8c39514fbf7dc184fdff97c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursors: []
   box:
   - {fileID: 21300000, guid: af6a224451ed563479302e145be32f28, type: 3}
   - {fileID: 21300000, guid: 24c2c11333866ed44b6d3e8d240920ce, type: 3}
@@ -13046,13 +13051,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 0.01
+  damageScale: 0.01
   explode: 0
   maxCharge: 0
   release: 0
+  charging: 0
   copyscalex: 0
   copyscaley: 0
   CannonStandIn: {fileID: 1266880372}
   PlayerCombat: {fileID: 1412368838}
+  HealthManager: {fileID: 0}
+  PlatformMovementPhys: {fileID: 0}
 --- !u!114 &1266880371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15497,6 +15506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4301d4740e9b59c47abb6f1069e8861f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  airJumpEffect: {fileID: 0}
   next: {fileID: 2100000, guid: f63b5fd29a1f5154ca1fd643243605ef, type: 2}
   armatures:
   - {fileID: 1892499203}
@@ -15523,15 +15533,20 @@ MonoBehaviour:
   moveSpeed: 12
   acceleration: 2
   deceleration: 2
+  turnAroundSpeed: 0
   numAirJumps: 1
   jumpVelocity: 23
   gravity: 1
   fallingGravity: 6
   fallSpeedCap: 25
+  fastFallingGravity: 12
+  fastFallSpeedCap: 35
+  fastFallMinVel: 7
   rollDistance: 150
   rollDuration: 5
   rollSlowFrames: 9
   rollSlowSpeedMult: 0.7
+  rollOutSpeedMult: 0
   rollCooldown: 25
   movementDeadzone: 0.15
   mode: 1
@@ -15563,6 +15578,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
+  rollingFrame: 0
 --- !u!114 &1412368838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15626,6 +15642,8 @@ MonoBehaviour:
   BossStick: {fileID: 0}
   Stick: {fileID: 4906663276128700508, guid: 36b25f401beda1f40b819f064b52ae58, type: 3}
   FakeCannon: {fileID: 551857214}
+  HealthManager: {fileID: 0}
+  PlatformMovementPhys: {fileID: 0}
   timeBtwWeaponChange: 0.5
   delayBtwAttack1: 0.3
   delayBtwAttack2: 0.5
@@ -15643,6 +15661,7 @@ MonoBehaviour:
   launch: 0
   launch2: 0
   launchVisible: 0
+  longPress: 0
   evolution: 1
   attackRange: 0.1
   damage: 0.25
@@ -15650,6 +15669,7 @@ MonoBehaviour:
   damage3: 3
   damage4: 5
   specialChargeAttack1Timer: 0
+  normalAttack1Buffer: 0
   aPosition1: {x: 5, y: 5}
   hookspeed: 0
 --- !u!114 &1412368839
@@ -15673,6 +15693,7 @@ MonoBehaviour:
   manaCounter: 1
   pauseTime: 100
   timer: 0
+  hit: 0
   manaSprite: {fileID: 0}
   allManaSprites:
   - {fileID: 21300000, guid: 086dab79fa3fa9b48864b8dc2717d942, type: 3}
@@ -15683,6 +15704,7 @@ MonoBehaviour:
   manaText: {fileID: 0}
   alphaStep: 0.005
   PlayerCombat: {fileID: 1412368838}
+  FakeCannon: {fileID: 0}
 --- !u!61 &1412368840
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17696,7 +17718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5cdd343739dda42b500cf665cc2629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 1
+  index: 2
   levelNmae: MainGameplay
 --- !u!1 &1527015769
 GameObject:
