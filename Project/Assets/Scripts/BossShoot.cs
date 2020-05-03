@@ -202,17 +202,46 @@ public class BossShoot : MonoBehaviour
             allProjectiles.Push(bullet);
         } else {
             int max = 1;
+            float offset = 0;
+            float step = 0;
+            if (max != 1) {
+                float maxangle = 180;
+                offset = 0;
+                step = maxangle / max;
+                
+            }
             for (int i = 0; i < max; i++) {
-                float offset = 0;//(max / 2 - i) * 5;
+                //(max / 2 - i) * 5;
                 //float offset = (-1 * (Mathf.PI / 4) / max + (1 * (Mathf.PI / 4) / max) * i);
                 Vector3 temp = transform.position;
-                GameObject bullet = Instantiate(projectile, temp, transform.rotation) as GameObject;
                 Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
-                float angle = Mathf.Atan2(direction.y+offset, direction.x+offset) * Mathf.Rad2Deg;
+                //offset = 180;
+                float offsetX = max == 1 ? 0 : Mathf.Sin(offset * Mathf.Deg2Rad);
+                float offsetY = max == 1 ? 0 : Mathf.Cos(offset * Mathf.Deg2Rad);
+
+                //float angle = Mathf.Atan2(offsetY, offsetX) * Mathf.Rad2Deg;
+                float angle = Mathf.Atan2(direction.y+offsetY, direction.x+offsetX) * Mathf.Rad2Deg;
+
+                GameObject bullet = Instantiate(projectile, temp, transform.rotation) as GameObject;
                 bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
                 bullet.GetComponent<BossBullet>().enabled = true;
-                bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x+offset, direction.y+offset).normalized * bulletSpeed;
+                bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x + offsetX,direction.y + offsetY).normalized* bulletSpeed;
+                //bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(offsetX, offsetY).normalized* bulletSpeed;
+                //Debug.Log(bullet.GetComponent<Rigidbody2D>().velocity);
+                Debug.Log(offset);
                 allProjectiles.Push(bullet);
+
+                offset += step;
+                
+                /*
+                Vector3 dir = new Vector3(dirX, dirY,0f);
+
+
+                GameObject bullet = Instantiate(projectile, temp, transform.rotation) as GameObject;
+                bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+                bullet.GetComponent<BossBullet>().enabled = true;
+                bullet.GetComponent<Rigidbody2D>().velocity = (dir-transform.position).normalized* bulletSpeed;
+                allProjectiles.Push(bullet);*/
             }
         }
         nextTime = Time.time + cooldown;
