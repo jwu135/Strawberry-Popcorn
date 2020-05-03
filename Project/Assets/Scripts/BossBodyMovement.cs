@@ -87,7 +87,7 @@ public class BossBodyMovement : MonoBehaviour
                 //FlipFirst();
             } else  {
                 if (grounded) {
-                    StartCoroutine("JumpDelay");
+                    //StartCoroutine("JumpDelay");
                 }else
                     Debug.Log("Couldn't jump");
             }
