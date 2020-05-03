@@ -203,14 +203,15 @@ public class BossShoot : MonoBehaviour
         } else {
             int max = 1;
             for (int i = 0; i < max; i++) {
-                //float offset = (max / 2 - i) * 5;
+                float offset = 0;//(max / 2 - i) * 5;
+                //float offset = (-1 * (Mathf.PI / 4) / max + (1 * (Mathf.PI / 4) / max) * i);
                 Vector3 temp = transform.position;
                 GameObject bullet = Instantiate(projectile, temp, transform.rotation) as GameObject;
                 Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                float angle = Mathf.Atan2(direction.y+offset, direction.x+offset) * Mathf.Rad2Deg;
                 bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
                 bullet.GetComponent<BossBullet>().enabled = true;
-                bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * bulletSpeed;
+                bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x+offset, direction.y+offset).normalized * bulletSpeed;
                 allProjectiles.Push(bullet);
             }
         }
