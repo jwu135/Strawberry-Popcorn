@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1538f95683469441b3b683d728a0b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 35
   rb: {fileID: 6950416036170706393}
   explodingStrawberry: {fileID: 6129954330563271780, guid: 65a8af4d211e5114696a6d5a3004d40c,
     type: 3}

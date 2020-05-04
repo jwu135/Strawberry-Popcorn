@@ -164,7 +164,7 @@ public class BossShoot : MonoBehaviour
             
             physicalAttack.GetComponent<AttackTimer>().disappear();
         } else if (pos==3) {
-            SoundManager.PlaySound("bossAOE");
+            //SoundManager.PlaySound("bossAOE");
             physicalAttack = Instantiate(AoE, transform.Find("AoEAnchor").transform.position, AoE.transform.rotation) as GameObject;
             physicalAttack.transform.parent = transform.Find("AoEAnchor").transform;
             physicalAttack.GetComponent<Animator>().SetTrigger("Expand");
@@ -186,7 +186,7 @@ public class BossShoot : MonoBehaviour
     }
     
 
-    void Shoot(bool laser = false)
+    void Shoot(bool laser = false, int patter = 0)
     {
         if (laser) {
             SoundManager.PlaySound("bossLaser");

@@ -105,7 +105,8 @@ public class BossBodyMovement : MonoBehaviour
         }
 
 
-        if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle") && ableToMove) {
+        //if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle") && ableToMove) {
+        /*if (true) {
             Vector2 temp = transform.transform.position;
             Vector2 tempPlay = player.transform.position;
             //if (Vector2.Distance(player.transform.position, transform.transform.position) > distanceBeforeMoving) {
@@ -123,7 +124,7 @@ public class BossBodyMovement : MonoBehaviour
             } else {
                 transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>()._armature.flipX = false;
             }
-        }
+        }*/
     }
     void FlipFirst()
     {

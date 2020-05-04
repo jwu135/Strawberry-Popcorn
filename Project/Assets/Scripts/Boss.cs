@@ -61,6 +61,10 @@ public class Boss : MonoBehaviour
     public void losehealth(double amnt)
     {
         if (damageable) {
+            if (amnt < 2)
+                SoundManager.PlaySound("hitSound2");
+            else
+                SoundManager.PlaySound("hitSound1");
             healthNew[healthIndex] -= amnt;
             player.GetComponent<HealthManager>().activateScreenShake((float)amnt/4);
             StartCoroutine("hit");

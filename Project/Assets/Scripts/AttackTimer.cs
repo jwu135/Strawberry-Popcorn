@@ -21,7 +21,7 @@ public class AttackTimer : MonoBehaviour
     }
     public void playSound()
     {
-        SoundManager.PlaySound("bossAOE");
+        //SoundManager.PlaySound("bossAOE");
     }
 
     public void animationPlay()

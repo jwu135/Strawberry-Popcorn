@@ -119,7 +119,7 @@ public class Movement : MonoBehaviour
         } else {
             if (Input.GetButtonDown("Jump")) {
 
-                armatureComponent.animation.timeScale = 3;
+                armatureComponent.animation.timeScale = 1;
                 armatureComponent.animation.Play("Jumping", 1);
             }
             float mag = new Vector2(Input.GetAxisRaw("Horizontal"), 0).magnitude; // technique from Ethan's script. Don't want to read it in from there yet to avoid making changes to other people's scripts. Making the deadzone variable public or adding a function call to add the value to this script would be fine for doing this.
@@ -153,7 +153,13 @@ public class Movement : MonoBehaviour
                     lastdirection = direction;
                 }
             }*/
-            if (moving) {
+            //if(armatureComponent.animation.lastAnimationName == "Jumping"&& armatureComponent.animation.isCompleted || (armatureComponent.animation.lastAnimationName == "FALLING"&&GetComponent<Rigidbody2D>().velocity.y<0)) {
+            if(armatureComponent.animation.lastAnimationName == "Jumping"&& GetComponent<Rigidbody2D>().velocity.y>-40) {
+                //armatureComponent.animation.timeScale = 8;
+                //armatureComponent.animation.Play("FALLING", 1);
+                armatureComponent.animation.timeScale = 2;
+                armatureComponent.animation.Play("Idle");
+            } else if (moving) {
                 if (Input.GetAxisRaw("Horizontal") < 0) {
                     if (armatureComponent.animation.isCompleted || armatureComponent.animation.lastAnimationName == "Idle" || direction != lastdirection) {
                         if (direction > 0)
