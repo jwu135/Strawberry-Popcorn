@@ -15,10 +15,12 @@ public class Movement : MonoBehaviour
     public float direction = 0; // left is 0, right is 1;
     private float lastdirection = 0;
     private int primaryIndex = 0;
+    PlatformMovementPhys platMove;
     void Start()
     {
         armatureComponent = GameObject.FindGameObjectWithTag("ArmatureTag").GetComponent<UnityArmatureComponent>();
         armatureComponent.animation.Play("Idle");
+        platMove = GetComponent<PlatformMovementPhys>();
     }
 
     public void airJump()
@@ -67,6 +69,10 @@ public class Movement : MonoBehaviour
         if (Time.timeScale != 0) {
             animate();
         }
+
+        
+        Debug.Log("Roll Frame:" + platMove.getRollingFrame() + "Stick Mag: " + platMove.getStickInput().magnitude);
+
     }
 
     IEnumerator afterImageStop()
@@ -94,7 +100,9 @@ public class Movement : MonoBehaviour
             setPrimaryArmature(primaryIndex);
         }
         // animation plays when you roll in place
-        if (Input.GetButtonDown("Roll") ){// add function call to PlatformMovementPhys
+        if (((Input.GetButton("Roll") == true) || (Input.GetAxis("Roll") < 0)) && (platMove.getRollingFrame() < 2 && platMove.getStickInput().magnitude > 0))
+        {// add function call to PlatformMovementPhys
+            Debug.Log("Attempted to animate roll");
             setPrimaryArmature(1);
             armatureComponent.animation.timeScale = 2f;
             GetComponent<ParticleSystem>().Play();

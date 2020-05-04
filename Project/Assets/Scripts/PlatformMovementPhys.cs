@@ -38,7 +38,7 @@ public class PlatformMovementPhys : MonoBehaviour
     float deadzone; //joystick deadzone
     Vector2 stickInput;
     bool controlFrozen;
-    public int rollingFrame;
+    public int rollingFrame = 0;
     Vector2 rollInput = Vector2.zero;
 
     Vector2 velocityVector;
@@ -141,7 +141,7 @@ public class PlatformMovementPhys : MonoBehaviour
                 }
                 else if( (velocityVector.x > 0 && stickInput.x < 0) || (velocityVector.x < 0 && stickInput.x > 0) )
                 {
-                    Debug.Log("Decelerate");
+                    //Debug.Log("Decelerate");
                     velocityVector = new Vector2((body.velocity + (stickInput * turnAroundSpeed)).x, body.velocity.y);
                 }
                 else
@@ -238,12 +238,12 @@ public class PlatformMovementPhys : MonoBehaviour
 
             if (state == true && isFastFalling == true && velocityVector.y - actingGravity <= -fastFallSpeedCap)//if player is in the air and falling at terminal velocity and is fast falling
             {
-                Debug.Log("fastFall!");
+                //Debug.Log("fastFall!");
                 velocityVector.y = -fastFallSpeedCap;
             }
             else if (state == true && isFastFalling == false && velocityVector.y - actingGravity <= -fallSpeedCap)//if player is in the air and falling at terminal velocity and is not fast falling
             {
-                Debug.Log("1");
+                //Debug.Log("1");
                 velocityVector.y = -fallSpeedCap;
             }
             else if (state == false && gameObject.layer != 12)
@@ -364,4 +364,14 @@ public class PlatformMovementPhys : MonoBehaviour
             rollingFrame = 0;
         }
     }
+    
+    public int getRollingFrame()
+    {
+        return rollingFrame;
+    }
+    public Vector2 getStickInput()
+    {
+        return stickInput;
+    }
+
 }
