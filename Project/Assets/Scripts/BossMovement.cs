@@ -37,24 +37,24 @@ public class BossMovement : MonoBehaviour
             if (flickerTimeTrack < Time.time) {
                 Debug.Log("Flickering down");
                 t_intensity = 0.20f;
-                lightIntensity += t_intensity;
+                lightIntensity -= t_intensity;
                 flickerTimeTrack = Random.Range(2f, 3f) + Time.time;
             }
             if (t_intensity != 0) {
                 lightIntensity = Mathf.Clamp(t_intensity + lightIntensity, 0, 1);
                 Debug.Log(lightIntensity);
-                t_intensity -= 0.01f;
-                if (lightIntensity == 0)
-                    t_intensity = 0;
+                t_intensity += 0.01f;
+                if (lightIntensity == 1)
+                    t_intensity = 1;
             }
 
             GetComponent<Light2D>().intensity = lightIntensity;
         } else {
             if (flickerTimeTrack < Time.time) {
-                GetComponent<Light2D>().intensity = 1;
-            }
-            if(flickerTimeTrack+0.2f < Time.time) {
                 GetComponent<Light2D>().intensity = 0;
+            }
+            if(flickerTimeTrack+0.1f < Time.time) {
+                GetComponent<Light2D>().intensity = 1;
                 flickerTimeTrack = Random.Range(2f, 3f) + Time.time;
             }
         }
