@@ -1650,9 +1650,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0}
   serializedVersion: 2
-  m_Radius: 2.6188686
+  m_Radius: 2.5440347
 --- !u!212 &117516973
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1747,7 +1747,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 1
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0
+  m_Intensity: 1
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -2398,7 +2398,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &154354431
 GameObject:
   m_ObjectHideFlags: 0
@@ -4522,6 +4522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c2971bdc4ed7d4791b5394aaa8ccfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance: 10
 --- !u!212 &307272883
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4664,7 +4665,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &326016886
 GameObject:
   m_ObjectHideFlags: 1
@@ -5375,7 +5376,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &359247316
 GameObject:
   m_ObjectHideFlags: 1
@@ -5552,7 +5553,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!251 &370906652
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -5656,7 +5657,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370906651}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.32, y: 3.8000007, z: 0}
+  m_LocalPosition: {x: -11.73, y: -3.03, z: 0}
   m_LocalScale: {x: 10.882683, y: 1.302716, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5819,7 +5820,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &387137518
 GameObject:
   m_ObjectHideFlags: 1
@@ -6545,7 +6546,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &415578544
 GameObject:
   m_ObjectHideFlags: 1
@@ -10063,7 +10064,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &683548929
 GameObject:
   m_ObjectHideFlags: 1
@@ -10477,7 +10478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!251 &717309691
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -10581,7 +10582,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717309690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.77, y: 3.76, z: 0}
+  m_LocalPosition: {x: 9.8, y: -3.03, z: 0}
   m_LocalScale: {x: 10.882682, y: 1.3743653, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -12432,7 +12433,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &873089450
 GameObject:
   m_ObjectHideFlags: 0
@@ -13296,7 +13297,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &923935755
 GameObject:
   m_ObjectHideFlags: 1
@@ -14063,7 +14064,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966595828}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 917754500}
@@ -14147,7 +14148,7 @@ MonoBehaviour:
   _timeScale: 1
   _sortingMode: 0
   _sortingLayerName: Default
-  _sortingOrder: -100
+  _sortingOrder: -1
   _zSpace: 0
   _flipX: 0
   _flipY: 0
@@ -14230,7 +14231,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &986726657
 GameObject:
   m_ObjectHideFlags: 1
@@ -16393,7 +16394,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &1135635606
 GameObject:
   m_ObjectHideFlags: 1
@@ -18347,7 +18348,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &1297109244
 GameObject:
   m_ObjectHideFlags: 0
@@ -18429,7 +18430,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297109244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 13.46, z: 0}
+  m_LocalPosition: {x: 0, y: 13.06, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 966595829}
@@ -19118,7 +19119,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &1359762130
 GameObject:
   m_ObjectHideFlags: 1
@@ -19523,7 +19524,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &1392427787
 GameObject:
   m_ObjectHideFlags: 1
@@ -20223,7 +20224,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &1470473698
 GameObject:
   m_ObjectHideFlags: 1
@@ -20697,7 +20698,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &1508938871
 GameObject:
   m_ObjectHideFlags: 1
@@ -20988,7 +20989,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &1521629121
 GameObject:
   m_ObjectHideFlags: 0
@@ -22164,7 +22165,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628249410}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -22912,7 +22913,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &1676602535
 GameObject:
   m_ObjectHideFlags: 0
@@ -30568,7 +30569,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &1842082571
 GameObject:
   m_ObjectHideFlags: 0
@@ -30927,7 +30928,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &1872657826
 GameObject:
   m_ObjectHideFlags: 1
@@ -32062,7 +32063,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &1942808328
 GameObject:
   m_ObjectHideFlags: 0
@@ -32218,7 +32219,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1
 --- !u!1 &1961491665
 GameObject:
   m_ObjectHideFlags: 0
@@ -35794,7 +35795,7 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
+  m_PointLightInnerRadius: 1.88
   m_PointLightOuterRadius: 6.01
   m_PointLightDistance: 3
   m_PointLightQuality: 1

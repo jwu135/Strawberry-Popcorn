@@ -104,9 +104,9 @@ public class BossBodyMovement : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = temp;
         }
 
-
+        /*
+        if (true) {
         //if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle") && ableToMove) {
-        /*if (true) {
             Vector2 temp = transform.transform.position;
             Vector2 tempPlay = player.transform.position;
             //if (Vector2.Distance(player.transform.position, transform.transform.position) > distanceBeforeMoving) {
