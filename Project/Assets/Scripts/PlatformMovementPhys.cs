@@ -30,7 +30,7 @@ public class PlatformMovementPhys : MonoBehaviour
     public PlayerCombat PlayerCombat;
 
     public LayerMask whatIsGround;
-    bool state;
+    bool state; //false is grounded
     bool isFastFalling = false;
     float actingGravity; //the current gravity that is acting on the player. Changes to fallingGravity when y vel is < 0
     PlayerController pc;
@@ -329,11 +329,11 @@ public class PlatformMovementPhys : MonoBehaviour
         }
         else if (rollingFrame < rollDuration + rollSlowFrames) //roll in slow frames
         {
-            if (rollAngle < 0)
+            if (rollAngle < 0 && state == false)
             {
                 velocityVector.x = (rollDistance / rollDuration) * rollSlowSpeedMult;
             }
-            if (rollAngle > 0)
+            if (rollAngle > 0 && state == false)
             {
                 velocityVector.x = -(rollDistance / rollDuration) * rollSlowSpeedMult;
             }
@@ -341,7 +341,7 @@ public class PlatformMovementPhys : MonoBehaviour
         }
         else if (rollingFrame == rollDuration + rollSlowFrames) //roll is over
         {
-            if(stickInput.x > 0 || stickInput.x < 0) //if player is moving left or right
+            if((stickInput.x > 0 || stickInput.x < 0)) //if player is moving left or right
             {
                 if (rollAngle < 0)
                 {

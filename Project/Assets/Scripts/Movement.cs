@@ -71,7 +71,7 @@ public class Movement : MonoBehaviour
         }
 
         
-        Debug.Log("Roll Frame:" + platMove.getRollingFrame() + "Stick Mag: " + platMove.getStickInput().magnitude);
+        //Debug.Log("Roll Frame:" + platMove.getRollingFrame() + "Stick Mag: " + platMove.getStickInput().magnitude);
 
     }
 
