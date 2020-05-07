@@ -81,6 +81,7 @@ public class DialogueSystem : MonoBehaviour
         if (Input.GetButtonDown("Fire1")&&dialogueGoing){
             index = stops[stopsIndex] - 1;
             if (currSentence.Length < finalSentence.Length) {
+                StopCoroutine("textScroll");
                 sentence.text = currSentence = finalSentence;
             } else {
                 if (stops[stopsIndex] > index + 1&& stopsIndex<8) {
