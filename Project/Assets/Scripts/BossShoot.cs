@@ -67,7 +67,7 @@ public class BossShoot : MonoBehaviour
     {
         // super jank just getting this done in time for release
         if (GameObject.Find("Mother").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle")) {
-            if (phase == 0) { // Main Projectile
+            if (phase != 3) { // Main Projectile
                 if (nextTimeShoot < Time.time) {
                     Shoot(false);
                     nextTimeShoot = Time.time + shootCooldown;
@@ -137,10 +137,13 @@ public class BossShoot : MonoBehaviour
             Vector3 position = new Vector3(0, 0, 0);
             if (pos == 0) {
                 int rand = Random.Range(0, spawnPointsX.Length);
+                float randPos = Random.Range(-26.8f, 26.8f);
                 if(random)
-                    position = new Vector3(spawnPointsX[rand], -8.53f, 0);
+                    position = new Vector3(spawnPointsX[rand], -11.31f, 0);
                 else
-                    position = new Vector3(spawnPointsX[place], -8.53f, 0);
+                    position = new Vector3(spawnPointsX[place], -11.31f, 0);
+                //physicalAttack = Instantiate(hitObj, position, hitObj.transform.rotation) as GameObject;
+                position = new Vector3(randPos, -11.31f, 0);
                 physicalAttack = Instantiate(hitObj, position, hitObj.transform.rotation) as GameObject;
                 physicalAttack.GetComponent<Animator>().SetTrigger("Spike");
             } else if (pos == 1) {
@@ -206,8 +209,8 @@ public class BossShoot : MonoBehaviour
             float step = 0;
             if (max != 1) {
                 float maxangle = 180;
-                offset = 0;
-                step = maxangle / max;
+                offset = -maxangle/2;
+                step = maxangle / (max - 1);
                 
             }
             for (int i = 0; i < max; i++) {
@@ -216,19 +219,26 @@ public class BossShoot : MonoBehaviour
                 Vector3 temp = transform.position;
                 Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
                 //offset = 180;
-                float offsetX = max == 1 ? 0 : Mathf.Sin(offset * Mathf.Deg2Rad);
-                float offsetY = max == 1 ? 0 : Mathf.Cos(offset * Mathf.Deg2Rad);
-
+                float offsetX = 0f;
+                float offsetY = 0f;
+                if (offset != 0) {
+                    offsetX = max == 1 ? 0 : Mathf.Sin(offset * Mathf.Deg2Rad);
+                    offsetY = max == 1 ? 0 : Mathf.Cos(offset * Mathf.Deg2Rad);
+                }
                 //float angle = Mathf.Atan2(offsetY, offsetX) * Mathf.Rad2Deg;
-                float angle = Mathf.Atan2(direction.y+offsetY, direction.x+offsetX) * Mathf.Rad2Deg;
+                float angle = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) + offset;
+
 
                 GameObject bullet = Instantiate(projectile, temp, transform.rotation) as GameObject;
                 bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
                 bullet.GetComponent<BossBullet>().enabled = true;
-                bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x + offsetX,direction.y + offsetY).normalized* bulletSpeed;
+                //Vector2 addVelocity = (Vector2)(Quaternion.Euler(0, 0, offset) * Vector2.right);
+                bullet.GetComponent<Rigidbody2D>().velocity = (new Vector2(direction.x,direction.y).normalized)* bulletSpeed;
+                //bullet.GetComponent<Rigidbody2D>().AddForce(bullet.transform.forward* bulletSpeed*100000);
+                //bullet.GetComponent<Rigidbody2D>().transform.Rotate(new Vector3(0, 0, offset));
                 //bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(offsetX, offsetY).normalized* bulletSpeed;
                 //Debug.Log(bullet.GetComponent<Rigidbody2D>().velocity);
-                Debug.Log(offset);
+                Debug.Log(bullet.GetComponent<Rigidbody2D>().velocity);
                 allProjectiles.Push(bullet);
 
                 offset += step;

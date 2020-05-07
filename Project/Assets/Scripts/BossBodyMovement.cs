@@ -84,10 +84,14 @@ public class BossBodyMovement : MonoBehaviour
         if (flipTime < Time.time) {
             float rand = Random.Range(0f, 1f);
             if (rand > 0.8f) {
-                //FlipFirst();
+                if (grounded) {
+                    if (downwardsGravity) // if the boss is the walking one, then it can jump
+                        FlipFirst();
+                } 
             } else  {
                 if (grounded) {
-                    //StartCoroutine("JumpDelay");
+                    if(downwardsGravity) // if the boss is the walking one, then it can jump
+                        StartCoroutine("JumpDelay");
                 }else
                     Debug.Log("Couldn't jump");
             }
@@ -104,27 +108,28 @@ public class BossBodyMovement : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = temp;
         }
 
-        /*
-        if (true) {
-        //if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle") && ableToMove) {
-            Vector2 temp = transform.transform.position;
-            Vector2 tempPlay = player.transform.position;
-            //if (Vector2.Distance(player.transform.position, transform.transform.position) > distanceBeforeMoving) {
-            if (Mathf.Abs(player.transform.position.x - transform.transform.position.x) > distanceBeforeMoving) {
+
+        if (downwardsGravity) { //if the boss is the walking one, then it can walk
+            if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle") && ableToMove) {
+                Vector2 temp = transform.transform.position;
+                Vector2 tempPlay = player.transform.position;
+                //if (Vector2.Distance(player.transform.position, transform.transform.position) > distanceBeforeMoving) {
+                if (Mathf.Abs(player.transform.position.x - transform.transform.position.x) > distanceBeforeMoving) {
+                    if (tempPlay.x - temp.x > 0) {
+                        GetComponent<Rigidbody2D>().AddForce(new Vector2(moveTowardsPlayer, 0));
+
+                    } else {
+                        GetComponent<Rigidbody2D>().AddForce(new Vector2(-moveTowardsPlayer, 0));
+
+                    }
+                }
                 if (tempPlay.x - temp.x > 0) {
-                    GetComponent<Rigidbody2D>().AddForce(new Vector2(moveTowardsPlayer, 0));
-
+                    transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>()._armature.flipX = true;
                 } else {
-                    GetComponent<Rigidbody2D>().AddForce(new Vector2(-moveTowardsPlayer, 0));
-
+                    transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>()._armature.flipX = false;
                 }
             }
-            if (tempPlay.x - temp.x > 0) {
-                transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>()._armature.flipX = true;
-            } else {
-                transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>()._armature.flipX = false;
-            }
-        }*/
+        }
     }
     void FlipFirst()
     {
