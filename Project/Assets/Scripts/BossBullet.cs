@@ -24,7 +24,7 @@ public class BossBullet : MonoBehaviour
     private string type;
     private float bulletSpeed;
     private bool followPlayer;
-    private bool accelerator;
+    private bool accelerator = false;
     private bool active = false;
     private List<BossBulletObject> bulletTypes = new List<BossBulletObject>();
 
@@ -78,14 +78,7 @@ public class BossBullet : MonoBehaviour
 
         active = true;
     }
-    void Update()
-    {
-        if (Time.timeScale != 0) {
-            lookAround();
-        }
-    }
-    // Update is called once per frame
-    void lookAround()
+    void FixedUpdate()
     {
         if (active) {
             if (followPlayer) { // for trackers
@@ -94,14 +87,12 @@ public class BossBullet : MonoBehaviour
                 float angle = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
                 Quaternion goalRotation = Quaternion.Euler(new Vector3(0, 0, angle));
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, goalRotation, Time.deltaTime * 60f);
-                Debug.Log(GetComponent<Rigidbody2D>().rotation);
             }
-            //GetComponent<Rigidbody2D>().AddForce(transform.right * bulletSpeed);
             if (accelerator) { // for accelerators
                 GetComponent<Rigidbody2D>().AddForce(transform.right * bulletSpeed*3);
             } else {
                 GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0); // there's probably a better way to do these two
-                GetComponent<Rigidbody2D>().AddForce(transform.right * bulletSpeed * 60);
+                GetComponent<Rigidbody2D>().AddForce(transform.right * bulletSpeed * 60);  
             }
         }
         if (Vector2.Distance(transform.position, Boss.transform.position) > 50f) {
