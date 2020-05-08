@@ -8,13 +8,16 @@ public class BossBulletObject
     public bool followPlayer;
     public Vector3 scale;
     public bool accelerate;
-    public BossBulletObject(string t, float b,bool f,float scale,bool a)
+    public Color color;
+    public Color defaultColor = new Color(255,255,255,255);
+    public BossBulletObject(string t, float b, bool f, float scale, bool a, Color? c = null)
     {
         this.type = t;
         this.bulletSpeed = b;
         this.followPlayer = f;
         this.scale = new Vector3(scale, scale, scale); // just gonna assume we want 1:1 scaling
         this.accelerate = a;
+        this.color = c ?? Color.white; // just temporary til we get new assets
     }
 }
 public class BossBullet : MonoBehaviour
@@ -34,9 +37,9 @@ public class BossBullet : MonoBehaviour
         // Constructor stuff:
         // type, bulletSpeed, followsPlayer, scale
         bulletTypes.Add(new BossBulletObject("normal", 1, false,1,false)); // normal shot with normal velocity
-        bulletTypes.Add(new BossBulletObject("small", 1.5f, false,0.75f,false)); // normal shot with normal velocity
-        bulletTypes.Add(new BossBulletObject("tracker", 1f, true,1f,false)); // tracker shot with normal velocity but follows player
-        bulletTypes.Add(new BossBulletObject("accelerator", 1f, false,1f,true)); // tracker shot with normal velocity but follows player
+        bulletTypes.Add(new BossBulletObject("small", 1.5f, false,0.75f,false, new Color(0.603f,1,0))); // small shot with fastish velocity
+        bulletTypes.Add(new BossBulletObject("tracker", 1f, true,1f,false, new Color(0f , 1f, 0.929f))); // tracker shot with normal velocity but follows player
+        bulletTypes.Add(new BossBulletObject("accelerator", 1f, false,1f,true,new Color(1f,0.392f,0.529f))); // accelerator shot with increasing velocity
 
 
     }
@@ -75,7 +78,7 @@ public class BossBullet : MonoBehaviour
         followPlayer = temp.followPlayer;
         transform.localScale = Vector3.Scale(transform.localScale, temp.scale); // multiplies the default scale with the scale modifier, in case we change it in the inspector for whatever reason. 
         accelerator = temp.accelerate;
-
+        GetComponent<SpriteRenderer>().color = temp.color;
         active = true;
     }
     void FixedUpdate()

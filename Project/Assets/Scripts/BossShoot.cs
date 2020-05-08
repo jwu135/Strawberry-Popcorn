@@ -226,11 +226,22 @@ public class BossShoot : MonoBehaviour
                 GameObject bullet = Instantiate(projectile, temp, transform.rotation) as GameObject;
                 bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
                 bullet.GetComponent<BossBullet>().enabled = true;
-
-                bullet.GetComponent<BossBullet>().setup("normal", bulletSpeed);
-                //bullet.GetComponent<BossBullet>().setup("small", bulletSpeed);
-                //bullet.GetComponent<BossBullet>().setup("tracker", bulletSpeed);            
-                //bullet.GetComponent<BossBullet>().setup("accelerator", bulletSpeed);            
+                int projNum=0;
+                switch (projNum) 
+                {
+                    case 0:
+                        bullet.GetComponent<BossBullet>().setup("normal", bulletSpeed);
+                        break;
+                    case 1:
+                        bullet.GetComponent<BossBullet>().setup("small", bulletSpeed);
+                        break;
+                    case 2:
+                        bullet.GetComponent<BossBullet>().setup("tracker", bulletSpeed);
+                        break;
+                    case 3:
+                        bullet.GetComponent<BossBullet>().setup("accelerator", bulletSpeed);
+                        break;
+                }
                 allProjectiles.Push(bullet);
 
                 offset += step;
