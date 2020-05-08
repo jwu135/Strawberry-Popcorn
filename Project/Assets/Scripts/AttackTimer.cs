@@ -42,8 +42,6 @@ public class AttackTimer : MonoBehaviour
     public void spikeChange()
     {
         GetComponent<SpriteRenderer>().sprite = orangeSprites[0];
-        if (GetComponent<BoxCollider2D>())
-            Debug.Log("Yup");
         StartCoroutine("enableDelay");
     }
 
@@ -70,9 +68,6 @@ public class AttackTimer : MonoBehaviour
     }
     public void destroy()
     {
-        if (GetComponent<BoxCollider2D>())
-            Debug.Log("Tried to destroy spike");
-        Debug.Log("Destroyed");
         Destroy(gameObject);
     }
     // Update is called once per frame
