@@ -7,12 +7,14 @@ public class BossBulletObject
     public float bulletSpeed; // more like a multiplier
     public bool followPlayer;
     public Vector3 scale;
-    public BossBulletObject(string t, float b,bool f,float scale)
+    public bool accelerate;
+    public BossBulletObject(string t, float b,bool f,float scale,bool a)
     {
         this.type = t;
         this.bulletSpeed = b;
         this.followPlayer = f;
         this.scale = new Vector3(scale, scale, scale); // just gonna assume we want 1:1 scaling
+        this.accelerate = a;
     }
 }
 public class BossBullet : MonoBehaviour
@@ -22,6 +24,7 @@ public class BossBullet : MonoBehaviour
     private string type;
     private float bulletSpeed;
     private bool followPlayer;
+    private bool accelerator;
     private bool active = false;
     private List<BossBulletObject> bulletTypes = new List<BossBulletObject>();
 
@@ -30,9 +33,10 @@ public class BossBullet : MonoBehaviour
         // I'm coding them here instead of making them public in the inspector as it'd be a case similar to the dialogue system, which was an actual nightmare
         // Constructor stuff:
         // type, bulletSpeed, followsPlayer, scale
-        bulletTypes.Add(new BossBulletObject("normal", 1, false,1)); // normal shot with normal velocity
-        bulletTypes.Add(new BossBulletObject("small", 1.5f, false,0.75f)); // normal shot with normal velocity
-        bulletTypes.Add(new BossBulletObject("tracker", 1f, true,1f)); // tracker shot with normal velocity but follows player
+        bulletTypes.Add(new BossBulletObject("normal", 1, false,1,false)); // normal shot with normal velocity
+        bulletTypes.Add(new BossBulletObject("small", 1.5f, false,0.75f,false)); // normal shot with normal velocity
+        bulletTypes.Add(new BossBulletObject("tracker", 1f, true,1f,false)); // tracker shot with normal velocity but follows player
+        bulletTypes.Add(new BossBulletObject("accelerator", 1f, false,1f,true)); // tracker shot with normal velocity but follows player
 
 
     }
@@ -70,8 +74,8 @@ public class BossBullet : MonoBehaviour
         bulletSpeed = temp.bulletSpeed*b;
         followPlayer = temp.followPlayer;
         transform.localScale = Vector3.Scale(transform.localScale, temp.scale); // multiplies the default scale with the scale modifier, in case we change it in the inspector for whatever reason. 
-        
-        
+        accelerator = temp.accelerate;
+
         active = true;
     }
     void Update()
@@ -84,7 +88,7 @@ public class BossBullet : MonoBehaviour
     void lookAround()
     {
         if (active) {
-            if (followPlayer) {
+            if (followPlayer) { // for trackers
                 GameObject player = GameObject.FindWithTag("Player");
                 Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
                 float angle = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
@@ -93,9 +97,12 @@ public class BossBullet : MonoBehaviour
                 Debug.Log(GetComponent<Rigidbody2D>().rotation);
             }
             //GetComponent<Rigidbody2D>().AddForce(transform.right * bulletSpeed);
-            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0); // there's probably a better way to do these two
-            GetComponent<Rigidbody2D>().AddForce(transform.right * bulletSpeed*60);
-
+            if (accelerator) { // for accelerators
+                GetComponent<Rigidbody2D>().AddForce(transform.right * bulletSpeed*3);
+            } else {
+                GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0); // there's probably a better way to do these two
+                GetComponent<Rigidbody2D>().AddForce(transform.right * bulletSpeed * 60);
+            }
         }
         if (Vector2.Distance(transform.position, Boss.transform.position) > 50f) {
             explode();  

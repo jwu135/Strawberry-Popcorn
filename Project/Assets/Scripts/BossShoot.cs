@@ -230,6 +230,7 @@ public class BossShoot : MonoBehaviour
                 bullet.GetComponent<BossBullet>().setup("normal", bulletSpeed);
                 //bullet.GetComponent<BossBullet>().setup("small", bulletSpeed);
                 //bullet.GetComponent<BossBullet>().setup("tracker", bulletSpeed);            
+                //bullet.GetComponent<BossBullet>().setup("accelerator", bulletSpeed);            
                 allProjectiles.Push(bullet);
 
                 offset += step;
