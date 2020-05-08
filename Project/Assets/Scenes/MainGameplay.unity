@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -8967,7 +8967,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552805662}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -91.14307, y: -3.0168762, z: -2320.933}
+  m_LocalPosition: {x: -91.14307, y: -3.0168762, z: 0}
   m_LocalScale: {x: 24, y: 24, z: 25.836948}
   m_Children:
   - {fileID: 370932391}
@@ -25321,7 +25321,7 @@ MonoBehaviour:
   maxHealth: 10
   health: 10
   maxMana: 100
-  mana: 100
+  mana: 0
   invicibilityLength: 40
   invicibilityCounter: 0
   manaCounter: 1
@@ -25487,7 +25487,7 @@ MonoBehaviour:
   HealthManager: {fileID: 1814532870}
   PlatformMovementPhys: {fileID: 1814532876}
   timeBtwWeaponChange: 0.5
-  delayBtwAttack1: 0.2
+  delayBtwAttack1: 0.12
   delayBtwAttack2: 0.5
   delayBtwAttack3: 0.8
   delayBtwChargeAttack1: 0.3

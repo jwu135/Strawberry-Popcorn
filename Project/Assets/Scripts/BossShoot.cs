@@ -232,13 +232,20 @@ public class BossShoot : MonoBehaviour
                 GameObject bullet = Instantiate(projectile, temp, transform.rotation) as GameObject;
                 bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
                 bullet.GetComponent<BossBullet>().enabled = true;
+                bullet.GetComponent<BossBullet>().setup("normal", bulletSpeed);
+
+                // normal = regular sized bullet at normal speed
+
+
                 //Vector2 addVelocity = (Vector2)(Quaternion.Euler(0, 0, offset) * Vector2.right);
-                bullet.GetComponent<Rigidbody2D>().velocity = (new Vector2(direction.x,direction.y).normalized)* bulletSpeed;
+
+                //bullet.GetComponent<Rigidbody2D>().velocity = (new Vector2(direction.x,direction.y).normalized)* bulletSpeed;
+
                 //bullet.GetComponent<Rigidbody2D>().AddForce(bullet.transform.forward* bulletSpeed*100000);
                 //bullet.GetComponent<Rigidbody2D>().transform.Rotate(new Vector3(0, 0, offset));
                 //bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(offsetX, offsetY).normalized* bulletSpeed;
                 //Debug.Log(bullet.GetComponent<Rigidbody2D>().velocity);
-                Debug.Log(bullet.GetComponent<Rigidbody2D>().velocity);
+                
                 allProjectiles.Push(bullet);
 
                 offset += step;
@@ -254,6 +261,6 @@ public class BossShoot : MonoBehaviour
                 allProjectiles.Push(bullet);*/
             }
         }
-        nextTime = Time.time + cooldown;
+        nextTime = Time.time + cooldown/5;
     }
 }
