@@ -148,9 +148,9 @@ public class BossShoot : MonoBehaviour
             } else if (pos == 1) {
                 int rand = Random.Range(0, spawnPointsY.Length);
                 if (random)
-                    position = new Vector3(28.6f, spawnPointsY[rand], 0);
+                    position = new Vector3(28.4f, spawnPointsY[rand], 0);
                 else
-                    position = new Vector3(28.6f, spawnPointsY[place], 0);
+                    position = new Vector3(28.4f, spawnPointsY[place], 0);
                 Quaternion tempRotation = Quaternion.Euler(0, 0, 90);
                 physicalAttack = Instantiate(hitObj, position, tempRotation) as GameObject;
             } else if (pos == 2) {
