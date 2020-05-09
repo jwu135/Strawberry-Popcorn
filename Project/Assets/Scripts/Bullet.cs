@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    void explode()
+    public void explode()
     {
         GameObject temp = Instantiate(explodingStrawberry, transform.position, transform.rotation) as GameObject;
         temp.transform.localScale = transform.localScale;

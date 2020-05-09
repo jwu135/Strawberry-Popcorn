@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
+
 public class BossBulletObject
 {
     public string type;
@@ -10,10 +12,11 @@ public class BossBulletObject
     public bool accelerate;
     public Color color;
     public bool AoEShot;
+    public bool breakable;
     // blossom shot
 
 
-    public BossBulletObject(string t, float b, bool f, float scale, bool a, bool ae, Color? c = null)
+    public BossBulletObject(string t, float b, bool f, float scale, bool a, bool ae, bool br, Color? c = null)
     {
         this.type = t;
         this.bulletSpeed = b;
@@ -21,6 +24,7 @@ public class BossBulletObject
         this.scale = new Vector3(scale, scale, scale); // just gonna assume we want 1:1 scaling
         this.accelerate = a;
         this.AoEShot = ae;
+        this.breakable = br;
         this.color = c ?? Color.white; // just temporary til we get new assets
     }
 }
@@ -34,6 +38,7 @@ public class BossBullet : MonoBehaviour
     private bool followPlayer;
     private bool accelerator = false;
     private bool AoEShot = false;
+    private bool breakable = false;
     private bool active = false;
     private List<BossBulletObject> bulletTypes = new List<BossBulletObject>();
 
@@ -42,11 +47,15 @@ public class BossBullet : MonoBehaviour
         // I'm coding them here instead of making them public in the inspector as it'd be a case similar to the dialogue system, which was an actual nightmare
         // Constructor stuff:
         // type, bulletSpeed, followsPlayer, scale, accelerates, spawnsAoE, color
-        bulletTypes.Add(new BossBulletObject("normal", 1, false,1,false,false)); // normal shot with normal velocity
-        bulletTypes.Add(new BossBulletObject("small", 1.5f, false,0.75f,false,false, new Color(0.603f,1,0))); // small shot with fastish velocity
-        bulletTypes.Add(new BossBulletObject("tracker", 1f, true,1f,false, false, new Color(0f , 1f, 0.929f))); // tracker shot with normal velocity but follows player
-        bulletTypes.Add(new BossBulletObject("accelerator", 1f, false,1f,true,false,new Color(1f,0.392f,0.529f))); // accelerator shot with increasing velocity
-        bulletTypes.Add(new BossBulletObject("bomb", 1f, false,1f,false,true)); // accelerator shot with increasing velocity
+        bulletTypes.Add(new BossBulletObject("normal", 1, false, 1, false, false, false, null)) ; // normal shot with normal velocity
+        bulletTypes.Add(new BossBulletObject("small", 1.5f, false,0.75f,false,false, false,new Color(0.603f,1,0))); // small shot with fastish velocity
+        bulletTypes.Add(new BossBulletObject("tracker", 1f, true,1f,false, false, false,new Color(0f , 1f, 0.929f))); // tracker shot with normal velocity but follows player
+        bulletTypes.Add(new BossBulletObject("accelerator", 1f, false,1f,true,false,false,new Color(1f,0.392f,0.529f))); // accelerator shot with increasing velocity
+        bulletTypes.Add(new BossBulletObject("bomb", 1f, false,1f,false,true,false,new Color(0.235f, 0.235f, 0.235f))); // accelerator shot with increasing velocity
+        bulletTypes.Add(new BossBulletObject("large", 0.5f, false,2.5f,false,false,true,null)); // accelerator shot with increasing velocity
+
+        // if this gets too out of hand, it might be better to just use a csv file.
+
 
 
     }
@@ -64,6 +73,15 @@ public class BossBullet : MonoBehaviour
             if (AoEShot)
                 spawnAoe();
             explode();
+        }
+      
+        if (breakable) {
+            Debug.Log("can be broken");
+            if(col.tag == "normalAttack1"|| col.tag == "chargeAttack1") {
+                Debug.Log("broke");
+                col.gameObject.GetComponent<Bullet>().explode();
+                explode();
+            }
         }
     }
     void spawnAoe()
@@ -98,6 +116,7 @@ public class BossBullet : MonoBehaviour
         transform.localScale = Vector3.Scale(transform.localScale, temp.scale); // multiplies the default scale with the scale modifier, in case we change it in the inspector for whatever reason. 
         accelerator = temp.accelerate;
         AoEShot = temp.AoEShot;
+        breakable = temp.breakable;
         GetComponent<SpriteRenderer>().color = temp.color;
         active = true;
     }

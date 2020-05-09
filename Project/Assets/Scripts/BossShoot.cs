@@ -69,7 +69,8 @@ public class BossShoot : MonoBehaviour
         if (GameObject.Find("Mother").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle")) {
             if (phase != 3) { // Main Projectile
                 if (nextTimeShoot < Time.time) {
-                    Shoot(false);
+                    //Shoot(false,4,5,90);
+                    Shoot(false,5);
                     nextTimeShoot = Time.time + shootCooldown;
                     //Debug.Log("Shot");
                 }
@@ -189,7 +190,7 @@ public class BossShoot : MonoBehaviour
     }
     
 
-    void Shoot(bool laser = false, int pattern = 0, int max = 1)
+    void Shoot(bool laser = false, int pattern = 0, int max = 1,float maxangle = 180)
     {
         if (laser) {
             SoundManager.PlaySound("bossLaser");
@@ -207,7 +208,6 @@ public class BossShoot : MonoBehaviour
             float offset = 0;
             float step = 0;
             if (max != 1) {
-                float maxangle = 180;
                 offset = -maxangle/2;
                 step = maxangle / (max - 1);
                 
@@ -226,7 +226,7 @@ public class BossShoot : MonoBehaviour
                 bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
                 bullet.GetComponent<BossBullet>().enabled = true;
                 //int projNum=0;
-                pattern = 4;
+                //pattern = 4;
                 switch (pattern) 
                 {
                     case 0:
@@ -243,6 +243,9 @@ public class BossShoot : MonoBehaviour
                         break;
                     case 4:
                         bullet.GetComponent<BossBullet>().setup("bomb", bulletSpeed);
+                        break;
+                    case 5:
+                        bullet.GetComponent<BossBullet>().setup("large", bulletSpeed);
                         break;
                 }
                 allProjectiles.Push(bullet);
