@@ -11,7 +11,7 @@ public class CutsceneSystem : MonoBehaviour
     public GameObject[] objects = new GameObject[size] ;
     public GameObject dialogueBox;
     private GameObject currPiece;
-
+    public bool eaten = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -52,20 +52,35 @@ public class CutsceneSystem : MonoBehaviour
     IEnumerator buffer()
     {
         yield return new WaitForSeconds(0.1f);
-        int direction = (player.transform.position.x > currPiece.transform.position.x) ? 0 : 1;
-        float speed = 6;
-        if (direction == 0) {
-            speed *= -1;
+        eaten = false;
+        MonoBehaviour[] scripts = player.GetComponentsInChildren<MonoBehaviour>();
+        foreach (MonoBehaviour script in scripts) {
+            if (script.GetType().Name != "UnityArmatureComponent" && script.GetType().Name != "UnityCombineMeshs" && script.GetType().Name != "PlayerCombat") {
+                script.enabled = true;
+            }
         }
-        player.GetComponent<Rigidbody2D>().velocity = transform.right*speed;
-        player.GetComponent<Movement>().getArmature().animation.Play("Running", 0);
-        while (Mathf.Abs(player.transform.position.x - currPiece.transform.position.x)>1) {
+
+
+
+        while (!eaten) {
             yield return new WaitForSeconds(0.05f);
         }
-        currPiece.GetComponent<BossPiece>().eat();
+        eaten = false;
+        /*while (Mathf.Abs(player.transform.position.x - currPiece.transform.position.x)>1) {
+            yield return new WaitForSeconds(0.05f);
+        }*/
         //yield return new WaitForSeconds(0.1f);
+        foreach (MonoBehaviour script in scripts) {
+            if (script.GetType().Name != "UnityArmatureComponent" && script.GetType().Name != "UnityCombineMeshs") {
+                script.enabled = false;
+            }
+        }
+
+        
+        player.GetComponent<Rigidbody2D>().velocity = Vector2.Scale(player.GetComponent<Rigidbody2D>().velocity,new Vector2(0,-1));
+        //player.GetComponent<Rigidbody2D>().velocity = transform.up * -20;
         player.GetComponent<Movement>().getArmature().animation.Play("Idle", 0);
-        player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        //player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         //player.transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("Idle", 0);
         yield return new WaitForSeconds(0.5f);
 

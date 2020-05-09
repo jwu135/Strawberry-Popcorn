@@ -29,7 +29,7 @@ public class BossPiece : MonoBehaviour
     void Update()
     {
         if (Time.timeScale != 0) {
-            //lookAround();
+            lookAround();
         }
     }
 
@@ -40,6 +40,18 @@ public class BossPiece : MonoBehaviour
             player.GetComponent<PlayerCombat>().evolution++;
             //player.GetComponent<PlayerCombat>().weaponCycle = player.GetComponent<PlayerCombat>().evolution;
         }
+        /*
+        string armatureSwap = player.GetComponent<Movement>().getArmature().name;
+        switch (armatureSwap) {
+            case "Armature":
+                (player.transform.Find("Armature").gameObject).SetActive(false);
+                (player.transform.Find("ArmatureArmed").gameObject).SetActive(true);
+                break;
+          
+        }*/
+
+
+
         Movement movement = player.GetComponent<Movement>();
         Vector2 scale = movement.getArmature().transform.localScale;
         if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 1) {
@@ -70,12 +82,13 @@ public class BossPiece : MonoBehaviour
         GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossShoot>().setPhase(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
         Debug.Log(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
         player.transform.Find("Arm").transform.GetComponent<Look>().setArmature();
+        GameObject.Find("EventSystem").GetComponent<CutsceneSystem>().eaten = true;
         Destroy(gameObject);
     }
 
     void lookAround()
     {
-        if (Input.GetButtonDown("eat")&&over) {
+        if (Input.GetButtonDown("interact") &&over) {
             eat();
         }
     }
