@@ -2029,7 +2029,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 936c8eacc5cbda648b20d75a8b5b89e4, type: 3}
   - {fileID: 2800000, guid: 731d3d2ac476f364ab35e882d3a37721, type: 3}
   healthNew:
-  - 1
+  - 60
   - 60
   - 60
   - 60
@@ -37600,6 +37600,7 @@ MonoBehaviour:
   Boss: {fileID: 1297109244}
   explodingEye: {fileID: 7334491772667889448, guid: 5a3ee2e796715a24b84003283a9a95c3,
     type: 3}
+  AoE: {fileID: 1311504387978517729, guid: 11f3499048b11df4b93c56ebd281adf3, type: 3}
 --- !u!50 &6887859871426871693
 Rigidbody2D:
   serializedVersion: 4

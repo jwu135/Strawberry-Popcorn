@@ -74,7 +74,7 @@ public class BossShoot : MonoBehaviour
                     //Debug.Log("Shot");
                 }
             }
-            if (phase == 3) { // Main Projectile
+            if (phase == 3) { // Laser
                 if (nextTimeShoot < Time.time) {
                     Shoot(true);
                     nextTimeShoot = Time.time + shootCooldown;
@@ -226,6 +226,7 @@ public class BossShoot : MonoBehaviour
                 bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
                 bullet.GetComponent<BossBullet>().enabled = true;
                 //int projNum=0;
+                pattern = 4;
                 switch (pattern) 
                 {
                     case 0:
@@ -239,6 +240,9 @@ public class BossShoot : MonoBehaviour
                         break;
                     case 3:
                         bullet.GetComponent<BossBullet>().setup("accelerator", bulletSpeed);
+                        break;
+                    case 4:
+                        bullet.GetComponent<BossBullet>().setup("bomb", bulletSpeed);
                         break;
                 }
                 allProjectiles.Push(bullet);
