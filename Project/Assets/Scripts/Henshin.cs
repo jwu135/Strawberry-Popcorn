@@ -17,6 +17,9 @@ public class Henshin : MonoBehaviour
     public GameObject Player1;
     public GameObject Player2;
 
+    public GameObject ui_tip;
+    public bool isTrigger;
+
     void Start()
     {
         //cam = Camera.main;
@@ -60,6 +63,27 @@ public class Henshin : MonoBehaviour
 
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name == "Trigger")
+        {
+            ui_tip.gameObject.SetActive(true);
+            isTrigger = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "Trigger")
+        {
+            ui_tip.gameObject.SetActive(false);
+            isTrigger = true;
+        }
+    }
+
+
+
 
     void OnTriggerStay2D(Collider2D other)
     {
