@@ -29,7 +29,7 @@ public class BossPiece : MonoBehaviour
     void Update()
     {
         if (Time.timeScale != 0) {
-            lookAround();
+            //lookAround();
         }
     }
 
@@ -76,36 +76,7 @@ public class BossPiece : MonoBehaviour
     void lookAround()
     {
         if (Input.GetButtonDown("eat")&&over) {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player.GetComponent<PlayerCombat>().evolution < 3) {
-                player.GetComponent<PlayerCombat>().evolution++;
-                //player.GetComponent<PlayerCombat>().weaponCycle = player.GetComponent<PlayerCombat>().evolution;
-            }
-            //Debug.Log(GetComponent<Boss>().getPhase());
-            if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 1) {
-                (player.transform.Find("Armature").gameObject).SetActive(false);
-                (player.transform.Find("ArmatureMid").gameObject).SetActive(true);
-                player.GetComponent<Movement>().setArmature();
-                player.transform.Find("Arm").gameObject.GetComponent<Look>().setArmature();
-                player.transform.Find("Arm").gameObject.GetComponent<SpriteRenderer>().sprite = arms[0];
-                healthbars[0].SetActive(false);
-                healthbars[1].SetActive(true);
-
-            }
-            if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 2) {
-                healthbars[1].SetActive(false);
-                healthbars[2].SetActive(true);
-            }
-            if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 3) {
-                player.transform.Find("ArmatureMid").gameObject.SetActive(false);
-                player.transform.Find("ArmatureLast").gameObject.SetActive(true);
-                player.GetComponent<Movement>().setArmature();
-                player.transform.Find("Arm").gameObject.GetComponent<Look>().setArmature();
-                player.transform.Find("Arm").gameObject.GetComponent<SpriteRenderer>().sprite = arms[1];
-            }
-            GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossShoot>().setPhase(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
-            Debug.Log(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
-            Destroy(gameObject);    
+            eat();
         }
     }
 }
