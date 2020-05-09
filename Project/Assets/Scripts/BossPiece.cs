@@ -38,7 +38,7 @@ public class BossPiece : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player.GetComponent<PlayerCombat>().evolution < 3) {
             player.GetComponent<PlayerCombat>().evolution++;
-            player.GetComponent<PlayerCombat>().weaponCycle = player.GetComponent<PlayerCombat>().evolution;
+            //player.GetComponent<PlayerCombat>().weaponCycle = player.GetComponent<PlayerCombat>().evolution;
         }
         Movement movement = player.GetComponent<Movement>();
         Vector2 scale = movement.getArmature().transform.localScale;
@@ -79,7 +79,7 @@ public class BossPiece : MonoBehaviour
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player.GetComponent<PlayerCombat>().evolution < 3) {
                 player.GetComponent<PlayerCombat>().evolution++;
-                player.GetComponent<PlayerCombat>().weaponCycle = player.GetComponent<PlayerCombat>().evolution;
+                //player.GetComponent<PlayerCombat>().weaponCycle = player.GetComponent<PlayerCombat>().evolution;
             }
             //Debug.Log(GetComponent<Boss>().getPhase());
             if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 1) {

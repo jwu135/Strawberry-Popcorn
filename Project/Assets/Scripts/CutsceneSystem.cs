@@ -92,6 +92,7 @@ public class CutsceneSystem : MonoBehaviour
                 script.enabled = true;
             //}
         }
+        boss.GetComponentInChildren<Boss>().setDamageable(true);
         if(first)
          boss.GetComponentInChildren<BossShoot>().startTime();
     }

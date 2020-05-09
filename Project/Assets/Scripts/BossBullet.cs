@@ -9,7 +9,9 @@ public class BossBulletObject
     public Vector3 scale;
     public bool accelerate;
     public Color color;
-    public Color defaultColor = new Color(255,255,255,255);
+    // blossom shot
+
+
     public BossBulletObject(string t, float b, bool f, float scale, bool a, Color? c = null)
     {
         this.type = t;
@@ -56,7 +58,6 @@ public class BossBullet : MonoBehaviour
         GameObject temp = Instantiate(explodingEye, transform.position, transform.rotation) as GameObject;
         temp.transform.localScale = transform.localScale;
         destroy();
-
     }
     public void destroy()
     {

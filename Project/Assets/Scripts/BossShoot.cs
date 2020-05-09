@@ -145,24 +145,24 @@ public class BossShoot : MonoBehaviour
                 //physicalAttack = Instantiate(hitObj, position, hitObj.transform.rotation) as GameObject;
                 position = new Vector3(randPos, -11.31f, 0);
                 physicalAttack = Instantiate(hitObj, position, hitObj.transform.rotation) as GameObject;
-                physicalAttack.GetComponent<Animator>().SetTrigger("Spike");
             } else if (pos == 1) {
                 int rand = Random.Range(0, spawnPointsY.Length);
                 if (random)
-                    position = new Vector3(17.5f, spawnPointsY[rand], 0);
+                    position = new Vector3(28.6f, spawnPointsY[rand], 0);
                 else
-                    position = new Vector3(17.5f, spawnPointsY[place], 0);
-                Quaternion tempRotation = Quaternion.Euler(0, 0, 180);
+                    position = new Vector3(28.6f, spawnPointsY[place], 0);
+                Quaternion tempRotation = Quaternion.Euler(0, 0, 90);
                 physicalAttack = Instantiate(hitObj, position, tempRotation) as GameObject;
-                physicalAttack.GetComponent<Animator>().SetTrigger("SpikeLonger");
             } else if (pos == 2) {
                 int rand = Random.Range(0, spawnPointsY.Length);
                 if (random)
-                    position = new Vector3(-17, spawnPointsY[rand], 0);
+                    position = new Vector3(-28.5f, spawnPointsY[rand], 0);
                 else
-                    position = new Vector3(-17, spawnPointsY[place], 0);
-                physicalAttack = Instantiate(hitObj, position, transform.rotation) as GameObject;
-                physicalAttack.GetComponent<Animator>().SetTrigger("SpikeLonger");
+                    position = new Vector3(-28.5f, spawnPointsY[place], 0);
+                
+                Quaternion tempRotation = Quaternion.Euler(0, 0, 270);
+                physicalAttack = Instantiate(hitObj, position, tempRotation) as GameObject;
+                physicalAttack.transform.localScale = Vector3.Scale(physicalAttack.transform.localScale, new Vector3(-1,1)); 
             }
             
             physicalAttack.GetComponent<AttackTimer>().disappear();
@@ -189,7 +189,7 @@ public class BossShoot : MonoBehaviour
     }
     
 
-    void Shoot(bool laser = false, int patter = 0)
+    void Shoot(bool laser = false, int pattern = 0, int max = 1)
     {
         if (laser) {
             SoundManager.PlaySound("bossLaser");
@@ -204,7 +204,6 @@ public class BossShoot : MonoBehaviour
             bullet.GetComponent<AttackTimer>().disappear();
             allProjectiles.Push(bullet);
         } else {
-            int max = 1;
             float offset = 0;
             float step = 0;
             if (max != 1) {
@@ -226,8 +225,8 @@ public class BossShoot : MonoBehaviour
                 GameObject bullet = Instantiate(projectile, temp, transform.rotation) as GameObject;
                 bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
                 bullet.GetComponent<BossBullet>().enabled = true;
-                int projNum=0;
-                switch (projNum) 
+                //int projNum=0;
+                switch (pattern) 
                 {
                     case 0:
                         bullet.GetComponent<BossBullet>().setup("normal", bulletSpeed);
