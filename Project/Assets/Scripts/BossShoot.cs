@@ -70,7 +70,7 @@ public class BossShoot : MonoBehaviour
             if (phase != 3) { // Main Projectile
                 if (nextTimeShoot < Time.time) {
                     //Shoot(false,4,5,90);
-                    Shoot(false,2);
+                    Shoot(false);
                     nextTimeShoot = Time.time + shootCooldown;
                     //Debug.Log("Shot");
                 }
