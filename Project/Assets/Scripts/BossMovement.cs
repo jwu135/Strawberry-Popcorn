@@ -10,11 +10,16 @@ public class BossMovement : MonoBehaviour
     float flickerTimeTrack = 2f;
     float t_intensity = 0f;
     public bool smooth = true;
+    private bool ableToRotate = true;
     void Update()
     {
         if (Time.timeScale != 0) {
             lookAround();
         }
+    }
+    public void setRotateable(bool t)
+    {
+        ableToRotate = t;
     }
     // Update is called once per frame
     void lookAround()
@@ -24,13 +29,15 @@ public class BossMovement : MonoBehaviour
         temp.y = Mathf.Sin(Time.time / 2) * Mathf.Cos(Time.time / 2);
         transform.localPosition = temp;
 
-
-        Vector3 direction = (Vector2)(GameObject.Find("Player").transform.position - transform.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.localRotation = Quaternion.Euler(new Vector3(0, 0, -angle));
-        if (Input.GetKeyDown(KeyCode.Z)) {
-            smooth = !smooth;
+        if (ableToRotate) {
+            Vector3 direction = (Vector2)(GameObject.Find("Player").transform.position - transform.position).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(new Vector3(0, 0, -angle)), Time.time / 100);
         }
+
+        /*if (Input.GetKeyDown(KeyCode.Z)) {
+            smooth = !smooth;
+        }*/
 
         if (smooth) {
             float lightIntensity = GetComponent<Light2D>().intensity;

@@ -8,7 +8,7 @@ public class AttackTimer : MonoBehaviour
     private float disappearTime = 1;
     private float timeToDisappearAfter = 0.99f;
     private float hits = 0.5f; // how long til the spike goes up, according to the animation frames
-
+    private Transform enemy;
     public Sprite[] orangeSprites;
     public Sprite orangeAoE;
     public Sprite[] purpleSprites;
@@ -23,7 +23,14 @@ public class AttackTimer : MonoBehaviour
     {
         //SoundManager.PlaySound("bossAOE");
     }
-
+    public void setEnemy(Transform e)
+    {
+        enemy = e;
+    }
+    private void canRotate()
+    {
+        enemy.GetComponent<BossMovement>().setRotateable(true);
+    }
     public void animationPlay()
     {
         GetComponent<Animator>().SetTrigger("Spike");
@@ -68,6 +75,8 @@ public class AttackTimer : MonoBehaviour
     }
     public void destroy()
     {
+        if (enemy != null)
+            canRotate();
         Destroy(gameObject);
     }
     // Update is called once per frame

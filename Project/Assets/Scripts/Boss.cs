@@ -66,6 +66,10 @@ public class Boss : MonoBehaviour
             else
                 SoundManager.PlaySound("hitSound1");
             healthNew[healthIndex] -= amnt;
+            if (healthIndex == 0) {
+                if (healthNew[0] % (healthNew[0] / 4) == 0)
+                    Debug.Log("Another phase");
+            }
             player.GetComponent<HealthManager>().activateScreenShake((float)amnt/4);
             StartCoroutine("hit");
             if (healthNew[healthNew.Length - 1] <= 0) {

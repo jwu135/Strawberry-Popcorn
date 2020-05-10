@@ -57,7 +57,7 @@ public class BossBullet : MonoBehaviour
         
         bulletTypes.Add(new BossBulletObject("bomb", 1f, false,1f,false,true,false,new Color(0.235f, 0.235f, 0.235f))); // bomb shot that spawns AoE
         
-        bulletTypes.Add(new BossBulletObject("normalBreakable", 1f, false,2.5f,false,false,true,null)); // accelerator shot with increasing velocity
+        bulletTypes.Add(new BossBulletObject("normalBreakable", 1f, false,1,false,false,true,null)); // accelerator shot with increasing velocity
 
         // if this gets too out of hand, it might be better to just use a csv file.
 
@@ -126,12 +126,17 @@ public class BossBullet : MonoBehaviour
         accelerator = temp.accelerate;
         AoEShot = temp.AoEShot;
         breakable = temp.breakable;
-        GetComponent<SpriteRenderer>().color = temp.color;
+       // GetComponent<SpriteRenderer>().color = temp.color;
         active = true;
     }
     void FixedUpdate()
     {
         if (active) {
+            if (GetComponent<Rigidbody2D>().velocity.x>0) {
+                GetComponent<SpriteRenderer>().flipY = false;
+            } else {
+                GetComponent<SpriteRenderer>().flipY = true;
+            }
             if (followPlayer) { // for trackers
                 GameObject player = GameObject.FindWithTag("Player");
                 Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
@@ -145,6 +150,7 @@ public class BossBullet : MonoBehaviour
                 GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0); // there's probably a better way to do these two
                 GetComponent<Rigidbody2D>().AddForce(transform.right * bulletSpeed * 60);  
             }
+            
         }
         if (Vector2.Distance(transform.position, Boss.transform.position) > 50f) {
             explode();  

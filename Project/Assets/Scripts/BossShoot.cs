@@ -6,7 +6,7 @@ public class BossShoot : MonoBehaviour
 {
     public float bulletSpeed;
     public GameObject laserobj;
-    public GameObject projectile;
+    public GameObject[] projectile;
     public GameObject hitObj;
     public GameObject AoE;
     private Stack allProjectiles = new Stack();
@@ -70,7 +70,7 @@ public class BossShoot : MonoBehaviour
             if (phase != 3) { // Main Projectile
                 if (nextTimeShoot < Time.time) {
                     //Shoot(false,4,5,90);
-                    Shoot(false);
+                    Shoot(false,2);
                     nextTimeShoot = Time.time + shootCooldown;
                     //Debug.Log("Shot");
                 }
@@ -199,7 +199,9 @@ public class BossShoot : MonoBehaviour
             bullet.transform.parent = transform;
             Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            GetComponent<BossMovement>().setRotateable(false);
+            //bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            bullet.GetComponent<AttackTimer>().setEnemy(transform);
             bullet.GetComponent<AttackTimer>().setTimer(1f);
             bullet.GetComponent<AttackTimer>().setHits(5f);
             bullet.GetComponent<AttackTimer>().disappear();
@@ -222,7 +224,7 @@ public class BossShoot : MonoBehaviour
                     offsetY = max == 1 ? 0 : Mathf.Cos(offset * Mathf.Deg2Rad);
                 }
                 float angle = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) + offset;
-                GameObject bullet = Instantiate(projectile, temp, transform.rotation) as GameObject;
+                GameObject bullet = Instantiate(projectile[pattern], temp, transform.rotation) as GameObject; 
                 bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
                 bullet.GetComponent<BossBullet>().enabled = true;
                 //int projNum=0;
