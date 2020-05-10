@@ -18236,7 +18236,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Exit
 --- !u!222 &1145874056
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22098,6 +22098,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149f09d2f55b49c4385db4ed9352b066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas:
+  - {fileID: 1437786532}
 --- !u!114 &1407061495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22336,7 +22338,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &1437786536
 RectTransform:
