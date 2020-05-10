@@ -9,12 +9,11 @@ public class PauseScript : MonoBehaviour
     int paused = 1;
     private void Awake()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1; //this should fix the game freezing on multiple playthroughs
     }
     public void togglePause()
-    {
+    { //Playercombat and look2 still need to check time scale.
         paused = 1 - paused;
-        
         canvas[0].SetActive(!Convert.ToBoolean(paused));
     }
     // Update is called once per frame
