@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
+using UnityEngine.Playables;
 
 public class Henshin : MonoBehaviour
 {
     // Start is called before the first frame update
     public Camera cam;
     public Camera cam2;
+    public Camera cam3;
     public float speed;
     bool henshin = false;
     public SpriteRenderer test1;
@@ -17,14 +20,17 @@ public class Henshin : MonoBehaviour
     public GameObject Player1;
     public GameObject Player2;
 
-    public GameObject ui_tip;
-    public bool isTrigger;
+    public bool manga = false;
+
+    // public GameObject ui_tip;
+    public PlayableDirector playableDirector;
 
     void Start()
     {
         //cam = Camera.main;
         Player2.SetActive(false);
         cam2.enabled = false;
+        cam3.enabled = false;
 
     }
 
@@ -32,7 +38,9 @@ public class Henshin : MonoBehaviour
     {
         if(henshin == true)
         {
-            if(cam2.orthographicSize < 3.87f)
+            //playableDirector.Play();
+           
+            if (cam2.orthographicSize < 3.87f)
             {
                 cam2.transform.position = new Vector3(Mathf.Lerp(cam2.transform.position.x, -7.8f, speed), Mathf.Lerp(cam2.transform.position.y, 0.03f, speed), Mathf.Lerp(cam2.transform.position.z, -10.17f, speed));
                 cam2.orthographicSize = Mathf.Lerp(cam2.orthographicSize, 3.879681f, speed);
@@ -64,41 +72,31 @@ public class Henshin : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.name == "Trigger")
-        {
-            ui_tip.gameObject.SetActive(true);
-            isTrigger = true;
-        }
-    }
 
+    /*
     public void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "Trigger")
-        {
-            ui_tip.gameObject.SetActive(false);
-            isTrigger = true;
-        }
+        ui_tip.gameObject.SetActive(false);
     }
 
-
+    */
 
 
     void OnTriggerStay2D(Collider2D other)
     {
         if (Input.GetButtonDown("Use") && other.CompareTag("Player") && (henshin == false))
         {
+            // ui_tip.gameObject.SetActive(true);
+            
+            playableDirector.Play();
             henshin = true;
             Player1.SetActive(false);
+            cam3.enabled = true;
             cam2.enabled = true;
             cam.enabled = false;
             Player2.SetActive(true);
             cam2.transform.position = new Vector3(Mathf.Lerp(cam.transform.position.x, 0, speed), Mathf.Lerp(cam.transform.position.y, 3.7f, speed), Mathf.Lerp(cam.transform.position.z, -10.17f, speed));
             cam2.orthographicSize = Mathf.Lerp(cam.orthographicSize, 8.709762f, speed);
-
-
-
 
         }
     }
