@@ -13,10 +13,12 @@ public class BossBulletObject
     public Color color;
     public bool AoEShot;
     public bool breakable;
+    public bool littlemother;
+    public float cooldown = 1.25f;
     // blossom shot
 
 
-    public BossBulletObject(string t, float b, bool f, float scale, bool a, bool ae, bool br, Color? c = null)
+    public BossBulletObject(string t, float b, bool f, float scale, bool a, bool ae, bool br, bool lm)
     {
         this.type = t;
         this.bulletSpeed = b;
@@ -25,12 +27,13 @@ public class BossBulletObject
         this.accelerate = a;
         this.AoEShot = ae;
         this.breakable = br;
-        this.color = c ?? Color.white; // just temporary til we get new assets
+        this.littlemother = lm;
     }
 }
 public class BossBullet : MonoBehaviour
 {
     public GameObject Boss;
+    private GameObject player;
     public GameObject explodingEye;
     public GameObject AoE;
     private string type;
@@ -39,7 +42,10 @@ public class BossBullet : MonoBehaviour
     private bool accelerator = false;
     private bool AoEShot = false;
     private bool breakable = false;
+    private bool littlemother = false;
+    private float cooldown;
     private bool active = false;
+    private Vector2 origDir;
     private List<BossBulletObject> bulletTypes = new List<BossBulletObject>();
 
     public void Awake() // start didn't get called early enough, as setup() was running before it.
@@ -47,20 +53,22 @@ public class BossBullet : MonoBehaviour
         // I'm coding them here instead of making them public in the inspector as it'd be a case similar to the dialogue system, which was an actual nightmare
         // Constructor stuff:
         // type, bulletSpeed, followsPlayer, scale, accelerates, spawnsAoE, color
-        bulletTypes.Add(new BossBulletObject("normal", 1, false, 1, false, false, false, null)) ; // normal shot with normal velocity
+        bulletTypes.Add(new BossBulletObject("normal", 1, false, 1, false, false, false,false)) ; // normal shot with normal velocity
         
-        bulletTypes.Add(new BossBulletObject("small", 1.5f, false,0.75f,false,false, false,new Color(0.603f,1,0))); // small shot with fastish velocity
+        bulletTypes.Add(new BossBulletObject("small", 1.5f, false,0.75f,false,false, false,false)); // small shot with fastish velocity
         
-        bulletTypes.Add(new BossBulletObject("tracker", 1f, true,1f,false, false, false,new Color(0f , 1f, 0.929f))); // tracker shot with normal velocity but follows player
+        bulletTypes.Add(new BossBulletObject("tracker", 1f, true,1f,false, false, false,false)); // tracker shot with normal velocity but follows player
         
-        bulletTypes.Add(new BossBulletObject("accelerator", 1f, false,1f,true,false,false,new Color(1f,0.392f,0.529f))); // accelerator shot with increasing velocity
+        bulletTypes.Add(new BossBulletObject("accelerator", 1f, false,1f,true,false,false,false)); // accelerator shot with increasing velocity
         
-        bulletTypes.Add(new BossBulletObject("bomb", 1f, false,1f,false,true,false,new Color(0.235f, 0.235f, 0.235f))); // bomb shot that spawns AoE
+        bulletTypes.Add(new BossBulletObject("bomb", 1f, false,1f,false,true,false,false)); // bomb shot that spawns AoE
         
-        bulletTypes.Add(new BossBulletObject("normalBreakable", 1f, false,1,false,false,true,null)); // accelerator shot with increasing velocity
+        bulletTypes.Add(new BossBulletObject("normalBreakable", 1f, false,1,false,false,true,false)); // accelerator shot with increasing velocity
+        
+        bulletTypes.Add(new BossBulletObject("littlemother", 0.4f, false,1,false,false,false,true)); // accelerator shot with increasing velocity
 
         // if this gets too out of hand, it might be better to just use a csv file.
-
+        player = GameObject.Find("Player");
 
 
     }
@@ -126,7 +134,9 @@ public class BossBullet : MonoBehaviour
         accelerator = temp.accelerate;
         AoEShot = temp.AoEShot;
         breakable = temp.breakable;
-       // GetComponent<SpriteRenderer>().color = temp.color;
+        littlemother = temp.littlemother;
+        cooldown = temp.cooldown;
+        origDir = (Vector2)(GameObject.Find("Player").transform.position - transform.position).normalized; ;
         active = true;
     }
     void FixedUpdate()
@@ -138,17 +148,38 @@ public class BossBullet : MonoBehaviour
                 GetComponent<SpriteRenderer>().flipY = true;
             }
             if (followPlayer) { // for trackers
-                GameObject player = GameObject.FindWithTag("Player");
+                //GameObject player = GameObject.FindWithTag("Player");
                 Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
                 float angle = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
                 Quaternion goalRotation = Quaternion.Euler(new Vector3(0, 0, angle));
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, goalRotation, Time.deltaTime * 60f);
             }
             if (accelerator) { // for accelerators
-                GetComponent<Rigidbody2D>().AddForce(transform.right * bulletSpeed*3);
-            } else {
+                GetComponent<Rigidbody2D>().AddForce(transform.right * bulletSpeed * 3);
+            } else if (littlemother) {
+                GetComponent<Rigidbody2D>().velocity = origDir*bulletSpeed;
+            } else{
                 GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0); // there's probably a better way to do these two
                 GetComponent<Rigidbody2D>().AddForce(transform.right * bulletSpeed * 60);  
+            }
+            if (littlemother) {
+                Vector3 directionObj = (Vector2)(GameObject.Find("Player").transform.position - transform.position).normalized;
+                float angleObj = Mathf.Atan2(directionObj.y, directionObj.x) * Mathf.Rad2Deg;
+                transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(new Vector3(0, 0, angleObj)), Time.time / 100);
+                cooldown -= Time.deltaTime;
+                if (cooldown <= 0) {
+                    BossShoot bs = GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossShoot>();
+                    GameObject proj = bs.projectile[0];
+                    Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
+                    float angle = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+                    GameObject bullet = Instantiate(proj, transform.position, transform.rotation) as GameObject;
+                    bullet.GetComponent<BossBullet>().setup("normal", bs.bulletSpeed);
+                    bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+                    bullet.GetComponent<BossBullet>().enabled = true;
+                    bs.addToStack(bullet);
+                    cooldown = 1.25f;
+                }
+                
             }
             
         }

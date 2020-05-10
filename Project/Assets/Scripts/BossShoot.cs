@@ -36,7 +36,11 @@ public class BossShoot : MonoBehaviour
             Destroy(projectile);
         }
     }
-    
+    public void addToStack(GameObject bullet)
+    {
+        allProjectiles.Push(bullet);
+    }
+
     private void Start()
     {
         nextTime = Time.time + 2f;
@@ -70,7 +74,7 @@ public class BossShoot : MonoBehaviour
             if (phase != 3) { // Main Projectile
                 if (nextTimeShoot < Time.time) {
                     //Shoot(false,4,5,90);
-                    Shoot(false);
+                    Shoot(false,6);
                     nextTimeShoot = Time.time + shootCooldown;
                     //Debug.Log("Shot");
                 }
@@ -140,11 +144,11 @@ public class BossShoot : MonoBehaviour
                 int rand = Random.Range(0, spawnPointsX.Length);
                 float randPos = Random.Range(-26.8f, 26.8f);
                 if(random)
-                    position = new Vector3(spawnPointsX[rand], -11.31f, 0);
+                    position = new Vector3(spawnPointsX[rand], -7.96f, 0);
                 else
-                    position = new Vector3(spawnPointsX[place], -11.31f, 0);
+                    position = new Vector3(spawnPointsX[place], -7.96f, 0);
                 //physicalAttack = Instantiate(hitObj, position, hitObj.transform.rotation) as GameObject;
-                position = new Vector3(randPos, -11.31f, 0);
+                position = new Vector3(randPos, -7.96f, 0);
                 physicalAttack = Instantiate(hitObj, position, hitObj.transform.rotation) as GameObject;
             } else if (pos == 1) {
                 int rand = Random.Range(0, spawnPointsY.Length);
@@ -248,6 +252,9 @@ public class BossShoot : MonoBehaviour
                         break;
                     case 5:
                         bullet.GetComponent<BossBullet>().setup("large", bulletSpeed);
+                        break;
+                    case 6:
+                        bullet.GetComponent<BossBullet>().setup("littlemother", bulletSpeed);
                         break;
                 }
                 allProjectiles.Push(bullet);
