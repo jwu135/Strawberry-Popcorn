@@ -63,9 +63,9 @@ public class BossBullet : MonoBehaviour
         
         bulletTypes.Add(new BossBulletObject("bomb", 1f, false,1f,false,true,false,false)); // bomb shot that spawns AoE
         
-        bulletTypes.Add(new BossBulletObject("normalBreakable", 1f, false,1,false,false,true,false)); // accelerator shot with increasing velocity
+        bulletTypes.Add(new BossBulletObject("breakable", 1f, false,1,false,false,true,false)); // accelerator shot with increasing velocity
         
-        bulletTypes.Add(new BossBulletObject("littlemother", 0.4f, false,1,false,false,false,true)); // accelerator shot with increasing velocity
+        bulletTypes.Add(new BossBulletObject("littlemother", 0.4f, false,1,false,false,false,true)); // little mother shot that shoots at the player
 
         // if this gets too out of hand, it might be better to just use a csv file.
         player = GameObject.Find("Player");
@@ -80,16 +80,18 @@ public class BossBullet : MonoBehaviour
         if (AoEShot) {
             if (col.tag == "Floor") {
                 spawnAoe();
-                explode();
+                destroy();
             }
         }
         if (col.gameObject.name == "Floor") {
             explode();
         }
         if (col.tag == "Player") {
-            if (AoEShot)
+            if (AoEShot) {
                 spawnAoe();
-            explode();
+                destroy();
+            } else
+                explode();
         }
       
         if (breakable) {

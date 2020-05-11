@@ -16,14 +16,13 @@ public class ParallaxScript : MonoBehaviour
         previousPos = transform.position;
         parallaxScales = new float[backgrounds.Length];
         for (int i = 0; i < backgrounds.Length; i++) {
-            parallaxScales[i] = backgrounds[i].position.z * -1;
+            parallaxScales[i] = backgrounds[i].position.z * -1f;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-
         for (int i = 0; i < backgrounds.Length; i++) {
             float parallax = (previousPos.x - transform.position.x) * parallaxScales[i];
 

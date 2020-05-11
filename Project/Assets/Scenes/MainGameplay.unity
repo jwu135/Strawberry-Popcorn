@@ -8927,7 +8927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Boss: {fileID: 1297109244}
-  explodingEye: {fileID: 7334491772667889448, guid: 5a3ee2e796715a24b84003283a9a95c3,
+  explodingEye: {fileID: 4144034919902428229, guid: 03d1f383acf5b6842b424e92e61bf0b2,
     type: 3}
   AoE: {fileID: 1311504387978517729, guid: 11f3499048b11df4b93c56ebd281adf3, type: 3}
 --- !u!114 &504253848
@@ -15630,7 +15630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Boss: {fileID: 1297109244}
-  explodingEye: {fileID: 7334491772667889448, guid: 5a3ee2e796715a24b84003283a9a95c3,
+  explodingEye: {fileID: 6603118771695787021, guid: 5d2b2dc1615078444bf51a8e25cd596f,
     type: 3}
   AoE: {fileID: 1311504387978517729, guid: 11f3499048b11df4b93c56ebd281adf3, type: 3}
 --- !u!95 &972487654
@@ -22474,7 +22474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Boss: {fileID: 1297109244}
-  explodingEye: {fileID: 7334491772667889448, guid: 5a3ee2e796715a24b84003283a9a95c3,
+  explodingEye: {fileID: 4144034919902428229, guid: 03d1f383acf5b6842b424e92e61bf0b2,
     type: 3}
   AoE: {fileID: 1311504387978517729, guid: 11f3499048b11df4b93c56ebd281adf3, type: 3}
 --- !u!114 &1439319559
@@ -24959,7 +24959,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1631284879}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.59, y: -14.06, z: 0}
+  m_LocalPosition: {x: -7.59, y: -18.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -35861,7 +35861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Boss: {fileID: 1297109244}
-  explodingEye: {fileID: 7334491772667889448, guid: 5a3ee2e796715a24b84003283a9a95c3,
+  explodingEye: {fileID: 6603118771695787021, guid: 5d2b2dc1615078444bf51a8e25cd596f,
     type: 3}
   AoE: {fileID: 1311504387978517729, guid: 11f3499048b11df4b93c56ebd281adf3, type: 3}
 --- !u!114 &1976358137

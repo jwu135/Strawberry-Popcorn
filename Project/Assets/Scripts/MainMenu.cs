@@ -13,11 +13,7 @@ public class MainMenu : MonoBehaviour
         if (menu != null)
             menu.onClick.AddListener(mainMenu);
     }
-    private void Update()
-    {
-        
-        Debug.Log(Time.timeScale);
-    }
+
     void mainMenu()
     {
         GameObject.Find("Player").GetComponent<HealthManager>().timer = 0;

@@ -24,7 +24,7 @@ public class BossShoot : MonoBehaviour
     public float shootCooldown;
 
 
-    private int phase = 0;
+    private float phase = 0;
     private GameObject player;
 
     private float[] healthmarks = {75f,50f};
@@ -57,7 +57,7 @@ public class BossShoot : MonoBehaviour
         AoeNextTime = Time.time + AoECooldown;
         nextTimeShoot = Time.time + shootCooldown;
     }
-    public void setPhase(int p)
+    public void setPhase(float p)
     {
         phase = p;
     }
@@ -74,7 +74,26 @@ public class BossShoot : MonoBehaviour
             if (phase != 3) { // Main Projectile
                 if (nextTimeShoot < Time.time) {
                     //Shoot(false,4,5,90);
-                    Shoot(false,6);
+                    float rand = Random.Range(0f, 1f);
+                    if (phase == 0.25f) {
+                        if(rand>0.5f)
+                            Shoot(false, 0);
+                        else
+                            Shoot(false,5);
+                    } else if (phase == 0.5f) {
+                        if (rand > 0.5f)
+                            Shoot(false, 0);
+                        else
+                            Shoot(false, 5);
+                    } else if (phase == 0.75f) {
+                        if (rand <= 0.33f)
+                            Shoot(false, 0);
+                        else if (rand < .66f && rand > .33f)
+                            Shoot(false, 5);
+                        else
+                            Shoot(false, 6);
+                    } else 
+                        Shoot(false);
                     nextTimeShoot = Time.time + shootCooldown;
                     //Debug.Log("Shot");
                 }
@@ -85,21 +104,21 @@ public class BossShoot : MonoBehaviour
                     nextTimeShoot = Time.time + shootCooldown;
                 }
             }
-            if (phase == 0 || phase == 2 || phase == 3) { // AoE
+            /*if (phase == 0 || phase == 2 || phase == 3) { // AoE
                 if (Vector2.Distance(player.transform.position, GameObject.Find("Mother").transform.position) < 4f && AoeNextTime < Time.time) {
                     Physical(3);
                     AoeNextTime = Time.time + AoECooldown;
                 } 
-            }
+            }*/
             if (phase==0||phase == 1) { // Spike
                 if (nextTime < Time.time) {
                     if (phase == 0) {
-                        Physical(phase); // doing it this way because phase number and the pos variable happen to have the same parameters
+                        Physical(Mathf.FloorToInt(phase)); // doing it this way because phase number and the pos variable happen to have the same parameters
                     } else {
                         if (player.transform.position.x > 0) {
-                            Physical(phase);
+                            Physical(Mathf.FloorToInt(phase));
                         } else {
-                            Physical(phase+1);
+                            Physical(Mathf.FloorToInt(phase +1));
                         }
                     }
                     nextTime = Time.time + cooldown;
@@ -251,7 +270,7 @@ public class BossShoot : MonoBehaviour
                         bullet.GetComponent<BossBullet>().setup("bomb", bulletSpeed);
                         break;
                     case 5:
-                        bullet.GetComponent<BossBullet>().setup("large", bulletSpeed);
+                        bullet.GetComponent<BossBullet>().setup("breakable", bulletSpeed);
                         break;
                     case 6:
                         bullet.GetComponent<BossBullet>().setup("littlemother", bulletSpeed);
