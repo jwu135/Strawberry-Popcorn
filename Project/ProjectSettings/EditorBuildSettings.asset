@@ -16,7 +16,7 @@ EditorBuildSettings:
     guid: aebde635bc102144a9b7af70dbe65327
   - enabled: 1
     path: Assets/Scenes/MainGameplay.unity
-    guid: 8b60e7b2bdb328a4e96322b687d10759
+    guid: dc004af6fd2d64c4ca654172aea84b7b
   - enabled: 1
     path: Assets/Scenes/Gameover.unity
     guid: b7c5453eecb4042409ef4a3079843696
@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ParallaxTest.unity
     guid: 106d050d57673b441b3bb4a1ab7f5f27
+  - enabled: 1
+    path: Assets/Scenes/MainGameplay5.unity
+    guid: 8b60e7b2bdb328a4e96322b687d10759
   m_configObjects: {}

@@ -106,7 +106,7 @@ InputManager:
     descriptiveName: Special Move
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: space
+    positiveButton: f
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
