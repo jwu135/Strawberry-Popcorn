@@ -9,6 +9,11 @@ public class PlayerCombat : MonoBehaviour
     public double timeBtwChargeAttack1;
     public double timeBtwChargeAttack2;
     public double timeBtwChargeAttack3;
+    public double weaponAmount;
+    public double[] weaponChoice;
+    public double weaponChoice1;
+    public double weaponChoice2;
+    public double weaponChoice3;
     public float weaponCycle = 1;
     private bool hit = false;
 
@@ -57,6 +62,7 @@ public class PlayerCombat : MonoBehaviour
     public FakeCannon FakeCannon;
     public HealthManager HealthManager;
     public PlatformMovementPhys PlatformMovementPhys;
+    public UpgradeValues UpgradeValues;
 
     public double timeBtwWeaponChange;
     public double delayBtwAttack1;
@@ -78,6 +84,8 @@ public class PlayerCombat : MonoBehaviour
     public bool longPress = false;
     public float evolution;
     public float attackRange;
+    public float bulletSpray;
+    public float bulletSprayCap;
     public double damage;
     public double damage2;
     public double damage3;
@@ -91,6 +99,11 @@ public class PlayerCombat : MonoBehaviour
     public Vector2 aPosition1 = new Vector2(5, 5);
     public float hookspeed;
 
+
+    void Start()
+    {
+
+    }
 
 
     // Update is called once per frame
@@ -111,7 +124,7 @@ public class PlayerCombat : MonoBehaviour
         // LASER = false;
 
         //combo normal a1
-        if (Input.GetButton("Fire1") && normalAttack1Buffer < 0.4 && weaponCycle == 1 && PlatformMovementPhys.rollingFrame == 0)
+        if (Input.GetButton("Fire1") && normalAttack1Buffer < (0.4) && weaponCycle == 1 && PlatformMovementPhys.rollingFrame == 0)
         {
             //LASER = true;
             normalAttack1Buffer += Time.deltaTime;
@@ -235,7 +248,7 @@ public class PlayerCombat : MonoBehaviour
             if (Input.GetButtonUp("Fire1") && weaponCycle == 1 && !fire2State && !longPress && PlatformMovementPhys.rollingFrame == 0)
             {
                 Shoot1();
-                timeBtwAttack = delayBtwAttack1 - delayAttackCD;
+                timeBtwAttack = delayBtwAttack1 - delayAttackCD - UpgradeValues.bonusAttackSpd;
             }
 
             //Tentacle or pineapple stab
@@ -397,9 +410,22 @@ public class PlayerCombat : MonoBehaviour
 
     void Shoot1()
     {
-        Instantiate(bullet1Prefab, firePoint.position, firePoint.rotation);
+        bulletSpray = Random.Range(-bulletSprayCap, bulletSprayCap);
+        Instantiate(bullet1Prefab, firePoint.position, (firePoint.rotation *= Quaternion.Euler(0, 0f, bulletSpray)));
         //Enemy.TakeDamage2(damage2);
-        
+
+        if(bulletSprayCap > 0)
+        {
+            firePoint.rotation *= Quaternion.Euler(0, 0f, -bulletSpray);
+        }
+        //maybe make subtle then biggger if longer use
+        if (bulletSprayCap < 0)
+        {
+            firePoint.rotation *= Quaternion.Euler(0, 0f, bulletSpray);
+        }
+
+
+
         var randomInt = Random.Range(1, 4);
         switch (randomInt)
         {
@@ -502,5 +528,29 @@ public class PlayerCombat : MonoBehaviour
         ArmRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 1f);
 
     }
+
+   // public void SavePlayer()
+   // {
+        //SaveSystem.SavePlayer(this);
+   //     Debug.Log("save");
+   // }
+
+  //  public void LoadPlayer()
+  //  {
+  //      SaveData data = SaveSystem.LoadData();
+
+   //     UpgradeValues.bonusHealth = data.bonusHealth;
+  //      UpgradeValues.bonusAttackSpd = data.bonusAttackSpd;
+  //      UpgradeValues.bonusManaGain = data.bonusManaGain;
+   //     weaponAmount = data.weaponAmount;
+ //       Debug.Log("load");
+ //   }
+
+  //  public void HealthUp()
+ //   {
+ //       UpgradeValues.bonusHealth += 1;
+ //       Debug.Log("hp");
+ //       Debug.Log(UpgradeValues.bonusHealth);
+ //   }
 
 }

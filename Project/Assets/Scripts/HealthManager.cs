@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
-    public double maxHealth = 100;
-    public double health = 100;
+    public double maxHealth = 12;
+    public double health = 12;
     public double maxMana = 100;
     public double mana = 100;
     private double lastmana = 0;
@@ -32,18 +32,23 @@ public class HealthManager : MonoBehaviour
 
     public PlayerCombat PlayerCombat;
     public FakeCannon FakeCannon;
+    public UpgradeValues UpgradeValues;
 
     // Start is called before the first frame update
     void Start()
     {
+        maxHealth += UpgradeValues.bonusHealth;
+        health += UpgradeValues.bonusHealth;
         HitOverlayArr = GameObject.FindGameObjectsWithTag("HitOverlay");
         HitOverlay = HitOverlayArr[0].GetComponent<SpriteRenderer>();
         hit = false;
+        
     }
 
     void Update()
     {
         
+
         if (Time.timeScale == scaleTime && timer <= pauseTime)
         {
             timer += Time.unscaledDeltaTime * 1000;
@@ -141,7 +146,7 @@ public class HealthManager : MonoBehaviour
                 GameObject.Find("PerfectDodgeFlash").GetComponent<Animator>().speed = 2;
                 GameObject.Find("PerfectDodgeFlash").GetComponent<Animator>().SetTrigger("Play");
                 Time.timeScale = scaleTime;
-                mana += 5;
+                mana += (5 + UpgradeValues.bonusManaGain);
                 manaCounter = 0;
             }
         }

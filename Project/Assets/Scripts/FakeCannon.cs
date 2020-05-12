@@ -14,14 +14,15 @@ public class FakeCannon : MonoBehaviour
     public float copyscalex;
     public float copyscaley;
     public SpriteRenderer CannonStandIn;
+    public SpriteRenderer CannonMax;
     public PlayerCombat PlayerCombat;
     public HealthManager HealthManager;
     public PlatformMovementPhys PlatformMovementPhys;
 
     void Start()
     {
-        //misfire = false;
-        misfire = true;
+        misfire = false;
+        //misfire = true;
     }
 
     // Update is called once per frame
@@ -53,6 +54,7 @@ public class FakeCannon : MonoBehaviour
         if (maxCharge && PlayerCombat.longPress && misfire)
         {
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
+            CannonMax.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
             if (PlayerCombat.launch)
             {
                 damageScale = scale;
@@ -83,6 +85,7 @@ public class FakeCannon : MonoBehaviour
         if (HealthManager.hit && !maxCharge && charging && PlayerCombat.longPress && misfire)
         {
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
+            CannonMax.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
             if (PlayerCombat.launch)
             {
 
@@ -100,6 +103,7 @@ public class FakeCannon : MonoBehaviour
         if (HealthManager.hit && PlayerCombat.longPress && !misfire)
         {
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
+            CannonMax.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
             if (PlayerCombat.launch)
             {
                 Debug.Log("orange");
@@ -114,25 +118,42 @@ public class FakeCannon : MonoBehaviour
         if (PlayerCombat.launchVisible && PlayerCombat.longPress && PlatformMovementPhys.rollingFrame == 0 && !maxCharge && misfire)
         {
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 1f);
-            Debug.Log("stupid1");
         }
 
         if (PlayerCombat.launchVisible && PlayerCombat.longPress && PlatformMovementPhys.rollingFrame == 0 && !misfire && !HealthManager.hit)
         {
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 1f);
-            Debug.Log("stupid2");
         }
 
         if (PlatformMovementPhys.rollingFrame > 0)
         {
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
+            CannonMax.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
         }
 
         if (HealthManager.hit)
         {
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
-            Debug.Log("stupid3");
-            Debug.Log(PlayerCombat.launchVisible);
+            CannonMax.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
+
+        }
+
+        if (maxCharge && PlayerCombat.weaponCycle == 1)
+        {
+            CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
+            if(scale < 2)
+            {
+                CannonMax.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
+            }
+            else
+            {
+                CannonMax.material.color = new Color(1.0f, 1.0f, 1.0f, 1f);
+            }
+        }
+
+        if (!maxCharge)
+        {
+            CannonMax.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
         }
 
         //charging
@@ -177,6 +198,7 @@ public class FakeCannon : MonoBehaviour
             transform.localScale = new Vector2((float)1.5 , (float)1.2);
             //scale = 0;
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
+            CannonMax.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
             charging = false;
             maxCharge = false;
             HealthManager.hit = false;
@@ -196,6 +218,7 @@ public class FakeCannon : MonoBehaviour
             transform.localScale = new Vector2((float)1.5, (float)1.2);
             //scale = 0;
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
+            CannonMax.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
             charging = false;
             maxCharge = false;
             HealthManager.hit = false;
@@ -206,6 +229,7 @@ public class FakeCannon : MonoBehaviour
             transform.localScale = new Vector2((float)1.5, (float)1.2);
             //scale = 0;
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
+            CannonMax.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
             charging = false;
             maxCharge = false;
             HealthManager.hit = false;
@@ -217,6 +241,7 @@ public class FakeCannon : MonoBehaviour
             transform.localScale = new Vector2((float)1.5, (float)1.2);
             scale = 0.001f;
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
+            CannonMax.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
             charging = false;
             maxCharge = true;
             PlayerCombat.launch = false;
@@ -231,6 +256,7 @@ public class FakeCannon : MonoBehaviour
             transform.localScale = new Vector2((float)1.5, (float)1.2);
             scale = 0.001f;
             CannonStandIn.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
+            CannonMax.material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
             charging = false;
             PlayerCombat.launch = false;
             PlayerCombat.launchVisible = false;
