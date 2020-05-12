@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 22433037}
   - component: {fileID: 22433036}
   - component: {fileID: 22433035}
+  - component: {fileID: 22433044}
   - component: {fileID: 22433034}
   m_Layer: 0
   m_Name: Player
@@ -355,6 +356,11 @@ MonoBehaviour:
   timeBtwChargeAttack1: 0
   timeBtwChargeAttack2: 0
   timeBtwChargeAttack3: 0
+  weaponAmount: 0
+  weaponChoice: []
+  weaponChoice1: 0
+  weaponChoice2: 0
+  weaponChoice3: 0
   weaponCycle: 1
   bullet1Prefab: {fileID: 4623028045384819104, guid: 80ca0927eb3caca4885791dde9337c6e,
     type: 3}
@@ -404,6 +410,7 @@ MonoBehaviour:
   FakeCannon: {fileID: 0}
   HealthManager: {fileID: 0}
   PlatformMovementPhys: {fileID: 0}
+  UpgradeValues: {fileID: 0}
   timeBtwWeaponChange: 0.5
   delayBtwAttack1: 0.3
   delayBtwAttack2: 0.5
@@ -424,6 +431,8 @@ MonoBehaviour:
   longPress: 0
   evolution: 1
   attackRange: 0.1
+  bulletSpray: 0
+  bulletSprayCap: 0
   damage: 0.25
   damage2: 1
   damage3: 3
@@ -465,6 +474,7 @@ MonoBehaviour:
   alphaStep: 0.005
   PlayerCombat: {fileID: 22433038}
   FakeCannon: {fileID: 0}
+  UpgradeValues: {fileID: 0}
 --- !u!61 &22433040
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -567,6 +577,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &22433044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22433033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 747c4da8dfe61b94c80843cd8b06598f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ableToJump: 0
 --- !u!1 &273848232
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +863,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.296
   m_Pitch: 1
   Loop: 0
   Mute: 0

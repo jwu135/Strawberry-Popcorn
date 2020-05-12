@@ -62,9 +62,9 @@ public class Boss : MonoBehaviour
     {
         if (damageable) {
             if (amnt < 2)
-                SoundManager.PlaySound("hitSound2");
+                SoundManager.PlaySound("enemyHit2");
             else
-                SoundManager.PlaySound("hitSound1");
+                SoundManager.PlaySound("enemyHit1");
             healthNew[healthIndex] -= amnt;
             if (healthIndex == 0) {
                 if (healthNew[0] % (maxhealthNew[0] / 4) == 0) { // gets wonky with certain health values, probably for maxhealths that are indivisible by 4

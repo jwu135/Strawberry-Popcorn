@@ -16642,6 +16642,11 @@ MonoBehaviour:
   timeBtwChargeAttack1: 0
   timeBtwChargeAttack2: 0
   timeBtwChargeAttack3: 0
+  weaponAmount: 0
+  weaponChoice: []
+  weaponChoice1: 0
+  weaponChoice2: 0
+  weaponChoice3: 0
   weaponCycle: 1
   bullet1Prefab: {fileID: 4623028045384819104, guid: 80ca0927eb3caca4885791dde9337c6e,
     type: 3}
@@ -16691,6 +16696,7 @@ MonoBehaviour:
   FakeCannon: {fileID: 1397915332}
   HealthManager: {fileID: 568325832}
   PlatformMovementPhys: {fileID: 568325830}
+  UpgradeValues: {fileID: 0}
   timeBtwWeaponChange: 0.5
   delayBtwAttack1: 0.12
   delayBtwAttack2: 0.5
@@ -16711,6 +16717,8 @@ MonoBehaviour:
   longPress: 0
   evolution: 1
   attackRange: 0.1
+  bulletSpray: 0
+  bulletSprayCap: 0
   damage: 0.25
   damage2: 1
   damage3: 3
@@ -16748,6 +16756,7 @@ MonoBehaviour:
   alphaStep: 0.005
   PlayerCombat: {fileID: 568325831}
   FakeCannon: {fileID: 1397915332}
+  UpgradeValues: {fileID: 0}
 --- !u!61 &568325833
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24283,6 +24292,11 @@ MonoBehaviour:
   timeBtwChargeAttack1: 0
   timeBtwChargeAttack2: 0
   timeBtwChargeAttack3: 0
+  weaponAmount: 0
+  weaponChoice: []
+  weaponChoice1: 0
+  weaponChoice2: 0
+  weaponChoice3: 0
   weaponCycle: 1
   bullet1Prefab: {fileID: 4623028045384819104, guid: 80ca0927eb3caca4885791dde9337c6e,
     type: 3}
@@ -24332,6 +24346,7 @@ MonoBehaviour:
   FakeCannon: {fileID: 2016847630}
   HealthManager: {fileID: 711274003}
   PlatformMovementPhys: {fileID: 711274001}
+  UpgradeValues: {fileID: 0}
   timeBtwWeaponChange: 0.5
   delayBtwAttack1: 0.12
   delayBtwAttack2: 0.5
@@ -24352,6 +24367,8 @@ MonoBehaviour:
   longPress: 0
   evolution: 1
   attackRange: 0.1
+  bulletSpray: 0
+  bulletSprayCap: 0
   damage: 0.25
   damage2: 1
   damage3: 3
@@ -24389,6 +24406,7 @@ MonoBehaviour:
   alphaStep: 0.005
   PlayerCombat: {fileID: 711274002}
   FakeCannon: {fileID: 2016847630}
+  UpgradeValues: {fileID: 0}
 --- !u!61 &711274004
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33709,6 +33727,7 @@ MonoBehaviour:
   copyscalex: 0
   copyscaley: 0
   CannonStandIn: {fileID: 1205098186}
+  CannonMax: {fileID: 0}
   PlayerCombat: {fileID: 568325831}
   HealthManager: {fileID: 568325832}
   PlatformMovementPhys: {fileID: 568325830}
@@ -37951,6 +37970,7 @@ MonoBehaviour:
   copyscalex: 0
   copyscaley: 0
   CannonStandIn: {fileID: 1397915333}
+  CannonMax: {fileID: 0}
   PlayerCombat: {fileID: 568325831}
   HealthManager: {fileID: 568325832}
   PlatformMovementPhys: {fileID: 568325830}
@@ -39149,7 +39169,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.296
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -50209,6 +50229,7 @@ MonoBehaviour:
   copyscalex: 0
   copyscaley: 0
   CannonStandIn: {fileID: 2016847631}
+  CannonMax: {fileID: 0}
   PlayerCombat: {fileID: 711274002}
   HealthManager: {fileID: 711274003}
   PlatformMovementPhys: {fileID: 711274001}
@@ -52229,6 +52250,7 @@ MonoBehaviour:
   copyscalex: 0
   copyscaley: 0
   CannonStandIn: {fileID: 2114170688}
+  CannonMax: {fileID: 0}
   PlayerCombat: {fileID: 711274002}
   HealthManager: {fileID: 711274003}
   PlatformMovementPhys: {fileID: 711274001}

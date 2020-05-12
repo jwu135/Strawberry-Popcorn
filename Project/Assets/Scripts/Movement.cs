@@ -164,6 +164,7 @@ public class Movement : MonoBehaviour
         // animation plays when you roll in place
         if (((Input.GetButton("Roll") == true) || (Input.GetAxis("Roll") < 0)) && (platMove.getRollingFrame() < 2 && platMove.getStickInput().magnitude > 0))
         {// add function call to PlatformMovementPhys
+            SoundManager.PlaySound("playerDodge");
             Debug.Log("Attempted to animate roll");
             setPrimaryArmature(1);
             armatureComponent.animation.timeScale = 2f;

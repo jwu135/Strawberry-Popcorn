@@ -30,16 +30,16 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         // new sounds from 5-12
-        playerShotSound1 = Resources.Load<AudioClip>("Sounds/Chiptune/Shot1");
-        playerShotSound2 = Resources.Load<AudioClip>("Sounds/Chiptune/Shot2");
-        playerJump1 = Resources.Load<AudioClip>("Sounds/Chiptune/Jump1");
-        playerJump2 = Resources.Load<AudioClip>("Sounds/Chiptune/Jump2");
-        eyeballShot1 = Resources.Load<AudioClip>("Sounds/Chiptune/EyeBallShot");
-        eyeballShot2 = Resources.Load<AudioClip>("Sounds/Chiptune/EyeBallShot2");
-        playerHit = Resources.Load<AudioClip>("Sounds/Chiptune/GettingHit");
-        enemyHit1 = Resources.Load<AudioClip>("Sounds/Chiptune/Hit1");
-        enemyHit2 = Resources.Load<AudioClip>("Sounds/Chiptune/Hit2");
-        playerDodge = Resources.Load<AudioClip>("Sounds/Chiptune/Dodge");
+        playerShotSound1 = Resources.Load<AudioClip>("Sounds/Chiptune/Shot1"); // called in PlayerCombat.cs
+        playerShotSound2 = Resources.Load<AudioClip>("Sounds/Chiptune/Shot2"); // called in PlayerCombat.cs
+        playerJump1 = Resources.Load<AudioClip>("Sounds/Chiptune/Jump1"); // called in PlatformMovementPhys.cs
+        playerJump2 = Resources.Load<AudioClip>("Sounds/Chiptune/Jump2"); // called in PlatformMovementPhys.cs
+        eyeballShot1 = Resources.Load<AudioClip>("Sounds/Chiptune/EyeBallShot"); // called in BossShoot.cs
+        eyeballShot2 = Resources.Load<AudioClip>("Sounds/Chiptune/EyeBallShot2"); // called in BossShoot.cs
+        playerHit = Resources.Load<AudioClip>("Sounds/Chiptune/GettingHit"); // called in HealthManager.cs
+        enemyHit1 = Resources.Load<AudioClip>("Sounds/Chiptune/Hit1"); // called in Boss.cs
+        enemyHit2 = Resources.Load<AudioClip>("Sounds/Chiptune/Hit2Full"); // called in Boss.cs
+        playerDodge = Resources.Load<AudioClip>("Sounds/Chiptune/Dodge"); // called in Movement.cs
         playerCharging = Resources.Load<AudioClip>("Sounds/Chiptune/ChargingUp");
 
         // leaving these just in case

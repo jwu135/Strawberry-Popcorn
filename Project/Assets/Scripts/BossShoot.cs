@@ -243,6 +243,16 @@ public class BossShoot : MonoBehaviour
             bullet.GetComponent<AttackTimer>().disappear();
             allProjectiles.Push(bullet);
         } else {
+            var randomInt = Random.Range(1, 2);
+            switch (randomInt) {
+                case 1:
+                    SoundManager.PlaySound("eyeballShot1");
+                    break;
+                case 2:
+                    SoundManager.PlaySound("eyeballShot2");
+                    break;
+            }
+            SoundManager.PlaySound("eyeballShot1");
             float offset = 0;
             float step = 0;
             if (max != 1) {

@@ -127,6 +127,7 @@ public class HealthManager : MonoBehaviour
             {
                 Time.timeScale = scaleTime;
                 health -= 1;
+                SoundManager.PlaySound("playerHit");
                 PlayerCombat.Hurt();
                 GameObject.Find("EventSystem").GetComponent<PlayerHeartsController>().losehealth();
                 if ((FakeCannon.charging && PlayerCombat.longPress) || (FakeCannon.maxCharge && PlayerCombat.longPress))

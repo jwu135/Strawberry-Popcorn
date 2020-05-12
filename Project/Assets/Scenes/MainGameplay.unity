@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2108,10 +2108,10 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 936c8eacc5cbda648b20d75a8b5b89e4, type: 3}
   - {fileID: 2800000, guid: 731d3d2ac476f364ab35e882d3a37721, type: 3}
   healthNew:
-  - 120
-  - 150
-  - 180
-  - 210
+  - 60
+  - 60
+  - 60
+  - 60
   HealthBar: {fileID: 1662189587}
 --- !u!114 &117516979
 MonoBehaviour:
