@@ -30,15 +30,17 @@ public class PlatformMovementPhys : MonoBehaviour
     public PlayerCombat PlayerCombat;
 
     public LayerMask whatIsGround;
-    bool state;
+    bool ableToJump; //needed for scenes other than MainGameplay
+    bool state; //false is grounded
     bool isFastFalling = false;
+    private bool rollOnCooldown = false;
     float actingGravity; //the current gravity that is acting on the player. Changes to fallingGravity when y vel is < 0
     PlayerController pc;
 
     float deadzone; //joystick deadzone
     Vector2 stickInput;
     bool controlFrozen;
-    public int rollingFrame;
+    public int rollingFrame = 0;
     Vector2 rollInput = Vector2.zero;
 
     Vector2 velocityVector;
@@ -79,6 +81,8 @@ public class PlatformMovementPhys : MonoBehaviour
         rollCooldown = pc.getStat("rollCooldown");
         deadzone = pc.getStat("movementDeadzone");
 
+        ableToJump = GetComponent<JumpDisabler>() ? GetComponent<JumpDisabler>().ableToJump : true; //if the script is attached, set to value.                
+
         state = true; //flase is grounded, true is in the air
 
         healthManager = GetComponent<HealthManager>();
@@ -93,7 +97,7 @@ public class PlatformMovementPhys : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetButtonDown("Jump") == true && !PlayerCombat.stop1)
+        if (Input.GetButtonDown("Jump") == true && !PlayerCombat.stop1 && ableToJump)
         {
             jumpButtonDown = true;
 
@@ -135,13 +139,13 @@ public class PlatformMovementPhys : MonoBehaviour
 
             if (controlFrozen == false)
             {
-                if((velocityVector.x < 0 && stickInput.x < 0) || (velocityVector.x > 0 && stickInput.x > 0) )//check if it should use acceleration or deceleration
+                if ((velocityVector.x < 0 && stickInput.x < 0) || (velocityVector.x > 0 && stickInput.x > 0))//check if it should use acceleration or deceleration
                 {
                     velocityVector = new Vector2((body.velocity + (stickInput * acceleration)).x, body.velocity.y);
                 }
-                else if( (velocityVector.x > 0 && stickInput.x < 0) || (velocityVector.x < 0 && stickInput.x > 0) )
+                else if ((velocityVector.x > 0 && stickInput.x < 0) || (velocityVector.x < 0 && stickInput.x > 0))
                 {
-                    Debug.Log("Decelerate");
+                    //Debug.Log("Decelerate");
                     velocityVector = new Vector2((body.velocity + (stickInput * turnAroundSpeed)).x, body.velocity.y);
                 }
                 else
@@ -218,7 +222,7 @@ public class PlatformMovementPhys : MonoBehaviour
                 doRoll(Vector2.SignedAngle(Vector2.up, rollInput)); //calls roll with the angle (0 degrees is vertical)
             }
 
-            if( isFastFalling == true )
+            if (isFastFalling == true)
             {
                 actingGravity = fastFallingGravity;
             }
@@ -238,12 +242,12 @@ public class PlatformMovementPhys : MonoBehaviour
 
             if (state == true && isFastFalling == true && velocityVector.y - actingGravity <= -fastFallSpeedCap)//if player is in the air and falling at terminal velocity and is fast falling
             {
-                Debug.Log("fastFall!");
+                //Debug.Log("fastFall!");
                 velocityVector.y = -fastFallSpeedCap;
             }
             else if (state == true && isFastFalling == false && velocityVector.y - actingGravity <= -fallSpeedCap)//if player is in the air and falling at terminal velocity and is not fast falling
             {
-                Debug.Log("1");
+                //Debug.Log("1");
                 velocityVector.y = -fallSpeedCap;
             }
             else if (state == false && gameObject.layer != 12)
@@ -251,10 +255,10 @@ public class PlatformMovementPhys : MonoBehaviour
                 //Debug.Log("2");
                 gameObject.layer = 12;
             }
-            else if (state == false && transform.localPosition.y > -2.14)
+            else if (state == false && transform.localPosition.y > -25)
             {
                 //Debug.Log("3");
-                velocityVector.y -= actingGravity/2;
+                velocityVector.y -= fastFallSpeedCap / 25;
             }
             else if (state == true && isFastFalling == false && velocityVector.y - gravity > -fallSpeedCap)
             {
@@ -290,7 +294,7 @@ public class PlatformMovementPhys : MonoBehaviour
         }
         else
         {
-            
+
             //velocityVector.x = 0;
             //velocityVector.y = 0;
             velocityVector = new Vector2(0, 0);
@@ -312,11 +316,11 @@ public class PlatformMovementPhys : MonoBehaviour
         state = true;
     }
 
-    void doRoll(float rollAngle) 
+    void doRoll(float rollAngle)
     {
         if (rollingFrame < rollDuration) //roll in full speed frames
         {
-            if( rollAngle < 0 )
+            if (rollAngle < 0)
             {
                 velocityVector.x = (rollDistance / rollDuration);
             }
@@ -329,11 +333,11 @@ public class PlatformMovementPhys : MonoBehaviour
         }
         else if (rollingFrame < rollDuration + rollSlowFrames) //roll in slow frames
         {
-            if (rollAngle < 0)
+            if (rollAngle < 0 && state == false)
             {
                 velocityVector.x = (rollDistance / rollDuration) * rollSlowSpeedMult;
             }
-            if (rollAngle > 0)
+            if (rollAngle > 0 && state == false)
             {
                 velocityVector.x = -(rollDistance / rollDuration) * rollSlowSpeedMult;
             }
@@ -341,7 +345,7 @@ public class PlatformMovementPhys : MonoBehaviour
         }
         else if (rollingFrame == rollDuration + rollSlowFrames) //roll is over
         {
-            if(stickInput.x > 0 || stickInput.x < 0) //if player is moving left or right
+            if ((stickInput.x > 0 || stickInput.x < 0)) //if player is moving left or right
             {
                 if (rollAngle < 0)
                 {
@@ -356,12 +360,28 @@ public class PlatformMovementPhys : MonoBehaviour
         }
         else if (rollingFrame < rollDuration + rollSlowFrames + rollCooldown) //roll on cooldown
         {
+            rollOnCooldown = true;
             controlFrozen = false;
             rollingFrame++;
         }
         else //roll reset
         {
+            rollOnCooldown = false;
             rollingFrame = 0;
         }
     }
+
+    public int getRollingFrame()
+    {
+        return rollingFrame;
+    }
+    public Vector2 getStickInput()
+    {
+        return stickInput;
+    }
+    public bool isRollOnCooldown()
+    {
+        return rollOnCooldown;
+    }
+
 }

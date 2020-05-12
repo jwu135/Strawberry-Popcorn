@@ -8,9 +8,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public int index;
     [SerializeField] public string levelNmae;
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (Input.GetButtonDown("Use") && other.CompareTag("Player"))
         {
             SceneManager.LoadScene(index);
         }

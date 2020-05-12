@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -9061388757760685620}
   - component: {fileID: -2194303966937579}
   - component: {fileID: 7846519462592202037}
+  - component: {fileID: 7590616279954042273}
   m_Layer: 0
   m_Name: bossLaser
   m_TagString: BossBullet
@@ -97,6 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8c122599279c3408d7cafa94688f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orangeSprites: []
+  orangeAoE: {fileID: 0}
+  purpleSprites: []
 --- !u!95 &-9061388757760685620
 Animator:
   serializedVersion: 3
@@ -153,3 +157,45 @@ CapsuleCollider2D:
   m_Offset: {x: 5.8093505, y: -0.0000042194924}
   m_Size: {x: 11.645148, y: 1.0000172}
   m_Direction: 1
+--- !u!114 &7590616279954042273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349775662642372696}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 1
+  m_BlendStyleIndex: 1
+  m_FalloffIntensity: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 5.82
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 0
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 1
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 1.49
+  m_PointLightOuterRadius: 10.69
+  m_PointLightDistance: 3
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 8.1
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.13603573, y: -0.39834458, z: 0}
+  - {x: 11.051565, y: -0.2347376, z: 0}
+  - {x: 11.738624, y: 0.2536825, z: 0}
+  - {x: 11.007355, y: 0.8389471, z: 0}
+  - {x: -0.03334656, y: 0.8260085, z: 0}

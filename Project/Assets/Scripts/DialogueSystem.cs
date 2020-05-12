@@ -79,7 +79,9 @@ public class DialogueSystem : MonoBehaviour
     public void lookAround()
     {
         if (Input.GetButtonDown("Fire1")&&dialogueGoing){
+            index = stops[stopsIndex] - 1; // use this to make dialogue only show first dialogue box of each thing
             if (currSentence.Length < finalSentence.Length) {
+                StopCoroutine("textScroll");
                 sentence.text = currSentence = finalSentence;
             } else {
                 if (stops[stopsIndex] > index + 1&& stopsIndex<8) {

@@ -18,7 +18,7 @@ public class Boss : MonoBehaviour
     private GameObject player;
     private float[] healthPoints = new float[4];
     private int healthIndex = 0;
-    private int phase = 0;
+    private float phase = 0;
     private bool damageable = true;
     private bool disablePause = false;
     // Start is called before the first frame update
@@ -33,7 +33,7 @@ public class Boss : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         updateHealth();
     }
-    public int getPhase()
+    public float getPhase()
     {
         return phase;
     }
@@ -61,16 +61,31 @@ public class Boss : MonoBehaviour
     public void losehealth(double amnt)
     {
         if (damageable) {
+            if (amnt < 2)
+                SoundManager.PlaySound("hitSound2");
+            else
+                SoundManager.PlaySound("hitSound1");
             healthNew[healthIndex] -= amnt;
+            if (healthIndex == 0) {
+                if (healthNew[0] % (maxhealthNew[0] / 4) == 0) { // gets wonky with certain health values, probably for maxhealths that are indivisible by 4
+                    Debug.Log("Another phase");
+                    phase += 0.25f;
+                    GetComponent<BossShoot>().setPhase(phase);
+                    Debug.Log(phase);
+                }
+            }
             player.GetComponent<HealthManager>().activateScreenShake((float)amnt/4);
             StartCoroutine("hit");
             if (healthNew[healthNew.Length - 1] <= 0) {
                 GameObject.FindGameObjectWithTag("EventSystem").GetComponent<gameOver>().startGameOver(true);
             } else if (healthNew[healthIndex] <= 0) {
-                GameObject Piece = Instantiate(GameObject.FindGameObjectWithTag("PieceOne"), transform.position, transform.rotation) as GameObject;
+                setDamageable(false);
+                GameObject Piece = Instantiate(GameObject.FindGameObjectWithTag("PieceOne"), transform.position, GameObject.FindGameObjectWithTag("PieceOne").transform.rotation) as GameObject;
                 Piece.GetComponent<Rigidbody2D>().velocity = new Vector2(-0.5f, 0.5f) * 5;
+                if(healthIndex!=0)
+                    phase+=1f;
                 healthIndex++;
-                phase++;
+                Debug.Log(phase);
                 Movement movement = player.GetComponent<Movement>();
                 movement.getArmature().animation.Stop();
                 movement.setPrimaryArmature(movement.getPrimaryIndex());

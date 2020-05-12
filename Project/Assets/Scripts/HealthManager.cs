@@ -146,7 +146,9 @@ public class HealthManager : MonoBehaviour
                 GameObject.Find("PerfectDodgeFlash").GetComponent<Animator>().speed = 2;
                 GameObject.Find("PerfectDodgeFlash").GetComponent<Animator>().SetTrigger("Play");
                 Time.timeScale = scaleTime;
+
                 mana += (5 + UpgradeValues.bonusManaGain);
+
                 manaCounter = 0;
             }
         }

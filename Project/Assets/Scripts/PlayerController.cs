@@ -35,14 +35,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKey("p") == true)
+        if(Input.GetButtonDown("Pause") == true)
         {
-            Time.timeScale = 0;
-        }
+            //Time.timeScale = 0;
+            GameObject.Find("EventSystem").GetComponent<PauseScript>().togglePause();
+        }/*
         else if(Input.GetKeyUp("p") == true)
         {
             Time.timeScale = 1;
-        }
+        }*/
     }
 
     private void Start()

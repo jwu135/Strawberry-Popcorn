@@ -21,6 +21,11 @@ public class Look3 : MonoBehaviour
     public PlayerCombat PlayerCombat;
     private bool switch1 = false;
 
+    public void setScaleVector(float sc)
+    {
+        scaleVector.x = sc;
+    }
+
     private void Start()
     {
         m_camera = Camera.main;
@@ -74,13 +79,11 @@ public class Look3 : MonoBehaviour
 
         if (Input.mousePosition.x > playerPosition.x)
         {
-            scaleVector.x = -0.5f;
-            player.GetComponent<Movement>().direction = 0;
+            player.GetComponent<Movement>().flip(0, -0.5f, this);
         }
         else if (Input.mousePosition.x < playerPosition.x)
         {
-            scaleVector.x = 0.5f;
-            player.GetComponent<Movement>().direction = 1;
+            player.GetComponent<Movement>().flip(1, 0.5f, this);
         }
 
         //Debug.Log(transform.rotation);
@@ -141,13 +144,11 @@ public class Look3 : MonoBehaviour
 
         if (Input.GetAxis("Aim_Horizontal") > 0.1f && aimAxis.magnitude > aimDeadzone)
         {
-            scaleVector.x = 0.5f;
-            player.GetComponent<Movement>().direction = 1;
+            player.GetComponent<Movement>().flip(1, 0.5f, this);
         }
         else if (Input.GetAxis("Aim_Horizontal") < -0.1f && aimAxis.magnitude > aimDeadzone)
         {
-            scaleVector.x = -0.5f;
-            player.GetComponent<Movement>().direction = 0;
+            player.GetComponent<Movement>().flip(0, -0.5f, this);
         }
 
         armatureTransform.localScale = scaleVector;

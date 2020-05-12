@@ -414,6 +414,7 @@ public class PlayerCombat : MonoBehaviour
         Instantiate(bullet1Prefab, firePoint.position, (firePoint.rotation *= Quaternion.Euler(0, 0f, bulletSpray)));
         //Enemy.TakeDamage2(damage2);
 
+
         if(bulletSprayCap > 0)
         {
             firePoint.rotation *= Quaternion.Euler(0, 0f, -bulletSpray);
@@ -425,6 +426,9 @@ public class PlayerCombat : MonoBehaviour
         }
 
 
+
+
+        GetComponent<Movement>().setTime();
 
         var randomInt = Random.Range(1, 4);
         switch (randomInt)
