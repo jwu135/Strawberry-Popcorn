@@ -104,6 +104,13 @@ public class BossShoot : MonoBehaviour
                                 Shoot(false, 5, cd: 1f);
                             else
                                 Shoot(false, 6, cd: 1f);
+                        } else if(phase == 1f){
+                            if (rand <= 0.33f)
+                                Shoot(false, 1, cd: 1f);
+                            else if (rand < .66f && rand > .33f)
+                                Shoot(false, 3, cd: 1f);
+                            else
+                                Shoot(false, 4, cd: 1f);
                         } else
                             Shoot(false);
                         //nextTimeShoot = Time.time + shootCooldown;
