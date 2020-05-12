@@ -20,6 +20,7 @@ public class PlayerHeartsController : MonoBehaviour
             hearts[i].transform.localScale = heart.transform.localScale;
         }
     }
+
     public void updateHealth()
     {
         for(int i = 0; i < hearts.Count; i++) {
@@ -28,7 +29,7 @@ public class PlayerHeartsController : MonoBehaviour
         while ((int)player.GetComponent<HealthManager>().health > hearts.Count) {
             int i = hearts.Count;
             Vector2 temp = heart.transform.position;
-            temp.x += i * 2f;
+            temp.x += i * 1.5f;
             hearts.Add(Instantiate(heart, temp, transform.rotation) as GameObject);
             hearts[i].transform.parent = GameObject.Find("Canvas").transform.Find("health");
             hearts[i].transform.localScale = heart.transform.localScale;

@@ -35,7 +35,7 @@ public class HealthManager : MonoBehaviour
     public UpgradeValues UpgradeValues;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         maxHealth += UpgradeValues.bonusHealth;
         health += UpgradeValues.bonusHealth;
