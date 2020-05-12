@@ -87,7 +87,6 @@ public class Look : MonoBehaviour
                 FaceControllerSlow();
             }
         }
-        Debug.Log(scaleVector);
         // else if (usingController == 0 && PlayerCombat.LASER && !switch1)
         //   {
         //       switch1 = true;
@@ -109,14 +108,10 @@ public class Look : MonoBehaviour
 
         if (Input.mousePosition.x > playerPosition.x)
         {
-            /*scaleVector.x = -0.5f;
-            player.GetComponent<Movement>().direction = 0;*/
             player.GetComponent<Movement>().flip(0, -0.5f,this);
         }
         else if (Input.mousePosition.x < playerPosition.x)
         {
-            /*scaleVector.x = 0.5f;
-            player.GetComponent<Movement>().direction = 1;*/
             player.GetComponent<Movement>().flip(1, 0.5f,this);
         }
 
@@ -137,14 +132,10 @@ public class Look : MonoBehaviour
 
         if (axis.z > 0)
         {
-            /*scaleVector.x = 0.5f;
-            player.GetComponent<Movement>().direction = 1;*/ 
             player.GetComponent<Movement>().flip(1, 0.5f,this);
         }
         else if (axis.z < 0)
         {
-            /*scaleVector.x = -0.5f;
-            player.GetComponent<Movement>().direction = 0;*/
             player.GetComponent<Movement>().flip(0, -0.5f,this);
         }
     }
@@ -164,14 +155,10 @@ public class Look : MonoBehaviour
 
         if(Input.GetAxis("Aim_Horizontal") > 0.1f && aimAxis.magnitude > aimDeadzone)
         {
-            /*scaleVector.x = 0.5f;
-            player.GetComponent<Movement>().direction = 1;*/
             player.GetComponent<Movement>().flip(1, 0.5f,this);
         }
         else if(Input.GetAxis("Aim_Horizontal") < -0.1f && aimAxis.magnitude > aimDeadzone)
         {
-            /*scaleVector.x = -0.5f;
-            player.GetComponent<Movement>().direction = 0;*/
             player.GetComponent<Movement>().flip(0, -0.5f,this);
         }
 
@@ -196,14 +183,10 @@ public class Look : MonoBehaviour
 
             if (axis.z > 0 && aimAxis.magnitude > aimDeadzone)
             {
-                /*scaleVector.x = 0.5f;
-                player.GetComponent<Movement>().direction = 1;*/
                 player.GetComponent<Movement>().flip(1, 0.5f,this);
             }
             else if (axis.z < 0 && aimAxis.magnitude > aimDeadzone)
             {
-                /*scaleVector.x = -0.5f;
-                player.GetComponent<Movement>().direction = 0;*/
                 player.GetComponent<Movement>().flip(0, -0.5f,this);
             }
         }

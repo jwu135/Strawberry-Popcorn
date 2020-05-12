@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour
     public float direction = 0; // left is 0, right is 1;
     private float lastdirection = 0;
     private int primaryIndex = 0;
-    private float lastShot = 2f;
+    private float lastShot = 0f;
     PlatformMovementPhys platMove;
     void Start()
     {
@@ -93,11 +93,10 @@ public class Movement : MonoBehaviour
             direction = dir;
             Arm.setScaleVector(scale);
         } else {
-            Debug.Log("controls control sprite");
             if (Input.GetAxisRaw("Horizontal") < 0) {
                 direction = 1;
                 Arm.setScaleVector(0.5f);
-            } else {
+            } else if (Input.GetAxisRaw("Horizontal") > 0){
                 direction = 0;
                 Arm.setScaleVector(-0.5f);
             }
@@ -106,15 +105,6 @@ public class Movement : MonoBehaviour
 
     void animate()
     {
-        /* DO NOT DELETE. Gonna look more at this later
-        if (Input.GetKeyDown(KeyCode.L)) {
-            
-            armatureComponent.unityData = things;
-            armatureComponent.GetComponent<UnityCombineMeshs>().BeginCombineMesh();
-            Debug.Log("Changed");
-        }
-        */
-        //This comes from having a seperate armature for the dodge. 
 
         lastShot -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.K)) {
@@ -135,8 +125,6 @@ public class Movement : MonoBehaviour
                 GetComponent<ParticleSystemRenderer>().flip = new Vector3(0f, 0f, 0f);
             else
                 GetComponent<ParticleSystemRenderer>().flip = new Vector3(1f, 0f, 0f);
-            //ParticleSystem.EmissionModule pm = armatureComponent.transform.GetComponent<ParticleSystem>().emission;
-            //pm.enabled = true;
             if (Input.GetAxisRaw("Horizontal") < 0) {
                 if (direction > 0) // direction set in Look.cs
                     armatureComponent.animation.Play("dodge", 1);

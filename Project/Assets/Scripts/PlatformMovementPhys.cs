@@ -30,6 +30,7 @@ public class PlatformMovementPhys : MonoBehaviour
     public PlayerCombat PlayerCombat;
 
     public LayerMask whatIsGround;
+    bool ableToJump; //needed for scenes other than MainGameplay
     bool state; //false is grounded
     bool isFastFalling = false;
     private bool rollOnCooldown = false;
@@ -80,6 +81,8 @@ public class PlatformMovementPhys : MonoBehaviour
         rollCooldown = pc.getStat("rollCooldown");
         deadzone = pc.getStat("movementDeadzone");
 
+        ableToJump = GetComponent<JumpDisabler>() ? GetComponent<JumpDisabler>().ableToJump : true; //if the script is attached, set to value.                
+
         state = true; //flase is grounded, true is in the air
 
         healthManager = GetComponent<HealthManager>();
@@ -94,7 +97,7 @@ public class PlatformMovementPhys : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Jump") == true && !PlayerCombat.stop1)
+        if (Input.GetButtonDown("Jump") == true && !PlayerCombat.stop1 && ableToJump)
         {
             jumpButtonDown = true;
 
