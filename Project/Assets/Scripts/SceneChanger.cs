@@ -104,7 +104,7 @@ public class SceneChanger : MonoBehaviour
         if(scene.name.Equals("Gameover"))
             SceneManager.LoadScene("Scenes/MainMenu");
         else
-            SceneManager.LoadScene("Scenes/ParallaxTest");
+            SceneManager.LoadScene("Scenes/Prologue1");
     }
     void doExitGame()
     {

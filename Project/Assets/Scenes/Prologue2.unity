@@ -4495,6 +4495,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   dialogueBox: {fileID: 0}
+  eaten: 0
 --- !u!114 &724250573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9366,7 +9367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5cdd343739dda42b500cf665cc2629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 2
+  index: 6
   levelNmae: MainGameplay
 --- !u!1 &1523998471
 GameObject:
