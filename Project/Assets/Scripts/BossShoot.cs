@@ -74,28 +74,41 @@ public class BossShoot : MonoBehaviour
             if (phase != 3) { // Main Projectile
                 if (nextTimeShoot < Time.time) {
                     //Shoot(false,4,5,90);
-                    float rand = Random.Range(0f, 1f);
-                    if (phase == 0.25f) {
-                        if(rand>0.5f)
-                            Shoot(false, 0);
-                        else
-                            Shoot(false,5);
-                    } else if (phase == 0.5f) {
-                        if (rand > 0.5f)
-                            Shoot(false, 0,cd:1f);
-                        else
-                            Shoot(false, 5,cd:1f);
-                    } else if (phase == 0.75f) {
-                        if (rand <= 0.33f)
-                            Shoot(false, 0,cd:1f);
-                        else if (rand < .66f && rand > .33f)
-                            Shoot(false, 5,cd:1f);
-                        else
-                            Shoot(false, 6,cd:1f);
-                    } else 
-                        Shoot(false);
-                    //nextTimeShoot = Time.time + shootCooldown;
-                    //Debug.Log("Shot");
+
+
+
+                    if (GlobalVariable.deathCounter == 0) { // stuff for first run of the boss
+                        float rand = Random.Range(0f, 1f);
+                        if (rand > 0.5f) {
+                            Shoot(true);
+                            nextTimeShoot = Time.time + shootCooldown/4;
+                        } else
+                            Shoot(false, 2, 5, cd: 0.33f);
+
+                    } else {
+                        float rand = Random.Range(0f, 1f);
+                        if (phase == 0.25f) {
+                            if (rand > 0.5f)
+                                Shoot(false, 0);
+                            else
+                                Shoot(false, 5);
+                        } else if (phase == 0.5f) {
+                            if (rand > 0.5f)
+                                Shoot(false, 0, cd: 1f);
+                            else
+                                Shoot(false, 5, cd: 1f);
+                        } else if (phase == 0.75f) {
+                            if (rand <= 0.33f)
+                                Shoot(false, 0, cd: 1f);
+                            else if (rand < .66f && rand > .33f)
+                                Shoot(false, 5, cd: 1f);
+                            else
+                                Shoot(false, 6, cd: 1f);
+                        } else
+                            Shoot(false);
+                        //nextTimeShoot = Time.time + shootCooldown;
+                        //Debug.Log("Shot");
+                    }
                 }
             }
             if (phase == 3) { // Laser

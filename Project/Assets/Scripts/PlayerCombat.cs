@@ -430,18 +430,18 @@ public class PlayerCombat : MonoBehaviour
 
         GetComponent<Movement>().setTime();
 
-        var randomInt = Random.Range(1, 4);
+        var randomInt = Random.Range(1, 3);
         switch (randomInt)
         {
             case 1:
-                SoundManager.PlaySound("playerShoot1");
+                SoundManager.PlaySound("playerShotSound1");
                 break;
             case 2:
-                SoundManager.PlaySound("playerShoot2");
+                SoundManager.PlaySound("playerShotSound2");
                 break;
-            case 3:
+            /*case 3:
                 SoundManager.PlaySound("playerShoot3");
-                break;
+                break;*/
         }
         transform.GetComponent<PlayerMuzzleFlash>().spawnFlash(new Vector3(1f,1f,1f));
     }

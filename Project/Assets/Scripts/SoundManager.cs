@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    public static AudioClip playerShotSound1;
+    public static AudioClip playerShotSound2;
+    public static AudioClip playerJump1;
+    public static AudioClip playerJump2;
+    public static AudioClip eyeballShot1;
+    public static AudioClip eyeballShot2;
+    public static AudioClip playerHit;
+    public static AudioClip enemyHit1;
+    public static AudioClip enemyHit2;
+    public static AudioClip playerDodge;
+    public static AudioClip playerCharging;
+
     public static AudioClip playerShootSound1;
     public static AudioClip playerShootSound2;
     public static AudioClip playerShootSound3;
@@ -17,6 +29,20 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // new sounds from 5-12
+        playerShotSound1 = Resources.Load<AudioClip>("Sounds/Chiptune/Shot1");
+        playerShotSound2 = Resources.Load<AudioClip>("Sounds/Chiptune/Shot2");
+        playerJump1 = Resources.Load<AudioClip>("Sounds/Chiptune/Jump1");
+        playerJump2 = Resources.Load<AudioClip>("Sounds/Chiptune/Jump2");
+        eyeballShot1 = Resources.Load<AudioClip>("Sounds/Chiptune/EyeBallShot");
+        eyeballShot2 = Resources.Load<AudioClip>("Sounds/Chiptune/EyeBallShot2");
+        playerHit = Resources.Load<AudioClip>("Sounds/Chiptune/GettingHit");
+        enemyHit1 = Resources.Load<AudioClip>("Sounds/Chiptune/Hit1");
+        enemyHit2 = Resources.Load<AudioClip>("Sounds/Chiptune/Hit2");
+        playerDodge = Resources.Load<AudioClip>("Sounds/Chiptune/Dodge");
+        playerCharging = Resources.Load<AudioClip>("Sounds/Chiptune/ChargingUp");
+
+        // leaving these just in case
         playerShootSound1 = Resources.Load<AudioClip>("Sounds/shoot1");
         playerShootSound2 = Resources.Load<AudioClip>("Sounds/shoot2");
         playerShootSound3 = Resources.Load<AudioClip>("Sounds/shoot3");
@@ -39,6 +65,40 @@ public class SoundManager : MonoBehaviour
     {
         switch (clip)
         {
+            case "playerShotSound1":
+                audioSrc.PlayOneShot(playerShotSound1);
+                break;
+            case "playerShotSound2":
+                audioSrc.PlayOneShot(playerShotSound2);
+                break;
+            case "playerJump1":
+                audioSrc.PlayOneShot(playerJump1);
+                break;
+            case "playerJump2":
+                audioSrc.PlayOneShot(playerJump2);
+                break;
+            case "eyeballShot1":
+                audioSrc.PlayOneShot(eyeballShot1);
+                break;
+            case "eyeballShot2":
+                audioSrc.PlayOneShot(eyeballShot2);
+                break;
+            case "playerHit":
+                audioSrc.PlayOneShot(playerHit);
+                break;
+            case "enemyHit1":
+                audioSrc.PlayOneShot(enemyHit1);
+                break;
+            case "enemyHit2":
+                audioSrc.PlayOneShot(enemyHit2);
+                break;
+            case "playerDodge":
+                audioSrc.PlayOneShot(playerDodge);
+                break;
+            case "playerCharging":
+                audioSrc.PlayOneShot(playerCharging);
+                break;
+
             case "playerShoot1":
                 audioSrc.PlayOneShot(playerShootSound1);
                 break;
