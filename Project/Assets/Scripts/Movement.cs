@@ -87,7 +87,54 @@ public class Movement : MonoBehaviour
         lastShot = 2f;
     }
 
+    // OCT (override central time)
+    // there's probably a less spacing consuming way of handling these overrides, but I'm too tired for that
     public void flip(float dir, float scale, Look Arm = null)
+    {
+        if (lastShot > 0f) {
+            direction = dir;
+            Arm.setScaleVector(scale);
+        } else {
+            if (Input.GetAxisRaw("Horizontal") < 0) {
+                direction = 1;
+                Arm.setScaleVector(0.5f);
+            } else if (Input.GetAxisRaw("Horizontal") > 0){
+                direction = 0;
+                Arm.setScaleVector(-0.5f);
+            }
+        }
+    }
+    public void flip(float dir, float scale, LookSimple Arm = null)
+    {
+        if (lastShot > 0f) {
+            direction = dir;
+            Arm.setScaleVector(scale);
+        } else {
+            if (Input.GetAxisRaw("Horizontal") < 0) {
+                direction = 1;
+                Arm.setScaleVector(0.5f);
+            } else if (Input.GetAxisRaw("Horizontal") > 0){
+                direction = 0;
+                Arm.setScaleVector(-0.5f);
+            }
+        }
+    }
+    public void flip(float dir, float scale, Look2 Arm = null)
+    {
+        if (lastShot > 0f) {
+            direction = dir;
+            Arm.setScaleVector(scale);
+        } else {
+            if (Input.GetAxisRaw("Horizontal") < 0) {
+                direction = 1;
+                Arm.setScaleVector(0.5f);
+            } else if (Input.GetAxisRaw("Horizontal") > 0){
+                direction = 0;
+                Arm.setScaleVector(-0.5f);
+            }
+        }
+    }
+    public void flip(float dir, float scale, Look3 Arm = null)
     {
         if (lastShot > 0f) {
             direction = dir;

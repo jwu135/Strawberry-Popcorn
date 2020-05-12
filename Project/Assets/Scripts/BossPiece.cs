@@ -11,6 +11,7 @@ public class BossPiece : MonoBehaviour
     {
         if (collision.gameObject.tag == "Floor") {
             Destroy(GetComponent<Rigidbody2D>());
+            transform.rotation = new Quaternion(0f, 0f,0f,0f);
             Vector2 temp = transform.position;
             temp.y += 0.1f;
             transform.position = temp;

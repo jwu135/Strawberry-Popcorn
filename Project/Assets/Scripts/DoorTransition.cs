@@ -7,6 +7,7 @@ public class DoorTransition : MonoBehaviour
 {
     public GameObject interactSign;
     private bool over = false;
+    public bool door;
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "Player") {
@@ -17,7 +18,7 @@ public class DoorTransition : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetButtonDown("interact")&&over) {
+        if (Input.GetButtonDown("interact")&&over&&door) {
             SceneManager.LoadScene("Scenes/MainGameplay");
         }
 

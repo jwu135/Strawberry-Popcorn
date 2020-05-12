@@ -67,7 +67,7 @@ public class Boss : MonoBehaviour
                 SoundManager.PlaySound("hitSound1");
             healthNew[healthIndex] -= amnt;
             if (healthIndex == 0) {
-                if (healthNew[0] % (maxhealthNew[0] / 4) == 0) {
+                if (healthNew[0] % (maxhealthNew[0] / 4) == 0) { // gets wonky with certain health values, probably for maxhealths that are indivisible by 4
                     Debug.Log("Another phase");
                     phase += 0.25f;
                     GetComponent<BossShoot>().setPhase(phase);
@@ -80,7 +80,7 @@ public class Boss : MonoBehaviour
                 GameObject.FindGameObjectWithTag("EventSystem").GetComponent<gameOver>().startGameOver(true);
             } else if (healthNew[healthIndex] <= 0) {
                 setDamageable(false);
-                GameObject Piece = Instantiate(GameObject.FindGameObjectWithTag("PieceOne"), transform.position, transform.rotation) as GameObject;
+                GameObject Piece = Instantiate(GameObject.FindGameObjectWithTag("PieceOne"), transform.position, GameObject.FindGameObjectWithTag("PieceOne").transform.rotation) as GameObject;
                 Piece.GetComponent<Rigidbody2D>().velocity = new Vector2(-0.5f, 0.5f) * 5;
                 if(healthIndex!=0)
                     phase+=1f;

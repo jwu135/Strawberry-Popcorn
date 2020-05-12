@@ -33,6 +33,11 @@ public class LookSimple : MonoBehaviour
         scaleVector = new Vector3(0.5f, 0.5f, 0.5f);
     }
 
+    public void setScaleVector(float sc)
+    {
+        scaleVector.x = sc;
+    }
+
     void Update()
     {
         Vector2 inputVector = new Vector2(Input.GetAxis("Aim_Horizontal"), Input.GetAxis("Aim_Vertical"));
@@ -73,13 +78,11 @@ public class LookSimple : MonoBehaviour
 
         if (Input.mousePosition.x > playerPosition.x)
         {
-            scaleVector.x = -0.5f;
-            player.GetComponent<Movement>().direction = 0;
+            player.GetComponent<Movement>().flip(0, -0.5f,this);
         }
         else if (Input.mousePosition.x < playerPosition.x)
         {
-            scaleVector.x = 0.5f;
-            player.GetComponent<Movement>().direction = 1;
+            player.GetComponent<Movement>().flip(1, 0.5f, this);
         }
 
         //Debug.Log(transform.rotation);
@@ -102,13 +105,11 @@ public class LookSimple : MonoBehaviour
 
         if (Input.GetAxis("Aim_Horizontal") > 0.1f && aimAxis.magnitude > aimDeadzone)
         {
-            scaleVector.x = 0.5f;
-            player.GetComponent<Movement>().direction = 1;
+            player.GetComponent<Movement>().flip(1, 0.5f, this);
         }
         else if (Input.GetAxis("Aim_Horizontal") < -0.1f && aimAxis.magnitude > aimDeadzone)
         {
-            scaleVector.x = -0.5f;
-            player.GetComponent<Movement>().direction = 0;
+            player.GetComponent<Movement>().flip(0, -0.5f, this);
         }
 
         armatureTransform.localScale = scaleVector;

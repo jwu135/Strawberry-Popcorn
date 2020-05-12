@@ -82,19 +82,19 @@ public class BossShoot : MonoBehaviour
                             Shoot(false,5);
                     } else if (phase == 0.5f) {
                         if (rand > 0.5f)
-                            Shoot(false, 0);
+                            Shoot(false, 0,cd:1f);
                         else
-                            Shoot(false, 5);
+                            Shoot(false, 5,cd:1f);
                     } else if (phase == 0.75f) {
                         if (rand <= 0.33f)
-                            Shoot(false, 0);
+                            Shoot(false, 0,cd:1f);
                         else if (rand < .66f && rand > .33f)
-                            Shoot(false, 5);
+                            Shoot(false, 5,cd:1f);
                         else
-                            Shoot(false, 6);
+                            Shoot(false, 6,cd:1f);
                     } else 
                         Shoot(false);
-                    nextTimeShoot = Time.time + shootCooldown;
+                    //nextTimeShoot = Time.time + shootCooldown;
                     //Debug.Log("Shot");
                 }
             }
@@ -110,9 +110,9 @@ public class BossShoot : MonoBehaviour
                     AoeNextTime = Time.time + AoECooldown;
                 } 
             }*/
-            if (phase==0||phase == 1) { // Spike
+            if (phase>=0&&phase < 2) { // Spike
                 if (nextTime < Time.time) {
-                    if (phase == 0) {
+                    if (phase >= 0&&phase<1) {
                         Physical(Mathf.FloorToInt(phase)); // doing it this way because phase number and the pos variable happen to have the same parameters
                     } else {
                         if (player.transform.position.x > 0) {
@@ -213,7 +213,7 @@ public class BossShoot : MonoBehaviour
     }
     
 
-    void Shoot(bool laser = false, int pattern = 0, int max = 1,float maxangle = 180)
+    void Shoot(bool laser = false, int pattern = 0, int max = 1,float maxangle = 180,float cd = 2f)
     {
         if (laser) {
             SoundManager.PlaySound("bossLaser");
@@ -281,6 +281,7 @@ public class BossShoot : MonoBehaviour
                 offset += step;
             }
         }
-        nextTime = Time.time + cooldown/5;
+        //nextTime = Time.time + cd/5;
+        nextTimeShoot = Time.time + cd;
     }
 }
