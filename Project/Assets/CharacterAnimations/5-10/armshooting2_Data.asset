@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eec99bffe7ebe84e97f379bbdf2e0f2, type: 3}
+  m_Name: armshooting2_Data
+  m_EditorClassIdentifier: 
+  dataName: armshooting2
+  dragonBonesJSON: {fileID: 4900000, guid: 2e526bffcbff34344929d47e18b737db, type: 3}
+  textureAtlas:
+  - textureAtlasJSON: {fileID: 4900000, guid: 104cac95761e27c4c850b6ecbc71c6d9, type: 3}
+    texture: {fileID: 2800000, guid: 68693ad7fe2346a4ba10d900a952ee97, type: 3}
+    material: {fileID: 2100000, guid: 6e647e0885b2dc045bdb689dce3a5046, type: 2}
+    uiMaterial: {fileID: 0}

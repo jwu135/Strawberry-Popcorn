@@ -399,7 +399,7 @@ public class PlayerCombat : MonoBehaviour
     {
         Instantiate(bullet1Prefab, firePoint.position, firePoint.rotation);
         //Enemy.TakeDamage2(damage2);
-        
+        GetComponent<Movement>().setTime();
         var randomInt = Random.Range(1, 4);
         switch (randomInt)
         {
