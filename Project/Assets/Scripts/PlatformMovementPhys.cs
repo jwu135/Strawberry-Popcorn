@@ -218,6 +218,7 @@ public class PlatformMovementPhys : MonoBehaviour
                     controlFrozen = true;
                     rollInput = stickInput;
                     healthManager.invicibilityCounter = healthManager.invicibilityLength;
+                    GetComponent<Movement>().rollTime = true;
                 }
                 doRoll(Vector2.SignedAngle(Vector2.up, rollInput)); //calls roll with the angle (0 degrees is vertical)
             }

@@ -430,25 +430,15 @@ public class PlayerCombat : MonoBehaviour
 
         GetComponent<Movement>().setTime();
 
-        var randomInt = Random.Range(1, 3);
-        switch (randomInt)
-        {
-            case 1:
-                SoundManager.PlaySound("playerShotSound1");
-                break;
-            case 2:
-                SoundManager.PlaySound("playerShotSound2");
-                break;
-            /*case 3:
-                SoundManager.PlaySound("playerShoot3");
-                break;*/
-        }
+        SoundManager.PlaySound("playerShotSound1");
         transform.GetComponent<PlayerMuzzleFlash>().spawnFlash(new Vector3(1f,1f,1f));
     }
 
     public void Shoot2()
     {
         GameObject spawnedObject = (GameObject)Instantiate(bullet2Prefab, firePoint.position, firePoint.rotation);
+
+        SoundManager.PlaySound("playerShotSound2");
 
         spawnedObject.transform.localScale = new Vector2( (float)(FakeCannon.copyscalex/ (float)3.1) , (float)(FakeCannon.copyscaley/ (float)3.1) );
 

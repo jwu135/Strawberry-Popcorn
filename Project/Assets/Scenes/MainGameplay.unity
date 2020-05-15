@@ -2056,6 +2056,8 @@ MonoBehaviour:
   - {fileID: 1708293218}
   - {fileID: 972487650}
   - {fileID: 213181340}
+  - {fileID: 1976358135}
+  - {fileID: 1976358135}
   hitObj: {fileID: 4889125177576347146, guid: 3f1ba6d58a023d644bd4030dbfedd5d5, type: 3}
   AoE: {fileID: 1311504387978517729, guid: 11f3499048b11df4b93c56ebd281adf3, type: 3}
   nextTime: 0
@@ -24915,8 +24917,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1525311742}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.029, y: -0.001, z: 4.07}
-  m_LocalScale: {x: 2.4057355, y: 2.41032, z: 1.824423}
+  m_LocalPosition: {x: 0.029, y: 1.744, z: 4.07}
+  m_LocalScale: {x: 2.4057355, y: 2.1668777, z: 1.824423}
   m_Children: []
   m_Father: {fileID: 1509709302}
   m_RootOrder: 0
@@ -24939,7 +24941,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -28973,7 +28975,7 @@ MonoBehaviour:
   invicibilityLength: 40
   invicibilityCounter: 0
   manaCounter: 1
-  pauseTime: 100
+  pauseTime: 200
   timer: 0
   hit: 0
   manaSprite: {fileID: 0}

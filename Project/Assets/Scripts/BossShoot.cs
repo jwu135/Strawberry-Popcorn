@@ -78,12 +78,13 @@ public class BossShoot : MonoBehaviour
 
 
                     if (GlobalVariable.deathCounter == 0) { // stuff for first run of the boss
-                        float rand = Random.Range(0f, 1f);
+                        /*float rand = Random.Range(0f, 1f);
                         if (rand > 0.5f) {
                             Shoot(true);
                             nextTimeShoot = Time.time + shootCooldown/4;
-                        } else
-                            Shoot(false, 2, 5, cd: 0.33f);
+                        } else*/
+                            //Shoot(false, 8, 1, cd: 0.33f);
+                            Shoot(false, 7, 20, cd: 0.33f);
 
                     } else {
                         float rand = Random.Range(0f, 1f);
@@ -250,7 +251,7 @@ public class BossShoot : MonoBehaviour
             bullet.GetComponent<AttackTimer>().disappear();
             allProjectiles.Push(bullet);
         } else {
-            var randomInt = Random.Range(1, 2);
+            /*var randomInt = Random.Range(1, 2);
             switch (randomInt) {
                 case 1:
                     SoundManager.PlaySound("eyeballShot1");
@@ -258,7 +259,7 @@ public class BossShoot : MonoBehaviour
                 case 2:
                     SoundManager.PlaySound("eyeballShot2");
                     break;
-            }
+            }*/
             SoundManager.PlaySound("eyeballShot1");
             float offset = 0;
             float step = 0;
@@ -291,7 +292,7 @@ public class BossShoot : MonoBehaviour
                         bullet.GetComponent<BossBullet>().setup("small", bulletSpeed);
                         break;
                     case 2:
-                        bullet.GetComponent<BossBullet>().setup("tracker", bulletSpeed);
+                        bullet.GetComponent<BossBullet>().setup("homing", bulletSpeed);
                         break;
                     case 3:
                         bullet.GetComponent<BossBullet>().setup("accelerator", bulletSpeed);
@@ -304,6 +305,12 @@ public class BossShoot : MonoBehaviour
                         break;
                     case 6:
                         bullet.GetComponent<BossBullet>().setup("littlemother", bulletSpeed);
+                        break;
+                    case 7:
+                        bullet.GetComponent<BossBullet>().setup("tracker", bulletSpeed);
+                        break;
+                    case 8:
+                        bullet.GetComponent<BossBullet>().setup("ricochet", bulletSpeed);
                         break;
                 }
                 allProjectiles.Push(bullet);
