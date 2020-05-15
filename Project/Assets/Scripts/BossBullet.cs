@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -15,10 +16,11 @@ public class BossBulletObject
     public bool breakable;
     public bool littlemother;
     public float cooldown = 1.25f;
+    public bool ricochet;
     // blossom shot
 
 
-    public BossBulletObject(string t, float b, bool f, float scale, bool a, bool ae, bool br, bool lm)
+    public BossBulletObject(string t, float b, bool f, float scale, bool a, bool ae, bool br, bool lm,bool ri)
     {
         this.type = t;
         this.bulletSpeed = b;
@@ -28,6 +30,7 @@ public class BossBulletObject
         this.AoEShot = ae;
         this.breakable = br;
         this.littlemother = lm;
+        this.ricochet = ri;
     }
 }
 public class BossBullet : MonoBehaviour
@@ -43,6 +46,7 @@ public class BossBullet : MonoBehaviour
     private bool AoEShot = false;
     private bool breakable = false;
     private bool littlemother = false;
+    private bool ricochet = false;
     private float cooldown;
     private bool active = false;
     private Vector2 origDir;
@@ -52,27 +56,30 @@ public class BossBullet : MonoBehaviour
     {
         // I'm coding them here instead of making them public in the inspector as it'd be a case similar to the dialogue system, which was an actual nightmare
         // Constructor stuff:
-        // type, bulletSpeed, followsPlayer, scale, accelerates, spawnsAoE, color
-        bulletTypes.Add(new BossBulletObject("normal", 1, false, 1, false, false, false,false)) ; // normal shot with normal velocity
+        // type, bulletSpeed, followsPlayer, scale, accelerates, spawnsAoE, breakable, littlemother, ricochet
+        bulletTypes.Add(new BossBulletObject("normal", 1, false, 1, false, false, false,false,false)) ; // normal shot with normal velocity
         
-        bulletTypes.Add(new BossBulletObject("small", 1.5f, false,0.75f,false,false, false,false)); // small shot with fastish velocity
+        bulletTypes.Add(new BossBulletObject("small", 1.5f, false,0.75f,false,false, false,false,false)); // small shot with fastish velocity
         
-        bulletTypes.Add(new BossBulletObject("tracker", 1f, true,1f,false, false, false,false)); // tracker shot with normal velocity but follows player
+        bulletTypes.Add(new BossBulletObject("homing", 1f, true,1f,false, false, false,false,false)); // tracker shot with normal velocity but follows player
         
-        bulletTypes.Add(new BossBulletObject("accelerator", 1f, false,1f,true,false,false,false)); // accelerator shot with increasing velocity
+        bulletTypes.Add(new BossBulletObject("accelerator", 1f, false,1f,true,false,false,false,false)); // accelerator shot with increasing velocity
         
-        bulletTypes.Add(new BossBulletObject("bomb", 1f, false,1f,false,true,false,false)); // bomb shot that spawns AoE
+        bulletTypes.Add(new BossBulletObject("bomb", 1f, false,1f,false,true,false,false,false)); // bomb shot that spawns AoE
         
-        bulletTypes.Add(new BossBulletObject("breakable", 1f, false,1,false,false,true,false)); // accelerator shot with increasing velocity
+        bulletTypes.Add(new BossBulletObject("breakable", 1f, false,1,false,false,true,false,false)); // accelerator shot with increasing velocity
         
-        bulletTypes.Add(new BossBulletObject("littlemother", 0.4f, false,1,false,false,false,true)); // little mother shot that shoots at the player
+        bulletTypes.Add(new BossBulletObject("littlemother", 0.4f, false,1,false,false,false,true,false)); // little mother shot that shoots at the player
 
+        bulletTypes.Add(new BossBulletObject("tracker", .75f, true,1.25f,false, false, true,false,true)); // tracker shot with normal velocity but follows player
+        
+        bulletTypes.Add(new BossBulletObject("ricochet", 1f, false,1f,false, false, false,false,true)); // tracker shot with normal velocity but follows player
+        
         // if this gets too out of hand, it might be better to just use a csv file.
         player = GameObject.Find("Player");
 
 
     }
-
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -84,7 +91,9 @@ public class BossBullet : MonoBehaviour
             }
         }
         if (col.gameObject.name == "Floor") {
-            explode();
+            if(type!="ricochet")
+                explode();
+            
         }
         if (col.tag == "Player") {
             if (AoEShot) {
@@ -137,6 +146,7 @@ public class BossBullet : MonoBehaviour
         AoEShot = temp.AoEShot;
         breakable = temp.breakable;
         littlemother = temp.littlemother;
+        ricochet = temp.ricochet;
         cooldown = temp.cooldown;
         origDir = (Vector2)(GameObject.Find("Player").transform.position - transform.position).normalized; ;
         active = true;
@@ -149,12 +159,15 @@ public class BossBullet : MonoBehaviour
             } else {
                 GetComponent<SpriteRenderer>().flipY = true;
             }
-            if (followPlayer) { // for trackers
+            if (followPlayer) { // for trackers && homing
                 //GameObject player = GameObject.FindWithTag("Player");
                 Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
                 float angle = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
                 Quaternion goalRotation = Quaternion.Euler(new Vector3(0, 0, angle));
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, goalRotation, Time.deltaTime * 60f);
+                if(type=="homing")
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, goalRotation, Time.deltaTime * 60f);
+                if(type=="tracker")
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, goalRotation, Time.deltaTime * 180f);
             }
             if (accelerator) { // for accelerators
                 GetComponent<Rigidbody2D>().AddForce(transform.right * bulletSpeed * 3);
@@ -175,13 +188,24 @@ public class BossBullet : MonoBehaviour
                     Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
                     float angle = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
                     GameObject bullet = Instantiate(proj, transform.position, transform.rotation) as GameObject;
-                    bullet.GetComponent<BossBullet>().setup("normal", bs.bulletSpeed);
+                    bullet.GetComponent<BossBullet>().setup("breakable", bs.bulletSpeed);
                     bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
                     bullet.GetComponent<BossBullet>().enabled = true;
                     bs.addToStack(bullet);
                     cooldown = 1.25f;
                 }
                 
+            }
+            if (ricochet) {
+                Ray2D ray = new Ray2D(transform.position, transform.right);
+                RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+                Debug.DrawLine(ray.origin, hit.point);
+                if (hit.collider != null && hit.transform.tag == "Floor") {
+                    Debug.Log("Attempted to animate");
+                    Vector2 vec = Vector2.Reflect(ray.direction, hit.normal);
+                    float rot = 90 - Mathf.Atan2(vec.x, vec.y) * Mathf.Rad2Deg;
+                    transform.eulerAngles = new Vector3(0, 0, rot);
+                }
             }
             
         }

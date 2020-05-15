@@ -16,6 +16,7 @@ public class Movement : MonoBehaviour
     private float lastdirection = 0;
     private int primaryIndex = 0;
     private float lastShot = 0f;
+    public bool rollTime = false;
     PlatformMovementPhys platMove;
     void Start()
     {
@@ -162,7 +163,8 @@ public class Movement : MonoBehaviour
             setPrimaryArmature(primaryIndex);
         }
         // animation plays when you roll in place
-        if (((Input.GetButton("Roll") == true) || (Input.GetAxis("Roll") < 0)) && (platMove.getRollingFrame() < 2 && platMove.getStickInput().magnitude > 0))
+        //if (((Input.GetButton("Roll") == true) || (Input.GetAxis("Roll") < 0)) && (platMove.getRollingFrame() < 2 && platMove.getStickInput().magnitude > 0))
+        if (rollTime)
         {// add function call to PlatformMovementPhys
             SoundManager.PlaySound("playerDodge");
             Debug.Log("Attempted to animate roll");
@@ -185,6 +187,7 @@ public class Movement : MonoBehaviour
                     armatureComponent.animation.Play("dodge", 1);
             }
             StartCoroutine("afterImageStop");
+            rollTime = false;
         } else {
             if (Input.GetButtonDown("Jump")) {
 
