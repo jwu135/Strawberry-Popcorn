@@ -168,7 +168,7 @@ public class FakeCannon : MonoBehaviour
 
             if (scale < 2)
             {
-                scale += 0.012f;
+                scale += 0.048f;
                 transform.localScale = new Vector2((float)1.5 + scale, (float)1.5 + scale);
                 copyscalex = (float)1.5 + scale;
                 copyscaley = (float)1.5 + scale;

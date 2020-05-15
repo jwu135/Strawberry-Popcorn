@@ -44,9 +44,9 @@ public class Enemy : MonoBehaviour
     {
         if (other.tag == "normalAttack1")
         {
-            GetComponent<Boss>().losehealth(damage1);
+            GetComponent<Boss>().losehealth(damage1 + UpgradeValues.bonusAttackDmg);
             /*text.text = GetComponent<Boss>().health.ToString() + "/" + "100";*/
-            health -= damage1;
+            health -= damage1 + UpgradeValues.bonusAttackDmg;
             Debug.Log("damage");
             //Debug.Log(health);
         }

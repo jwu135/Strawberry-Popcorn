@@ -9,6 +9,7 @@ public class SaveData
 
     public double bonusHealth;
     public double bonusAttackSpd;
+    public double bonusAttackDmg;
     public double bonusManaGain;
     public double weaponAmount;
     public double[] weaponChoice;
@@ -17,6 +18,7 @@ public class SaveData
     {
         bonusHealth = UpgradeValues.bonusHealth;
         bonusAttackSpd = UpgradeValues.bonusAttackSpd;
+        bonusAttackDmg = UpgradeValues.bonusAttackDmg;
         bonusManaGain = UpgradeValues.bonusManaGain;
         //weaponAmount = UpgradeValues.weaponAmount;
 

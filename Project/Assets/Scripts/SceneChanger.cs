@@ -97,15 +97,42 @@ public class SceneChanger : MonoBehaviour
     }
     void startGame()
     {
-        SceneManager.LoadScene("Scenes/ParallaxTest");
+        if (scene.name.Equals("Gameover"))
+        {
+            SceneManager.LoadScene("Scenes/Upgrade");
+        }
+        if (scene.name.Equals("Upgrade"))
+        {
+            SceneManager.LoadScene("Scenes/ParallaxTest");
+        }
+        if (scene.name.Equals("MainMenu"))
+        {
+            SceneManager.LoadScene("Scenes/ParallaxTest");
+        }
+
+
     }
     void playGame()
     {
-        if(scene.name.Equals("Gameover"))
+        if (scene.name.Equals("Gameover"))
+        {
             SceneManager.LoadScene("Scenes/MainMenu");
-        else
+        }
+
+        if(scene.name.Equals("Upgrade"))
+        {
+            SceneManager.LoadScene("Scenes/MainMenu");
+        }
+
+        if (scene.name.Equals("MainMenu"))
+        {
             SceneManager.LoadScene("Scenes/Prologue1");
+        }
+
+
+
     }
+
     void doExitGame()
     {
         Application.Quit();

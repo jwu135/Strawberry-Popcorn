@@ -16,14 +16,14 @@ public class Cannon : MonoBehaviour
     {
         if (Input.GetButton("Fire2") )
         {
-            Bullet.rb.velocity = transform.right * 15;
+            Bullet.rb.velocity = transform.right * 30;
             release = true;
 
         }
         if (!Input.GetButton("Fire2") )
         {
 
-            Bullet.rb.velocity = transform.right * 15;
+            Bullet.rb.velocity = transform.right * 30;
             release = true;
 
         }

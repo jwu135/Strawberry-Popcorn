@@ -7,6 +7,7 @@ public class UpgradeValues : MonoBehaviour
 {
     public static double bonusHealth;
     public static double bonusAttackSpd;
+    public static double bonusAttackDmg;
     public static double bonusManaGain;
 
     void Awake()
@@ -50,6 +51,13 @@ public class UpgradeValues : MonoBehaviour
 
         Debug.Log("as");
         Debug.Log(bonusAttackSpd);
+    }
+
+    public void BonusAttackDmg()
+    {
+
+        Debug.Log("dmg");
+        Debug.Log(bonusAttackDmg);
     }
 
     public void BonusManaGain()
