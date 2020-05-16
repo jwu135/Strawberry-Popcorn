@@ -146,7 +146,7 @@ public class HealthManager : MonoBehaviour
             if (other.tag == "BossBullet" && manaCounter == 1) {
                 GameObject.Find("PerfectDodgeFlash").GetComponent<Animator>().speed = 2;
                 GameObject.Find("PerfectDodgeFlash").GetComponent<Animator>().SetTrigger("Play");
-                Time.timeScale = scaleTime;
+                //Time.timeScale = scaleTime;
 
                 mana += (5 + UpgradeValues.bonusManaGain);
 

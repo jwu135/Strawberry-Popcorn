@@ -88,6 +88,7 @@ public class BossShoot : MonoBehaviour
 
                     } else {
                         float rand = Random.Range(0f, 1f);
+                        // Phase 1 stuff
                         if (phase == 0.25f) {
                             if (rand > 0.5f)
                                 Shoot(false, 0);
@@ -105,7 +106,23 @@ public class BossShoot : MonoBehaviour
                                 Shoot(false, 5, cd: 1f);
                             else
                                 Shoot(false, 6, cd: 1f);
-                        } else if(phase == 1f){
+                        }
+                        // Phase 2 stuff
+                        else if(phase == 1f){
+                            if (rand <= 0.33f)
+                                Shoot(false, 1, cd: 1f);
+                            else if (rand < .66f && rand > .33f)
+                                Shoot(false, 3, cd: 1f);
+                            else
+                                Shoot(false, 4, cd: 1f);
+                        }else if(phase == 2f){
+                            if (rand <= 0.33f)
+                                Shoot(false, 1, cd: 1f);
+                            else if (rand < .66f && rand > .33f)
+                                Shoot(false, 3, cd: 1f);
+                            else
+                                Shoot(false, 4, cd: 1f);
+                        }else if(phase == 3f){
                             if (rand <= 0.33f)
                                 Shoot(false, 1, cd: 1f);
                             else if (rand < .66f && rand > .33f)
