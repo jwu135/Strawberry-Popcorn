@@ -93,6 +93,14 @@ public class BossBullet : MonoBehaviour
         if (col.gameObject.name == "Floor") {
             if(type!="ricochet")
                 explode();
+            else {
+                Vector3 tempRot = transform.eulerAngles; // Quaternions are not fun, so I'm just gonna stick with eulerAngles
+                if(col.transform.eulerAngles.z==0)
+                    tempRot.z = 360 - tempRot.z;
+                else
+                    tempRot.z = 180 - tempRot.z;
+                transform.eulerAngles = tempRot;
+            }
             
         }
         if (col.tag == "Player") {
@@ -195,17 +203,6 @@ public class BossBullet : MonoBehaviour
                     cooldown = 1.25f;
                 }
                 
-            }
-            if (ricochet) {
-                Ray2D ray = new Ray2D(transform.position, transform.right);
-                RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-                Debug.DrawLine(ray.origin, hit.point);
-                if (hit.collider != null && hit.transform.tag == "Floor") {
-                    Debug.Log("Attempted to animate");
-                    Vector2 vec = Vector2.Reflect(ray.direction, hit.normal);
-                    float rot = 90 - Mathf.Atan2(vec.x, vec.y) * Mathf.Rad2Deg;
-                    transform.eulerAngles = new Vector3(0, 0, rot);
-                }
             }
             
         }

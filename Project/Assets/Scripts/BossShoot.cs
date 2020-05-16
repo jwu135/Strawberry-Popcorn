@@ -84,7 +84,7 @@ public class BossShoot : MonoBehaviour
                             nextTimeShoot = Time.time + shootCooldown/4;
                         } else*/
                             //Shoot(false, 8, 1, cd: 0.33f);
-                            Shoot(false, 7, 20, cd: 0.33f);
+                            Shoot(false, 2, 10, cd: 0.33f);
 
                     } else {
                         float rand = Random.Range(0f, 1f);
