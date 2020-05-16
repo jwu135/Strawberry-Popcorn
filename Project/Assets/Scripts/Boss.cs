@@ -73,15 +73,15 @@ public class Boss : MonoBehaviour
             SoundManager.PlaySound("enemyHit1");
             healthNew[healthIndex] -= amnt;
 
-            if (healthIndex == 0) {
-                while (healthPhasesIndex < healthPhases.Length && healthNew[healthIndex] <= healthPhases[healthPhasesIndex]) {
-                    Debug.Log("Health Phase Index "+healthPhasesIndex);
-                    phase += 0.25f;
-                    healthPhasesIndex++;
-                    GetComponent<BossShoot>().setPhase(phase);
-                    Debug.Log(phase);
-                }
+            
+            while (healthPhasesIndex < healthPhases.Length && healthNew[healthIndex] <= healthPhases[healthPhasesIndex]) {
+                Debug.Log("Health Phase Index "+healthPhasesIndex);
+                phase += 0.25f;
+                healthPhasesIndex++;
+                GetComponent<BossShoot>().setPhase(phase);
+                Debug.Log(phase);
             }
+            
 
             player.GetComponent<HealthManager>().activateScreenShake((float)amnt/4);
             if (healthNew[healthNew.Length - 1] <= 0) {
@@ -90,8 +90,9 @@ public class Boss : MonoBehaviour
                 setDamageable(false);
                 GameObject Piece = Instantiate(GameObject.FindGameObjectWithTag("PieceOne"), transform.position, GameObject.FindGameObjectWithTag("PieceOne").transform.rotation) as GameObject;
                 Piece.GetComponent<Rigidbody2D>().velocity = new Vector2(-0.5f, 0.5f) * 5;
-                if(healthIndex!=0)
-                    phase+=1f;
+                /*if(healthIndex!=0)
+                    phase+=1f;*/
+                swapPhase((int)phase);
                 healthIndex++;
                 Debug.Log(phase);
                 Movement movement = player.GetComponent<Movement>();

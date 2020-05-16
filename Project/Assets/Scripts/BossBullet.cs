@@ -73,7 +73,7 @@ public class BossBullet : MonoBehaviour
 
         bulletTypes.Add(new BossBulletObject("tracker", .75f, true,1.25f,false, false, true,false,true)); // tracker shot with normal velocity but follows player
         
-        bulletTypes.Add(new BossBulletObject("ricochet", 1f, false,1f,false, false, false,false,true)); // tracker shot with normal velocity but follows player
+        bulletTypes.Add(new BossBulletObject("ricochet", 1f, false,1f,false, false, true,false,true)); // tracker shot with normal velocity but follows player
         
         // if this gets too out of hand, it might be better to just use a csv file.
         player = GameObject.Find("Player");
