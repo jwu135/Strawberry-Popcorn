@@ -112,7 +112,24 @@ public class DialogueSystem : MonoBehaviour
     }
     IEnumerator textScroll()
     {
-        if (currSentence.Length < finalSentence.Length) {   
+        if (currSentence.Length < finalSentence.Length) {
+            if (finalSentence[currSentence.Length]!=' ') { 
+                int swapper = Random.Range(0, 3);
+                switch (swapper) {
+                    case 0:
+                    SoundManager.PlaySound("playerTalk1");
+                    break;
+                    case 1:
+                    SoundManager.PlaySound("playerTalk2");
+                    break;
+                    case 2:
+                    SoundManager.PlaySound("playerTalk3");
+                    break;
+                    case 3:
+                    SoundManager.PlaySound("playerTalk4");
+                    break;
+                }
+            }
             currSentence += finalSentence[currSentence.Length];
             sentence.text = currSentence;
             yield return new WaitForSeconds(textspeed);

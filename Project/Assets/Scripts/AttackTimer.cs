@@ -13,7 +13,8 @@ public class AttackTimer : MonoBehaviour // literally just ended up becoming the
     public Sprite orangeAoE;
     public Sprite[] purpleSprites;
 
-
+    private bool portal = false;
+    private float portalCD = 2f;
     public void disappear() {
         spawned = true;
         disappearTime = Time.time + timeToDisappearAfter;
@@ -61,13 +62,22 @@ public class AttackTimer : MonoBehaviour // literally just ended up becoming the
         GameObject player = GameObject.Find("Player");
         GameObject bs = GameObject.FindGameObjectWithTag("Enemy");
         GameObject hitObj = bs.GetComponent<BossShoot>().hitObj;
-        GameObject physicalAttack = Instantiate(hitObj, transform.position, transform.rotation) as GameObject;
-        Vector3 direction = (Vector2)(player.transform.position - physicalAttack.transform.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        physicalAttack.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
 
-        physicalAttack.GetComponent<Animator>().SetTrigger("Spike");
-        physicalAttack.GetComponent<AttackTimer>().disappear();
+        GameObject physicalAttack = Instantiate(hitObj, transform.position, transform.rotation) as GameObject;
+        physicalAttack.transform.eulerAngles = new Vector3(0, 0,transform.eulerAngles.z- 90);
+        // could do some stuff to hit from one side of the portal or the other, depending on which side the player is closer to.
+
+        portal = true;
+    }
+    private void Update()
+    {
+        if (portal) {
+            portalCD -= Time.deltaTime;
+            if (portalCD <= 0) {
+                GetComponent<Animator>().SetTrigger("Close");
+                portalCD = 5f;
+            }
+        }
     }
     public void AoEChange()
     {

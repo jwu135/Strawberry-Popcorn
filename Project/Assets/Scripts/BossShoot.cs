@@ -9,6 +9,7 @@ public class BossShoot : MonoBehaviour
     public GameObject[] projectile;
     public GameObject hitObj;
     public GameObject AoE;
+    public GameObject portal;
     private Stack allProjectiles = new Stack();
 
     private int[] spawnPointsX = new int[] { -14, -7, 0, 7, 14 };
@@ -151,7 +152,7 @@ public class BossShoot : MonoBehaviour
             }*/
             if (nextTime < Time.time) {
                 if (0.75f>phase&&phase >= 0) { // Spike
-                        Physical(0);
+                        Physical(4);
                     nextTime = Time.time + cooldown * 2;
                 } else if (phase >= .75f) {
                     if (player.transform.position.x > 10) {
@@ -193,7 +194,7 @@ public class BossShoot : MonoBehaviour
         }
         //nextTime = Time.time + cooldown;
     }
-    void Physical(int pos,bool random = true,int place = 0,Transform portal = null) {
+    void Physical(int pos,bool random = true,int place = 0) {
         
         GameObject physicalAttack = null;
         if (pos < 3) {
@@ -240,9 +241,12 @@ public class BossShoot : MonoBehaviour
             float posX = Random.Range(-2, 2);
             float posY = Random.Range(-2, 2);
             Vector2 position = new Vector2(posX, posY) + (Vector2)player.transform.position;
-            Quaternion tempRotation = Quaternion.Euler(0, 0, 180);
+            Vector3 direction = (Vector2)((Vector2)player.transform.position - position).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            //physicalAttack.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+            Quaternion tempRotation = Quaternion.Euler(0, 0, angle);
 
-            physicalAttack = Instantiate(hitObj, position, tempRotation) as GameObject;
+            physicalAttack = Instantiate(portal, position, tempRotation) as GameObject;
             
         }
         allProjectiles.Push(physicalAttack);

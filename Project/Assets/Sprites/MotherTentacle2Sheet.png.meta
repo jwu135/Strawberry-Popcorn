@@ -1,67 +1,40 @@
 fileFormatVersion: 2
-guid: 03bb9e3accd40e94c85c6f4947a549a8
+guid: b81583f9802b8ea4fa7905fe3234e9a1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3089867524409516675
-    second: MotherFluidSheet_0
+      213: -8861198486116884338
+    second: MotherTentacle2Sheet_0
   - first:
-      213: -9065309002241480524
-    second: MotherFluidSheet_1
+      213: 680900116269719568
+    second: MotherTentacle2Sheet_1
   - first:
-      213: -2678097180321941933
-    second: MotherFluidSheet_2
+      213: -1707298558720494998
+    second: MotherTentacle2Sheet_2
   - first:
-      213: -5102713282503347759
-    second: MotherFluidSheet_3
+      213: -4412935508543644664
+    second: MotherTentacle2Sheet_3
   - first:
-      213: 4491064302581961177
-    second: MotherFluidSheet_4
+      213: 2251784687846331724
+    second: MotherTentacle2Sheet_4
   - first:
-      213: 5734727641301351166
-    second: MotherFluidSheet_5
+      213: -7546824283091197020
+    second: MotherTentacle2Sheet_5
   - first:
-      213: -7132745198061039709
-    second: MotherFluidSheet_6
+      213: 2334320619210890542
+    second: MotherTentacle2Sheet_6
   - first:
-      213: 6249509456280480614
-    second: MotherFluidSheet_7
+      213: -7189383407107971426
+    second: MotherTentacle2Sheet_7
   - first:
-      213: -5351441640350959135
-    second: MotherFluidSheet_8
+      213: 2017501954813257310
+    second: MotherTentacle2Sheet_8
   - first:
-      213: 6777755071487187754
-    second: MotherFluidSheet_9
+      213: -3706482369890469783
+    second: MotherTentacle2Sheet_9
   - first:
-      213: 5975975845735929556
-    second: MotherFluidSheet_0
-  - first:
-      213: 7009039196968794845
-    second: MotherFluidSheet_1
-  - first:
-      213: -4866425177903035838
-    second: MotherFluidSheet_2
-  - first:
-      213: 6026152090575936636
-    second: MotherFluidSheet_3
-  - first:
-      213: 1094729655058405612
-    second: MotherFluidSheet_4
-  - first:
-      213: 2614318861238066548
-    second: MotherFluidSheet_5
-  - first:
-      213: 1092026226346119569
-    second: MotherFluidSheet_6
-  - first:
-      213: -6554398685579182117
-    second: MotherFluidSheet_7
-  - first:
-      213: -7949542793625797412
-    second: MotherFluidSheet_8
-  - first:
-      213: -7554354180015924578
-    second: MotherFluidSheet_9
+      213: 6547685943829318516
+    second: MotherTentacle2Sheet_10
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -146,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MotherFluidSheet_0
+      name: MotherTentacle2Sheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 640
-        width: 1137
-        height: 640
+        y: 880
+        width: 286
+        height: 440
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +133,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d6976f9e5eeee250800000000000000
-      internalID: 5975975845735929556
+      spriteID: e8026ceece2b60580800000000000000
+      internalID: -8861198486116884338
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MotherFluidSheet_1
+      name: MotherTentacle2Sheet_1
       rect:
         serializedVersion: 2
-        x: 1137
-        y: 640
-        width: 1137
-        height: 640
+        x: 286
+        y: 880
+        width: 286
+        height: 440
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +154,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dda3d10a30c154160800000000000000
-      internalID: 7009039196968794845
+      spriteID: 01067c55c0b037900800000000000000
+      internalID: 680900116269719568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MotherFluidSheet_2
+      name: MotherTentacle2Sheet_2
       rect:
         serializedVersion: 2
-        x: 2274
-        y: 640
-        width: 1137
-        height: 640
+        x: 572
+        y: 880
+        width: 286
+        height: 440
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,20 +175,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24a8219851cf67cb0800000000000000
-      internalID: -4866425177903035838
+      spriteID: a62bde9a1057e48e0800000000000000
+      internalID: -1707298558720494998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MotherFluidSheet_3
+      name: MotherTentacle2Sheet_3
       rect:
         serializedVersion: 2
-        x: 3411
-        y: 640
-        width: 1137
-        height: 640
+        x: 858
+        y: 880
+        width: 286
+        height: 440
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,20 +196,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7c9141066131a350800000000000000
-      internalID: 6026152090575936636
+      spriteID: 80c5c84298a12c2c0800000000000000
+      internalID: -4412935508543644664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MotherFluidSheet_4
+      name: MotherTentacle2Sheet_4
       rect:
         serializedVersion: 2
-        x: 4548
-        y: 640
-        width: 1137
-        height: 640
+        x: 0
+        y: 440
+        width: 286
+        height: 440
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,20 +217,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce897d632d2413f00800000000000000
-      internalID: 1094729655058405612
+      spriteID: c459ebd3e32ff3f10800000000000000
+      internalID: 2251784687846331724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MotherFluidSheet_5
+      name: MotherTentacle2Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 440
+        width: 286
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a3ae00ac4b444790800000000000000
+      internalID: -7546824283091197020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MotherTentacle2Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 440
+        width: 286
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2d5fe34c3c256020800000000000000
+      internalID: 2334320619210890542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MotherTentacle2Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 440
+        width: 286
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e96ed39d1ed2a3c90800000000000000
+      internalID: -7189383407107971426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MotherTentacle2Sheet_8
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1137
-        height: 640
+        width: 286
+        height: 440
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,20 +301,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47dd2bd272de74420800000000000000
-      internalID: 2614318861238066548
+      spriteID: e56ec46b65b9ffb10800000000000000
+      internalID: 2017501954813257310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MotherFluidSheet_6
+      name: MotherTentacle2Sheet_9
       rect:
         serializedVersion: 2
-        x: 1137
+        x: 286
         y: 0
-        width: 1137
-        height: 640
+        width: 286
+        height: 440
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,20 +322,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19155ca2118a72f00800000000000000
-      internalID: 1092026226346119569
+      spriteID: 9683e602cedef8cc0800000000000000
+      internalID: -3706482369890469783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MotherFluidSheet_7
+      name: MotherTentacle2Sheet_10
       rect:
         serializedVersion: 2
-        x: 2274
+        x: 572
         y: 0
-        width: 1137
-        height: 640
+        width: 286
+        height: 440
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,50 +343,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdff3c54f191a05a0800000000000000
-      internalID: -6554398685579182117
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MotherFluidSheet_8
-      rect:
-        serializedVersion: 2
-        x: 3411
-        y: 0
-        width: 1137
-        height: 640
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cdcfa2b92fc8da190800000000000000
-      internalID: -7949542793625797412
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MotherFluidSheet_9
-      rect:
-        serializedVersion: 2
-        x: 4548
-        y: 0
-        width: 1137
-        height: 640
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e9ad9a0e5ea892790800000000000000
-      internalID: -7554354180015924578
+      spriteID: 47bc3cebcad0eda50800000000000000
+      internalID: 6547685943829318516
       vertices: []
       indices: 
       edges: []
