@@ -119,9 +119,7 @@ public class BossShoot : MonoBehaviour
                         translateNum(randInt, 0.50f);
 
                     } else if (phase == 3f) {
-
                         Shoot(false, 1, cd: 1f);
-
                     }
                     // Misc handling
                     else {

@@ -92,6 +92,15 @@ public class Boss : MonoBehaviour
                 Piece.GetComponent<Rigidbody2D>().velocity = new Vector2(-0.5f, 0.5f) * 5;
                 /*if(healthIndex!=0)
                     phase+=1f;*/
+                if (phase == 1) {
+                    GameObject TempCornerMother = Resources.Load("Prefabs/CornerMother") as GameObject;
+                    GameObject CornerMother = Instantiate(TempCornerMother,transform.parent.transform.position+new Vector3(25f,0f,0f),transform.rotation);
+                    CornerMother.transform.parent = transform.parent;
+                    GameObject CornerMother2 = Instantiate(TempCornerMother, transform.parent.transform.position + new Vector3(-25f, 0f, 0f), transform.rotation);
+                    CornerMother2.transform.parent = transform.parent;
+
+
+                }
                 swapPhase((int)phase);
                 healthIndex++;
                 Debug.Log(phase);

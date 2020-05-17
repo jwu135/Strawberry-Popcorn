@@ -86,7 +86,7 @@ public class CutsceneSystem : MonoBehaviour
 
         boss.transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("bossIdle", 0);
         //DialogueDone(false);
-        player.GetComponent<HealthManager>().maxHealth += 1;
+        //player.GetComponent<HealthManager>().maxHealth += 1;
         player.GetComponent<HealthManager>().health = player.GetComponent<HealthManager>().maxHealth;
         GameObject.Find("EventSystem").GetComponent<PlayerHeartsController>().updateHealth();
         GetComponent<DialogueSystem>().dialogueBox.SetActive(true);
