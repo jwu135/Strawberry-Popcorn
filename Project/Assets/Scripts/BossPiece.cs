@@ -9,7 +9,7 @@ public class BossPiece : MonoBehaviour
     public GameObject[] healthbars = new GameObject[3];
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Floor") {
+        if (collision.gameObject.tag == "Floor"&&collision.gameObject.name=="Floor") { // as far as I know, only the groundfloor satisfies both of these
             Destroy(GetComponent<Rigidbody2D>());
             transform.rotation = new Quaternion(0f, 0f,0f,0f);
             Vector2 temp = transform.position;

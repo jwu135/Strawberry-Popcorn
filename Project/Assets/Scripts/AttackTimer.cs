@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackTimer : MonoBehaviour
+public class AttackTimer : MonoBehaviour // literally just ended up becoming the "AllExternalBossAttackHandlerScript"
 {
     private bool spawned = false;
     private float disappearTime = 1;
@@ -14,7 +14,7 @@ public class AttackTimer : MonoBehaviour
     public Sprite[] purpleSprites;
 
 
-    public void disappear(){
+    public void disappear() {
         spawned = true;
         disappearTime = Time.time + timeToDisappearAfter;
         enable(0);
@@ -36,7 +36,7 @@ public class AttackTimer : MonoBehaviour
         GetComponent<Animator>().SetTrigger("Spike");
         playSound();
     }
- 
+
     public void setTimer(float time)
     {
         timeToDisappearAfter = time;
@@ -57,6 +57,18 @@ public class AttackTimer : MonoBehaviour
         enable(1);
     }
 
+    public void portalSpawn(){
+        GameObject player = GameObject.Find("Player");
+        GameObject bs = GameObject.FindGameObjectWithTag("Enemy");
+        GameObject hitObj = bs.GetComponent<BossShoot>().hitObj;
+        GameObject physicalAttack = Instantiate(hitObj, transform.position, transform.rotation) as GameObject;
+        Vector3 direction = (Vector2)(player.transform.position - physicalAttack.transform.position).normalized;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        physicalAttack.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+
+        physicalAttack.GetComponent<Animator>().SetTrigger("Spike");
+        physicalAttack.GetComponent<AttackTimer>().disappear();
+    }
     public void AoEChange()
     {
         GetComponent<SpriteRenderer>().sprite = orangeAoE;
@@ -78,17 +90,5 @@ public class AttackTimer : MonoBehaviour
         if (enemy != null)
             canRotate();
         Destroy(gameObject);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        if (spawned) {
-            /*if (disappearTime - timeToDisappearAfter -0.01f + hits < Time.time) {
-                enable(1);
-            }
-            if (disappearTime < Time.time) {
-                destroy();
-            }*/
-        }
     }
 }

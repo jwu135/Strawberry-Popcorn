@@ -21,11 +21,11 @@ public class CornerBossShoot : MonoBehaviour
     {
         cooldown -= Time.deltaTime;
         Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; // handles look direction and shoot direction
         transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(new Vector3(0, 0, -angle)), Time.time / 100);
         if (cooldown <= 0) {
             BossShoot bs = GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossShoot>();
-            GameObject proj = bs.projectile[0];
+            GameObject proj = bs.projectile[5];
             GameObject bullet = Instantiate(proj, transform.position, transform.rotation) as GameObject;
             bullet.GetComponent<BossBullet>().setup("breakable", bs.bulletSpeed);
             bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
