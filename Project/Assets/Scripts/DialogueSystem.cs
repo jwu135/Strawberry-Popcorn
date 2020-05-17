@@ -79,7 +79,7 @@ public class DialogueSystem : MonoBehaviour
     public void lookAround()
     {
         if (Input.GetButtonDown("Fire1")&&dialogueGoing){
-            index = stops[stopsIndex] - 1; // use this to make dialogue only show first dialogue box of each thing
+            //index = stops[stopsIndex] - 1; // use this to make dialogue only show first dialogue box of each thing
             if (currSentence.Length < finalSentence.Length) {
                 StopCoroutine("textScroll");
                 sentence.text = currSentence = finalSentence;
@@ -113,21 +113,18 @@ public class DialogueSystem : MonoBehaviour
     IEnumerator textScroll()
     {
         if (currSentence.Length < finalSentence.Length) {
-            if (finalSentence[currSentence.Length]!=' ') { 
-                int swapper = Random.Range(0, 3);
-                switch (swapper) {
-                    case 0:
+            if (finalSentence[currSentence.Length]!=' ') {
+                //SoundManager.PlaySound("playerTalk2");
+                int swapper = Random.Range(0, 4);
+                Debug.Log(swapper);
+                if (swapper == 0) {
                     SoundManager.PlaySound("playerTalk1");
-                    break;
-                    case 1:
+                } else if(swapper == 1) {
                     SoundManager.PlaySound("playerTalk2");
-                    break;
-                    case 2:
+                }else if(swapper == 2) {
                     SoundManager.PlaySound("playerTalk3");
-                    break;
-                    case 3:
+                }else if(swapper == 3) {
                     SoundManager.PlaySound("playerTalk4");
-                    break;
                 }
             }
             currSentence += finalSentence[currSentence.Length];

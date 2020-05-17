@@ -2051,13 +2051,13 @@ MonoBehaviour:
   projectile:
   - {fileID: 6887859871426871690}
   - {fileID: 1439319557}
-  - {fileID: 1976358135}
+  - {fileID: 6887859871426871690}
   - {fileID: 504253846}
   - {fileID: 1708293218}
   - {fileID: 972487650}
   - {fileID: 213181340}
   - {fileID: 1976358135}
-  - {fileID: 1976358135}
+  - {fileID: 972487650}
   hitObj: {fileID: 4889125177576347146, guid: 3f1ba6d58a023d644bd4030dbfedd5d5, type: 3}
   AoE: {fileID: 1311504387978517729, guid: 11f3499048b11df4b93c56ebd281adf3, type: 3}
   portal: {fileID: 3762405942907345451, guid: 8299e6567e8fc064fb178d3654efd90b, type: 3}
@@ -22608,7 +22608,7 @@ MonoBehaviour:
   dialogueBox: {fileID: 1628249410}
   name: {fileID: 1270335223}
   sentence: {fileID: 99830069}
-  textspeed: 0.1
+  textspeed: 0.05
   done: 0
   dialogue:
   - name: 'Strawberry Popcorn:'

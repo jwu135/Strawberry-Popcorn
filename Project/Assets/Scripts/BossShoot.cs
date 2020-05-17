@@ -101,20 +101,28 @@ public class BossShoot : MonoBehaviour
 
                     }
                     // Phase 3 stuff
-                    else if (phase == 2f) {
-                        int randInt = Random.Range(0, 4);
-                        translateNum(randInt, 0.50f);
+                    else if(phase>=2f){
+                        float randFloat = Random.Range(0, 4);
+                        if (randFloat > 0.9f) {
+                            Shoot(true);
+                            nextTimeShoot = Time.time + shootCooldown;
+                        } else {
+                            if (phase == 2f) {
+                                int randInt = Random.Range(0, 4);
+                                translateNum(randInt, 0.50f);
 
-                    }else if (phase == 2.25f) {
-                        int randInt = Random.Range(0, 6);
-                        translateNum(randInt, 0.50f);
+                            } else if (phase == 2.25f) {
+                                int randInt = Random.Range(0, 6);
+                                translateNum(randInt, 0.50f);
 
-                    }else if (phase <= 2.5f) {
-                        int randInt = Random.Range(0, 7);
-                        translateNum(randInt, 0.50f);
+                            } else if (phase <= 2.5f) {
+                                int randInt = Random.Range(0, 7);
+                                translateNum(randInt, 0.50f);
 
-                    } else if (phase == 3f) {
-                        Shoot(false, 1, cd: 1f);
+                            } else if (phase == 3f) {
+                                Shoot(false, 1, cd: 1f);
+                            }
+                        }
                     }
                     // Misc handling
                     else {
@@ -152,15 +160,45 @@ public class BossShoot : MonoBehaviour
             }*/
             if (nextTime < Time.time) {
                 if (0.75f>phase&&phase >= 0) { // Spike
-                        Physical(4);
+                                               //Physical(0);
+                    Physical(0);
                     nextTime = Time.time + cooldown * 2;
-                } else if (phase >= .75f) {
+                } else if (phase<1.25f&&phase >= .75f) {
                     if (player.transform.position.x > 10) {
                         Physical(1);
                     } else if (player.transform.position.x < -10) {
                         Physical(2);
                     } else {
                         Physical(0);
+                    }
+                    nextTime = Time.time + cooldown * 2;
+                }
+                else if (phase<3.75f&&phase >= 1.25f) {
+                    if (player.transform.position.x > 10) {
+                        Physical(1);
+                    } else if (player.transform.position.x < -10) {
+                        Physical(2);
+                    } else {
+                        float randFloat = Random.Range(0, 1);
+                        if (randFloat > 0.8) {
+                            physicalPattern(2, 0);
+                        } else {
+                            Physical(0);
+                        }
+                    }
+                    nextTime = Time.time + cooldown * 2;
+                } else if (phase >= 3.75f) {
+                    if (player.transform.position.x > 10) {
+                        Physical(1);
+                    } else if (player.transform.position.x < -10) {
+                        Physical(2);
+                    } else {
+                        float randFloat = Random.Range(0, 1);
+                        if (randFloat > 0.8) {
+                            physicalPattern(2, 0);
+                        } else {
+                            Physical(0);
+                        }
                     }
                     nextTime = Time.time + cooldown * 2;
                 }
