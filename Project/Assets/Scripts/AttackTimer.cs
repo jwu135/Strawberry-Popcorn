@@ -66,7 +66,7 @@ public class AttackTimer : MonoBehaviour // literally just ended up becoming the
         GameObject physicalAttack = Instantiate(hitObj, transform.position, transform.rotation) as GameObject;
         physicalAttack.transform.eulerAngles = new Vector3(0, 0,transform.eulerAngles.z- 90);
         // could do some stuff to hit from one side of the portal or the other, depending on which side the player is closer to.
-
+        bs.GetComponent<BossShoot>().addToStack(physicalAttack);
         portal = true;
     }
     private void Update()

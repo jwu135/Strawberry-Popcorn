@@ -71,9 +71,9 @@ public class BossShoot : MonoBehaviour
     void lookAround()
     {
         if (GameObject.Find("Mother").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle")) {
-
-            if (nextTimeShoot < Time.time) { // All the projectile stuff
-                if (GlobalVariable.deathCounter == 100) { // stuff for first run of the boss
+            // Projectile stuff
+            if (nextTimeShoot < Time.time) {
+                if (GlobalVariable.deathCounter == 0) { // stuff for first run of the boss. Change to some high number if you're testing boss phase stuff
                         Shoot(false, 2, 10, cd: 0.33f);
 
                 } else {
@@ -91,37 +91,37 @@ public class BossShoot : MonoBehaviour
                     // Phase 2 stuff
                     else if (phase == 1f|| phase == 1.25f) {
                         int randInt = Random.Range(0, 2);
-                        translateNum(randInt, 0.75f);
+                        translateNum(randInt, 0.9f);
                     }else if (phase == 1.5f) {
                         int randInt = Random.Range(0, 3);
-                        translateNum(randInt, 0.75f);
+                        translateNum(randInt, 0.9f);
                     } else if (phase == 1.75f) {
                         int randInt = Random.Range(0, 4);
-                        translateNum(randInt, 0.75f);
+                        translateNum(randInt, 0.9f);
 
                     }
                     // Phase 3 stuff
                     else if(phase>=2f){
-                        float randFloat = Random.Range(0, 4);
+                        float randFloat = Random.Range(0f, 1f);
                         if (randFloat > 0.9f) {
                             Shoot(true);
-                            nextTimeShoot = Time.time + shootCooldown;
+                            nextTimeShoot = Time.time + 1;
                         } else {
                             if (phase == 2f) {
                                 int randInt = Random.Range(0, 4);
-                                translateNum(randInt, 0.50f);
+                                translateNum(randInt, 0.8f);
 
                             } else if (phase == 2.25f) {
                                 int randInt = Random.Range(0, 6);
-                                translateNum(randInt, 0.50f);
+                                translateNum(randInt, 0.8f);
 
-                            } else if (phase <= 2.5f) {
+                            } else if (phase >= 2.5f) {
                                 int randInt = Random.Range(0, 7);
-                                translateNum(randInt, 0.50f);
+                                translateNum(randInt, 0.8f);
 
-                            } else if (phase == 3f) {
+                            } /*else if (phase == 3f) {
                                 Shoot(false, 1, cd: 1f);
-                            }
+                            }*/
                         }
                     }
                     // Misc handling
@@ -132,32 +132,7 @@ public class BossShoot : MonoBehaviour
                 }
             }
 
-            /*if (phase == 3) { // Laser
-                if (nextTimeShoot < Time.time) {
-                    Shoot(true);
-                    nextTimeShoot = Time.time + shootCooldown;
-                }
-            }*/
-            /*if (phase == 0 || phase == 2 || phase == 3) { // AoE
-                if (Vector2.Distance(player.transform.position, GameObject.Find("Mother").transform.position) < 4f && AoeNextTime < Time.time) {
-                    Physical(3);
-                    AoeNextTime = Time.time + AoECooldown;
-                } 
-            }*/
-            /*if (phase>=0&&phase < 2) { // Spike
-                if (nextTime < Time.time) {
-                    if (phase >= 0&&phase<1) {
-                        Physical(Mathf.FloorToInt(phase)); // doing it this way because phase number and the pos variable happen to have the same parameters
-                    } else {
-                        if (player.transform.position.x > 0) {
-                            Physical(Mathf.FloorToInt(phase));
-                        } else {
-                            Physical(Mathf.FloorToInt(phase +1));
-                        }
-                    }
-                    nextTime = Time.time + cooldown;
-                }               
-            }*/
+            // Tentacle stuff || 
             if (nextTime < Time.time) {
                 if (0.75f>phase&&phase >= 0) { // Spike
                                                //Physical(0);
@@ -173,29 +148,31 @@ public class BossShoot : MonoBehaviour
                     }
                     nextTime = Time.time + cooldown * 2;
                 }
-                else if (phase<3.75f&&phase >= 1.25f) {
+                else if (phase<2.75f&&phase >= 1.25f) {
                     if (player.transform.position.x > 10) {
                         Physical(1);
                     } else if (player.transform.position.x < -10) {
                         Physical(2);
                     } else {
-                        float randFloat = Random.Range(0, 1);
-                        if (randFloat > 0.8) {
+                        float randFloat = Random.Range(0f, 1f);
+                        if (randFloat > 0.8f) {
                             physicalPattern(2, 0);
                         } else {
                             Physical(0);
                         }
                     }
                     nextTime = Time.time + cooldown * 2;
-                } else if (phase >= 3.75f) {
-                    if (player.transform.position.x > 10) {
+                } else if (phase >= 2.75f) {
+                    if (player.transform.position.x > 12) {
                         Physical(1);
-                    } else if (player.transform.position.x < -10) {
+                    } else if (player.transform.position.x < -12) {
                         Physical(2);
                     } else {
-                        float randFloat = Random.Range(0, 1);
-                        if (randFloat > 0.8) {
+                        float randFloat = Random.Range(0f, 1f);
+                        if (randFloat >= 0.9f) {
                             physicalPattern(2, 0);
+                        } else if (randFloat < 0.9f &&randFloat>0.5f) {
+                            Physical(4);
                         } else {
                             Physical(0);
                         }
@@ -203,13 +180,8 @@ public class BossShoot : MonoBehaviour
                     nextTime = Time.time + cooldown * 2;
                 }
             }
-                /*if (phase==0) { // Ground spikes
-                    if (nextTime < Time.time) {
-                            physicalPattern(2,0);
-                        nextTime = Time.time + cooldown*2;
-                    }
-                }*/
-            }
+         
+        }
     }
     void physicalPattern(int pattern = -1,int pos = -1) {
         if(pattern == -1) pattern = Random.Range(0, 3);

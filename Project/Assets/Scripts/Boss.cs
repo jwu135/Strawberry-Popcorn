@@ -75,11 +75,10 @@ public class Boss : MonoBehaviour
 
             
             while (healthPhasesIndex < healthPhases.Length && healthNew[healthIndex] <= healthPhases[healthPhasesIndex]) {
-                Debug.Log("Health Phase Index "+healthPhasesIndex);
                 phase += 0.25f;
                 healthPhasesIndex++;
                 GetComponent<BossShoot>().setPhase(phase);
-                Debug.Log(phase);
+                // Insert upgrade stuff here
             }
             
 
@@ -98,10 +97,11 @@ public class Boss : MonoBehaviour
                     CornerMother.transform.parent = transform.parent;
                     GameObject CornerMother2 = Instantiate(TempCornerMother, transform.parent.transform.position + new Vector3(-25f, 0f, 0f), transform.rotation);
                     CornerMother2.transform.parent = transform.parent;
+                    CornerMother.GetComponent<CornerBossShoot>().offsetCooldown();
                 }
+                
                 swapPhase((int)phase);
                 healthIndex++;
-                Debug.Log(phase);
                 Movement movement = player.GetComponent<Movement>();
                 movement.getArmature().animation.Stop();
                 movement.setPrimaryArmature(movement.getPrimaryIndex());

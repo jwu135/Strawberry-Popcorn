@@ -79,13 +79,18 @@ public class DialogueSystem : MonoBehaviour
     public void lookAround()
     {
         if (Input.GetButtonDown("Fire1")&&dialogueGoing){
-            //index = stops[stopsIndex] - 1; // use this to make dialogue only show first dialogue box of each thing
+            index = stops[stopsIndex] - 1; // use this to make dialogue only show first dialogue box of each thing
             if (currSentence.Length < finalSentence.Length) {
                 StopCoroutine("textScroll");
                 sentence.text = currSentence = finalSentence;
             } else {
                 if (stops[stopsIndex] > index + 1&& stopsIndex<8) {
                     index++;
+                    name.text = dialogue[index].name;
+                    boxChange();
+                    finalSentence = dialogue[index].sentences;
+                    currSentence = "";
+                    StartCoroutine("textScroll");
                 } else {
                     stopsIndex++;
                     dialogueBox.SetActive(false);
@@ -100,11 +105,7 @@ public class DialogueSystem : MonoBehaviour
                         GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[0];
                     }
                 }
-                name.text = dialogue[index].name;
-                boxChange();
-                finalSentence = dialogue[index].sentences;
-                currSentence = "";
-                StartCoroutine("textScroll");
+                
             }
         }
         
@@ -116,7 +117,6 @@ public class DialogueSystem : MonoBehaviour
             if (finalSentence[currSentence.Length]!=' ') {
                 //SoundManager.PlaySound("playerTalk2");
                 int swapper = Random.Range(0, 4);
-                Debug.Log(swapper);
                 if (swapper == 0) {
                     SoundManager.PlaySound("playerTalk1");
                 } else if(swapper == 1) {

@@ -81,9 +81,12 @@ public class BossPiece : MonoBehaviour
         player.GetComponent<Movement>().getArmature().transform.localScale = scale;
 
         GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossShoot>().setPhase(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
-        Debug.Log(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
+        //Debug.Log(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
         player.transform.Find("Arm").transform.GetComponent<Look>().setArmature();
         GameObject.Find("EventSystem").GetComponent<CutsceneSystem>().eaten = true;
+        if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 3) {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().setMode(0);
+        }
         Destroy(gameObject);
     }
 
