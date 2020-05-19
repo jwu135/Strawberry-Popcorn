@@ -21,14 +21,17 @@ public class DialogueSystem : MonoBehaviour
     private int stopsIndex;
     bool continuing = false;
     bool continuing2 = false;
+    private float baseTextSpeed;
     public bool dialogueGoing = true;
     public void Start()
     {
+        baseTextSpeed = textspeed;
         finalSentence = dialogue[index].sentences;
         currSentence = "";
         GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[1];
         name.text = dialogue[index].name;
         sentence.text = currSentence;
+        boxChange();
         StartCoroutine("textScroll");
     }
     void Update()
@@ -86,6 +89,11 @@ public class DialogueSystem : MonoBehaviour
             } else {
                 if (stops[stopsIndex] > index + 1&& stopsIndex<8) {
                     index++;
+                    name.text = dialogue[index].name;
+                    boxChange();
+                    finalSentence = dialogue[index].sentences;
+                    currSentence = "";
+                    StartCoroutine("textScroll");
                 } else {
                     stopsIndex++;
                     dialogueBox.SetActive(false);
@@ -100,19 +108,55 @@ public class DialogueSystem : MonoBehaviour
                         GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[0];
                     }
                 }
-                name.text = dialogue[index].name;
-                boxChange();
-                finalSentence = dialogue[index].sentences;
-                currSentence = "";
-                StartCoroutine("textScroll");
+                
             }
         }
         
         
     }
+    private int tempSwapper = 0;
     IEnumerator textScroll()
     {
-        if (currSentence.Length < finalSentence.Length) {   
+        if (currSentence.Length < finalSentence.Length) {
+            if (dialogue[index].name == "Mother:") {
+                if (finalSentence[currSentence.Length] != ' '&&tempSwapper%2==0) {
+                    //SoundManager.PlaySound("playerTalk2");
+                    int swapper = Random.Range(0, 4);
+                    if (swapper == 0) {
+                        SoundManager.PlaySound("motherTalk1");
+                    } else if (swapper == 1) {
+                        SoundManager.PlaySound("motherTalk2");
+                    } else if (swapper == 2) {
+                        SoundManager.PlaySound("motherTalk3");
+                    } else if (swapper == 3) {
+                        SoundManager.PlaySound("motherTalk4");
+                    }
+                    textspeed = baseTextSpeed*1.8f;
+                }
+            } else if (dialogue[index].name == "Strawberry Popcorn:"&& tempSwapper % 2 == 0) {
+                if (finalSentence[currSentence.Length] != ' ') {
+                    //SoundManager.PlaySound("playerTalk2");
+                    int swapper = Random.Range(0, 4);
+                    if (swapper == 0) {
+                        SoundManager.PlaySound("playerTalk1");
+                    } else if (swapper == 1) {
+                        SoundManager.PlaySound("playerTalk2");
+                    } else if (swapper == 2) {
+                        SoundManager.PlaySound("playerTalk3");
+                    } else if (swapper == 3) {
+                        SoundManager.PlaySound("playerTalk4");
+                    }
+                    textspeed = baseTextSpeed;
+                }
+            } else {
+                textspeed = baseTextSpeed;
+            }
+            if(finalSentence[currSentence.Length] == '!'|| finalSentence[currSentence.Length] == '.' || finalSentence[currSentence.Length] == '?')
+                textspeed = baseTextSpeed*10f;
+            if(finalSentence[currSentence.Length] == ',')
+                textspeed = baseTextSpeed*3f;
+            tempSwapper++;
+
             currSentence += finalSentence[currSentence.Length];
             sentence.text = currSentence;
             yield return new WaitForSeconds(textspeed);

@@ -2030,9 +2030,9 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 731d3d2ac476f364ab35e882d3a37721, type: 3}
   healthNew:
   - 60
-  - 60
-  - 60
-  - 60
+  - 80
+  - 100
+  - 120
   HealthBar: {fileID: 1662189587}
 --- !u!114 &117516979
 MonoBehaviour:
@@ -2051,15 +2051,16 @@ MonoBehaviour:
   projectile:
   - {fileID: 6887859871426871690}
   - {fileID: 1439319557}
-  - {fileID: 1976358135}
+  - {fileID: 6887859871426871690}
   - {fileID: 504253846}
   - {fileID: 1708293218}
   - {fileID: 972487650}
   - {fileID: 213181340}
   - {fileID: 1976358135}
-  - {fileID: 1976358135}
+  - {fileID: 972487650}
   hitObj: {fileID: 4889125177576347146, guid: 3f1ba6d58a023d644bd4030dbfedd5d5, type: 3}
   AoE: {fileID: 1311504387978517729, guid: 11f3499048b11df4b93c56ebd281adf3, type: 3}
+  portal: {fileID: 3762405942907345451, guid: 8299e6567e8fc064fb178d3654efd90b, type: 3}
   nextTime: 0
   AoECooldown: 1
   shootCooldown: 1
@@ -4595,7 +4596,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &279701112
 GameObject:
@@ -4683,6 +4684,7 @@ GameObject:
   - component: {fileID: 283819041}
   - component: {fileID: 283819040}
   - component: {fileID: 283819039}
+  - component: {fileID: 283819043}
   m_Layer: 10
   m_Name: left Floor (1)
   m_TagString: Floor
@@ -4748,8 +4750,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: b77c95495d163104d8f09c2274aad0f6, type: 3}
-  m_Color: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
+  m_Sprite: {fileID: 272770772459354020, guid: cdd3a7ef3ccb87b47b8fd13651060c6e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4772,18 +4774,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1.55}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 8.200001, y: 4.104004}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 1}
+  m_Size: {x: 7.986925, y: 1}
   m_EdgeRadius: 0
 --- !u!4 &283819042
 Transform:
@@ -4793,12 +4795,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283819038}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -23, y: 2.762, z: 0}
-  m_LocalScale: {x: 5, y: 0.67741233, z: 1}
+  m_LocalPosition: {x: -23, y: 1.05, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &283819043
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283819038}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ca0f955afc9404042b0d77336bef2b10, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &288466422
 GameObject:
   m_ObjectHideFlags: 0
@@ -5921,6 +5942,7 @@ GameObject:
   - component: {fileID: 370906654}
   - component: {fileID: 370906653}
   - component: {fileID: 370906652}
+  - component: {fileID: 370906656}
   m_Layer: 10
   m_Name: left Floor
   m_TagString: Floor
@@ -5986,8 +6008,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: b77c95495d163104d8f09c2274aad0f6, type: 3}
-  m_Color: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
+  m_Sprite: {fileID: 272770772459354020, guid: cdd3a7ef3ccb87b47b8fd13651060c6e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6010,18 +6032,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1.51}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 8.200001, y: 4.104004}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 1}
+  m_Size: {x: 7.959607, y: 1.0000002}
   m_EdgeRadius: 0
 --- !u!4 &370906655
 Transform:
@@ -6031,12 +6053,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370906651}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.8, y: -3.1, z: 0}
-  m_LocalScale: {x: 10, y: 0.80247307, z: 1}
+  m_LocalPosition: {x: -9.8, y: -4.74, z: 0}
+  m_LocalScale: {x: 1.254, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &370906656
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370906651}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ca0f955afc9404042b0d77336bef2b10, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &387137518
 GameObject:
   m_ObjectHideFlags: 1
@@ -11292,6 +11333,7 @@ GameObject:
   - component: {fileID: 717309693}
   - component: {fileID: 717309692}
   - component: {fileID: 717309691}
+  - component: {fileID: 717309695}
   m_Layer: 10
   m_Name: right Floor
   m_TagString: Floor
@@ -11357,8 +11399,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: b77c95495d163104d8f09c2274aad0f6, type: 3}
-  m_Color: {r: 0.16470589, g: 0.09411766, b: 0.09411766, a: 1}
+  m_Sprite: {fileID: 272770772459354020, guid: cdd3a7ef3ccb87b47b8fd13651060c6e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -11381,18 +11423,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1.58}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 8.200001, y: 4.104004}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 1}
+  m_Size: {x: 7.9334197, y: 0.99999976}
   m_EdgeRadius: 0
 --- !u!4 &717309694
 Transform:
@@ -11402,12 +11444,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717309690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.8, y: -3.1, z: 0}
-  m_LocalScale: {x: 10, y: 0.87409633, z: 1}
+  m_LocalPosition: {x: 9.8, y: -4.7, z: 0}
+  m_LocalScale: {x: 1.26, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &717309695
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717309690}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ca0f955afc9404042b0d77336bef2b10, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &718604792
 GameObject:
   m_ObjectHideFlags: 1
@@ -17422,6 +17483,350 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &1080010696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1080010706}
+  - component: {fileID: 1080010705}
+  - component: {fileID: 1080010704}
+  - component: {fileID: 1080010703}
+  - component: {fileID: 1080010702}
+  - component: {fileID: 1080010701}
+  - component: {fileID: 1080010700}
+  - component: {fileID: 1080010699}
+  - component: {fileID: 1080010698}
+  - component: {fileID: 1080010697}
+  m_Layer: 0
+  m_Name: Dialogue Back up
+  m_TagString: EventSystem
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1080010697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080010696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9e14500dc777984195a5699bc97e645, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menu: {fileID: 1416831549}
+--- !u!114 &1080010698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080010696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287d8452b41fee1428b01e6a48a3143b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 1509709305}
+--- !u!114 &1080010699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080010696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e84d76a7fbeab459f59541892c48c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heart: {fileID: 552805662}
+  hearts: []
+  player: {fileID: 1814532866}
+--- !u!114 &1080010700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080010696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 149f09d2f55b49c4385db4ed9352b066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas:
+  - {fileID: 1437786532}
+--- !u!114 &1080010701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080010696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aab9e72208df92b47885999b207bce99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1814532866}
+  boss: {fileID: 1297109244}
+  objects:
+  - {fileID: 497736791}
+  - {fileID: 88196148}
+  - {fileID: 1839570389}
+  dialogueBox: {fileID: 0}
+  eaten: 0
+--- !u!114 &1080010702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080010696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d604c6f9e8c39514fbf7dc184fdff97c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursors:
+  - {fileID: 21300000, guid: e7a5bd4988010834ca6acec0afbd4ae0, type: 3}
+  - {fileID: 21300000, guid: bcb8ee50e6adc5443935efa21f0bd193, type: 3}
+  box:
+  - {fileID: 21300000, guid: af6a224451ed563479302e145be32f28, type: 3}
+  - {fileID: 21300000, guid: 24c2c11333866ed44b6d3e8d240920ce, type: 3}
+  - {fileID: 21300000, guid: 84269ac7f4976ab46b097727126e2888, type: 3}
+  dialogueBox: {fileID: 1628249410}
+  name: {fileID: 1270335223}
+  sentence: {fileID: 99830069}
+  textspeed: 0.025
+  done: 0
+  dialogue:
+  - name: 'Strawberry Popcorn:'
+    sentences: "Mother. I see you\u2019re already taken your true form. Here to eat
+      me?"
+  - name: 'Mother:'
+    sentences: "Poppy\u2026 How do you know that?"
+  - name: 'Strawberry Popcorn:'
+    sentences: "Lately I\u2019ve been having these strange memories and feelings.
+      And I didn\u2019t want to believe they were true."
+  - name: 'Mother:'
+    sentences: So you found out the truth.
+  - name: 'Strawberry Popcorn:'
+    sentences: Yes. For how long have you been doing this? Raising me to slaughter?
+  - name: 'Mother:'
+    sentences: "Slaughter? Such harsh words, Poppy. My darling daughter, do you really
+      think that\u2019s my goal here? Everything I do, I do thinking about your wellbeing."
+  - name: 'Strawberry Popcorn:'
+    sentences: "My wellbeing? Is not letting me grow up to my benefit? Looking back,
+      all my past lives, all I\u2019ve been is just a doll to you. A toy. Junk food,
+      to be used, discarded and then brought back anew."
+  - name: 'Mother:'
+    sentences: "Is this what you really think of your Mother? I understand you\u2019re
+      anguished. It must be the rot talking, not my pretty little Strawberry Popcorn.
+      Come to Mother and we\u2019ll put all this nastiness behind us. It\u2019s for
+      the best."
+  - name: 'Strawberry Popcorn:'
+    sentences: "No. This ends now, Mother. I won\u2019t let you keep using my like
+      that ever again. This cycle ends now."
+  - name: 
+    sentences: "Move with \u201CA\u201D and \u201DD\u201D\r\nJump with \u201CW\u201D\r\nDodge
+      with \u201CShift\u201D\r\n\n"
+  - name: 
+    sentences: "Aim with \u201CMouse\u201D\r\nFire with \u201CLeft Click\u201D\r\nAlternate
+      Fire with \u201CRight Click\u201D\r\nInteract with \u201CR\u201D\r\n"
+  - name: 
+    sentences: "Hit the eye to damage Mother!\r\nYou can do it.\r"
+  - name: 'Mother:'
+    sentences: AAAGH.
+  - name: 'Strawberry Popcorn:'
+    sentences: ...
+  - name: 'Mother:'
+    sentences: "Is this really what you want? I\u2019m starting to get mad, Poppy."
+  - name: 'Strawberry Popcorn:'
+    sentences: "MAD? Mother, do you have any idea how being mad really feels? Anytime
+      I get close to feeling it, you\u2019ve cut me down like a little bonsai tree.
+      But now, it\u2019s rushing in full force."
+  - name: 'Mother:'
+    sentences: "Let\u2019s stop this, Poppy. Clearly you\u2019re not well. Let me
+      fix you! Let me make you better?"
+  - name: 'Strawberry Popcorn:'
+    sentences: "Make me better? Fix me? All these years, all this time, everything
+      I ever was was your blueprint. Piece by piece you\u2019ve chosen everything.
+      What I am. What I wear. How long I\u2019m going to live. How I\u2019m going
+      to die. Looking back, nothing was ever actually me, was it? Even before eating
+      me, you took from me all my chances of ever being me."
+  - name: 'Mother:'
+    sentences: ...
+  - name: 'Strawberry Popcorn:'
+    sentences: You want to be mad? See how it feels from the other side, Mother.
+      How will you feel when I take a piece from you?
+  - name: 'Strawberry Popcorn:'
+    sentences: "AH. I\u2019ve seen it!"
+  - name: 'Mother:'
+    sentences: What?
+  - name: 'Strawberry Popcorn:'
+    sentences: "I\u2019ve felt it. Some of your memories. Is this how it feels for
+      you everytime you eat me?"
+  - name: 'Mother:'
+    sentences: "That\u2019s not why I do it, Poppy. I just want you to be happy and
+      innocent again.\r"
+  - name: 'Strawberry Popcorn:'
+    sentences: You just want me ignorant. You just want me to be yours forever.
+  - name: 'Mother:'
+    sentences: "That\u2019s not how it is. I would try to reason with you, but it
+      seems that force is all you\u2019re listening to at the moment."
+  - name: 
+    sentences: "You just gained a new attack: The Tentacle Thrust.\r\nSwitch weapons
+      with \u201CQ\u201D or \u201CE\u201D\r\nUse the Tentacle Thrust to deal more
+      damage at closer range.\r\nThe alternate fire launches the tentacle where you\u2019re
+      aiming.\r\n"
+  - name: 
+    sentences: "You also gain the special Attack tier 1: Spore Bomb.\r\nDodge attacks
+      to gain mana! Once you have enough, press \u201CSPACE\u201D to unleash the
+      Special Attack.\r\nThe Spore bomb will explode in a cloud of spores, damaging
+      Mother if she stays inside it.\r\n\r\n"
+  - name: 'Mother:'
+    sentences: 'M: AAGH.'
+  - name: 'Strawberry Popcorn:'
+    sentences: Weakened again, Mother?
+  - name: 'Mother:'
+    sentences: "I\u2019ve been trying not to harm you too much. I\u2019d hate to
+      see your pretty face all bloodied."
+  - name: 'Strawberry Popcorn:'
+    sentences: Excuses and lies. If I eat another piece of you, will it reveal the
+      truth?
+  - name: 'Mother:'
+    sentences: "Don\u2019t you dare!"
+  - name: 'Strawberry Popcorn:'
+    sentences: "So that\u2019s how you created the Universe. Pretty out there. I
+      wonder if I\u2019ll be able to do the same after all this."
+  - name: 'Mother:'
+    sentences: "Stop it! I understand that you\u2019re angry, but you don\u2019t
+      need to do this!"
+  - name: 'Strawberry Popcorn:'
+    sentences: "So what would you have me do? Pretend that none of this ever happened?
+      That you haven\u2019t been doing this for ages now?"
+  - name: 'Mother:'
+    sentences: I just wanted to feel happy with you!
+  - name: 'Strawberry Popcorn:'
+    sentences: But something changed along the way. Then, you wanted to feel happy
+      by using me.
+  - name: 'Mother:'
+    sentences: "There\u2019s still a way to correct this. I can still fix this. Just
+      let me help you!"
+  - name: 
+    sentences: "You just gained a new attack: The Small Laser.\r\nThe Small Laser
+      has more range than the Tentacle Thrust, but you can\u2019t keep doing it forever.\r\nThe
+      alternate fire will create two laser barriers around you.\r\n"
+  - name: 
+    sentences: "You also gain the special Attack tier 2: The Big Laser.\r\nWhile
+      it doesn\u2019t last long, this slow moving laser is huge and deals massive
+      damage!\r\n\r\n"
+  - name: 'Strawberry Popcorn:'
+    sentences: "I see it now. It wasn\u2019t just me that you kept restrained. The
+      world is stagnant and unchanging for a while now, due to your complete complacency.
+      Once I get your powers, I\u2019ll finally find a future for the Universe."
+  - name: 'Mother:'
+    sentences: NO! If it goes on, everything will be susceptible to rot! I just want
+      everything to live without any of the negatives that comes with living.
+  - name: 'Strawberry Popcorn:'
+    sentences: "There is no living without the negatives, Mother. All this time,
+      no one was living yet. Not me.  Nor any of the animals and plants in your garden.
+      We\u2019ve all been sleeping this whole time, waiting to open our eyes. But
+      you\u2019ve kept them closed."
+  - name: 'Mother:'
+    sentences: "You don\u2019t understand how painful it is to actually have to live."
+  - name: 'Strawberry Popcorn:'
+    sentences: "Painful it might be, but nothing worthwhile didn\u2019t require hardships."
+  - name: 'Strawberry Popcorn:'
+    sentences: "AAGH. It\u2019s almost there! Mother! If this is just a fraction
+      of your power, I\u2019m hesitant to see the rest."
+  - name: 'Mother:'
+    sentences: "Poppy\u2026"
+  - name: 'Strawberry Popcorn:'
+    sentences: This must be done, Mother.
+  - name: 'Mother:'
+    sentences: "\u2026 "
+  - name: 
+    sentences: "\rYou Just gained the final Special Attack tier 3: Eldritch Berry.\r\nWith
+      a fraction of Mother\u2019s power consumed, turn into an ascended version of
+      yourself.\r\nFor a short while you will not receive any damage and all your
+      attacks deal more.\r\n"
+  - name: 'Strawberry Popcorn:'
+    sentences: "No. This ends now, Mother. I won\u2019t let you keep using my like
+      that ever again. This cycle ends now."
+  - name: 'Strawberry Popcorn:'
+    sentences: "No. This ends now, Mother. I won\u2019t let you keep using my like
+      that ever again. This cycle ends now."
+  stops: 0c000000140000001c00000021000000290000002e00000033000000
+  dialogueGoing: 1
+--- !u!114 &1080010703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080010696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe8b226a89774241abbd65dd9b22859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1080010704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080010696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1080010705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080010696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1080010706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080010696}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1086641300
 GameObject:
   m_ObjectHideFlags: 0
@@ -18931,6 +19336,7 @@ GameObject:
   - component: {fileID: 1169245131}
   - component: {fileID: 1169245130}
   - component: {fileID: 1169245129}
+  - component: {fileID: 1169245133}
   m_Layer: 10
   m_Name: right Floor (1)
   m_TagString: Floor
@@ -18996,8 +19402,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: b77c95495d163104d8f09c2274aad0f6, type: 3}
-  m_Color: {r: 0.16470589, g: 0.09411766, b: 0.09411766, a: 1}
+  m_Sprite: {fileID: 272770772459354020, guid: cdd3a7ef3ccb87b47b8fd13651060c6e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -19020,18 +19426,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1.54}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 8.200001, y: 4.104004}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 1}
+  m_Size: {x: 7.9730177, y: 1}
   m_EdgeRadius: 0
 --- !u!4 &1169245132
 Transform:
@@ -19041,12 +19447,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1169245128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23, y: 2.856, z: 0}
-  m_LocalScale: {x: 5, y: 0.56211543, z: 1}
+  m_LocalPosition: {x: 23, y: 1.14, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1169245133
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169245128}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ca0f955afc9404042b0d77336bef2b10, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1186054585
 GameObject:
   m_ObjectHideFlags: 1
@@ -19284,6 +19709,86 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &1193770220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1193770221}
+  - component: {fileID: 1193770222}
+  m_Layer: 0
+  m_Name: New Sprite Mask
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1193770221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193770220}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.03, y: -1.915, z: 0}
+  m_LocalScale: {x: 11.650282, y: 3.261076, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1495707267}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!331 &1193770222
+SpriteMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193770220}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: b77c95495d163104d8f09c2274aad0f6, type: 3}
+  m_MaskAlphaCutoff: 0.346
+  m_FrontSortingLayerID: 0
+  m_BackSortingLayerID: 0
+  m_FrontSortingLayer: 0
+  m_BackSortingLayer: 0
+  m_FrontSortingOrder: 0
+  m_BackSortingOrder: 0
+  m_IsCustomRangeActive: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1207241091
 GameObject:
   m_ObjectHideFlags: 1
@@ -20604,6 +21109,108 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &1291218111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1291218114}
+  - component: {fileID: 1291218113}
+  - component: {fileID: 1291218112}
+  m_Layer: 0
+  m_Name: MotherFluidSheet_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &1291218112
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291218111}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c2c71a8887ab8c4f89ff26c4797424c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!212 &1291218113
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291218111}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 3089867524409516675, guid: 03bb9e3accd40e94c85c6f4947a549a8,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 11.38, y: 6.4040284}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 2
+  m_SpriteSortPoint: 0
+--- !u!4 &1291218114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291218111}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1495707267}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1296318066
 GameObject:
   m_ObjectHideFlags: 1
@@ -20764,7 +21371,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297109244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 13.99, z: 0}
+  m_LocalPosition: {x: 0, y: 14.85, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 966595829}
@@ -22425,12 +23032,11 @@ MonoBehaviour:
   dialogueBox: {fileID: 1628249410}
   name: {fileID: 1270335223}
   sentence: {fileID: 99830069}
-  textspeed: 0.01
+  textspeed: 0.025
   done: 0
   dialogue:
-  - name: 'Strawberry Popcorn:'
-    sentences: "Mother. I see you\u2019re already taken your true form. Here to eat
-      me?"
+  - name: 'Mother:'
+    sentences: You. You are rotten. Get out of my sight.
   - name: 'Mother:'
     sentences: "Poppy\u2026 How do you know that?"
   - name: 'Strawberry Popcorn:'
@@ -22996,12 +23602,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -23040,7 +23646,7 @@ RectTransform:
   m_Children:
   - {fileID: 1416831548}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -24342,6 +24948,67 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
+--- !u!1 &1495707266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1495707267}
+  - component: {fileID: 1495707268}
+  - component: {fileID: 1495707269}
+  m_Layer: 0
+  m_Name: MotherCloud
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1495707267
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495707266}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.122, y: 10.164, z: 0}
+  m_LocalScale: {x: 5.37544, y: 3.496999, z: 1}
+  m_Children:
+  - {fileID: 1291218114}
+  - {fileID: 1193770221}
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &1495707268
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495707266}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!114 &1495707269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495707266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 487e8517e2207884dab174484abe56ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftWisp: {fileID: 8049341750163876970, guid: b645800020d2c1b4291d7ca11046b0d4,
+    type: 3}
+  rightWisp: {fileID: 5291087231437265042, guid: f8ebbefb7cef6744d9653b3d02073d57,
+    type: 3}
 --- !u!1 &1508938871
 GameObject:
   m_ObjectHideFlags: 1
@@ -25403,7 +26070,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 81.5}
-  m_SizeDelta: {x: 349.4, y: 92.9}
+  m_SizeDelta: {x: 349.4, y: 63.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1570113197
 MonoBehaviour:
@@ -25436,7 +26103,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "You win!!! \nEnd of Demo"
+  m_Text: 'You win!!! '
 --- !u!222 &1570113198
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25925,6 +26592,7 @@ GameObject:
   - component: {fileID: 1631284884}
   - component: {fileID: 1631284880}
   - component: {fileID: 1631284885}
+  - component: {fileID: 1631284886}
   m_Layer: 0
   m_Name: Mother Piece
   m_TagString: PieceOne
@@ -25945,18 +26613,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.03554511, y: -0.07997584}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 3.2, y: 3.2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.3941712, y: 2.465094}
   m_EdgeRadius: 0
 --- !u!50 &1631284881
 Rigidbody2D:
@@ -26018,7 +26686,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2c7a5d8bcfc23414ead1652df8e62672, type: 3}
+  m_Sprite: {fileID: 7542904183984481263, guid: 35c026639f1f5d541bc9cf147dcbf072,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -26038,7 +26707,7 @@ Transform:
   m_GameObject: {fileID: 1631284879}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.59, y: -18.42, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 884913172}
   m_Father: {fileID: 0}
@@ -26078,6 +26747,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactSign: {fileID: 884913171}
   door: 0
+--- !u!95 &1631284886
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631284879}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f9292e09fc1d90444805b85c5963aae2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1638604119
 GameObject:
   m_ObjectHideFlags: 1
@@ -27350,7 +28038,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 1
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 2.36
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -28564,7 +29252,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1791040664
 GameObject:
@@ -29079,6 +29767,7 @@ MonoBehaviour:
   - {fileID: 1018077799}
   things: {fileID: 11400000, guid: 462314a09f5bb5f43bc4c04e61455116, type: 2}
   direction: 0
+  rollTime: 0
 --- !u!114 &1814532874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34612,7 +35301,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1852665925
 GameObject:
@@ -39021,7 +39710,7 @@ Transform:
   - {fileID: 205721630}
   - {fileID: 390119960}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2111177458
 GameObject:

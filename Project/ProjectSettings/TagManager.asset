@@ -60,3 +60,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: cam1
+    uniqueID: 3929184655
+    locked: 0

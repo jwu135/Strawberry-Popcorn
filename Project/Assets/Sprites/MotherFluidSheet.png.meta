@@ -1,0 +1,373 @@
+fileFormatVersion: 2
+guid: 03bb9e3accd40e94c85c6f4947a549a8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3089867524409516675
+    second: MotherFluidSheet_0
+  - first:
+      213: -9065309002241480524
+    second: MotherFluidSheet_1
+  - first:
+      213: -2678097180321941933
+    second: MotherFluidSheet_2
+  - first:
+      213: -5102713282503347759
+    second: MotherFluidSheet_3
+  - first:
+      213: 4491064302581961177
+    second: MotherFluidSheet_4
+  - first:
+      213: 5734727641301351166
+    second: MotherFluidSheet_5
+  - first:
+      213: -7132745198061039709
+    second: MotherFluidSheet_6
+  - first:
+      213: 6249509456280480614
+    second: MotherFluidSheet_7
+  - first:
+      213: -5351441640350959135
+    second: MotherFluidSheet_8
+  - first:
+      213: 6777755071487187754
+    second: MotherFluidSheet_9
+  - first:
+      213: 5975975845735929556
+    second: MotherFluidSheet_0
+  - first:
+      213: 7009039196968794845
+    second: MotherFluidSheet_1
+  - first:
+      213: -4866425177903035838
+    second: MotherFluidSheet_2
+  - first:
+      213: 6026152090575936636
+    second: MotherFluidSheet_3
+  - first:
+      213: 1094729655058405612
+    second: MotherFluidSheet_4
+  - first:
+      213: 2614318861238066548
+    second: MotherFluidSheet_5
+  - first:
+      213: 1092026226346119569
+    second: MotherFluidSheet_6
+  - first:
+      213: -6554398685579182117
+    second: MotherFluidSheet_7
+  - first:
+      213: -7949542793625797412
+    second: MotherFluidSheet_8
+  - first:
+      213: -7554354180015924578
+    second: MotherFluidSheet_9
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MotherFluidSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 1137
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d6976f9e5eeee250800000000000000
+      internalID: 5975975845735929556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MotherFluidSheet_1
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 640
+        width: 1137
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dda3d10a30c154160800000000000000
+      internalID: 7009039196968794845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MotherFluidSheet_2
+      rect:
+        serializedVersion: 2
+        x: 2274
+        y: 640
+        width: 1137
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24a8219851cf67cb0800000000000000
+      internalID: -4866425177903035838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MotherFluidSheet_3
+      rect:
+        serializedVersion: 2
+        x: 3411
+        y: 640
+        width: 1137
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7c9141066131a350800000000000000
+      internalID: 6026152090575936636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MotherFluidSheet_4
+      rect:
+        serializedVersion: 2
+        x: 4548
+        y: 640
+        width: 1137
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce897d632d2413f00800000000000000
+      internalID: 1094729655058405612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MotherFluidSheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1137
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47dd2bd272de74420800000000000000
+      internalID: 2614318861238066548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MotherFluidSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 0
+        width: 1137
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19155ca2118a72f00800000000000000
+      internalID: 1092026226346119569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MotherFluidSheet_7
+      rect:
+        serializedVersion: 2
+        x: 2274
+        y: 0
+        width: 1137
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdff3c54f191a05a0800000000000000
+      internalID: -6554398685579182117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MotherFluidSheet_8
+      rect:
+        serializedVersion: 2
+        x: 3411
+        y: 0
+        width: 1137
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdcfa2b92fc8da190800000000000000
+      internalID: -7949542793625797412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MotherFluidSheet_9
+      rect:
+        serializedVersion: 2
+        x: 4548
+        y: 0
+        width: 1137
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9ad9a0e5ea892790800000000000000
+      internalID: -7554354180015924578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

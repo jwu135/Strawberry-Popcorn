@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackTimer : MonoBehaviour
+public class AttackTimer : MonoBehaviour // literally just ended up becoming the "AllExternalBossAttackHandlerScript"
 {
     private bool spawned = false;
     private float disappearTime = 1;
@@ -13,8 +13,9 @@ public class AttackTimer : MonoBehaviour
     public Sprite orangeAoE;
     public Sprite[] purpleSprites;
 
-
-    public void disappear(){
+    private bool portal = false;
+    private float portalCD = 2f;
+    public void disappear() {
         spawned = true;
         disappearTime = Time.time + timeToDisappearAfter;
         enable(0);
@@ -36,7 +37,7 @@ public class AttackTimer : MonoBehaviour
         GetComponent<Animator>().SetTrigger("Spike");
         playSound();
     }
- 
+
     public void setTimer(float time)
     {
         timeToDisappearAfter = time;
@@ -57,6 +58,27 @@ public class AttackTimer : MonoBehaviour
         enable(1);
     }
 
+    public void portalSpawn(){
+        GameObject player = GameObject.Find("Player");
+        GameObject bs = GameObject.FindGameObjectWithTag("Enemy");
+        GameObject hitObj = bs.GetComponent<BossShoot>().hitObj;
+
+        GameObject physicalAttack = Instantiate(hitObj, transform.position, transform.rotation) as GameObject;
+        physicalAttack.transform.eulerAngles = new Vector3(0, 0,transform.eulerAngles.z- 90);
+        // could do some stuff to hit from one side of the portal or the other, depending on which side the player is closer to.
+        bs.GetComponent<BossShoot>().addToStack(physicalAttack);
+        portal = true;
+    }
+    private void Update()
+    {
+        if (portal) {
+            portalCD -= Time.deltaTime;
+            if (portalCD <= 0) {
+                GetComponent<Animator>().SetTrigger("Close");
+                portalCD = 5f;
+            }
+        }
+    }
     public void AoEChange()
     {
         GetComponent<SpriteRenderer>().sprite = orangeAoE;
@@ -78,17 +100,5 @@ public class AttackTimer : MonoBehaviour
         if (enemy != null)
             canRotate();
         Destroy(gameObject);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        if (spawned) {
-            /*if (disappearTime - timeToDisappearAfter -0.01f + hits < Time.time) {
-                enable(1);
-            }
-            if (disappearTime < Time.time) {
-                destroy();
-            }*/
-        }
     }
 }

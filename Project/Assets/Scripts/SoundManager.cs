@@ -16,6 +16,16 @@ public class SoundManager : MonoBehaviour
     public static AudioClip playerDodge;
     public static AudioClip playerCharging;
 
+    public static AudioClip playerTalk1;
+    public static AudioClip playerTalk2;
+    public static AudioClip playerTalk3;
+    public static AudioClip playerTalk4;
+    
+    public static AudioClip motherTalk1;
+    public static AudioClip motherTalk2;
+    public static AudioClip motherTalk3;
+    public static AudioClip motherTalk4;
+
     public static AudioClip playerShootSound1;
     public static AudioClip playerShootSound2;
     public static AudioClip playerShootSound3;
@@ -27,7 +37,7 @@ public class SoundManager : MonoBehaviour
     public static AudioClip chargingSound1;
     static AudioSource audioSrc;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         // new sounds from 5-12
         playerShotSound1 = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/Shot1"); // called in PlayerCombat.cs
@@ -37,6 +47,14 @@ public class SoundManager : MonoBehaviour
         eyeballShot1 = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/EyeBallShot"); // called in BossShoot.cs
         eyeballShot2 = Resources.Load<AudioClip>("Sounds/Chiptune/EyeBallShot2"); // called in BossShoot.cs
         //playerHit = Resources.Load<AudioClip>("Sounds/Chiptune/GettingHit"); // called in HealthManager.cs
+        playerTalk1 = Resources.Load<AudioClip>("Sounds/SPVoice1"); // called in DialogueSystem.cs
+        playerTalk2 = Resources.Load<AudioClip>("Sounds/SPVoice2"); // called in DialogueSystem.cs
+        playerTalk3 = Resources.Load<AudioClip>("Sounds/SPVoice3"); // called in DialogueSystem.cs
+        playerTalk4 = Resources.Load<AudioClip>("Sounds/SPVoice4"); // called in DialogueSystem.cs
+        motherTalk1 = Resources.Load<AudioClip>("Sounds/MotherVoice1"); // called in DialogueSystem.cs
+        motherTalk2 = Resources.Load<AudioClip>("Sounds/MotherVoice2"); // called in DialogueSystem.cs
+        motherTalk3 = Resources.Load<AudioClip>("Sounds/MotherVoice3"); // called in DialogueSystem.cs
+        motherTalk4 = Resources.Load<AudioClip>("Sounds/MotherVoice4"); // called in DialogueSystem.cs
         playerHit = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/Hurt"); // called in HealthManager.cs
         enemyHit1 = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/Hit1"); // called in Boss.cs
         enemyHit2 = Resources.Load<AudioClip>("Sounds/Chiptune/Hit2Full"); // called in Boss.cs
@@ -126,6 +144,30 @@ public class SoundManager : MonoBehaviour
                 break;
             case "chargingSound1":
                 audioSrc.PlayOneShot(chargingSound1);
+                break;
+            case "playerTalk1":
+                audioSrc.PlayOneShot(playerTalk1);
+                break;
+            case "playerTalk2":
+                audioSrc.PlayOneShot(playerTalk2);
+                break;
+            case "playerTalk3":
+                audioSrc.PlayOneShot(playerTalk3);
+                break; 
+            case "playerTalk4":
+                audioSrc.PlayOneShot(playerTalk4);
+                break;
+            case "motherTalk1":
+                audioSrc.PlayOneShot(motherTalk1);
+                break;
+            case "motherTalk2":
+                audioSrc.PlayOneShot(motherTalk2);
+                break;
+            case "motherTalk3":
+                audioSrc.PlayOneShot(motherTalk3);
+                break; 
+            case "motherTalk4":
+                audioSrc.PlayOneShot(motherTalk4);
                 break;
 
         }

@@ -20,7 +20,8 @@ public class PauseScript : MonoBehaviour
     void Update()
     {
         if (paused == 0) {
-            GameObject.Find("Player").GetComponent<HealthManager>().timer = 1;
+            if (GameObject.Find("Player") != null)
+                GameObject.Find("Player").GetComponent<HealthManager>().timer = 1;
             Time.timeScale = 0;
         }
     }

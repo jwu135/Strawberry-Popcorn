@@ -9,7 +9,7 @@ public class BossPiece : MonoBehaviour
     public GameObject[] healthbars = new GameObject[3];
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Floor") {
+        if (collision.gameObject.tag == "Floor"&&collision.gameObject.name=="Floor") { // as far as I know, only the groundfloor satisfies both of these
             Destroy(GetComponent<Rigidbody2D>());
             transform.rotation = new Quaternion(0f, 0f,0f,0f);
             Vector2 temp = transform.position;
@@ -81,9 +81,12 @@ public class BossPiece : MonoBehaviour
         player.GetComponent<Movement>().getArmature().transform.localScale = scale;
 
         GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossShoot>().setPhase(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
-        Debug.Log(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
+        //Debug.Log(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
         player.transform.Find("Arm").transform.GetComponent<Look>().setArmature();
         GameObject.Find("EventSystem").GetComponent<CutsceneSystem>().eaten = true;
+        if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 3) {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().setMode(0);
+        }
         Destroy(gameObject);
     }
 

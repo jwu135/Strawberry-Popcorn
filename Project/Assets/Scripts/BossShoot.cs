@@ -9,6 +9,7 @@ public class BossShoot : MonoBehaviour
     public GameObject[] projectile;
     public GameObject hitObj;
     public GameObject AoE;
+    public GameObject portal;
     private Stack allProjectiles = new Stack();
 
     private int[] spawnPointsX = new int[] { -14, -7, 0, 7, 14 };
@@ -69,89 +70,117 @@ public class BossShoot : MonoBehaviour
     }
     void lookAround()
     {
-        // super jank just getting this done in time for release
         if (GameObject.Find("Mother").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle")) {
-            if (phase != 3) { // Main Projectile
-                if (nextTimeShoot < Time.time) {
-                    //Shoot(false,4,5,90);
+            // Projectile stuff
+            if (nextTimeShoot < Time.time) {
+                if (GlobalVariable.deathCounter == 0) { // stuff for first run of the boss. Change to some high number if you're testing boss phase stuff
+                        Shoot(false, 2, 10, cd: 0.33f);
 
-
-
-                    if (GlobalVariable.deathCounter == 0) { // stuff for first run of the boss
-                        /*float rand = Random.Range(0f, 1f);
-                        if (rand > 0.5f) {
-                            Shoot(true);
-                            nextTimeShoot = Time.time + shootCooldown/4;
-                        } else*/
-                            //Shoot(false, 8, 1, cd: 0.33f);
-                            Shoot(false, 7, 20, cd: 0.33f);
-
-                    } else {
-                        float rand = Random.Range(0f, 1f);
-                        if (phase == 0.25f) {
-                            if (rand > 0.5f)
-                                Shoot(false, 0);
-                            else
-                                Shoot(false, 5);
-                        } else if (phase == 0.5f) {
-                            if (rand > 0.5f)
-                                Shoot(false, 0, cd: 1f);
-                            else
-                                Shoot(false, 5, cd: 1f);
-                        } else if (phase == 0.75f) {
-                            if (rand <= 0.33f)
-                                Shoot(false, 0, cd: 1f);
-                            else if (rand < .66f && rand > .33f)
-                                Shoot(false, 5, cd: 1f);
-                            else
-                                Shoot(false, 6, cd: 1f);
-                        } else if(phase == 1f){
-                            if (rand <= 0.33f)
-                                Shoot(false, 1, cd: 1f);
-                            else if (rand < .66f && rand > .33f)
-                                Shoot(false, 3, cd: 1f);
-                            else
-                                Shoot(false, 4, cd: 1f);
-                        } else
-                            Shoot(false);
-                        //nextTimeShoot = Time.time + shootCooldown;
-                        //Debug.Log("Shot");
+                } else {
+                    float rand = Random.Range(0f, 1f);
+                    // Phase 1 stuff
+                    if (phase == 0f) {
+                        Shoot(false, 0, cd: 1f);
+                    } else if (phase == 0.25f) {
+                        int randInt = Random.Range(0, 1);
+                        translateNum(randInt, 1f);
+                    } else if (phase == 0.5f || phase == 0.75f) {
+                        int randInt = Random.Range(0, 2);
+                        translateNum(randInt, 1f);
                     }
-                }
-            }
-            if (phase == 3) { // Laser
-                if (nextTimeShoot < Time.time) {
-                    Shoot(true);
-                    nextTimeShoot = Time.time + shootCooldown;
-                }
-            }
-            /*if (phase == 0 || phase == 2 || phase == 3) { // AoE
-                if (Vector2.Distance(player.transform.position, GameObject.Find("Mother").transform.position) < 4f && AoeNextTime < Time.time) {
-                    Physical(3);
-                    AoeNextTime = Time.time + AoECooldown;
-                } 
-            }*/
-            if (phase>=0&&phase < 2) { // Spike
-                if (nextTime < Time.time) {
-                    if (phase >= 0&&phase<1) {
-                        Physical(Mathf.FloorToInt(phase)); // doing it this way because phase number and the pos variable happen to have the same parameters
-                    } else {
-                        if (player.transform.position.x > 0) {
-                            Physical(Mathf.FloorToInt(phase));
+                    // Phase 2 stuff
+                    else if (phase == 1f|| phase == 1.25f) {
+                        int randInt = Random.Range(0, 2);
+                        translateNum(randInt, 0.9f);
+                    }else if (phase == 1.5f) {
+                        int randInt = Random.Range(0, 3);
+                        translateNum(randInt, 0.9f);
+                    } else if (phase == 1.75f) {
+                        int randInt = Random.Range(0, 4);
+                        translateNum(randInt, 0.9f);
+
+                    }
+                    // Phase 3 stuff
+                    else if(phase>=2f){
+                        float randFloat = Random.Range(0f, 1f);
+                        if (randFloat > 0.9f) {
+                            Shoot(true);
+                            nextTimeShoot = Time.time + 1;
                         } else {
-                            Physical(Mathf.FloorToInt(phase +1));
+                            if (phase == 2f) {
+                                int randInt = Random.Range(0, 4);
+                                translateNum(randInt, 0.8f);
+
+                            } else if (phase == 2.25f) {
+                                int randInt = Random.Range(0, 6);
+                                translateNum(randInt, 0.8f);
+
+                            } else if (phase >= 2.5f) {
+                                int randInt = Random.Range(0, 7);
+                                translateNum(randInt, 0.8f);
+
+                            } /*else if (phase == 3f) {
+                                Shoot(false, 1, cd: 1f);
+                            }*/
                         }
                     }
-                    nextTime = Time.time + cooldown;
-                }               
-            }
-            
-            if (phase==2||phase == 3) { // Ground spikes
-                if (nextTime < Time.time) {
-                        physicalPattern(2,0);
-                    nextTime = Time.time + cooldown*2;
+                    // Misc handling
+                    else {
+                        Shoot(false);
+                        Debug.Log("Fell outside of normal phases");
+                    }
                 }
             }
+
+            // Tentacle stuff || 
+            if (nextTime < Time.time) {
+                if (0.75f>phase&&phase >= 0) { // Spike
+                                               //Physical(0);
+                    Physical(0);
+                    nextTime = Time.time + cooldown * 2;
+                } else if (phase<1.25f&&phase >= .75f) {
+                    if (player.transform.position.x > 10) {
+                        Physical(1);
+                    } else if (player.transform.position.x < -10) {
+                        Physical(2);
+                    } else {
+                        Physical(0);
+                    }
+                    nextTime = Time.time + cooldown * 2;
+                }
+                else if (phase<2.75f&&phase >= 1.25f) {
+                    if (player.transform.position.x > 10) {
+                        Physical(1);
+                    } else if (player.transform.position.x < -10) {
+                        Physical(2);
+                    } else {
+                        float randFloat = Random.Range(0f, 1f);
+                        if (randFloat > 0.8f) {
+                            physicalPattern(2, 0);
+                        } else {
+                            Physical(0);
+                        }
+                    }
+                    nextTime = Time.time + cooldown * 2;
+                } else if (phase >= 2.75f) {
+                    if (player.transform.position.x > 12) {
+                        Physical(1);
+                    } else if (player.transform.position.x < -12) {
+                        Physical(2);
+                    } else {
+                        float randFloat = Random.Range(0f, 1f);
+                        if (randFloat >= 0.9f) {
+                            physicalPattern(2, 0);
+                        } else if (randFloat < 0.9f &&randFloat>0.5f) {
+                            Physical(4);
+                        } else {
+                            Physical(0);
+                        }
+                    }
+                    nextTime = Time.time + cooldown * 2;
+                }
+            }
+         
         }
     }
     void physicalPattern(int pattern = -1,int pos = -1) {
@@ -159,7 +188,7 @@ public class BossShoot : MonoBehaviour
         if (pattern == 0 || pattern == 1) {
             pos = Random.Range(0, 3);
             Physical(pos,true);
-        } else {
+        } else { // pattern 2 is wave
             if(pos==-1)pos = Random.Range(0, 3);
             StartCoroutine("PhysicalWave",pos);
         }
@@ -173,35 +202,37 @@ public class BossShoot : MonoBehaviour
             Physical(pos,false,(int)Mathf.Abs(Reverse-i));
             yield return new WaitForSeconds(.2f);
         }
-        nextTime = Time.time + cooldown;
+        //nextTime = Time.time + cooldown;
     }
     void Physical(int pos,bool random = true,int place = 0) {
         
         GameObject physicalAttack = null;
         if (pos < 3) {
             Vector3 position = new Vector3(0, 0, 0);
-            if (pos == 0) {
+            if (pos == 0) { // Ground tentacles
                 int rand = Random.Range(0, spawnPointsX.Length);
                 float randPos = Random.Range(-26.8f, 26.8f);
-                if(random)
-                    position = new Vector3(spawnPointsX[rand], -7.96f, 0);
+                float offset = Random.Range(-4f, 4f) + player.transform.position.x;
+                offset = Mathf.Clamp(offset,-26.8f, 26.8f);
+                if (random)
+                    position = new Vector3(offset, -7.96f, 0);
                 else
                     position = new Vector3(spawnPointsX[place], -7.96f, 0);
-                //physicalAttack = Instantiate(hitObj, position, hitObj.transform.rotation) as GameObject;
-                position = new Vector3(randPos, -7.96f, 0);
                 physicalAttack = Instantiate(hitObj, position, hitObj.transform.rotation) as GameObject;
-            } else if (pos == 1) {
+            } else if (pos == 1) { // right wall tentacles
                 int rand = Random.Range(0, spawnPointsY.Length);
+                float offset = Random.Range(-2f, 2f) + player.transform.position.y;
                 if (random)
-                    position = new Vector3(28.4f, spawnPointsY[rand], 0);
+                    position = new Vector3(28.4f, offset, 0);
                 else
                     position = new Vector3(28.4f, spawnPointsY[place], 0);
                 Quaternion tempRotation = Quaternion.Euler(0, 0, 90);
                 physicalAttack = Instantiate(hitObj, position, tempRotation) as GameObject;
-            } else if (pos == 2) {
+            } else if (pos == 2) { // left wall tentacles
                 int rand = Random.Range(0, spawnPointsY.Length);
+                float offset = Random.Range(-2f, 2f) + player.transform.position.y;
                 if (random)
-                    position = new Vector3(-28.5f, spawnPointsY[rand], 0);
+                    position = new Vector3(-28.5f, offset, 0);
                 else
                     position = new Vector3(-28.5f, spawnPointsY[place], 0);
                 
@@ -212,27 +243,30 @@ public class BossShoot : MonoBehaviour
             
             physicalAttack.GetComponent<AttackTimer>().disappear();
         } else if (pos==3) {
-            //SoundManager.PlaySound("bossAOE");
             physicalAttack = Instantiate(AoE, transform.Find("AoEAnchor").transform.position, AoE.transform.rotation) as GameObject;
             physicalAttack.transform.parent = transform.Find("AoEAnchor").transform;
             physicalAttack.GetComponent<Animator>().SetTrigger("Expand");
             physicalAttack.GetComponent<AttackTimer>().disappear();
         } else {
-            Debug.Log("Shooted");
-            float posX = Random.Range(-14, 14);
-            float posY = Random.Range(-7, 7);
-            Vector2 position = new Vector2(posX, posY);
-            Quaternion tempRotation = Quaternion.Euler(0, 0, 180);
-            physicalAttack = Instantiate(hitObj, position, tempRotation) as GameObject;
-            Vector3 direction = (Vector2)(player.transform.position - physicalAttack.transform.position).normalized;
+            float posX = Random.Range(-2, 2);
+            float posY = Random.Range(-2, 2);
+            Vector2 position = new Vector2(posX, posY) + (Vector2)player.transform.position;
+            Vector3 direction = (Vector2)((Vector2)player.transform.position - position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            physicalAttack.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-            physicalAttack.GetComponent<Animator>().SetTrigger("Spike");
-            physicalAttack.GetComponent<AttackTimer>().disappear();
+            //physicalAttack.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+            Quaternion tempRotation = Quaternion.Euler(0, 0, angle);
+
+            physicalAttack = Instantiate(portal, position, tempRotation) as GameObject;
+            
         }
         allProjectiles.Push(physicalAttack);
     }
     
+    private void translateNum(int index, float cooldown)
+    {
+        int[] arr = {0,2,6,4,7,8,3,1};
+        Shoot(false,arr[index],cd:cooldown);
+    }
 
     void Shoot(bool laser = false, int pattern = 0, int max = 1,float maxangle = 180,float cd = 2f)
     {
@@ -244,7 +278,6 @@ public class BossShoot : MonoBehaviour
             Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             GetComponent<BossMovement>().setRotateable(false);
-            //bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
             bullet.GetComponent<AttackTimer>().setEnemy(transform);
             bullet.GetComponent<AttackTimer>().setTimer(1f);
             bullet.GetComponent<AttackTimer>().setHits(5f);
@@ -318,7 +351,6 @@ public class BossShoot : MonoBehaviour
                 offset += step;
             }
         }
-        //nextTime = Time.time + cd/5;
         nextTimeShoot = Time.time + cd;
     }
 }
