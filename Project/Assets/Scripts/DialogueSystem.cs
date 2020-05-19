@@ -135,7 +135,6 @@ public class DialogueSystem : MonoBehaviour
                 }
             } else if (dialogue[index].name == "Strawberry Popcorn:"&& tempSwapper % 2 == 0) {
                 if (finalSentence[currSentence.Length] != ' ') {
-                    Debug.Log(tempSwapper);
                     //SoundManager.PlaySound("playerTalk2");
                     int swapper = Random.Range(0, 4);
                     if (swapper == 0) {
@@ -160,7 +159,6 @@ public class DialogueSystem : MonoBehaviour
 
             currSentence += finalSentence[currSentence.Length];
             sentence.text = currSentence;
-            Debug.Log(textspeed);
             yield return new WaitForSeconds(textspeed);
             StartCoroutine("textScroll");
         }
