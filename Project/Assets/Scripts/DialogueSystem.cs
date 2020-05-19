@@ -31,6 +31,7 @@ public class DialogueSystem : MonoBehaviour
         GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[1];
         name.text = dialogue[index].name;
         sentence.text = currSentence;
+        boxChange();
         StartCoroutine("textScroll");
     }
     void Update()
@@ -81,7 +82,7 @@ public class DialogueSystem : MonoBehaviour
     public void lookAround()
     {
         if (Input.GetButtonDown("Fire1")&&dialogueGoing){
-            //index = stops[stopsIndex] - 1; // use this to make dialogue only show first dialogue box of each thing
+            index = stops[stopsIndex] - 1; // use this to make dialogue only show first dialogue box of each thing
             if (currSentence.Length < finalSentence.Length) {
                 StopCoroutine("textScroll");
                 sentence.text = currSentence = finalSentence;
