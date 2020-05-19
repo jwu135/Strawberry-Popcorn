@@ -39,7 +39,7 @@ public class ParallaxScript : MonoBehaviour
         //pos.x += -7.63f;
         pos.y += 3.11f;
         pos.z = -100f;
-        pos.x = Mathf.Clamp(pos.x, 2.02f, 37.58f);
+        pos.x = Mathf.Clamp(pos.x, 3.59f, 36f);
         transform.position = pos;
         //Debug.Log(pos.x);
 

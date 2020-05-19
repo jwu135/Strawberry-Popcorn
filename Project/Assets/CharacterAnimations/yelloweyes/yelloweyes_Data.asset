@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eec99bffe7ebe84e97f379bbdf2e0f2, type: 3}
+  m_Name: yelloweyes_Data
+  m_EditorClassIdentifier: 
+  dataName: yelloweyes
+  dragonBonesJSON: {fileID: 4900000, guid: 5346c79cea70bf4439dd460c43ba8003, type: 3}
+  textureAtlas:
+  - textureAtlasJSON: {fileID: 4900000, guid: 46e5ce1cdfef63c4983acc8080822c44, type: 3}
+    texture: {fileID: 2800000, guid: 18eb79e344579f64cb216e76a3e11cef, type: 3}
+    material: {fileID: 2100000, guid: 84950d3f23d8f6e44b9e8f709cf65f8b, type: 2}
+    uiMaterial: {fileID: 0}
