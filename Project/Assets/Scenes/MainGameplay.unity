@@ -22688,7 +22688,7 @@ MonoBehaviour:
   dialogueBox: {fileID: 1628249410}
   name: {fileID: 1270335223}
   sentence: {fileID: 99830069}
-  textspeed: 0.05
+  textspeed: 0.025
   done: 0
   dialogue:
   - name: 'Strawberry Popcorn:'
@@ -23264,7 +23264,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

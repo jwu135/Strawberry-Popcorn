@@ -21,9 +21,11 @@ public class DialogueSystem : MonoBehaviour
     private int stopsIndex;
     bool continuing = false;
     bool continuing2 = false;
+    private float baseTextSpeed;
     public bool dialogueGoing = true;
     public void Start()
     {
+        baseTextSpeed = textspeed;
         finalSentence = dialogue[index].sentences;
         currSentence = "";
         GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[1];
@@ -79,7 +81,7 @@ public class DialogueSystem : MonoBehaviour
     public void lookAround()
     {
         if (Input.GetButtonDown("Fire1")&&dialogueGoing){
-            index = stops[stopsIndex] - 1; // use this to make dialogue only show first dialogue box of each thing
+            //index = stops[stopsIndex] - 1; // use this to make dialogue only show first dialogue box of each thing
             if (currSentence.Length < finalSentence.Length) {
                 StopCoroutine("textScroll");
                 sentence.text = currSentence = finalSentence;
@@ -111,24 +113,53 @@ public class DialogueSystem : MonoBehaviour
         
         
     }
+    private int tempSwapper = 0;
     IEnumerator textScroll()
     {
         if (currSentence.Length < finalSentence.Length) {
-            if (finalSentence[currSentence.Length]!=' ') {
-                //SoundManager.PlaySound("playerTalk2");
-                int swapper = Random.Range(0, 4);
-                if (swapper == 0) {
-                    SoundManager.PlaySound("playerTalk1");
-                } else if(swapper == 1) {
-                    SoundManager.PlaySound("playerTalk2");
-                }else if(swapper == 2) {
-                    SoundManager.PlaySound("playerTalk3");
-                }else if(swapper == 3) {
-                    SoundManager.PlaySound("playerTalk4");
+            if (dialogue[index].name == "Mother:") {
+                if (finalSentence[currSentence.Length] != ' '&&tempSwapper%2==0) {
+                    //SoundManager.PlaySound("playerTalk2");
+                    int swapper = Random.Range(0, 4);
+                    if (swapper == 0) {
+                        SoundManager.PlaySound("motherTalk1");
+                    } else if (swapper == 1) {
+                        SoundManager.PlaySound("motherTalk2");
+                    } else if (swapper == 2) {
+                        SoundManager.PlaySound("motherTalk3");
+                    } else if (swapper == 3) {
+                        SoundManager.PlaySound("motherTalk4");
+                    }
+                    textspeed = baseTextSpeed*1.8f;
                 }
+            } else if (dialogue[index].name == "Strawberry Popcorn:"&& tempSwapper % 2 == 0) {
+                if (finalSentence[currSentence.Length] != ' ') {
+                    Debug.Log(tempSwapper);
+                    //SoundManager.PlaySound("playerTalk2");
+                    int swapper = Random.Range(0, 4);
+                    if (swapper == 0) {
+                        SoundManager.PlaySound("playerTalk1");
+                    } else if (swapper == 1) {
+                        SoundManager.PlaySound("playerTalk2");
+                    } else if (swapper == 2) {
+                        SoundManager.PlaySound("playerTalk3");
+                    } else if (swapper == 3) {
+                        SoundManager.PlaySound("playerTalk4");
+                    }
+                    textspeed = baseTextSpeed;
+                }
+            } else {
+                textspeed = baseTextSpeed;
             }
+            if(finalSentence[currSentence.Length] == '!'|| finalSentence[currSentence.Length] == '.' || finalSentence[currSentence.Length] == '?')
+                textspeed = baseTextSpeed*10f;
+            if(finalSentence[currSentence.Length] == ',')
+                textspeed = baseTextSpeed*3f;
+            tempSwapper++;
+
             currSentence += finalSentence[currSentence.Length];
             sentence.text = currSentence;
+            Debug.Log(textspeed);
             yield return new WaitForSeconds(textspeed);
             StartCoroutine("textScroll");
         }
