@@ -87,6 +87,7 @@ public class BossPiece : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 3) {
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().setMode(0);
         }
+        GetComponent<BossPieceUpgrade>().eat();
         Destroy(gameObject);
     }
 

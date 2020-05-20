@@ -88,7 +88,7 @@ public class CutsceneSystem : MonoBehaviour
         //DialogueDone(false);
         //player.GetComponent<HealthManager>().maxHealth += 1;
         //player.GetComponent<HealthManager>().health = player.GetComponent<HealthManager>().maxHealth;
-        GameObject.Find("EventSystem").GetComponent<PlayerHeartsController>().updateHealth();
+        //GameObject.Find("EventSystem").GetComponent<PlayerHeartsController>().updateHealth();
         GetComponent<DialogueSystem>().dialogueBox.SetActive(true);
         GetComponent<DialogueSystem>().restart2();
     }
