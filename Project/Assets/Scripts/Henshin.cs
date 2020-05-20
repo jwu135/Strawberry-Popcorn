@@ -18,11 +18,23 @@ public class Henshin : MonoBehaviour
     public GameObject Player2;
     public GameObject sp;
 
+
     void Start()
     {
         //cam = Camera.main;
-        Player2.SetActive(false);
-        cam2.enabled = false;
+       
+        if (GlobalVariable.deathCounter > 0)
+        {
+            Player1.SetActive(false);
+            cam.enabled = false;
+            sp.SetActive(false);
+        }
+        else
+        {
+            Player2.SetActive(false);
+            cam2.enabled = false;
+        }
+
 
     }
 
