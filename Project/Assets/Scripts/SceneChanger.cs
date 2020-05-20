@@ -16,7 +16,7 @@ public class SceneChanger : MonoBehaviour
     public GameObject berryBody;
     private GameObject currBody;
     private List<Sprite> bodies;
-    private Scene scene;
+    public Scene scene;
     Vector2 temp;
     float finalPosY;
     private Sprite tempBerrySprite;
@@ -104,10 +104,21 @@ public class SceneChanger : MonoBehaviour
         if (scene.name.Equals("Upgrade"))
         {
             SceneManager.LoadScene("Scenes/ParallaxTest");
+            Debug.Log("fish1");
         }
-        if (scene.name.Equals("MainMenu"))
+        if (scene.name.Equals("MainMenu") && UpgradeValues.upgradeLocation == 0)
+        {
+            SceneManager.LoadScene("Scenes/Upgrade");
+        }
+        if (scene.name.Equals("MainMenu") && UpgradeValues.upgradeLocation == 1 && UpgradeValues.deathPointsUsed > 0)
+        {
+            SceneManager.LoadScene("Scenes/Upgrade");
+            Debug.Log("fish2");
+        }
+        if (scene.name.Equals("MainMenu") && UpgradeValues.upgradeLocation == 1 && UpgradeValues.deathPointsUsed == 0)
         {
             SceneManager.LoadScene("Scenes/ParallaxTest");
+            Debug.Log("fish3");
         }
 
 
@@ -135,6 +146,10 @@ public class SceneChanger : MonoBehaviour
 
     void doExitGame()
     {
-        Application.Quit();
+        if (!scene.name.Equals("Gameover"))
+        {
+            Application.Quit();
+        }
     }
+
 }

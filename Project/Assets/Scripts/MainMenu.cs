@@ -16,7 +16,9 @@ public class MainMenu : MonoBehaviour
 
     void mainMenu()
     {
-        GameObject.Find("Player").GetComponent<HealthManager>().timer = 0;
+        if(GameObject.Find("Player")!=null)
+            GameObject.Find("Player").GetComponent<HealthManager>().timer = 0;
+        
         Time.timeScale = 1f;
         SceneManager.LoadScene("Scenes/MainMenu");
     }

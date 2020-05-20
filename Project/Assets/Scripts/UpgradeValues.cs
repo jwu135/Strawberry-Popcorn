@@ -9,6 +9,11 @@ public class UpgradeValues : MonoBehaviour
     public static double bonusAttackSpd;
     public static double bonusAttackDmg;
     public static double bonusManaGain;
+    public static double upgradeLocation;
+    public static double upgradePoints;
+    public static double deathPoints;
+    public static double deathPointsUsed;
+    public static bool deathProfit;
 
     void Awake()
     {

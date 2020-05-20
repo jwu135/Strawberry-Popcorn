@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 public class ParallaxScript : MonoBehaviour
 {
+    public GameObject player;
     public Transform[] backgrounds;
     private float[] parallaxScales;
     public float smoothing = 1f;
@@ -35,7 +36,7 @@ public class ParallaxScript : MonoBehaviour
 
         // stuff for locking camera
         var pos = Camera.main.WorldToViewportPoint(transform.position);
-        pos = GameObject.Find("Player").transform.position;
+        pos = player.transform.position; // find as reference
         //pos.x += -7.63f;
         pos.y += 3.11f;
         pos.z = -100f;
