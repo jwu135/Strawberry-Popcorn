@@ -59,66 +59,63 @@ public class CursorMovement: MonoBehaviour
         }
         else if (stickInput.magnitude > deadzone && usingController == false)
         {
-            cursorBody.position = new Vector2(0, 0);
             usingController = true;
         }
 
-
-        //first do velocity based on stick movement
-        if (stickInput.magnitude == Vector2.zero.magnitude && controlFrozen == false)//if player is not pressing anything horizontal and the player isn't rolling
-
-        {
-            if (velocityVector.x > 0)
-            {
-                if (velocityVector.x - deceleration < 0)
-                {
-                    velocityVector.x = 0;
-                }
-                else
-                {
-                    velocityVector.x -= deceleration;
-                }
-            }
-            if (velocityVector.x < 0)
-            {
-                if (velocityVector.x + deceleration > 0)
-                {
-                    velocityVector.x = 0;
-                }
-                else
-                {
-                    velocityVector.x += deceleration;
-                }
-            }
-
-            if (velocityVector.y > 0)
-            {
-                if (velocityVector.y - deceleration < 0)
-                {
-                    velocityVector.y = 0;
-                }
-                else
-                {
-                    velocityVector.y -= deceleration;
-                }
-            }
-            if (velocityVector.y < 0)
-            {
-                if (velocityVector.y + deceleration > 0)
-                {
-                    velocityVector.y = 0;
-                }
-                else
-                {
-                    velocityVector.y += deceleration;
-                }
-            }
-        }
         if(usingController == true)
         {
+            if (stickInput.magnitude == Vector2.zero.magnitude && controlFrozen == false)//if player is not pressing anything horizontal and the player isn't rolling
+
+            {
+                if (velocityVector.x > 0)
+                {
+                    if (velocityVector.x - deceleration < 0)
+                    {
+                        velocityVector.x = 0;
+                    }
+                    else
+                    {
+                        velocityVector.x -= deceleration;
+                    }
+                }
+                if (velocityVector.x < 0)
+                {
+                    if (velocityVector.x + deceleration > 0)
+                    {
+                        velocityVector.x = 0;
+                    }
+                    else
+                    {
+                        velocityVector.x += deceleration;
+                    }
+                }
+
+                if (velocityVector.y > 0)
+                {
+                    if (velocityVector.y - deceleration < 0)
+                    {
+                        velocityVector.y = 0;
+                    }
+                    else
+                    {
+                        velocityVector.y -= deceleration;
+                    }
+                }
+                if (velocityVector.y < 0)
+                {
+                    if (velocityVector.y + deceleration > 0)
+                    {
+                        velocityVector.y = 0;
+                    }
+                    else
+                    {
+                        velocityVector.y += deceleration;
+                    }
+                }
+            }
             cursorBody.velocity = velocityVector;
         }
-        else
+        if (usingController == false)
         {
             Vector3 dir = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 dir2 = new Vector2(dir.x, dir.y);
