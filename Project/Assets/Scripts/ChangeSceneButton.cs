@@ -12,7 +12,7 @@ public class ChangeSceneButton : MonoBehaviour
 
     void Start()
     {
-        cursorBody = GameObject.Find("MenuCursor").GetComponent<BoxCollider2D>();
+        cursorBody = GameObject.Find("Cursor").GetComponent<BoxCollider2D>();
         buttonBody = GetComponent<BoxCollider2D>();
 
     }
