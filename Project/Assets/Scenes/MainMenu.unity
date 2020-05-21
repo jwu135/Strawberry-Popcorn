@@ -1334,7 +1334,6 @@ GameObject:
   - component: {fileID: 1320804784}
   - component: {fileID: 1320804783}
   - component: {fileID: 1320804782}
-  - component: {fileID: 1320804781}
   m_Layer: 0
   m_Name: OptionsButtonNormal
   m_TagString: Untagged
@@ -1342,19 +1341,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1320804781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1320804780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b383c7b911341945841e6cbcd89fdaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToChangeTo: 
 --- !u!61 &1320804782
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2515,6 +2501,7 @@ GameObject:
   - component: {fileID: 2021311003}
   - component: {fileID: 2021311002}
   - component: {fileID: 2021311004}
+  - component: {fileID: 2021311005}
   m_Layer: 0
   m_Name: ExitButtonNormal
   m_TagString: Untagged
@@ -2612,6 +2599,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 18.36, y: 9.28}
   m_EdgeRadius: 0
+--- !u!114 &2021311005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021311001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7da52d0ab263f42b84a256833418b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptName: ExitScript
 --- !u!1001 &4478260948763344099
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,7 +9,6 @@ public class ChangeSceneButton : MonoBehaviour
     public string sceneToChangeTo;
     private BoxCollider2D cursorBody;
     private BoxCollider2D buttonBody;
-    private 
 
     void Start()
     {
