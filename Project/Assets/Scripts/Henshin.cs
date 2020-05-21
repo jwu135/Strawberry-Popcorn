@@ -11,9 +11,7 @@ public class Henshin : MonoBehaviour
     public Camera cam3;
     public float speed;
     bool henshin = false;
-    //public SpriteRenderer test1;
-    //public SpriteRenderer test2;
-    //public SpriteRenderer test3;
+
     private int counter = 0;
 
     public GameObject Player1;
@@ -27,7 +25,7 @@ public class Henshin : MonoBehaviour
         //cam = Camera.main;
         //cam3.enabled = false;
 
-        if (GlobalVariable.deathCounter > 0)
+        if (GlobalVariable.deathCounter < 1)
         {
             Player1.SetActive(false);
             cam.enabled = false;
