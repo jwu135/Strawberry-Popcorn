@@ -38,7 +38,7 @@ public class BossPiece : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player.GetComponent<PlayerCombat>().evolution < 3) {
-            player.GetComponent<PlayerCombat>().evolution++;
+            //player.GetComponent<PlayerCombat>().evolution++;
             //player.GetComponent<PlayerCombat>().weaponCycle = player.GetComponent<PlayerCombat>().evolution;
         }
         /*

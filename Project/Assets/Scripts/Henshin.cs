@@ -25,7 +25,7 @@ public class Henshin : MonoBehaviour
         //cam = Camera.main;
         //cam3.enabled = false;
 
-        if (GlobalVariable.deathCounter < 1)
+        if (GlobalVariable.deathCounter > 0)
         {
             Player1.SetActive(false);
             cam.enabled = false;

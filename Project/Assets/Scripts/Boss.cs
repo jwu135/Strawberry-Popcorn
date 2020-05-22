@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DragonBones;
-using UnityScript.Steps;
 
 public class Boss : MonoBehaviour
 {
@@ -88,7 +87,7 @@ public class Boss : MonoBehaviour
                 if (phase % 0.5f == 0&& phase%1f != 0) {
                     Debug.Log("Attempted to drop piece");
                     float randDrop = UnityEngine.Random.Range(0f, 1f);
-                    if (randDrop > 0.5f) {
+                    if (randDrop > 0.25f) {
                         GameObject tempObj = Resources.Load("Prefabs/UpgradePiece") as GameObject;
                         GameObject upgradePiece = Instantiate(tempObj, transform.position, transform.rotation);
                     }

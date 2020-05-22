@@ -12,7 +12,7 @@ public class cutSceneStart : MonoBehaviour
 
     public bool counter = false;
 
-    void start()
+    void Start()
     {
         if(GlobalVariable.deathCounter < 1)
         {
@@ -24,6 +24,7 @@ public class cutSceneStart : MonoBehaviour
         {
             cam.enabled = false;
             cam2.enabled = true;
+            counter = true;
         }
 
 
@@ -42,6 +43,8 @@ public class cutSceneStart : MonoBehaviour
             cam.enabled = false;
             cam2.enabled = true;
             counter = true;
+            GameObject.Find("EventSystem").GetComponent<DialogueSystem>().StartCoroutine("textScroll");
+            GameObject.Find("EventSystem").GetComponent<DialogueSystem>().startTalking = true;
         }
 
     }

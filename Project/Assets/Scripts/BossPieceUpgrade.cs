@@ -32,8 +32,10 @@ public class BossPieceUpgrade : MonoBehaviour
         // give 2 points
         if (mainPiece) {
             Debug.Log("upgraded twice");
+            UpgradeValues.deathPoints += 2;
         } else { // gives 1 point
             Debug.Log("upgraded once");
+            UpgradeValues.deathPoints += 1;
         }
         Destroy(gameObject);
     }
