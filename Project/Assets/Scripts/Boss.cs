@@ -78,14 +78,7 @@ public class Boss : MonoBehaviour
                 phase += 0.25f;
                 healthPhasesIndex++;
                 GetComponent<BossShoot>().setPhase(phase);
-                if (phase % 0.5f == 0) {
-                    Debug.Log("half phase");
-                }
-                if (phase % 1f == 0) {
-                    Debug.Log("full phase");
-                }
                 if (phase % 0.5f == 0&& phase%1f != 0) {
-                    Debug.Log("Attempted to drop piece");
                     float randDrop = UnityEngine.Random.Range(0f, 1f);
                     if (randDrop > 0.25f) {
                         GameObject tempObj = Resources.Load("Prefabs/UpgradePiece") as GameObject;

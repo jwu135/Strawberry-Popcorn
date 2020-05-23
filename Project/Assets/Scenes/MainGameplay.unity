@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3568,7 +3568,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &212066180
 Transform:
   m_ObjectHideFlags: 1
@@ -4256,7 +4256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &237689229
 Transform:
   m_ObjectHideFlags: 1
@@ -5949,7 +5949,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &365283771
 Transform:
   m_ObjectHideFlags: 1
@@ -6714,7 +6714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &404607876
 Transform:
   m_ObjectHideFlags: 1
@@ -12298,7 +12298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e887b2076177df545b9ec2c065a74e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unityData: {fileID: 11400000, guid: de6845ce7ec39ae4b97aa5eb56cf9da4, type: 2}
+  unityData: {fileID: 11400000, guid: 2fca74a8e9f8b2e42839a5a888aeb7dc, type: 2}
   armatureName: Armature
   armatureBaseName: 
   isUGUI: 0
@@ -12740,7 +12740,7 @@ MonoBehaviour:
   - left hand
   - Rightfoots
   - leftfootS
-  dirty: 0
+  dirty: 1
 --- !u!114 &829782388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14126,7 +14126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &904765914
 Transform:
   m_ObjectHideFlags: 1
@@ -14286,7 +14286,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &909382287
 Transform:
   m_ObjectHideFlags: 1
@@ -15971,7 +15971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1000444092
 Transform:
   m_ObjectHideFlags: 1
@@ -17425,7 +17425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1073001480
 Transform:
   m_ObjectHideFlags: 1
@@ -17583,7 +17583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1073522920
 Transform:
   m_ObjectHideFlags: 1
@@ -17929,6 +17929,7 @@ MonoBehaviour:
       that ever again. This cycle ends now."
   stops: 0c000000140000001c00000021000000290000002e00000033000000
   dialogueGoing: 1
+  startTalking: 0
 --- !u!114 &1080010703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21219,7 +21220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1260065141
 Transform:
   m_ObjectHideFlags: 1
@@ -22986,7 +22987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1361740548
 Transform:
   m_ObjectHideFlags: 1
@@ -23679,6 +23680,7 @@ MonoBehaviour:
       that ever again. This cycle ends now."
   stops: 0c000000140000001c00000021000000290000002e00000033000000
   dialogueGoing: 1
+  startTalking: 0
 --- !u!114 &1407061492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24900,7 +24902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1480279536
 Transform:
   m_ObjectHideFlags: 1
@@ -24908,9 +24910,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480279535}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.010000001}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.8002618, w: -0.5996508}
+  m_LocalPosition: {x: 0.10291913, y: 0.9589121, z: -0.010000001}
+  m_LocalScale: {x: 1.0000001, y: 0.9999999, z: 1}
   m_Children: []
   m_Father: {fileID: 829782386}
   m_RootOrder: 10
@@ -25295,7 +25297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1490209187
 Transform:
   m_ObjectHideFlags: 1
@@ -29946,6 +29948,7 @@ MonoBehaviour:
   cutScene: {fileID: 1783886833}
   cam: {fileID: 1505601214}
   cam2: {fileID: 1509709305}
+  counter: 0
 --- !u!1 &1783920309
 GameObject:
   m_ObjectHideFlags: 1
@@ -30393,7 +30396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1798795007
 Transform:
   m_ObjectHideFlags: 1
@@ -30401,9 +30404,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1798795006}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.013}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.000000019090447, w: 1}
+  m_LocalPosition: {x: 0.5189933, y: 2.0912116, z: -0.013}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 829782386}
   m_RootOrder: 13
@@ -37745,7 +37748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1954906667
 Transform:
   m_ObjectHideFlags: 1
@@ -41494,7 +41497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2135491459
 Transform:
   m_ObjectHideFlags: 1

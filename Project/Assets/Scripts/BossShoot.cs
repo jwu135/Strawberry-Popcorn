@@ -73,7 +73,7 @@ public class BossShoot : MonoBehaviour
         if (GameObject.Find("Mother").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BossIdle")) {
             // Projectile stuff
             if (nextTimeShoot < Time.time) {
-                if (GlobalVariable.deathCounter == 0) { // stuff for first run of the boss. Change to some high number if you're testing boss phase stuff
+                if (GlobalVariable.deathCounter == 100) { // stuff for first run of the boss. Change to some high number if you're testing boss phase stuff
                         Shoot(false, 2, 10, cd: 0.33f);
 
                 } else {
