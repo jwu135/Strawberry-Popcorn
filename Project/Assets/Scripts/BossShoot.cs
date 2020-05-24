@@ -219,6 +219,7 @@ public class BossShoot : MonoBehaviour
                 else
                     position = new Vector3(spawnPointsX[place], -7.96f, 0);
                 physicalAttack = Instantiate(hitObj, position, hitObj.transform.rotation) as GameObject;
+                
             } else if (pos == 1) { // right wall tentacles
                 int rand = Random.Range(0, spawnPointsY.Length);
                 float offset = Random.Range(-2f, 2f) + player.transform.position.y;
@@ -228,6 +229,7 @@ public class BossShoot : MonoBehaviour
                     position = new Vector3(28.4f, spawnPointsY[place], 0);
                 Quaternion tempRotation = Quaternion.Euler(0, 0, 90);
                 physicalAttack = Instantiate(hitObj, position, tempRotation) as GameObject;
+          
             } else if (pos == 2) { // left wall tentacles
                 int rand = Random.Range(0, spawnPointsY.Length);
                 float offset = Random.Range(-2f, 2f) + player.transform.position.y;
@@ -238,7 +240,8 @@ public class BossShoot : MonoBehaviour
                 
                 Quaternion tempRotation = Quaternion.Euler(0, 0, 270);
                 physicalAttack = Instantiate(hitObj, position, tempRotation) as GameObject;
-                physicalAttack.transform.localScale = Vector3.Scale(physicalAttack.transform.localScale, new Vector3(-1,1)); 
+                physicalAttack.transform.localScale = Vector3.Scale(physicalAttack.transform.localScale, new Vector3(-1,1));
+             
             }
             
             physicalAttack.GetComponent<AttackTimer>().disappear();

@@ -29,6 +29,7 @@ public class BossPieceUpgrade : MonoBehaviour
     {
         // upgrade stuff
         // give 2 points
+        SoundManager.PlaySound("eatingQuestionMark");
         if (mainPiece) {
             UpgradeValues.deathPoints += 2;
         } else { // gives 1 point
