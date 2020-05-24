@@ -78,9 +78,15 @@ public class Boss : MonoBehaviour
                 phase += 0.25f;
                 healthPhasesIndex++;
                 GetComponent<BossShoot>().setPhase(phase);
-                // Insert upgrade stuff here
+                if (phase % 0.5f == 0&& phase%1f != 0) {
+                    float randDrop = UnityEngine.Random.Range(0f, 1f);
+                    if (randDrop > 0.25f) {
+                        GameObject tempObj = Resources.Load("Prefabs/UpgradePiece") as GameObject;
+                        GameObject upgradePiece = Instantiate(tempObj, transform.position, transform.rotation);
+                    }
+                }
             }
-            
+
 
             player.GetComponent<HealthManager>().activateScreenShake((float)amnt/4);
             if (healthNew[healthNew.Length - 1] <= 0) {

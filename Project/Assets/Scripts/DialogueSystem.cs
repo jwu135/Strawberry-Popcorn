@@ -23,6 +23,7 @@ public class DialogueSystem : MonoBehaviour
     bool continuing2 = false;
     private float baseTextSpeed;
     public bool dialogueGoing = true;
+    public bool startTalking = false;
     public void Start()
     {
         baseTextSpeed = textspeed;
@@ -32,7 +33,11 @@ public class DialogueSystem : MonoBehaviour
         name.text = dialogue[index].name;
         sentence.text = currSentence;
         boxChange();
-        StartCoroutine("textScroll");
+        //StartCoroutine("textScroll");
+        if (GlobalVariable.deathCounter > 0) {
+            startTalking = true;
+            StartCoroutine("textScroll");
+        }
     }
     void Update()
     {
@@ -81,37 +86,38 @@ public class DialogueSystem : MonoBehaviour
     }
     public void lookAround()
     {
-        if (Input.GetButtonDown("Fire1")&&dialogueGoing){
-            index = stops[stopsIndex] - 1; // use this to make dialogue only show first dialogue box of each thing
-            if (currSentence.Length < finalSentence.Length) {
-                StopCoroutine("textScroll");
-                sentence.text = currSentence = finalSentence;
-            } else {
-                if (stops[stopsIndex] > index + 1&& stopsIndex<8) {
-                    index++;
-                    name.text = dialogue[index].name;
-                    boxChange();
-                    finalSentence = dialogue[index].sentences;
-                    currSentence = "";
-                    StartCoroutine("textScroll");
+        if (startTalking) {
+            if (Input.GetButtonDown("Fire1") && dialogueGoing) {
+                index = stops[stopsIndex] - 1; // use this to make dialogue only show first dialogue box of each thing
+                if (currSentence.Length < finalSentence.Length) {
+                    StopCoroutine("textScroll");
+                    sentence.text = currSentence = finalSentence;
                 } else {
-                    stopsIndex++;
-                    dialogueBox.SetActive(false);
-                    dialogueGoing = false;
-                    if (continuing) {
-                        GetComponent<CutsceneSystem>().StartCoroutine("buffer");
-                    } else if (continuing2) {
-                        GetComponent<CutsceneSystem>().DialogueDone(true);
-                        GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[0];
+                    if (stops[stopsIndex] > index + 1 && stopsIndex < 8) {
+                        index++;
+                        name.text = dialogue[index].name;
+                        boxChange();
+                        finalSentence = dialogue[index].sentences;
+                        currSentence = "";
+                        StartCoroutine("textScroll");
                     } else {
-                        GetComponent<CutsceneSystem>().DialogueDone();
-                        GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[0];
+                        stopsIndex++;
+                        dialogueBox.SetActive(false);
+                        dialogueGoing = false;
+                        if (continuing) {
+                            GetComponent<CutsceneSystem>().StartCoroutine("buffer");
+                        } else if (continuing2) {
+                            GetComponent<CutsceneSystem>().DialogueDone(true);
+                            GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[0];
+                        } else {
+                            GetComponent<CutsceneSystem>().DialogueDone();
+                            GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[0];
+                        }
                     }
+
                 }
-                
             }
         }
-        
         
     }
     private int tempSwapper = 0;

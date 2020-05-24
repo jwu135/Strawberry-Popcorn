@@ -38,7 +38,7 @@ public class BossPiece : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player.GetComponent<PlayerCombat>().evolution < 3) {
-            player.GetComponent<PlayerCombat>().evolution++;
+            //player.GetComponent<PlayerCombat>().evolution++;
             //player.GetComponent<PlayerCombat>().weaponCycle = player.GetComponent<PlayerCombat>().evolution;
         }
         /*
@@ -87,6 +87,7 @@ public class BossPiece : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 3) {
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().setMode(0);
         }
+        GetComponent<BossPieceUpgrade>().eat();
         Destroy(gameObject);
     }
 

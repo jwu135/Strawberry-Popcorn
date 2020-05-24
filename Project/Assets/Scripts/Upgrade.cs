@@ -14,9 +14,12 @@ public class Upgrade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         UpgradeValues.deathPoints = deathStandard;
+
         //UpgradeValues.bonusHealth += 5;
         // Debug.Log(UpgradeValues.bonusHealth);
+        
         if (SceneChanger.scene.name.Equals("Gameover"))
         {
             UpgradeValues.upgradeLocation = 0;
@@ -37,7 +40,9 @@ public class Upgrade : MonoBehaviour
             SavePlayer();
         }
 
+
         
+
     }
 
     // Update is called once per frame

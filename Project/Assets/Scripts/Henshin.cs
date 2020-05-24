@@ -1,28 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Henshin : MonoBehaviour
 {
     // Start is called before the first frame update
     public Camera cam;
     public Camera cam2;
+    public Camera cam3;
     public float speed;
     bool henshin = false;
-    //public SpriteRenderer test1;
-    //public SpriteRenderer test2;
-    //public SpriteRenderer test3;
+
     private int counter = 0;
 
     public GameObject Player1;
     public GameObject Player2;
     public GameObject sp;
 
+    public PlayableDirector Prologue; 
+
     void Start()
     {
         //cam = Camera.main;
-        Player2.SetActive(false);
-        cam2.enabled = false;
+        //cam3.enabled = false;
+
+        if (GlobalVariable.deathCounter > 0)
+        {
+            Player1.SetActive(false);
+            cam.enabled = false;
+            sp.SetActive(false);
+        }
+        else
+        {
+            Player2.SetActive(false);
+            cam2.enabled = false;
+            Prologue.enabled = false;
+        }
+
+        cam3.enabled = false;
 
     }
 
@@ -30,7 +46,7 @@ public class Henshin : MonoBehaviour
     {
         if(henshin == true)
         {
-            if(cam2.orthographicSize < 8.7f)
+            if(cam2.orthographicSize < 8.7f && cam3.enabled == false)
             {
                 cam2.transform.position = new Vector3(Mathf.Lerp(cam2.transform.position.x, -3.33f, speed), Mathf.Lerp(cam2.transform.position.y, 2.5f, speed), Mathf.Lerp(cam2.transform.position.z, 0, speed));
                 cam2.orthographicSize = Mathf.Lerp(cam2.orthographicSize, 8.709762f, speed);
@@ -59,7 +75,12 @@ public class Henshin : MonoBehaviour
             counter = 3;
         }
         */
+            if (Input.GetButtonDown("Fire1"))
+            {
 
+                cam3.enabled = false;
+            }
+               
         }
     }
 
@@ -69,7 +90,11 @@ public class Henshin : MonoBehaviour
         {
             
             henshin = true;
+            Prologue.enabled = true;
+            Prologue.Play();
+            cam3.enabled = true;
             Player1.SetActive(false);
+           // cam3.enabled = false;
             cam2.enabled = true;
             cam.enabled = false;
             Player2.SetActive(true);

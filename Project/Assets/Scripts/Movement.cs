@@ -79,7 +79,9 @@ public class Movement : MonoBehaviour
 
     IEnumerator afterImageStop()
     {
-        yield return new WaitForSeconds(.3f);
+        while(armatureComponent.animationName.Equals("dodge") && !armatureComponent.animation.isCompleted)
+            yield return new WaitForSeconds(.1f);
+
         GetComponent<ParticleSystem>().Stop();
     }
 
@@ -164,10 +166,9 @@ public class Movement : MonoBehaviour
         }
         // animation plays when you roll in place
         //if (((Input.GetButton("Roll") == true) || (Input.GetAxis("Roll") < 0)) && (platMove.getRollingFrame() < 2 && platMove.getStickInput().magnitude > 0))
-        if (rollTime)
+        if (rollTime) // set in PlatformMovementPhys.cs
         {// add function call to PlatformMovementPhys
             SoundManager.PlaySound("playerDodge");
-            Debug.Log("Attempted to animate roll");
             setPrimaryArmature(1);
             armatureComponent.animation.timeScale = 2f;
             GetComponent<ParticleSystem>().Play();

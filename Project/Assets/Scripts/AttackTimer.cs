@@ -24,6 +24,10 @@ public class AttackTimer : MonoBehaviour // literally just ended up becoming the
     {
         //SoundManager.PlaySound("bossAOE");
     }
+    public void playTentacleSound()
+    {
+        SoundManager.PlaySound("tentacleAttack");
+    }
     public void setEnemy(Transform e)
     {
         enemy = e;

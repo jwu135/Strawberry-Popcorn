@@ -23,6 +23,10 @@ public class SceneChanger : MonoBehaviour
     private Sprite tempBerrySprite;
     private int lastDeathCounter = 0;
     private bool fallingBerry = false;
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
     void Start()
     {
         lastDeathCounter = GlobalVariable.lastDeathCounter;

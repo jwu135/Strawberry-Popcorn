@@ -15,6 +15,13 @@ public class SoundManager : MonoBehaviour
     public static AudioClip enemyHit2;
     public static AudioClip playerDodge;
     public static AudioClip playerCharging;
+    
+    
+    public static AudioClip mushroomSplat;
+    public static AudioClip deathScreenClick;
+    public static AudioClip menuClick;
+    public static AudioClip eatingQuestionMark;
+    public static AudioClip tentacleAttack;
 
     public static AudioClip playerTalk1;
     public static AudioClip playerTalk2;
@@ -26,6 +33,9 @@ public class SoundManager : MonoBehaviour
     public static AudioClip motherTalk3;
     public static AudioClip motherTalk4;
 
+    public static AudioClip playerStep1;
+    public static AudioClip playerStep2;
+    
     public static AudioClip playerShootSound1;
     public static AudioClip playerShootSound2;
     public static AudioClip playerShootSound3;
@@ -59,6 +69,16 @@ public class SoundManager : MonoBehaviour
         enemyHit1 = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/Hit1"); // called in Boss.cs
         enemyHit2 = Resources.Load<AudioClip>("Sounds/Chiptune/Hit2Full"); // called in Boss.cs
         playerDodge = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/Dodge"); // called in Movement.cs
+        
+        playerStep1 = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/Step1"); // called in Movement.cs
+        playerStep2 = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/Step2"); // called in Movement.cs
+        
+        mushroomSplat = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/mushroomSplat"); // called in Movement.cs
+        deathScreenClick = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/deathScreenClick"); // called in Movement.cs
+        menuClick = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/menuClick"); // called in Movement.cs
+        eatingQuestionMark = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/EatingQuestionMark"); // called in Movement.cs
+        tentacleAttack = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/TentaceAttack"); // called in Movement.cs
+        
         playerCharging = Resources.Load<AudioClip>("Sounds/Chiptune/ChargingUp");
 
         // leaving these just in case
@@ -168,6 +188,23 @@ public class SoundManager : MonoBehaviour
                 break; 
             case "motherTalk4":
                 audioSrc.PlayOneShot(motherTalk4);
+                break;
+
+            case "mushroomSplat":
+                audioSrc.PlayOneShot(mushroomSplat);
+                break;
+            case "deathScreenClick":
+                audioSrc.PlayOneShot(deathScreenClick);
+                break; 
+            case "menuClick":
+                audioSrc.PlayOneShot(menuClick);
+                break;
+            case "eatingQuestionMark":
+                audioSrc.PlayOneShot(eatingQuestionMark);
+                break;
+            case "tentacleAttack":
+                audioSrc.PlayOneShot(tentacleAttack,1f);
+                Debug.Log("tried to play");
                 break;
 
         }
