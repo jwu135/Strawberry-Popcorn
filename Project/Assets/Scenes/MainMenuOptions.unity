@@ -1223,9 +1223,7 @@ GameObject:
   - component: {fileID: 1692491385}
   - component: {fileID: 1692491384}
   - component: {fileID: 1692491383}
-  - component: {fileID: 1692491382}
   - component: {fileID: 1692491380}
-  - component: {fileID: 1692491381}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1247,44 +1245,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeScreen: {fileID: 908988022}
   resolutionText: {fileID: 41616630}
---- !u!114 &1692491381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1692491379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d18aea31e17a93d468982af0fb6479d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas:
-  - {fileID: 0}
-  - {fileID: 0}
-  optionButton: {fileID: 0}
-  backButton: {fileID: 0}
---- !u!114 &1692491382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1692491379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72d9b83d35c2d08498df36648c8a32a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  play: {fileID: 0}
-  quit: {fileID: 0}
-  retry: {fileID: 0}
-  intro: 0
-  berryImage: {fileID: 0}
-  berryImageDropped: []
-  berryBody: {fileID: 0}
-  scene:
-    m_Handle: 0
 --- !u!114 &1692491383
 MonoBehaviour:
   m_ObjectHideFlags: 0
