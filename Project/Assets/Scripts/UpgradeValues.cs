@@ -14,6 +14,12 @@ public class UpgradeValues : MonoBehaviour
     public static double deathPoints;
     public static double deathPointsUsed;
     public static bool deathProfit;
+    public static bool continueGame = false;
+    public static int[] bodyTypes;
+    public static float[] positionValues;
+    public static List<Vector2> positions = new List<Vector2>();
+    public static List<Sprite> bodies = new List<Sprite>();
+    public static int deathCounter;
 
     void Awake()
     {

@@ -2025,8 +2025,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f03773595d5c234dbfdffc291d635d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradePoints: 1
   SceneChanger: {fileID: 928151868}
+  GlobalVariable: {fileID: 703568000}
+  deathStandard: 100
 --- !u!1 &1615829273
 GameObject:
   m_ObjectHideFlags: 0

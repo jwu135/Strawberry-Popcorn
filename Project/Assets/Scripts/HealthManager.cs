@@ -84,6 +84,7 @@ public class HealthManager : MonoBehaviour
         if (health <= 0)
         {
             GlobalVariable.deathCounter += 1;
+            UpgradeValues.deathCounter += 1;
             GameObject.Find("EventSystem").GetComponent<gameOver>().startGameOver(false);
         }
         if (mana != lastmana) {

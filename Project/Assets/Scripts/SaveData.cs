@@ -18,6 +18,12 @@ public class SaveData
     public bool deathProfit;
     public double weaponAmount;
     public double[] weaponChoice;
+    public int[] bodyTypes;
+    public float[] positionValues;
+    //public List<Vector2> positions = new List<Vector2>();
+   // public List<Vector2> bodies = new List<Vector2>();
+    public int deathCounter;
+    public bool continueGame = false;
 
     public SaveData (Upgrade Upgrade)
     {
@@ -30,6 +36,25 @@ public class SaveData
         deathProfit = UpgradeValues.deathProfit;
         deathPoints = UpgradeValues.deathPoints;
         deathPointsUsed = UpgradeValues.deathPointsUsed;
+        deathCounter = UpgradeValues.deathCounter;
+        continueGame = UpgradeValues.continueGame;
+
+        //bodyTypes = new int[UpgradeValues.deathCounter];
+       // positionValues = new float[(UpgradeValues.deathCounter * 2)];
+
+        bodyTypes = new int[1000000];
+        positionValues = new float[1000000];
+
+        for (int i = 0; i < (UpgradeValues.deathCounter * 2); i++)
+        {     
+            positionValues[i] = UpgradeValues.positionValues[i];
+
+        }
+
+        for (int i = 0; i < UpgradeValues.deathCounter; i++)
+        {
+           bodyTypes[i] = UpgradeValues.bodyTypes[i];
+        }
 
 
         //weaponAmount = UpgradeValues.weaponAmount;

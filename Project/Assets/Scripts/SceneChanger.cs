@@ -17,6 +17,7 @@ public class SceneChanger : MonoBehaviour
     private GameObject currBody;
     private List<Sprite> bodies;
     public Scene scene;
+    public Upgrade Upgrade;
     Vector2 temp;
     float finalPosY;
     private Sprite tempBerrySprite;
@@ -32,12 +33,29 @@ public class SceneChanger : MonoBehaviour
         if(retry!=null)
             retry.onClick.AddListener(startGame);
         scene = SceneManager.GetActiveScene();
-        if (scene.name.Equals("Gameover")) {
+
+        Debug.Log(UpgradeValues.continueGame);
+        if (scene.name.Equals("Gameover") && !UpgradeValues.continueGame)
+        {
             positions = GlobalVariable.positions;
             bodies = GlobalVariable.bodies;
             dropBerry();
             GlobalVariable.bodies = bodies;
             GlobalVariable.positions = positions;
+            Debug.Log("UpgradeValues.continueGame");
+           // Upgrade.SavePlayer();
+        }
+
+        if (scene.name.Equals("Gameover") && UpgradeValues.continueGame)
+        {
+            positions = UpgradeValues.positions;
+            bodies = UpgradeValues.bodies;
+            dropBerry();
+            GlobalVariable.bodies = bodies;
+            GlobalVariable.positions = positions;
+            UpgradeValues.continueGame = false;
+            Debug.Log("UpgradeValues.continueGame2");
+           // Upgrade.SavePlayer();
         }
     }
 
@@ -61,11 +79,31 @@ public class SceneChanger : MonoBehaviour
             GlobalVariable.lastDeathCounter = GlobalVariable.deathCounter;
             fallingBerry = true;
             temp = new Vector2(Random.Range(-7f, 7f), Random.Range(-4.5f, -2.5f));
+
+            Debug.Log(UpgradeValues.deathCounter);
+            Debug.Log(temp.x);
+            UpgradeValues.positionValues[(UpgradeValues.deathCounter * 2) - 2] = temp.x;
+            Debug.Log(UpgradeValues.positionValues[0]);
+            UpgradeValues.positionValues[(UpgradeValues.deathCounter * 2) - 1] = temp.y;
+            Debug.Log(temp.y);
+            Debug.Log(UpgradeValues.positionValues[1]);
+
             positions.Add(temp);
             finalPosY = temp.y;
             temp.y = 6;
             currBody = Instantiate(berryBody, temp, berryBody.transform.rotation) as GameObject;
             tempBerrySprite = (Random.Range(0f, 1f) > 0.5f ? berryImageDropped[0] : berryImageDropped[1]);
+
+            if(tempBerrySprite == berryImageDropped[0])
+            {
+                UpgradeValues.bodyTypes[(UpgradeValues.deathCounter - 1)] = 0;
+            }
+            else
+            {
+                UpgradeValues.bodyTypes[(UpgradeValues.deathCounter - 1)] = 1;
+            }
+            
+
             bodies.Add(tempBerrySprite);
             
         }
@@ -110,12 +148,12 @@ public class SceneChanger : MonoBehaviour
         {
             SceneManager.LoadScene("Scenes/Upgrade");
         }
-        if (scene.name.Equals("MainMenu") && UpgradeValues.upgradeLocation == 1 && UpgradeValues.deathPointsUsed > 0)
+        if (scene.name.Equals("MainMenu") && UpgradeValues.upgradeLocation == 1 && UpgradeValues.deathProfit)
         {
             SceneManager.LoadScene("Scenes/Upgrade");
             Debug.Log("fish2");
         }
-        if (scene.name.Equals("MainMenu") && UpgradeValues.upgradeLocation == 1 && UpgradeValues.deathPointsUsed == 0)
+        if (scene.name.Equals("MainMenu") && UpgradeValues.upgradeLocation == 1 && !UpgradeValues.deathProfit)
         {
             SceneManager.LoadScene("Scenes/ParallaxTest");
             Debug.Log("fish3");

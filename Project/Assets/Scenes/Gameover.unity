@@ -993,6 +993,7 @@ MonoBehaviour:
     type: 3}
   scene:
     m_Handle: 0
+  Upgrade: {fileID: 1084298127}
 --- !u!1 &954805656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,8 +1220,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f03773595d5c234dbfdffc291d635d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradePoints: -1
   SceneChanger: {fileID: 928151868}
+  GlobalVariable: {fileID: 0}
+  deathStandard: 2
+  berryImageDropped:
+  - {fileID: 21300000, guid: 7d446445a388b714180c864ab6f78385, type: 3}
+  - {fileID: 21300000, guid: 3a1cb2c0f2ac18f4eb94ca25b3b3ef7c, type: 3}
 --- !u!4 &1084298128
 Transform:
   m_ObjectHideFlags: 0
