@@ -1,0 +1,667 @@
+fileFormatVersion: 2
+guid: eb220fbede9028040bd398f4b8a33f8d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4196835596696234016
+    second: DoorToRoom2Sheet_0
+  - first:
+      213: -7708354422752676288
+    second: DoorToRoom2Sheet_1
+  - first:
+      213: 3107812779825704998
+    second: DoorToRoom2Sheet_2
+  - first:
+      213: 3496018169942260029
+    second: DoorToRoom2Sheet_3
+  - first:
+      213: -1052252015155259064
+    second: DoorToRoom2Sheet_4
+  - first:
+      213: -5532003609526860574
+    second: DoorToRoom2Sheet_5
+  - first:
+      213: 4470408563030548899
+    second: DoorToRoom2Sheet_6
+  - first:
+      213: 9093291234626098373
+    second: DoorToRoom2Sheet_7
+  - first:
+      213: -6986016234231594026
+    second: DoorToRoom2Sheet_8
+  - first:
+      213: -6859668473042951821
+    second: DoorToRoom2Sheet_9
+  - first:
+      213: -1205341291396984454
+    second: DoorToRoom2Sheet_10
+  - first:
+      213: -3726828088282104071
+    second: DoorToRoom2Sheet_11
+  - first:
+      213: 8481983705060542304
+    second: DoorToRoom2Sheet_12
+  - first:
+      213: -1941127094163650827
+    second: DoorToRoom2Sheet_13
+  - first:
+      213: 7797357108338191522
+    second: DoorToRoom2Sheet_14
+  - first:
+      213: 7623174888979453864
+    second: DoorToRoom2Sheet_15
+  - first:
+      213: -4533606777346121
+    second: DoorToRoom2Sheet_16
+  - first:
+      213: 8664623520152006799
+    second: DoorToRoom2Sheet_17
+  - first:
+      213: -3376660514807555647
+    second: DoorToRoom2Sheet_18
+  - first:
+      213: 5500286987338869069
+    second: DoorToRoom2Sheet_19
+  - first:
+      213: -5180186822909405558
+    second: DoorToRoom2Sheet_20
+  - first:
+      213: 8076663238959561375
+    second: DoorToRoom2Sheet_21
+  - first:
+      213: 7229451966913822148
+    second: DoorToRoom2Sheet_22
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0282bc94db72e3a30800000000000000
+      internalID: 4196835596696234016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 1280
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 046f30d3e7c660590800000000000000
+      internalID: -7708354422752676288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 1280
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6203ee1e14b212b20800000000000000
+      internalID: 3107812779825704998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 1280
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3938bbb00a548030800000000000000
+      internalID: 3496018169942260029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 1280
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8495b760e56a561f0800000000000000
+      internalID: -1052252015155259064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e409f5e6006a33b0800000000000000
+      internalID: -5532003609526860574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 960
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a1ec4027e41a0e30800000000000000
+      internalID: 4470408563030548899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 960
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c4df07133cd13e70800000000000000
+      internalID: 9093291234626098373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 960
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d3838b9f3fac0f90800000000000000
+      internalID: -6986016234231594026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 960
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 371245b2edf8dc0a0800000000000000
+      internalID: -6859668473042951821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a711c2d4b74c54fe0800000000000000
+      internalID: -1205341291396984454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 640
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe3ffa6995a74cc0800000000000000
+      internalID: -3726828088282104071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 640
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06709c28d3f06b570800000000000000
+      internalID: 8481983705060542304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 640
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f64d70413bbf05e0800000000000000
+      internalID: -1941127094163650827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 640
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ac6d555af6c53c60800000000000000
+      internalID: 7797357108338191522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a75c461c25fac960800000000000000
+      internalID: 7623174888979453864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 320
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b72c7a65b4efeff0800000000000000
+      internalID: -4533606777346121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 320
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f80b7273f2dee3870800000000000000
+      internalID: 8664623520152006799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 320
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c9decfe621b321d0800000000000000
+      internalID: -3376660514807555647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 320
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d49690b8fd1f45c40800000000000000
+      internalID: 5500286987338869069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a865356c7874c18b0800000000000000
+      internalID: -5180186822909405558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 0
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9af3a08c62161070800000000000000
+      internalID: 8076663238959561375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorToRoom2Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 0
+        width: 188
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cdb5a8b24c245460800000000000000
+      internalID: 7229451966913822148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
