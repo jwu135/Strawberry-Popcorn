@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eb220fbede9028040bd398f4b8a33f8d
+guid: dfd9137b5ebd5a445a01e4e2d217c639
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -70,75 +70,6 @@ TextureImporter:
     second: DoorToRoom2Sheet_21
   - first:
       213: 7229451966913822148
-    second: DoorToRoom2Sheet_22
-  - first:
-      213: 3674857458092811979
-    second: DoorToRoom2Sheet_0
-  - first:
-      213: -3228543585476529774
-    second: DoorToRoom2Sheet_1
-  - first:
-      213: 3781184345201947661
-    second: DoorToRoom2Sheet_2
-  - first:
-      213: -5712772272530514273
-    second: DoorToRoom2Sheet_3
-  - first:
-      213: -784402155131161633
-    second: DoorToRoom2Sheet_4
-  - first:
-      213: 134693083125922670
-    second: DoorToRoom2Sheet_5
-  - first:
-      213: -4471788405357442884
-    second: DoorToRoom2Sheet_6
-  - first:
-      213: -7786830072841302539
-    second: DoorToRoom2Sheet_7
-  - first:
-      213: 9183798533360949544
-    second: DoorToRoom2Sheet_8
-  - first:
-      213: -3138663730342415868
-    second: DoorToRoom2Sheet_9
-  - first:
-      213: -2085660356767453622
-    second: DoorToRoom2Sheet_10
-  - first:
-      213: -6388013352075389444
-    second: DoorToRoom2Sheet_11
-  - first:
-      213: -4582681856264460069
-    second: DoorToRoom2Sheet_12
-  - first:
-      213: 164350919009298735
-    second: DoorToRoom2Sheet_13
-  - first:
-      213: -6176656632323662919
-    second: DoorToRoom2Sheet_14
-  - first:
-      213: 1499124602040549687
-    second: DoorToRoom2Sheet_15
-  - first:
-      213: -8836748979269130279
-    second: DoorToRoom2Sheet_16
-  - first:
-      213: 4273857893889668592
-    second: DoorToRoom2Sheet_17
-  - first:
-      213: 6758986967810428310
-    second: DoorToRoom2Sheet_18
-  - first:
-      213: -4947540445833199617
-    second: DoorToRoom2Sheet_19
-  - first:
-      213: 8707936708558116663
-    second: DoorToRoom2Sheet_20
-  - first:
-      213: 6243670467749554259
-    second: DoorToRoom2Sheet_21
-  - first:
-      213: -2940847785642914084
     second: DoorToRoom2Sheet_22
   externalObjects: {}
   serializedVersion: 10
@@ -240,9 +171,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2048
-        width: 300
-        height: 512
+        y: 1280
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc621dd4367bff230800000000000000
-      internalID: 3674857458092811979
+      spriteID: 0282bc94db72e3a30800000000000000
+      internalID: 4196835596696234016
       vertices: []
       indices: 
       edges: []
@@ -260,10 +191,10 @@ TextureImporter:
       name: DoorToRoom2Sheet_1
       rect:
         serializedVersion: 2
-        x: 300
-        y: 2048
-        width: 300
-        height: 512
+        x: 188
+        y: 1280
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,8 +202,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2913ecde6b8e133d0800000000000000
-      internalID: -3228543585476529774
+      spriteID: 046f30d3e7c660590800000000000000
+      internalID: -7708354422752676288
       vertices: []
       indices: 
       edges: []
@@ -281,10 +212,10 @@ TextureImporter:
       name: DoorToRoom2Sheet_2
       rect:
         serializedVersion: 2
-        x: 600
-        y: 2048
-        width: 300
-        height: 512
+        x: 376
+        y: 1280
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,8 +223,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d04b70ed027797430800000000000000
-      internalID: 3781184345201947661
+      spriteID: 6203ee1e14b212b20800000000000000
+      internalID: 3107812779825704998
       vertices: []
       indices: 
       edges: []
@@ -302,10 +233,10 @@ TextureImporter:
       name: DoorToRoom2Sheet_3
       rect:
         serializedVersion: 2
-        x: 900
-        y: 2048
-        width: 300
-        height: 512
+        x: 564
+        y: 1280
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -313,8 +244,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9e1e1db2e728b0b0800000000000000
-      internalID: -5712772272530514273
+      spriteID: d3938bbb00a548030800000000000000
+      internalID: 3496018169942260029
       vertices: []
       indices: 
       edges: []
@@ -323,10 +254,10 @@ TextureImporter:
       name: DoorToRoom2Sheet_4
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 2048
-        width: 300
-        height: 512
+        x: 752
+        y: 1280
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -334,8 +265,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd33b56556e3d15f0800000000000000
-      internalID: -784402155131161633
+      spriteID: 8495b760e56a561f0800000000000000
+      internalID: -1052252015155259064
       vertices: []
       indices: 
       edges: []
@@ -345,9 +276,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1536
-        width: 300
-        height: 512
+        y: 960
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -355,8 +286,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6b3c6d35a68ed100800000000000000
-      internalID: 134693083125922670
+      spriteID: 2e409f5e6006a33b0800000000000000
+      internalID: -5532003609526860574
       vertices: []
       indices: 
       edges: []
@@ -365,10 +296,10 @@ TextureImporter:
       name: DoorToRoom2Sheet_6
       rect:
         serializedVersion: 2
-        x: 300
-        y: 1536
-        width: 300
-        height: 512
+        x: 188
+        y: 960
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -376,8 +307,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb885fb432401f1c0800000000000000
-      internalID: -4471788405357442884
+      spriteID: 3a1ec4027e41a0e30800000000000000
+      internalID: 4470408563030548899
       vertices: []
       indices: 
       edges: []
@@ -386,10 +317,10 @@ TextureImporter:
       name: DoorToRoom2Sheet_7
       rect:
         serializedVersion: 2
-        x: 600
-        y: 1536
-        width: 300
-        height: 512
+        x: 376
+        y: 960
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -397,8 +328,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fd07fd1e4f9fe390800000000000000
-      internalID: -7786830072841302539
+      spriteID: 5c4df07133cd13e70800000000000000
+      internalID: 9093291234626098373
       vertices: []
       indices: 
       edges: []
@@ -407,10 +338,10 @@ TextureImporter:
       name: DoorToRoom2Sheet_8
       rect:
         serializedVersion: 2
-        x: 900
-        y: 1536
-        width: 300
-        height: 512
+        x: 564
+        y: 960
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -418,8 +349,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8299bb5bb18637f70800000000000000
-      internalID: 9183798533360949544
+      spriteID: 6d3838b9f3fac0f90800000000000000
+      internalID: -6986016234231594026
       vertices: []
       indices: 
       edges: []
@@ -428,10 +359,10 @@ TextureImporter:
       name: DoorToRoom2Sheet_9
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 1536
-        width: 300
-        height: 512
+        x: 752
+        y: 960
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -439,8 +370,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 402b98377f93174d0800000000000000
-      internalID: -3138663730342415868
+      spriteID: 371245b2edf8dc0a0800000000000000
+      internalID: -6859668473042951821
       vertices: []
       indices: 
       edges: []
@@ -450,9 +381,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1024
-        width: 300
-        height: 512
+        y: 640
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -460,8 +391,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4ee2c0b4fe3e03e0800000000000000
-      internalID: -2085660356767453622
+      spriteID: a711c2d4b74c54fe0800000000000000
+      internalID: -1205341291396984454
       vertices: []
       indices: 
       edges: []
@@ -470,10 +401,10 @@ TextureImporter:
       name: DoorToRoom2Sheet_11
       rect:
         serializedVersion: 2
-        x: 300
-        y: 1024
-        width: 300
-        height: 512
+        x: 188
+        y: 640
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -481,8 +412,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf5181193b73957a0800000000000000
-      internalID: -6388013352075389444
+      spriteID: 9fe3ffa6995a74cc0800000000000000
+      internalID: -3726828088282104071
       vertices: []
       indices: 
       edges: []
@@ -491,10 +422,10 @@ TextureImporter:
       name: DoorToRoom2Sheet_12
       rect:
         serializedVersion: 2
-        x: 600
-        y: 1024
-        width: 300
-        height: 512
+        x: 376
+        y: 640
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -502,8 +433,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd8aabeb12b0760c0800000000000000
-      internalID: -4582681856264460069
+      spriteID: 06709c28d3f06b570800000000000000
+      internalID: 8481983705060542304
       vertices: []
       indices: 
       edges: []
@@ -512,10 +443,10 @@ TextureImporter:
       name: DoorToRoom2Sheet_13
       rect:
         serializedVersion: 2
-        x: 900
-        y: 1024
-        width: 300
-        height: 512
+        x: 564
+        y: 640
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -523,8 +454,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f29ee024a44e74200800000000000000
-      internalID: 164350919009298735
+      spriteID: 5f64d70413bbf05e0800000000000000
+      internalID: -1941127094163650827
       vertices: []
       indices: 
       edges: []
@@ -533,10 +464,10 @@ TextureImporter:
       name: DoorToRoom2Sheet_14
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 1024
-        width: 300
-        height: 512
+        x: 752
+        y: 640
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -544,8 +475,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bb99caa48b184aa0800000000000000
-      internalID: -6176656632323662919
+      spriteID: 2ac6d555af6c53c60800000000000000
+      internalID: 7797357108338191522
       vertices: []
       indices: 
       edges: []
@@ -555,9 +486,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 512
-        width: 300
-        height: 512
+        y: 320
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -565,8 +496,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7310da202e5fdc410800000000000000
-      internalID: 1499124602040549687
+      spriteID: 8a75c461c25fac960800000000000000
+      internalID: 7623174888979453864
       vertices: []
       indices: 
       edges: []
@@ -575,10 +506,10 @@ TextureImporter:
       name: DoorToRoom2Sheet_16
       rect:
         serializedVersion: 2
-        x: 300
-        y: 512
-        width: 300
-        height: 512
+        x: 188
+        y: 320
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -586,8 +517,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d72e595f9f8d5580800000000000000
-      internalID: -8836748979269130279
+      spriteID: 7b72c7a65b4efeff0800000000000000
+      internalID: -4533606777346121
       vertices: []
       indices: 
       edges: []
@@ -596,10 +527,10 @@ TextureImporter:
       name: DoorToRoom2Sheet_17
       rect:
         serializedVersion: 2
-        x: 600
-        y: 512
-        width: 300
-        height: 512
+        x: 376
+        y: 320
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -607,8 +538,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f5fac15c1bcf4b30800000000000000
-      internalID: 4273857893889668592
+      spriteID: f80b7273f2dee3870800000000000000
+      internalID: 8664623520152006799
       vertices: []
       indices: 
       edges: []
@@ -617,10 +548,10 @@ TextureImporter:
       name: DoorToRoom2Sheet_18
       rect:
         serializedVersion: 2
-        x: 900
-        y: 512
-        width: 300
-        height: 512
+        x: 564
+        y: 320
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -628,8 +559,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69dc5d926debccd50800000000000000
-      internalID: 6758986967810428310
+      spriteID: 1c9decfe621b321d0800000000000000
+      internalID: -3376660514807555647
       vertices: []
       indices: 
       edges: []
@@ -638,10 +569,10 @@ TextureImporter:
       name: DoorToRoom2Sheet_19
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 512
-        width: 300
-        height: 512
+        x: 752
+        y: 320
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -649,8 +580,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffffb3e7d2ec65bb0800000000000000
-      internalID: -4947540445833199617
+      spriteID: d49690b8fd1f45c40800000000000000
+      internalID: 5500286987338869069
       vertices: []
       indices: 
       edges: []
@@ -661,8 +592,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 300
-        height: 512
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -670,8 +601,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 737d030cc4ec8d870800000000000000
-      internalID: 8707936708558116663
+      spriteID: a865356c7874c18b0800000000000000
+      internalID: -5180186822909405558
       vertices: []
       indices: 
       edges: []
@@ -680,10 +611,10 @@ TextureImporter:
       name: DoorToRoom2Sheet_21
       rect:
         serializedVersion: 2
-        x: 300
+        x: 188
         y: 0
-        width: 300
-        height: 512
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -691,8 +622,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3582fc4c539f5a650800000000000000
-      internalID: 6243670467749554259
+      spriteID: f9af3a08c62161070800000000000000
+      internalID: 8076663238959561375
       vertices: []
       indices: 
       edges: []
@@ -701,10 +632,10 @@ TextureImporter:
       name: DoorToRoom2Sheet_22
       rect:
         serializedVersion: 2
-        x: 600
+        x: 376
         y: 0
-        width: 300
-        height: 512
+        width: 188
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -712,8 +643,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cde824e25820037d0800000000000000
-      internalID: -2940847785642914084
+      spriteID: 4cdb5a8b24c245460800000000000000
+      internalID: 7229451966913822148
       vertices: []
       indices: 
       edges: []

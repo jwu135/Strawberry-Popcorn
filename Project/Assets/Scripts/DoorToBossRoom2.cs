@@ -6,6 +6,11 @@ public class DoorToBossRoom2 : MonoBehaviour
 {
     BoxCollider2D door;
     BoxCollider2D Player;
+    public GameObject css;
+    public DoorToBossRoom2Part2 Part2;
+    public GameObject dialogueBox;
+    private bool started = false;
+    
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player") {
@@ -13,20 +18,51 @@ public class DoorToBossRoom2 : MonoBehaviour
             GetComponent<Animator>().SetTrigger("Close");
         }
     }
+    private void Awake()
+    {
+        css.SetActive(false);
+        dialogueBox.SetActive(false);
+    }
+
+    /*
+    Click to close
+
+        wait til closed
+
+        click to start cutscene.
+
+    */
+
+
+
+    private void Update()
+    {
+        if (Time.timeScale != 0) {
+            if(Input.GetButton("Fire1")&&!started){
+                StartCoroutine("gameStart");
+                started = true; // trying to avoid running cutsceen mutliple times
+            }
+        }
+    }
+
+
+    IEnumerator gameStart()
+    {
+        yield return new WaitForSeconds(1f);
+        GetComponent<Animator>().SetTrigger("Close");
+    }
+
     private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider2D>();
         door = GetComponent<BoxCollider2D>();
     }
-    private void FixedUpdate()
-    {
-        if (!door.IsTouching(Player)) {
-            GetComponent<Animator>().SetTrigger("Close");
-        }
-    }
+    
 
     public void DestroyObject()
     {
+        Part2.startGame(css,dialogueBox);
         Destroy(gameObject);
     }
+
 }
