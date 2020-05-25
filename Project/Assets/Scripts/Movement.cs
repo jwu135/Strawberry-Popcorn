@@ -214,7 +214,6 @@ public class Movement : MonoBehaviour
                 pos.x = -0.185f;
 
             transform.Find("Arm").transform.localPosition = pos;
-            //if(armatureComponent.animation.lastAnimationName == "Jumping"&& armatureComponent.animation.isCompleted || (armatureComponent.animation.lastAnimationName == "FALLING"&&GetComponent<Rigidbody2D>().velocity.y<0)) {
 
             if (armatureComponent.animation.lastAnimationName == "Jumping" && GetComponent<Rigidbody2D>().velocity.y > -40) {
                 //armatureComponent.animation.timeScale = 8;
@@ -228,18 +227,16 @@ public class Movement : MonoBehaviour
                 speed = Mathf.Clamp(speed, 1f, 2.2f);
                 armatureComponent.animation.timeScale = speed; // for some reason it just worked this time 
 
-                if (armatureComponent.animation.isCompleted || armatureComponent.animation.lastAnimationName == "Idle" || direction != lastdirection) { 
-                    if (Input.GetAxisRaw("Horizontal") < 0) { // if player is moving to the right
-                            if (direction > 0) // if mouse is to the left of the player
-                                armatureComponent.animation.Play("Running", 1);
-                            else
-                                armatureComponent.animation.Play("backRunning", 1);
+                // if the player is doing literally anything other than Running right now, then allow them to run
+                if(armatureComponent.animation.lastAnimationName == "Idle"|| armatureComponent.animationName == "backRunning" || direction != lastdirection || (armatureComponent.animation.isCompleted&& armatureComponent.animation.lastAnimationName == "Running")) {
+                    if (direction > 0&& Input.GetAxisRaw("Horizontal") < 0||direction<=0&& Input.GetAxisRaw("Horizontal") > 0) {
+                        armatureComponent.animation.Play("Running", 1);
                     }
-                    if (Input.GetAxisRaw("Horizontal") > 0) { // if player is moving to the left
-                        if (direction > 0) // if mouse is to the left of the player
-                            armatureComponent.animation.Play("backRunning", 1);
-                        else
-                            armatureComponent.animation.Play("Running", 1);
+                }
+                // if the player is doing literally anything other than backRunning right now, then allow them to run
+                if (armatureComponent.animation.lastAnimationName == "Idle" || armatureComponent.animationName == "Running" || direction != lastdirection || (armatureComponent.animation.isCompleted && armatureComponent.animation.lastAnimationName == "backRunning")) {
+                    if (direction <= 0 && Input.GetAxisRaw("Horizontal") < 0 || direction > 0 && Input.GetAxisRaw("Horizontal") > 0) {
+                        armatureComponent.animation.Play("backRunning", 1);
                     }
                 }
 
