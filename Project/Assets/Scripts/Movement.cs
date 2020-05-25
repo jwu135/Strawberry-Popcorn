@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour
     public float direction = 0; // left is 0, right is 1;
     private float lastdirection = 0;
     private int primaryIndex = 0;
+    private int primaryDodgeIndex = 1;
     private float lastShot = 0f;
     public bool rollTime = false;
     PlatformMovementPhys platMove;
@@ -35,6 +36,7 @@ public class Movement : MonoBehaviour
     public void setPrimaryIndex(int index)
     {
         primaryIndex = index;
+        primaryDodgeIndex = index + 1;
     }
     public int getPrimaryIndex()
     {
@@ -71,10 +73,6 @@ public class Movement : MonoBehaviour
         if (Time.timeScale != 0) {
             animate();
         }
-
-        
-        //Debug.Log("Roll Frame:" + platMove.getRollingFrame() + "Stick Mag: " + platMove.getStickInput().magnitude);
-
     }
 
     IEnumerator afterImageStop()
@@ -157,19 +155,14 @@ public class Movement : MonoBehaviour
     {
 
         lastShot -= Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.K)) {
-            armatureComponent.unityData.textureAtlas[0].material = next;
-            armatureComponent.GetComponent<UnityCombineMeshs>().BeginCombineMesh();
-        }
         if (armatureComponent.animationName.Equals("dodge") && armatureComponent.animation.isCompleted) {
             setPrimaryArmature(primaryIndex);
         }
         // animation plays when you roll in place
-        //if (((Input.GetButton("Roll") == true) || (Input.GetAxis("Roll") < 0)) && (platMove.getRollingFrame() < 2 && platMove.getStickInput().magnitude > 0))
         if (rollTime) // set in PlatformMovementPhys.cs
-        {// add function call to PlatformMovementPhys
+        {
             SoundManager.PlaySound("playerDodge");
-            setPrimaryArmature(1);
+            setPrimaryArmature(primaryDodgeIndex);
             armatureComponent.animation.timeScale = 2f;
             GetComponent<ParticleSystem>().Play();
             if(direction>0)
@@ -196,62 +189,67 @@ public class Movement : MonoBehaviour
                 armatureComponent.animation.Play("Jumping", 1);
             }
             float mag = new Vector2(Input.GetAxisRaw("Horizontal"), 0).magnitude; // technique from Ethan's script. Don't want to read it in from there yet to avoid making changes to other people's scripts. Making the deadzone variable public or adding a function call to add the value to this script would be fine for doing this.
-            bool moving = mag > 0.15f && (Input.GetAxisRaw("Horizontal") > 0 || (Input.GetAxisRaw("Horizontal") < 0));
+            bool moving = mag > 0.15f && (GetComponent<Rigidbody2D>().velocity.x > 0 || (GetComponent<Rigidbody2D>().velocity.x < 0));
             bool last = armatureComponent.animation.lastAnimationName == "Running" || armatureComponent.animation.lastAnimationName == "backRunning";
+
+
+            /* direction 1 is left of player
+                direction 0
+                Right = backRunning, left = Running
+
+                direction 1
+                Right = Running, left = backRunning
+
+
+
+
+
+            */
+            Debug.Log(direction);
+
             Vector2 pos = transform.Find("Arm").transform.localPosition;
-            if (direction > 0) {
+            if (direction > 0) 
                 pos.x = 0.21f;
-            } else
+            else
                 pos.x = -0.185f;
+
             transform.Find("Arm").transform.localPosition = pos;
-
-            /*if (moving) {
-                if (Input.GetAxisRaw("Horizontal") < 0) {
-                    if (armatureComponent.animation.isCompleted || armatureComponent.animation.lastAnimationName == "Idle" || direction != lastdirection) {
-                        if (direction > 0)
-                            armatureComponent.animation.Play("Running", 1);
-                        else
-                            armatureComponent.animation.Play("backRunning", 1);
-                    }
-                }
-                if (Input.GetAxisRaw("Horizontal") > 0) {
-                    if (armatureComponent.animation.isCompleted || armatureComponent.animation.lastAnimationName == "Idle" || direction != lastdirection)
-                        if (direction > 0)
-                            armatureComponent.animation.Play("backRunning", 1);
-                        else
-                            armatureComponent.animation.Play("Running", 1);
-                }
-                if (direction != lastdirection) {
-
-                    lastdirection = direction;
-                }
-            }*/
             //if(armatureComponent.animation.lastAnimationName == "Jumping"&& armatureComponent.animation.isCompleted || (armatureComponent.animation.lastAnimationName == "FALLING"&&GetComponent<Rigidbody2D>().velocity.y<0)) {
-            if(armatureComponent.animation.lastAnimationName == "Jumping"&& GetComponent<Rigidbody2D>().velocity.y>-40) {
+
+            if (armatureComponent.animation.lastAnimationName == "Jumping" && GetComponent<Rigidbody2D>().velocity.y > -40) {
                 //armatureComponent.animation.timeScale = 8;
                 //armatureComponent.animation.Play("FALLING", 1);
                 armatureComponent.animation.timeScale = 2;
                 armatureComponent.animation.Play("Idle");
             } else if (moving) {
-                if (Input.GetAxisRaw("Horizontal") < 0) {
-                    if (armatureComponent.animation.isCompleted || armatureComponent.animation.lastAnimationName == "Idle" || direction != lastdirection) {
-                        if (direction > 0)
-                            armatureComponent.animation.Play("Running", 1);
-                        else
+                float speed = Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x);
+                float maxMoveSpeed = GetComponent<PlayerController>().getStat("moveSpeed");
+                speed = (speed / maxMoveSpeed) * 2.2f; // normalize the speed between 0 and 2.2f
+                speed = Mathf.Clamp(speed, 1f, 2.2f);
+                armatureComponent.animation.timeScale = speed; // for some reason it just worked this time 
+
+                if (armatureComponent.animation.isCompleted || armatureComponent.animation.lastAnimationName == "Idle" || direction != lastdirection) { 
+                    if (Input.GetAxisRaw("Horizontal") < 0) { // if player is moving to the right
+                            if (direction > 0) // if mouse is to the left of the player
+                                armatureComponent.animation.Play("Running", 1);
+                            else
+                                armatureComponent.animation.Play("backRunning", 1);
+                    }
+                    if (Input.GetAxisRaw("Horizontal") > 0) { // if player is moving to the left
+                        if (direction > 0) // if mouse is to the left of the player
                             armatureComponent.animation.Play("backRunning", 1);
+                        else
+                            armatureComponent.animation.Play("Running", 1);
                     }
                 }
-                if (Input.GetAxisRaw("Horizontal") > 0) {
-                    if (armatureComponent.animation.isCompleted || armatureComponent.animation.lastAnimationName == "Idle" || direction != lastdirection)
-                        if (direction > 0)
-                            armatureComponent.animation.Play("backRunning", 1);
-                        else
-                            armatureComponent.animation.Play("Running", 1);
-                }
-                if (direction != lastdirection) {
 
+
+
+                if (direction != lastdirection) {
                     lastdirection = direction;
                 }
+
+
             } else if (armatureComponent.animation.isCompleted || last) {
                 armatureComponent.animation.timeScale = 2;
                 armatureComponent.animation.Play("Idle");

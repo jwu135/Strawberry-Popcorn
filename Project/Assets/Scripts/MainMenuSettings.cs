@@ -39,8 +39,6 @@ public class MainMenuSettings : MonoBehaviour
     {
         if (changeScreen != null) {
             changeScreen.GetComponent<Toggle>().isOn = Screen.fullScreen;
-
-            
         }
     }
     public void changeRes(int amt)
