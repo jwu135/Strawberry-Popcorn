@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
 using System;
+using UnityEngine.UI;
+
 
 public class ButtonDoSomething : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class ButtonDoSomething : MonoBehaviour
     private BoxCollider2D buttonBody; //the box collider of the button
     System.Type MyScriptType;
     Component script;
+    public Button doWork;
 
 
     void Start()
@@ -29,7 +32,8 @@ public class ButtonDoSomething : MonoBehaviour
         {
             if (cursorBody.IsTouching(buttonBody))
             {
-                gameObject.GetComponent(MyScriptType).ToString();
+                //gameObject.GetComponent(MyScriptType).ToString();
+                doWork.onClick.Invoke();
             }
         }
     }
