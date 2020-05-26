@@ -16,6 +16,7 @@ public class Movement : MonoBehaviour
     private float lastdirection = 0;
     private int primaryIndex = 0;
     private int primaryDodgeIndex = 1;
+    private int primaryArmedIndex = 2;
     private float lastShot = 0f;
     public bool rollTime = false;
     PlatformMovementPhys platMove;
@@ -37,6 +38,7 @@ public class Movement : MonoBehaviour
     {
         primaryIndex = index;
         primaryDodgeIndex = index + 1;
+        primaryArmedIndex = index + 2;
     }
     public int getPrimaryIndex()
     {
@@ -86,6 +88,15 @@ public class Movement : MonoBehaviour
     public void setTime()
     {
         lastShot = 2f;
+    }
+
+    private void armedSwap(bool toArmed)
+    {
+        if (toArmed) {
+            setPrimaryArmature(primaryArmedIndex);
+        } else {
+            setPrimaryArmature(primaryIndex);
+        }
     }
 
     // OCT (override central time)
@@ -155,11 +166,34 @@ public class Movement : MonoBehaviour
     {
 
         lastShot -= Time.deltaTime;
+        bool movedLast = armatureComponent.animation.lastAnimationName.Equals("Running") || armatureComponent.animation.lastAnimationName.Equals("backRunning");
+        string lastAnimation = armatureComponent.animation.lastAnimationName;
         if (armatureComponent.animationName.Equals("dodge") && armatureComponent.animation.isCompleted) {
             setPrimaryArmature(primaryIndex);
+            /*  if (lastShot > 0)
+                setPrimaryArmature(primaryIndex);
+            else {
+                setPrimaryArmature(primaryArmedIndex);
+            }
+            if (movedLast) {
+                armatureComponent.animation.Play(lastAnimation);
+            }
+        } else if(!armatureComponent.animationName.Equals("dodge")){
+            if (lastShot > 0) {
+                setPrimaryArmature(primaryIndex);
+                if (movedLast) {
+                    armatureComponent.animation.Play(lastAnimation);
+                }
+            } else {
+                setPrimaryArmature(primaryArmedIndex);
+                if (movedLast) {
+                    armatureComponent.animation.Play(lastAnimation);
+                }
+            }
+        */
         }
-        // animation plays when you roll in place
-        if (rollTime) // set in PlatformMovementPhys.cs
+            // animation plays when you roll in place
+            if (rollTime) // set in PlatformMovementPhys.cs
         {
             SoundManager.PlaySound("playerDodge");
             setPrimaryArmature(primaryDodgeIndex);
