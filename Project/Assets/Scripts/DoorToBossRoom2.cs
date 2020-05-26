@@ -22,10 +22,12 @@ public class DoorToBossRoom2 : MonoBehaviour
     {
         css.SetActive(false);
         dialogueBox.SetActive(false);
-        if (GlobalVariable.deathCounter == 0) {
+        if (UpgradeValues.deathCounter == 0) {
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().delayBtwAttack1 = 100000;
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().timeBtwAttack = 100000;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().timeBtwChargeAttack1 = 100000;
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().delayBtwChargeAttack1 = 100000;
+
         }else
             Part2.prayingSP.GetComponent<SpriteRenderer>().enabled = false;
     }

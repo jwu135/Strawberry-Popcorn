@@ -283,3 +283,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainPiece: 0
+  upgradeUI: {fileID: 3720634064343822235, guid: d4a02c39d00e95341a5f4fa14899d14e,
+    type: 3}
+  swaps:
+  - {fileID: 21300000, guid: c2ac68c6faab2c346b96625e7b677072, type: 3}
+  - {fileID: 21300000, guid: 5eff6ce4c954d994b87bfa9299fa68c3, type: 3}

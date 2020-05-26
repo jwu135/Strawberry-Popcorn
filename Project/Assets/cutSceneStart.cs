@@ -14,7 +14,7 @@ public class cutSceneStart : MonoBehaviour
 
     void Start()
     {
-        if(GlobalVariable.deathCounter < 1)
+        if(UpgradeValues.deathCounter < 1)
         {
             cam.enabled = true;
             cam2.enabled = false;

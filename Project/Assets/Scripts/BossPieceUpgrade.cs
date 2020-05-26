@@ -6,6 +6,8 @@ public class BossPieceUpgrade : MonoBehaviour
 {
     bool over = false;
     public bool mainPiece = false;
+    public GameObject upgradeUI;
+    public Sprite[] swaps= new Sprite[2];
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Floor" && collision.gameObject.name == "Floor") { // as far as I know, only the groundfloor satisfies both of these
@@ -30,8 +32,11 @@ public class BossPieceUpgrade : MonoBehaviour
         // upgrade stuff
         // give 2 points
         SoundManager.PlaySound("eatingQuestionMark");
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject upUI = Instantiate(upgradeUI, player.transform.position,transform.rotation,player.transform);
         if (mainPiece) {
             UpgradeValues.deathPoints += 2;
+            upUI.GetComponent<SpriteRenderer>().sprite = swaps[1];
         } else { // gives 1 point
             UpgradeValues.deathPoints += 1;
         }
