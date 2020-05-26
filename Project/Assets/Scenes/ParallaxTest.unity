@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1679,6 +1679,7 @@ GameObject:
   - component: {fileID: 78106162}
   - component: {fileID: 78106164}
   - component: {fileID: 78106163}
+  - component: {fileID: 78106165}
   m_Layer: 14
   m_Name: Mushroom
   m_TagString: Untagged
@@ -1695,7 +1696,7 @@ Transform:
   m_GameObject: {fileID: 78106161}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.13717939, y: 0.13717939, z: 0.13717939}
+  m_LocalScale: {x: 0.18270923, y: 0.18270923, z: 0.18270923}
   m_Children: []
   m_Father: {fileID: 561725348}
   m_RootOrder: 0
@@ -1710,7 +1711,7 @@ Animator:
   m_GameObject: {fileID: 78106161}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fc59ffc9fce87e143837779dcced7e97, type: 2}
+  m_Controller: {fileID: 9100000, guid: 195a2a81122a59d4e92c0019e86688af, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1755,20 +1756,34 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -365782641
-  m_SortingLayer: 1
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 2ee68aeee721f6e49b5e41883f1a144b, type: 3}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -1047062460773038899, guid: 5fd3c6fa51f4efa46ad2c60b3e249fdd,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.99, y: 4.64}
+  m_Size: {x: 2.75, y: 2.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &78106165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78106161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c54cd3c2d6463a47b15e229a648db11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standingUp: 0
 --- !u!1 &80512290
 GameObject:
   m_ObjectHideFlags: 1
