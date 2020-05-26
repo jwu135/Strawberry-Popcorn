@@ -24,11 +24,22 @@ public class MainMenuSettings : MonoBehaviour
         resolutions[4].height = 1800;
         resolutions[5].width = 3840;
         resolutions[5].height = 2160;
+
+        int dif = 10000;
+        for (int i = 0; i < resolutions.Length; i++) {
+            int temp = Mathf.Abs(Screen.currentResolution.width - resolutions[i].width);
+            if (temp < dif) {
+                dif = temp;
+                resIndex = i;
+            }
+        }
+        resolutionText.text = resolutions[resIndex].width + " x " + resolutions[resIndex].height;
     }
     void Awake()
     {
-        if(changeScreen!=null)
+        if (changeScreen != null) {
             changeScreen.GetComponent<Toggle>().isOn = Screen.fullScreen;
+        }
     }
     public void changeRes(int amt)
     {

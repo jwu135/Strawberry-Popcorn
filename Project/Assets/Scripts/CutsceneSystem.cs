@@ -47,7 +47,7 @@ public class CutsceneSystem : MonoBehaviour
         GetComponent<DialogueSystem>().dialogueBox.SetActive(true);
         GetComponent<DialogueSystem>().restart();
         currPiece = piece;
-        //StartCoroutine("buffer");
+
     }
     IEnumerator buffer()
     {
@@ -66,10 +66,7 @@ public class CutsceneSystem : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
         eaten = false;
-        /*while (Mathf.Abs(player.transform.position.x - currPiece.transform.position.x)>1) {
-            yield return new WaitForSeconds(0.05f);
-        }*/
-        //yield return new WaitForSeconds(0.1f);
+
         foreach (MonoBehaviour script in scripts) {
             if (script.GetType().Name != "UnityArmatureComponent" && script.GetType().Name != "UnityCombineMeshs") {
                 script.enabled = false;
@@ -78,17 +75,12 @@ public class CutsceneSystem : MonoBehaviour
 
         
         player.GetComponent<Rigidbody2D>().velocity = Vector2.Scale(player.GetComponent<Rigidbody2D>().velocity,new Vector2(0,-1));
-        //player.GetComponent<Rigidbody2D>().velocity = transform.up * -20;
         player.GetComponent<Movement>().getArmature().animation.Play("Idle", 0);
-        //player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-        //player.transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("Idle", 0);
+
         yield return new WaitForSeconds(0.5f);
 
         boss.transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("bossIdle", 0);
-        //DialogueDone(false);
-        //player.GetComponent<HealthManager>().maxHealth += 1;
-        //player.GetComponent<HealthManager>().health = player.GetComponent<HealthManager>().maxHealth;
-        //GameObject.Find("EventSystem").GetComponent<PlayerHeartsController>().updateHealth();
+
         GetComponent<DialogueSystem>().dialogueBox.SetActive(true);
         GetComponent<DialogueSystem>().restart2();
     }
@@ -99,21 +91,12 @@ public class CutsceneSystem : MonoBehaviour
         foreach (GameObject i in objects) {
          i.SetActive(true);
         };
-        //player.SetActive(true);
-        //boss.SetActive(true);
         MonoBehaviour[] scripts = boss.GetComponentsInChildren<MonoBehaviour>().Concat(player.GetComponentsInChildren<MonoBehaviour>()).ToArray();
         foreach (MonoBehaviour script in scripts) {
-            //if (script.GetType().Name != "BossMovement") {
                 script.enabled = true;
-            //}
         }
         boss.GetComponentInChildren<Boss>().setDamageable(true);
         if(first)
          boss.GetComponentInChildren<BossShoot>().startTime();
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

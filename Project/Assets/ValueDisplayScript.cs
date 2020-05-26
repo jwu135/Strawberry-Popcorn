@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class ValueDisplayScript : MonoBehaviour
 {
 
-
-
     // Update is called once per frame
     void Update()
     {

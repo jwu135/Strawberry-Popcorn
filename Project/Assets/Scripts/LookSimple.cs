@@ -38,7 +38,15 @@ public class LookSimple : MonoBehaviour
         scaleVector.x = sc;
     }
 
-    void Update()
+
+    public void Update()
+    {
+        if (Time.timeScale != 0) {
+            lookAround();
+        }
+    }
+
+    void lookAround()
     {
         Vector2 inputVector = new Vector2(Input.GetAxis("Aim_Horizontal"), Input.GetAxis("Aim_Vertical"));
         if (inputVector.magnitude > 0.3)

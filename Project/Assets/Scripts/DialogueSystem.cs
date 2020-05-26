@@ -34,10 +34,10 @@ public class DialogueSystem : MonoBehaviour
         sentence.text = currSentence;
         boxChange();
         //StartCoroutine("textScroll");
-        if (GlobalVariable.deathCounter > 0) {
+        /*if (GlobalVariable.deathCounter > 0) {
             startTalking = true;
             StartCoroutine("textScroll");
-        }
+        }*/
     }
     void Update()
     {

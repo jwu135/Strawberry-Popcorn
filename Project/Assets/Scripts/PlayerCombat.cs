@@ -429,7 +429,8 @@ public class PlayerCombat : MonoBehaviour
 
 
         GetComponent<Movement>().setTime();
-
+        if(GameObject.FindGameObjectWithTag("ButtonClickIcon")!=null)
+            GameObject.FindGameObjectWithTag("ButtonClickIcon").GetComponent<ShootIconScript>().timesShot++;
         SoundManager.PlaySound("playerShotSound1");
         transform.GetComponent<PlayerMuzzleFlash>().spawnFlash(new Vector3(1f,1f,1f));
     }
