@@ -109,6 +109,8 @@ public class DialogueSystem : MonoBehaviour
                         } else if (continuing2) {
                             GetComponent<CutsceneSystem>().DialogueDone(true);
                             GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[0];
+                            GameObject.Find("Border").GetComponent<Animator>().SetTrigger("Up");
+                            Debug.Log("Went up");
                         } else {
                             GetComponent<CutsceneSystem>().DialogueDone();
                             GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[0];

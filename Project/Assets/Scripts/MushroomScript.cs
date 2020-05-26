@@ -19,7 +19,6 @@ public class MushroomScript : MonoBehaviour
         bool moving = Mathf.Abs(transform.parent.GetComponent<Rigidbody2D>().velocity.x) > 0;
         //float mag = new Vector2(Input.GetAxisRaw("Horizontal"), 0).magnitude; // technique from Ethan's script. Don't want to read it in from there yet to avoid making changes to other people's scripts. Making the deadzone variable public or adding a function call to add the value to this script would be fine for doing this.
         //bool moving = mag > 0.15f;
-        Debug.Log(transform.parent.GetComponent<Rigidbody2D>().velocity.x);
         Animator anim = GetComponent<Animator>();
         AnimatorClipInfo[] info = anim.GetCurrentAnimatorClipInfo(0);
         if (moving) {

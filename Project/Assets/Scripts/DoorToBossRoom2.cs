@@ -14,7 +14,6 @@ public class DoorToBossRoom2 : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player") {
-            Debug.Log("Left hitbox");
             GetComponent<Animator>().SetTrigger("Close");
         }
     }
@@ -69,6 +68,8 @@ public class DoorToBossRoom2 : MonoBehaviour
 
     public void DestroyObject()
     {
+        if (UpgradeValues.deathCounter != 0)
+            GameObject.Find("Border").GetComponent<Animator>().SetTrigger("Up");
         Part2.startGame(css,dialogueBox);
         Destroy(gameObject);
     }

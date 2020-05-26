@@ -16,7 +16,7 @@ public class PlayerHeartsController : MonoBehaviour
             Vector2 temp = heart.transform.position;
             temp.x += i * 1.5f;
             hearts.Add(Instantiate(heart, temp , transform.rotation) as GameObject);
-            hearts[i].transform.parent = GameObject.Find("Canvas").transform.Find("health");
+            hearts[i].transform.parent = GameObject.Find("Canvas").transform.Find("Border").transform.Find("health");
             hearts[i].transform.localScale = heart.transform.localScale;
         }
     }

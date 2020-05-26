@@ -105,7 +105,7 @@ public class Boss : MonoBehaviour
                     CornerMother2.transform.parent = transform.parent;
                     CornerMother.GetComponent<CornerBossShoot>().offsetCooldown();
                 }
-                
+                GameObject.Find("Border").GetComponent<Animator>().SetTrigger("Down");
                 swapPhase((int)phase);
                 healthIndex++;
                 Movement movement = player.GetComponent<Movement>();
