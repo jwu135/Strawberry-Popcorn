@@ -133,9 +133,9 @@ public class SceneChanger : MonoBehaviour
             }
 
         }
-        if (Input.GetButtonDown("Jump")&&!intro) {
+        /*if (Input.GetButtonDown("Jump")&&!intro) {
             startGame();
-        }
+        }*/
     }
     void startGame()
     {

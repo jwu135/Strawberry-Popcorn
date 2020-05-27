@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
     private int primaryArmedIndex = 2;
     private float lastShot = 0f;
     public bool rollTime = false;
+    public bool jumped = false;
     PlatformMovementPhys platMove;
     void Start()
     {
@@ -192,8 +193,8 @@ public class Movement : MonoBehaviour
             }
         */
         }
-            // animation plays when you roll in place
-            if (rollTime) // set in PlatformMovementPhys.cs
+            
+        if (rollTime) // set in PlatformMovementPhys.cs
         {
             SoundManager.PlaySound("playerDodge");
             setPrimaryArmature(primaryDodgeIndex);
@@ -217,10 +218,10 @@ public class Movement : MonoBehaviour
             StartCoroutine("afterImageStop");
             rollTime = false;
         } else {
-            if (Input.GetButtonDown("Jump")) {
-
-                armatureComponent.animation.timeScale = 1;
+            if (jumped) {
+                armatureComponent.animation.timeScale = 2;
                 armatureComponent.animation.Play("Jumping", 1);
+                jumped = false;
             }
             float mag = new Vector2(Input.GetAxisRaw("Horizontal"), 0).magnitude; // technique from Ethan's script. Don't want to read it in from there yet to avoid making changes to other people's scripts. Making the deadzone variable public or adding a function call to add the value to this script would be fine for doing this.
             bool moving = mag > 0.15f && (GetComponent<Rigidbody2D>().velocity.x > 0 || (GetComponent<Rigidbody2D>().velocity.x < 0));
@@ -239,7 +240,7 @@ public class Movement : MonoBehaviour
 
 
             */
-            Debug.Log(direction);
+
 
             Vector2 pos = transform.Find("Arm").transform.localPosition;
             if (direction > 0) 
@@ -249,12 +250,13 @@ public class Movement : MonoBehaviour
 
             transform.Find("Arm").transform.localPosition = pos;
 
-            if (armatureComponent.animation.lastAnimationName == "Jumping" && GetComponent<Rigidbody2D>().velocity.y > -40) {
+
+            if (armatureComponent.animation.lastAnimationName == "Jumping" && GetComponent<Rigidbody2D>().velocity.y == 0) {
                 //armatureComponent.animation.timeScale = 8;
                 //armatureComponent.animation.Play("FALLING", 1);
-                armatureComponent.animation.timeScale = 2;
-                armatureComponent.animation.Play("Idle");
-            } else if (moving) {
+                armatureComponent.animation.timeScale = 5;
+                armatureComponent.animation.Play("Idle",1);
+            } else if (moving&&armatureComponent.animationName!="Jumping"&&armatureComponent.animation.lastAnimationName!="Jumping") {
                 float speed = Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x);
                 float maxMoveSpeed = GetComponent<PlayerController>().getStat("moveSpeed");
                 speed = (speed / maxMoveSpeed) * 2.2f; // normalize the speed between 0 and 2.2f

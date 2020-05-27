@@ -310,6 +310,7 @@ public class PlatformMovementPhys : MonoBehaviour
         string sound = (remainingAirJumps > 0 && state == true) ? "playerJump1" : "playerJump2";
         SoundManager.PlaySound(sound);
         velocityVector.y = jumpVelocity;
+        GetComponent<Movement>().jumped = true;
         if (remainingAirJumps > 0 && state == true) //conditions for a double jump
         {
             GetComponent<Movement>().airJump();

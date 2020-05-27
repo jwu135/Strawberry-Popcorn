@@ -280,6 +280,7 @@ MonoBehaviour:
   things: {fileID: 11400000, guid: 462314a09f5bb5f43bc4c04e61455116, type: 2}
   direction: 0
   rollTime: 0
+  jumped: 0
 --- !u!114 &22433035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1302,6 +1303,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 99089203b5d4ee44c9604ad3f7658e6c, type: 3}
   - {fileID: 21300000, guid: 15a0218dfd01cd54f8e9ee16140aeabd, type: 3}
   AD: 0
+  input: Horizontal
 --- !u!1 &744572727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,6 +1654,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 01731f935d34d904197ed365639c5e26, type: 3}
   - {fileID: 21300000, guid: 15a0218dfd01cd54f8e9ee16140aeabd, type: 3}
   AD: 0
+  input: Horizontal
 --- !u!1 &1176656747
 GameObject:
   m_ObjectHideFlags: 0
@@ -2345,6 +2348,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 503e96a0cb3e4a042897b66eab6dfa8b, type: 3}
   - {fileID: 21300000, guid: d6fdab3140d877043826af3973aee6ec, type: 3}
   AD: 0
+  input: 
 --- !u!1 &1797534514
 GameObject:
   m_ObjectHideFlags: 0
