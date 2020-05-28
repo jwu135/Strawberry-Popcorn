@@ -83,6 +83,7 @@ public class Boss : MonoBehaviour
                     if (randDrop > 0.25f) {
                         GameObject tempObj = Resources.Load("Prefabs/UpgradePiece") as GameObject;
                         GameObject upgradePiece = Instantiate(tempObj, transform.position, transform.rotation);
+                        SoundManager.PlaySound("pieceFall");
                     }
                 }
             }
@@ -94,6 +95,7 @@ public class Boss : MonoBehaviour
             } else if (healthNew[healthIndex] <= 0) {
                 setDamageable(false);
                 GameObject Piece = Instantiate(GameObject.FindGameObjectWithTag("PieceOne"), transform.position, GameObject.FindGameObjectWithTag("PieceOne").transform.rotation) as GameObject;
+                SoundManager.PlaySound("pieceFall");
                 Piece.GetComponent<Rigidbody2D>().velocity = new Vector2(-0.5f, 0.5f) * 5;
                 /*if(healthIndex!=0)
                     phase+=1f;*/

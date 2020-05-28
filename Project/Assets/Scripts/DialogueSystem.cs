@@ -79,10 +79,13 @@ public class DialogueSystem : MonoBehaviour
         //GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[1];
         if (dialogue[index].name == "Mother:") {
             dialogueBox.GetComponent<Image>().sprite = box[0];
+            dialogueBox.GetComponent<RectTransform>().localPosition = new Vector2(0f, 87.65f);
         } else if (dialogue[index].name == "Strawberry Popcorn:") {
             dialogueBox.GetComponent<Image>().sprite = box[1];
+            dialogueBox.GetComponent<RectTransform>().localPosition = new Vector2(0f, 2.87f);
         } else {
             dialogueBox.GetComponent<Image>().sprite = box[2];
+            //dialogueBox.transform.position = new Vector2(2f, 2f);
         }
     }
     public void lookAround()
@@ -116,7 +119,8 @@ public class DialogueSystem : MonoBehaviour
                             GetComponent<CutsceneSystem>().DialogueDone();
                             GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[0];
                             if (UpgradeValues.deathCounter>0) {
-                                buttonIcon.SetActive(true);
+                                if(UpgradeValues.deathCounter==1)
+                                    buttonIcon.SetActive(true);
                                 GameObject.Find("Border").GetComponent<Animator>().SetTrigger("Up");
                                 Debug.Log("Went up");
                             }
@@ -128,6 +132,17 @@ public class DialogueSystem : MonoBehaviour
         }
         
     }
+
+    IEnumerator eatDelay()
+    {
+        if (UpgradeValues.deathCounter == 0) {
+            SoundManager.PlaySound("crunch");
+            yield return new WaitForSeconds(1f);
+        }
+        StartCoroutine("textScroll");
+        startTalking = true;
+    }
+
     private int tempSwapper = 0;
     IEnumerator textScroll()
     {

@@ -43,8 +43,8 @@ public class DoorToBossRoom2 : MonoBehaviour
 
     IEnumerator gameStart()
     {
-        yield return new WaitForSeconds(1f);
         GetComponent<Animator>().SetTrigger("Close");
+        yield return new WaitForSeconds(1f);
     }
 
     private void Start()

@@ -11,7 +11,7 @@ public class Henshin : MonoBehaviour
     public Camera cam3;
     public float speed;
     bool henshin = false;
-
+    bool over = false;
     private int counter = 0;
 
     public GameObject Player1;
@@ -75,35 +75,40 @@ public class Henshin : MonoBehaviour
             counter = 3;
         }
         */
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("interact"))
             {
-
+                Player2.GetComponent<PlatformMovementPhys>().unableToMove = false;
+                Player2.GetComponent<PlatformMovementPhys>().ableToJump = true;
                 cam3.enabled = false;
             }
                
-        }
-    }
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if (Input.GetButtonDown("Use") && other.CompareTag("Player") && (henshin == false))
-        {
-            
+        }else if(henshin == false&& over&& Input.GetButtonDown("Use")) { // had to move these around, since unity's callstack causes trigger collisions to be called before update, making interact skip through the cutscene
             henshin = true;
             Prologue.enabled = true;
             Prologue.Play();
             cam3.enabled = true;
             Player1.SetActive(false);
-           // cam3.enabled = false;
+            // cam3.enabled = false;
             cam2.enabled = true;
             cam.enabled = false;
             Player2.SetActive(true);
+            Player2.GetComponent<PlatformMovementPhys>().unableToMove = true;
+            Player2.GetComponent<PlatformMovementPhys>().ableToJump = false;
             cam2.transform.position = new Vector3(Mathf.Lerp(cam.transform.position.x, -3.33f, speed), Mathf.Lerp(cam.transform.position.y, 2.5f, speed), Mathf.Lerp(cam.transform.position.z, 0, speed));
             cam2.orthographicSize = Mathf.Lerp(cam.orthographicSize, 8.709762f, speed);
             sp.SetActive(false);
-
-
         }
     }
-
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") && (henshin == false)) {
+            over = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") && (henshin == false)) {
+            over = false;
+        }
+    }
 }

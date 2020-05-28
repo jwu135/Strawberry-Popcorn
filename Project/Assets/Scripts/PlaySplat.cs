@@ -8,6 +8,10 @@ public class PlaySplat : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player") {
             SoundManager.PlaySound("mushroomSplat");
+            collision.gameObject.GetComponent<PlatformMovementPhys>().unableToMove = true;
+            collision.gameObject.transform.Find("Mushroom").GetComponent<Animator>().SetTrigger("Squish");
+            collision.gameObject.transform.Find("Mushroom").GetComponent<MushroomScript>().standingUp = false;
+
             Destroy(gameObject);
         }
     }

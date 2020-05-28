@@ -29,9 +29,9 @@ public class PlatformMovementPhys : MonoBehaviour
     private HealthManager healthManager;
     public PlayerCombat PlayerCombat;
     public bool unableToMove = false; //needed for scenes other than MainGameplay
+    public bool ableToJump; //needed for scenes other than MainGameplay
 
     public LayerMask whatIsGround;
-    bool ableToJump; //needed for scenes other than MainGameplay
     bool state; //false is grounded
     bool isFastFalling = false;
     private bool rollOnCooldown = false;

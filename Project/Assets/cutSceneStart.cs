@@ -38,13 +38,15 @@ public class cutSceneStart : MonoBehaviour
             cam.enabled = true;
             cam2.enabled = false;
         }
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("interact"))
         {
             cam.enabled = false;
             cam2.enabled = true;
             counter = true;
-            GameObject.Find("EventSystem").GetComponent<DialogueSystem>().StartCoroutine("textScroll");
-            GameObject.Find("EventSystem").GetComponent<DialogueSystem>().startTalking = true;
+            if (!GameObject.Find("EventSystem").GetComponent<DialogueSystem>().startTalking) {
+                GameObject.Find("EventSystem").GetComponent<DialogueSystem>().StartCoroutine("eatDelay");
+                
+            }
         }
 
     }
