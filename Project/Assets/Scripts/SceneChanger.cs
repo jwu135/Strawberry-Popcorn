@@ -133,10 +133,9 @@ public class SceneChanger : MonoBehaviour
             }
 
         }
-        /*if (Input.GetButtonDown("Jump")&&!intro) {
-            startGame();
-        }*/
+
     }
+
     void startGame()
     {
         if (scene.name.Equals("Gameover"))

@@ -30,9 +30,11 @@ public class ButtonDoSomething : MonoBehaviour
     {
         if (Input.GetButtonDown("Use") == true || Input.GetButtonDown("Jump") == true || Input.GetButtonDown("Fire1"))//if the player clicks
         {
+            Debug.Log("hi");
             if (cursorBody.IsTouching(buttonBody))
             {
                 //gameObject.GetComponent(MyScriptType).ToString();
+                Debug.Log("hi3");
                 doWork.onClick.Invoke();
             }
         }

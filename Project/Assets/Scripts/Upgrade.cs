@@ -24,7 +24,7 @@ public class Upgrade : MonoBehaviour
         {
             UpgradeValues.upgradeLocation = 0;
 
-            if (!UpgradeValues.deathProfit)
+            if (UpgradeValues.deathPointsUsed < (UpgradeValues.deathPoints * UpgradeValues.deathCounter))
             {
                 UpgradeValues.upgradePoints += UpgradeValues.deathPoints;
                 UpgradeValues.deathPointsUsed += UpgradeValues.deathPoints;
@@ -127,11 +127,11 @@ public class Upgrade : MonoBehaviour
         if(UpgradeValues.upgradePoints > 0 && UpgradeValues.bonusHealth < 10)
         {
             UpgradeValues.upgradePoints -= 1;
-            UpgradeValues.deathPointsUsed -= 1;
+            //UpgradeValues.deathPointsUsed -= 1;
             UpgradeValues.bonusHealth += 1;
             Debug.Log("hp");
             Debug.Log(UpgradeValues.bonusHealth);
-            if (UpgradeValues.deathPointsUsed < 1)
+            if (UpgradeValues.upgradePoints < 1)
             {
                 UpgradeValues.deathProfit = false;
             }
@@ -145,11 +145,11 @@ public class Upgrade : MonoBehaviour
         if (UpgradeValues.bonusAttackSpd < 0.2 && UpgradeValues.upgradePoints > 0)
         {
             UpgradeValues.upgradePoints -= 1;
-            UpgradeValues.deathPointsUsed -= 1;
+           // UpgradeValues.deathPointsUsed -= 1;
             UpgradeValues.bonusAttackSpd += 0.01;
             Debug.Log("as");
             Debug.Log(UpgradeValues.bonusAttackSpd);
-            if (UpgradeValues.deathPointsUsed < 1)
+            if (UpgradeValues.upgradePoints < 1)
             {
                 UpgradeValues.deathProfit = false;
             }
@@ -163,11 +163,11 @@ public class Upgrade : MonoBehaviour
         if (UpgradeValues.bonusAttackDmg < 5 && UpgradeValues.upgradePoints > 0)
         {
             UpgradeValues.upgradePoints -= 1;
-            UpgradeValues.deathPointsUsed -= 1;
+           // UpgradeValues.deathPointsUsed -= 1;
             UpgradeValues.bonusAttackDmg += 1;
             Debug.Log("dmg");
             Debug.Log(UpgradeValues.bonusAttackDmg);
-            if (UpgradeValues.deathPointsUsed < 1)
+            if (UpgradeValues.upgradePoints < 1)
             {
                 UpgradeValues.deathProfit = false;
             }
@@ -181,11 +181,11 @@ public class Upgrade : MonoBehaviour
         if (UpgradeValues.bonusManaGain < 5 && UpgradeValues.upgradePoints > 0)
         {
             UpgradeValues.upgradePoints -= 1;
-            UpgradeValues.deathPointsUsed -= 1;
+           // UpgradeValues.deathPointsUsed -= 1;
             UpgradeValues.bonusManaGain += 1;
             Debug.Log("mg");
             Debug.Log(UpgradeValues.bonusManaGain);
-            if (UpgradeValues.deathPointsUsed < 1)
+            if (UpgradeValues.upgradePoints < 1)
             {
                 UpgradeValues.deathProfit = false;
             }

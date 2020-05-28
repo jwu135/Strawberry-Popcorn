@@ -35,10 +35,13 @@ public class BossPieceUpgrade : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         GameObject upUI = Instantiate(upgradeUI, player.transform.position,transform.rotation,player.transform);
         if (mainPiece) {
-            UpgradeValues.deathPoints += 2;
+
+
             upUI.GetComponent<SpriteRenderer>().sprite = swaps[1];
+            UpgradeValues.upgradePoints += 2;
+
         } else { // gives 1 point
-            UpgradeValues.deathPoints += 1;
+            UpgradeValues.upgradePoints += 1;
         }
         Destroy(gameObject);
     }
