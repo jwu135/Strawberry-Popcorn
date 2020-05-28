@@ -6,7 +6,10 @@ public class MushroomScript : MonoBehaviour
 {
     public bool standingUp = false;
 
-
+    private void Awake()
+    {
+        transform.parent.GetComponent<PlatformMovementPhys>().unableToMove = true;
+    }
     public void setStand()
     {
         standingUp = false;
