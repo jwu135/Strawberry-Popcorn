@@ -19,8 +19,6 @@ public class MushroomScript : MonoBehaviour
     {
         bool toggled = b > 0 ? true : false;
         standingUp = toggled;
-
-        Debug.Log(standingUp);
     }
     // Update is called once per frame
     void Update()
