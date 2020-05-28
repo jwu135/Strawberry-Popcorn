@@ -11,6 +11,11 @@ public class ButtonSpriteSwap : MonoBehaviour
     public bool AD = false;
     public string input;
 
+    private void Awake()
+    {
+        activeSwap();
+    }
+
     private void swap(int i)
     {
         index = i;
@@ -18,32 +23,42 @@ public class ButtonSpriteSwap : MonoBehaviour
         Debug.Log("swapped");
     }
 
-    private void Update()
+    private void activeSwap()
     {
-        // From one of Ethan's script
-        Vector2 inputVector = new Vector2(Input.GetAxis("Aim_Horizontal"), Input.GetAxis("Aim_Vertical"));
-        float mag = new Vector2(Input.GetAxisRaw("Horizontal"), 0).magnitude; // technique from Ethan's script. Don't want to read it in from there yet to avoid making changes to other people's scripts. Making the deadzone variable public or adding a function call to add the value to this script would be fine for doing this.
-
-        if (!usingController) {
-            usingController = (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0) && (!Input.GetKey(KeyCode.A) || !Input.GetKey(KeyCode.D));
-            
-        }
-        if (usingController) {
-            usingController = !(Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D));
-        }
         
-        if (!usingController)
-            Debug.Log("stopped using controller");
-
-        if (inputVector.magnitude > 0.3 || usingController ) {
-           // usingController = true;
+        if (GlobalVariable.usingController) {
+            // usingController = true;
             if (index != 1)
                 swap(1);
-        } else if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0) {
+        } else if (!usingController) {
             //usingController = false;
             if (index != 0)
                 swap(0);
         }
+    }
+
+    private void Update()
+    {
+        float mag = new Vector2(Input.GetAxisRaw("Horizontal"), 0).magnitude; // technique from Ethan's script.
+        Vector2 inputVector = new Vector2(Input.GetAxis("Aim_Horizontal"), Input.GetAxis("Aim_Vertical"));
+
+        // if player moves, check to see if they're using controller
+        if ((Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0)&&mag>0.15) {
+            if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
+                GlobalVariable.usingController = false;
+            else
+                GlobalVariable.usingController = true;
+        }
+
+        //if player aims, check to see if they're using controller
+        if (inputVector.magnitude > 0.3)
+            GlobalVariable.usingController = true;
+        else if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
+            GlobalVariable.usingController = false;
+
+
+        activeSwap();
+        
         if (!alreadyDead) {
             if (input.Equals("Jump") || input.Equals("Horizontal") || input.Equals("Roll")) {
                 if (UpgradeValues.deathCounter != 0) {
@@ -58,7 +73,7 @@ public class ButtonSpriteSwap : MonoBehaviour
 
     void destroyInput(string input)
     {
-        float mag = new Vector2(Input.GetAxisRaw("Horizontal"), 0).magnitude; // technique from Ethan's script. Don't want to read it in from there yet to avoid making changes to other people's scripts. Making the deadzone variable public or adding a function call to add the value to this script would be fine for doing this.
+        float mag = new Vector2(Input.GetAxisRaw("Horizontal"), 0).magnitude; // technique from Ethan's script. 
         bool moving = mag > 0.15f;
         if (Input.GetButtonDown(input)) {
             StartCoroutine("fullDestroy");
@@ -76,10 +91,5 @@ public class ButtonSpriteSwap : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
-    // need one for Horizontal left and right
-
-    // need one for space
-
-    // need one for shift
 
 }
