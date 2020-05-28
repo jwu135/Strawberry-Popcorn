@@ -87,6 +87,7 @@ public class BossBullet : MonoBehaviour
         if (AoEShot) {
             if (col.tag == "Floor") {
                 spawnAoe();
+                SoundManager.PlaySound("Explosion");
                 destroy();
             }
         }
@@ -158,6 +159,9 @@ public class BossBullet : MonoBehaviour
         cooldown = temp.cooldown;
         origDir = (Vector2)(GameObject.Find("Player").transform.position - transform.position).normalized; ;
         active = true;
+
+        if (type.Equals("bomb"))
+            SoundManager.PlaySound("bombAfall");
     }
     void FixedUpdate()
     {

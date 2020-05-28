@@ -36,6 +36,16 @@ public class SoundManager : MonoBehaviour
     public static AudioClip playerStep1;
     public static AudioClip playerStep2;
     
+    public static AudioClip bombsAfall;
+    public static AudioClip Explosion;
+    public static AudioClip gainLevel;
+    public static AudioClip pieceFall;
+
+
+    public static AudioClip crunch;
+    public static AudioClip munch;
+    public static AudioClip royaltySplat;
+    
     public static AudioClip playerShootSound1;
     public static AudioClip playerShootSound2;
     public static AudioClip playerShootSound3;
@@ -78,7 +88,21 @@ public class SoundManager : MonoBehaviour
         menuClick = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/menuClick"); // called in Movement.cs
         eatingQuestionMark = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/EatingQuestionMark"); // called in Movement.cs
         tentacleAttack = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/TentaceAttack"); // called in Movement.cs
-        
+
+        bombsAfall = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/bombAfall"); // called in BossBullet.cs
+        Explosion = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/Explosion"); // called in BossBullet.cs
+        gainLevel = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/gainLevel"); // called in BossPieceUpgrade.cs
+        pieceFall = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/pieceFall"); // called in Boss.cs
+
+
+
+        crunch = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/crunch"); // called in Boss.cs
+        munch = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/munch"); // called in Boss.cs
+        royaltySplat = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/royaltySplat"); // called in Boss.cs
+
+
+
+
         playerCharging = Resources.Load<AudioClip>("Sounds/Chiptune/ChargingUp");
 
         // leaving these just in case
@@ -188,6 +212,28 @@ public class SoundManager : MonoBehaviour
                 break; 
             case "motherTalk4":
                 audioSrc.PlayOneShot(motherTalk4);
+                break;
+
+            case "bombAfall":
+                audioSrc.PlayOneShot(bombsAfall,4);
+                break;
+            case "Explosion":
+                audioSrc.PlayOneShot(Explosion,4);
+                break;
+            case "gainLevel":
+                audioSrc.PlayOneShot(gainLevel);
+                break;
+            case "pieceFall":
+                audioSrc.PlayOneShot(pieceFall);
+                break;
+            case "crunch":
+                audioSrc.PlayOneShot(crunch);
+                break;
+            case "munch":
+                audioSrc.PlayOneShot(munch);
+                break;
+            case "royaltySplat":
+                audioSrc.PlayOneShot(royaltySplat);
                 break;
 
             case "mushroomSplat":
