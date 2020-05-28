@@ -26,26 +26,14 @@ public class DoorToBossRoom2 : MonoBehaviour
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().timeBtwAttack = 100000;
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().timeBtwChargeAttack1 = 100000;
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().delayBtwChargeAttack1 = 100000;
-
         }else
             Part2.prayingSP.GetComponent<SpriteRenderer>().enabled = false;
     }
 
-    /*
-    Click to close
-
-        wait til closed
-
-        click to start cutscene.
-
-    */
-
-
-
     private void Update()
     {
         if (Time.timeScale != 0) {
-            if(Input.GetButton("Fire1")&&!started){
+            if(Input.GetButton("interact")&&!started){
                 StartCoroutine("gameStart");
                 started = true; // trying to avoid running cutsceen mutliple times
             }
@@ -68,8 +56,8 @@ public class DoorToBossRoom2 : MonoBehaviour
 
     public void DestroyObject()
     {
-        if (UpgradeValues.deathCounter != 0)
-            GameObject.Find("Border").GetComponent<Animator>().SetTrigger("Up");
+        //if (UpgradeValues.deathCounter != 0)
+        //    GameObject.Find("Border").GetComponent<Animator>().SetTrigger("Up");
         Part2.startGame(css,dialogueBox);
         Destroy(gameObject);
     }

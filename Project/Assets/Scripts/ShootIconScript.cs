@@ -8,11 +8,11 @@ public class ShootIconScript : MonoBehaviour
     // Update is called once per frame
     private void Awake()
     {
-        if (UpgradeValues.deathCounter == 1) {
-            transform.gameObject.SetActive(true);
-        } else {
-            transform.gameObject.SetActive(false);
-        }
+        //if (UpgradeValues.deathCounter == 1) {
+        //    transform.gameObject.SetActive(true);
+        //} else {
+        //}
+        transform.gameObject.SetActive(false);
     }
     void Update()
     {

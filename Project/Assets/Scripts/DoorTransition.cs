@@ -11,21 +11,19 @@ public class DoorTransition : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "Player") {
-            interactSign.SetActive(true);
+            interactSign.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             over = true;
         }
     }
     void Update()
     {
-
         if (Input.GetButtonDown("interact")&&over&&door) {
             SceneManager.LoadScene("Scenes/MainGameplay");
         }
-
     }
     void OnTriggerExit2D(Collider2D col)
     {
-        interactSign.SetActive(false);
+        interactSign.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
         over = false;
     }
 }

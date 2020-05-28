@@ -41,17 +41,20 @@ public class DialogueParallax : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "Player") {
-            interactSign.SetActive(true);
+            //interactSign.SetActive(true);
+            interactSign.GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
             over = true;
         }
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        interactSign.SetActive(false);
+        //interactSign.SetActive(false);
+        interactSign.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
         over = false;
         if (activatedDialogue) {
             dialogueBox.transform.parent.gameObject.SetActive(false);
+            //dialogueBox.transform.parent.gameObject.SetActive(false);
             activatedDialogue = false;
             armature.GetComponent<UnityArmatureComponent>().animation.Play(defaultAction);
             lookAtPlayer(false);
@@ -77,7 +80,7 @@ public class DialogueParallax : MonoBehaviour
         if (!activatedDialogue) {
             
             dialogueBox.transform.parent.gameObject.SetActive(true);
-            interactSign.SetActive(false);
+            interactSign.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
             finalSentence = dialogue[rand].sentences;
             currSentence = "";
             StartCoroutine("textScroll");

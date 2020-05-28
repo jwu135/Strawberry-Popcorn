@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6387,7 +6387,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Click M1 or R2 To Continue...
+  m_Text: 
 --- !u!222 &398432650
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13968,6 +13968,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a867e29cf4a6e9f49bc9c10bf72ae1f8, type: 3}
   - {fileID: 21300000, guid: f40163e7b69987e47ae78a59e984e503, type: 3}
   AD: 0
+  input: 
 --- !u!1 &887422541
 GameObject:
   m_ObjectHideFlags: 0
@@ -17785,6 +17786,7 @@ MonoBehaviour:
   name: {fileID: 1270335223}
   sentence: {fileID: 99830069}
   textspeed: 0.025
+  buttonIcon: {fileID: 0}
   done: 0
   dialogue:
   - name: 'Strawberry Popcorn:'
@@ -21393,7 +21395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -21842,6 +21844,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a3352e6ce355ea841a0477dd81e1c3f2, type: 3}
   - {fileID: 21300000, guid: 2c5ab6d65b5769647ba9aae56cfe8c3f, type: 3}
   AD: 0
+  input: 
 --- !u!1 &1288693079
 GameObject:
   m_ObjectHideFlags: 0
@@ -23890,6 +23893,7 @@ MonoBehaviour:
   name: {fileID: 1270335223}
   sentence: {fileID: 99830069}
   textspeed: 0.025
+  buttonIcon: {fileID: 1286188416}
   done: 0
   dialogue:
   - name: 'Mother:'

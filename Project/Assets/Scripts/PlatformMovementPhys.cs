@@ -28,6 +28,7 @@ public class PlatformMovementPhys : MonoBehaviour
 
     private HealthManager healthManager;
     public PlayerCombat PlayerCombat;
+    public bool unableToMove = false; //needed for scenes other than MainGameplay
 
     public LayerMask whatIsGround;
     bool ableToJump; //needed for scenes other than MainGameplay
@@ -287,6 +288,8 @@ public class PlatformMovementPhys : MonoBehaviour
                 gameObject.layer = 10;
             }
 
+            if (unableToMove)
+                velocityVector.x = 0;
             body.velocity = velocityVector;
             //Debug.Log("JumpVel: " + velocityVector.y + "   state: " + state + "    Button: " + Input.GetButtonDown("Jump"));
             // Debug.Log(deadzone);

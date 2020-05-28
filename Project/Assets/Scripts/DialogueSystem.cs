@@ -11,6 +11,7 @@ public class DialogueSystem : MonoBehaviour
     public new Text name;
     public Text sentence;
     public float textspeed;
+    public GameObject buttonIcon;
     [HideInInspector]
     public bool done = false;
     private int index = 0;
@@ -87,7 +88,7 @@ public class DialogueSystem : MonoBehaviour
     public void lookAround()
     {
         if (startTalking) {
-            if (Input.GetButtonDown("Fire1") && dialogueGoing) {
+            if (Input.GetButtonDown("interact") && dialogueGoing) {
                 index = stops[stopsIndex] - 1; // use this to make dialogue only show first dialogue box of each thing
                 if (currSentence.Length < finalSentence.Length) {
                     StopCoroutine("textScroll");
@@ -114,6 +115,11 @@ public class DialogueSystem : MonoBehaviour
                         } else {
                             GetComponent<CutsceneSystem>().DialogueDone();
                             GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[0];
+                            if (UpgradeValues.deathCounter>0) {
+                                buttonIcon.SetActive(true);
+                                GameObject.Find("Border").GetComponent<Animator>().SetTrigger("Up");
+                                Debug.Log("Went up");
+                            }
                         }
                     }
 

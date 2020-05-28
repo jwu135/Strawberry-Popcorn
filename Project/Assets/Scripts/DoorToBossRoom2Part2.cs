@@ -18,7 +18,7 @@ public class DoorToBossRoom2Part2 : MonoBehaviour
     private void Update()
     {
         if (Time.timeScale != 0) {
-            if (gameStarted && Input.GetButton("Fire1")) {
+            if (gameStarted && Input.GetButton("interact")) {
                 css.SetActive(true);
                 dialogueBox.SetActive(true);
                 Destroy(prayingSP);
