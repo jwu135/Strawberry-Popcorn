@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7937591202325722706}
   - component: {fileID: 7937591202325722705}
   m_Layer: 0
-  m_Name: Shield
+  m_Name: Shield1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,8 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5516414567377309005, guid: d097fd1de7c9831419e1399a2f705a81,
-    type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -81,7 +80,7 @@ SpriteRenderer:
   m_Size: {x: 0.28, y: 0.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &7937591202325722706
@@ -123,4 +122,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shieldStrength: 3
-  shieldStrengthOrigin: 0

@@ -583,9 +583,10 @@ GameObject:
   - component: {fileID: 820431549}
   - component: {fileID: 820431552}
   - component: {fileID: 820431551}
+  - component: {fileID: 820431556}
   m_Layer: 0
   m_Name: TryAgain2
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -778,6 +779,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 51.5}
   m_SizeDelta: {x: 20.64, y: 14.5729685}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &820431556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820431548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478e5eff84dceba4687b6303b2c7ac42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseEye: {fileID: 820431553}
+  Image: {fileID: 0}
+  MouseEyeOpen: {fileID: 21300000, guid: 9b1be7008f50cac4e8e5b9bcf44fdf78, type: 3}
+  MouseEyeClosed: {fileID: 21300000, guid: 91991f12fd7e42b418c78f5d1e9f567e, type: 3}
 --- !u!1 &837815530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,9 +1350,10 @@ GameObject:
   - component: {fileID: 1310749085}
   - component: {fileID: 1310749081}
   - component: {fileID: 1310749080}
+  - component: {fileID: 1310749086}
   m_Layer: 0
   m_Name: Save2
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1539,6 +1557,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1310749086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310749078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478e5eff84dceba4687b6303b2c7ac42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseEye: {fileID: 1310749082}
+  Image: {fileID: 0}
+  MouseEyeOpen: {fileID: 21300000, guid: 576bb80c15c32de45824b24b8ec8605e, type: 3}
+  MouseEyeClosed: {fileID: 21300000, guid: b1558e630567cda46a0ff002e42c8817, type: 3}
 --- !u!1 &1336574863
 GameObject:
   m_ObjectHideFlags: 0
@@ -1554,9 +1588,10 @@ GameObject:
   - component: {fileID: 1336574870}
   - component: {fileID: 1336574866}
   - component: {fileID: 1336574865}
+  - component: {fileID: 1336574871}
   m_Layer: 0
   m_Name: MainMenu2
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1749,6 +1784,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1336574871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336574863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478e5eff84dceba4687b6303b2c7ac42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseEye: {fileID: 1336574867}
+  Image: {fileID: 0}
+  MouseEyeOpen: {fileID: 21300000, guid: 5b3d86d411c6d114a8a06ba1f51bca19, type: 3}
+  MouseEyeClosed: {fileID: 21300000, guid: 7d5de64838890fc4188410e0c13106b5, type: 3}
 --- !u!1001 &2003101138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1756,6 +1807,23 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8711610894525093454, guid: 4521da10421174945aedb74aba4e14d6,
+        type: 3}
+      propertyPath: MouseEye
+      value: 
+      objectReference: {fileID: 2003101139}
+    - target: {fileID: -8711610894525093454, guid: 4521da10421174945aedb74aba4e14d6,
+        type: 3}
+      propertyPath: MouseEyeOpen
+      value: 
+      objectReference: {fileID: 21300000, guid: 6b77fce6376b85f438fc1b35b26be082,
+        type: 3}
+    - target: {fileID: -8711610894525093454, guid: 4521da10421174945aedb74aba4e14d6,
+        type: 3}
+      propertyPath: MouseEyeClosed
+      value: 
+      objectReference: {fileID: 21300000, guid: 55a4efd57f6c67e48a9783630a6a3b65,
+        type: 3}
     - target: {fileID: 4478260949955139234, guid: 4521da10421174945aedb74aba4e14d6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1821,5 +1889,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cursor
       objectReference: {fileID: 0}
+    - target: {fileID: 4478260949955139293, guid: 4521da10421174945aedb74aba4e14d6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4521da10421174945aedb74aba4e14d6, type: 3}
+--- !u!212 &2003101139 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4478260949955139235, guid: 4521da10421174945aedb74aba4e14d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2003101138}
+  m_PrefabAsset: {fileID: 0}

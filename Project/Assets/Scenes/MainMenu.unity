@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 362278698}
   m_Layer: 0
   m_Name: Option2
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -839,7 +839,7 @@ GameObject:
   - component: {fileID: 1051424022}
   m_Layer: 0
   m_Name: NewGame2
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1060,7 +1060,7 @@ GameObject:
   - component: {fileID: 1072874701}
   m_Layer: 0
   m_Name: Exit2
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1994,9 +1994,10 @@ GameObject:
   - component: {fileID: 1944144780}
   - component: {fileID: 1944144783}
   - component: {fileID: 1944144782}
+  - component: {fileID: 1944144787}
   m_Layer: 0
   m_Name: Continue2
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2200,6 +2201,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 20.64, y: 14.5729685}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1944144787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944144779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478e5eff84dceba4687b6303b2c7ac42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseEye: {fileID: 1944144784}
+  Image: {fileID: 0}
+  MouseEyeOpen: {fileID: 21300000, guid: 9b1be7008f50cac4e8e5b9bcf44fdf78, type: 3}
+  MouseEyeClosed: {fileID: 21300000, guid: 91991f12fd7e42b418c78f5d1e9f567e, type: 3}
+--- !u!212 &1958551207 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4478260949955139235, guid: 4521da10421174945aedb74aba4e14d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4478260948763344099}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4478260948763344099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2207,6 +2230,23 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8711610894525093454, guid: 4521da10421174945aedb74aba4e14d6,
+        type: 3}
+      propertyPath: MouseEyeClosed
+      value: 
+      objectReference: {fileID: 21300000, guid: b2dfb7e822a787047856b1c498a67b2a,
+        type: 3}
+    - target: {fileID: -8711610894525093454, guid: 4521da10421174945aedb74aba4e14d6,
+        type: 3}
+      propertyPath: MouseEyeOpen
+      value: 
+      objectReference: {fileID: 21300000, guid: 4971e433e373971438955c58c211c7ea,
+        type: 3}
+    - target: {fileID: -8711610894525093454, guid: 4521da10421174945aedb74aba4e14d6,
+        type: 3}
+      propertyPath: MouseEye
+      value: 
+      objectReference: {fileID: 1958551207}
     - target: {fileID: 4478260949955139233, guid: 4521da10421174945aedb74aba4e14d6,
         type: 3}
       propertyPath: m_Size.x
@@ -2291,6 +2331,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cursor
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478260949955139293, guid: 4521da10421174945aedb74aba4e14d6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4521da10421174945aedb74aba4e14d6, type: 3}
