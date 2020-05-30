@@ -264,6 +264,7 @@ public class Movement : MonoBehaviour
                 armatureComponent.animation.timeScale = speed; // for some reason it just worked this time 
 
                 // if the player is doing literally anything other than Running right now, then allow them to run
+                
                 if(armatureComponent.animation.lastAnimationName == "Idle"|| armatureComponent.animationName == "backRunning" || direction != lastdirection || (armatureComponent.animation.isCompleted&& armatureComponent.animation.lastAnimationName == "Running")) {
                     if (direction > 0&& Input.GetAxisRaw("Horizontal") < 0||direction<=0&& Input.GetAxisRaw("Horizontal") > 0) {
                         armatureComponent.animation.Play("Running", 1);

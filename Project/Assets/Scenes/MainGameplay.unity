@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -30749,6 +30749,8 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -5086962028243316768, guid: ebe4ed03efb66134295db8be8f3642c6, type: 2}
     value: {fileID: 1505601215}
+  - key: {fileID: 799824417959159601, guid: ebe4ed03efb66134295db8be8f3642c6, type: 2}
+    value: {fileID: 1785813913}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1783886834

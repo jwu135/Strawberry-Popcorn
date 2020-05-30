@@ -136,8 +136,8 @@ public class DialogueSystem : MonoBehaviour
     IEnumerator eatDelay()
     {
         if (UpgradeValues.deathCounter == 0) {
-            SoundManager.PlaySound("crunch");
-            yield return new WaitForSeconds(1f);
+            //SoundManager.PlaySound("crunch");
+            yield return new WaitForSeconds(0f);
         }
         StartCoroutine("textScroll");
         startTalking = true;
