@@ -78,7 +78,7 @@ public class ButtonSpriteSwap : MonoBehaviour
         if (Input.GetButtonDown(input)) {
             StartCoroutine("fullDestroy");
         }
-        if (Input.GetAxis(input)>0) {
+        if ((Input.GetAxis(input) < 0)) {
             StartCoroutine("fullDestroy");
         }
         if (moving&&input.Equals("Horizontal")) {

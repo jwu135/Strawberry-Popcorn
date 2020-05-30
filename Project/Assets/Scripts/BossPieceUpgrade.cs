@@ -42,7 +42,7 @@ public class BossPieceUpgrade : MonoBehaviour
             UpgradeValues.upgradePoints += 1;
         }
         SoundManager.PlaySound("crunch");
-        SoundManager.PlaySound("gainLevel");
+        //SoundManager.PlaySound("gainLevel");
         Destroy(gameObject);
     }
     void Update()
