@@ -42,10 +42,12 @@ public class DialogueParallax : MonoBehaviour
     {
         if (col.tag == "Player") {
             //interactSign.SetActive(true);
+            interactSign = GameObject.FindGameObjectWithTag("InteractSign");
             interactSign.GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
             over = true;
         }
     }
+
 
     void OnTriggerExit2D(Collider2D col)
     {

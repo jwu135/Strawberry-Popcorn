@@ -8,9 +8,14 @@ public class DoorTransition : MonoBehaviour
     public GameObject interactSign;
     private bool over = false;
     public bool door;
+    private void Start()
+    {
+        interactSign = GameObject.FindGameObjectWithTag("InteractSign");
+    }
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "Player") {
+            interactSign = GameObject.FindGameObjectWithTag("InteractSign");
             interactSign.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             over = true;
         }
