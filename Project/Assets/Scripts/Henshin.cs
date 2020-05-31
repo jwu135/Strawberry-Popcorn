@@ -77,9 +77,7 @@ public class Henshin : MonoBehaviour
         */
             if (Input.GetButtonDown("interact"))
             {
-                Player2.GetComponent<PlatformMovementPhys>().unableToMove = false;
-                Player2.GetComponent<PlatformMovementPhys>().ableToJump = true;
-                cam3.enabled = false;
+                cutsceneEnd();
             }
                
         }else if(henshin == false&& over&& Input.GetButtonDown("Use")) { // had to move these around, since unity's callstack causes trigger collisions to be called before update, making interact skip through the cutscene
@@ -99,6 +97,14 @@ public class Henshin : MonoBehaviour
             sp.SetActive(false);
         }
     }
+
+    public void cutsceneEnd()
+    {
+        Player2.GetComponent<PlatformMovementPhys>().unableToMove = false;
+        Player2.GetComponent<PlatformMovementPhys>().ableToJump = true;
+        cam3.enabled = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && (henshin == false)) {

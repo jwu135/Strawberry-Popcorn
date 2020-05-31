@@ -290,6 +290,8 @@ GameObject:
   - component: {fileID: 4250437}
   - component: {fileID: 4250440}
   - component: {fileID: 4250438}
+  - component: {fileID: 4250441}
+  - component: {fileID: 4250439}
   m_Layer: 5
   m_Name: DeadStrawberry1NoBlood
   m_TagString: EventSystem
@@ -331,6 +333,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &4250439
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4250436}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.014755964, y: -0.4567647}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.2, y: 3.2}
+    newSize: {x: 3.2, y: 3.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.8048813, y: 2.295843}
+  m_EdgeRadius: 0
 --- !u!212 &4250440
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -382,6 +410,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4250441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4250436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dbb3f2b7108e514bbcf4cc30470143c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactSign: {fileID: 982097094}
+  door: 0
 --- !u!1 &13523460
 GameObject:
   m_ObjectHideFlags: 0
@@ -6664,6 +6706,8 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 5352303618861883116, guid: e98d76f2559b837419ff7f86f3911576, type: 2}
     value: {fileID: 586550886}
+  - key: {fileID: -3248942183682359391, guid: e98d76f2559b837419ff7f86f3911576, type: 2}
+    value: {fileID: 726958179}
   m_ExposedReferences:
     m_References:
     - 284c4d1a812e04140b17325921541327: {fileID: 0}
@@ -9048,7 +9092,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: c0a498699381a0744922a869aed7911a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -18815,7 +18859,7 @@ GameObject:
   - component: {fileID: 726958177}
   - component: {fileID: 726958176}
   - component: {fileID: 726958175}
-  - component: {fileID: 726958178}
+  - component: {fileID: 726958179}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Untagged
@@ -18933,7 +18977,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &726958178
+--- !u!114 &726958179
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18942,11 +18986,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 726958173}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dbb3f2b7108e514bbcf4cc30470143c, type: 3}
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactSign: {fileID: 982097094}
-  door: 0
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 772df528c377d744884c897ee7125582, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 726958175}
+          m_MethodName: cutsceneEnd
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &728616465
 GameObject:
   m_ObjectHideFlags: 0
@@ -29681,7 +29740,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: cb39a792b7d7797438fb7bbf275599d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
