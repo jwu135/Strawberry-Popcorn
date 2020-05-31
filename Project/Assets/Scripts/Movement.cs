@@ -231,6 +231,10 @@ public class Movement : MonoBehaviour
                 }
             }
         }
+        if (Input.GetKeyDown(KeyCode.K)) {
+            UnityEngine.Transform temp = GameObject.Find("crosshairAttack").transform;
+            GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossShoot>().Shoot(obj:temp);
+        }
         if (rollTime) // set in PlatformMovementPhys.cs
         {
             SoundManager.PlaySound("playerDodge");

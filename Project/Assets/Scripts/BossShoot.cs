@@ -273,8 +273,11 @@ public class BossShoot : MonoBehaviour
         Shoot(false,arr[index],cd:cooldown);
     }
 
-    void Shoot(bool laser = false, int pattern = 0, int max = 1,float maxangle = 180,float cd = 2f)
+    public void Shoot(bool laser = false, int pattern = 0, int max = 1,float maxangle = 180,float cd = 2f, Transform obj = null)
     {
+        if (obj == null) {
+            obj = transform;
+        }
         if (laser) {
             SoundManager.PlaySound("bossLaser");
             Vector3 temp = transform.position;
@@ -307,8 +310,8 @@ public class BossShoot : MonoBehaviour
                 
             }
             for (int i = 0; i < max; i++) {
-                Vector3 temp = transform.position;
-                Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
+                Vector3 temp = obj.position;
+                Vector3 direction = (Vector2)(player.transform.position - obj.position).normalized;
                 float offsetX = 0f;
                 float offsetY = 0f;
                 if (offset != 0) {
@@ -316,7 +319,7 @@ public class BossShoot : MonoBehaviour
                     offsetY = max == 1 ? 0 : Mathf.Cos(offset * Mathf.Deg2Rad);
                 }
                 float angle = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) + offset;
-                GameObject bullet = Instantiate(projectile[pattern], temp, transform.rotation) as GameObject; 
+                GameObject bullet = Instantiate(projectile[pattern], temp, obj.rotation) as GameObject; 
                 bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
                 bullet.GetComponent<BossBullet>().enabled = true;
                 //int projNum=0;
@@ -356,6 +359,7 @@ public class BossShoot : MonoBehaviour
                 offset += step;
             }
         }
-        nextTimeShoot = Time.time + cd;
+        if(obj==transform)
+            nextTimeShoot = Time.time + cd;
     }
 }
