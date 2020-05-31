@@ -139,6 +139,7 @@ public class DialogueSystem : MonoBehaviour
             //SoundManager.PlaySound("crunch");
             yield return new WaitForSeconds(0f);
         }
+        dialogueBox.SetActive(true);
         StartCoroutine("textScroll");
         startTalking = true;
     }

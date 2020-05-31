@@ -12,6 +12,7 @@ public class CursorMovement: MonoBehaviour
 
     Rigidbody2D cursorBody;
 
+    public bool paused = false;
     public float deadzone; //joystick deadzone
     Vector2 stickInput;
     Vector2 mouseDelta;
@@ -36,7 +37,8 @@ public class CursorMovement: MonoBehaviour
     // Fixed update is called 50 times per second, regardless of framerate (this can be changed in the project settings)
     private void FixedUpdate()
     {
-        doMovement();
+        if(!paused)
+            doMovement();
     }
 
     void doMovement()

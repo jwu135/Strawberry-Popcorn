@@ -19,8 +19,8 @@ public class gameOver : MonoBehaviour
         if (boss) {
             Destroy(GameObject.Find("Mother"));
             //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().setMode(0);
-            GameObject.FindGameObjectWithTag("DemoText").GetComponent<Text>().enabled = true;
-            yield return new WaitForSeconds(15f);
+            //GameObject.FindGameObjectWithTag("DemoText").GetComponent<Text>().enabled = true;
+            yield return new WaitForSeconds(2f);
         }
         SceneManager.LoadScene("Scenes/Gameover");
     }

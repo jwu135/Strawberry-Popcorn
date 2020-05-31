@@ -143,11 +143,20 @@ public class SceneChanger : MonoBehaviour
                     camera.GetComponent<ScreenShake>().shakeCamera(0.5f);
                     cursor.transform.position = currBody.transform.position;
                     cursor.SetActive(true);
+                    cursor.GetComponent<CursorMovement>().paused = true;
+                    StartCoroutine("pauseDelay");
                 }
             }
 
         }
 
+    }
+
+
+    IEnumerator pauseDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        cursor.GetComponent<CursorMovement>().paused = false;
     }
 
     void startGame()

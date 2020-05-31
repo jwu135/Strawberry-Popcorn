@@ -1,5 +1,6 @@
 ﻿
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using DragonBones;
@@ -20,6 +21,8 @@ public class Movement : MonoBehaviour
     private float lastShot = 0f;
     public bool rollTime = false;
     public bool jumped = false;
+    private bool step1Played = false;
+    private bool step2Played = false;
     PlatformMovementPhys platMove;
     void Start()
     {
@@ -193,7 +196,41 @@ public class Movement : MonoBehaviour
             }
         */
         }
-            
+        if (armatureComponent.animation.GetStates()[0].name.Equals("Idle")) {
+            step1Played = false;
+            step2Played = false;
+        }
+        if (GetComponent<Rigidbody2D>().velocity.y == 0) {
+            // this took a lot of time...
+            if (armatureComponent.animation.GetStates()[0].name.Equals("Running")) {
+                double timeSpent = Math.Round(armatureComponent.animation.GetStates()[0].currentTime, 1);
+                if (timeSpent >= 0 && timeSpent <= .4 && !step1Played) {
+                    step1Played = true;
+                    SoundManager.PlaySound("Step1");
+                } else if (timeSpent >= 1 && timeSpent <= 1.3 && !step2Played) {
+                    step2Played = true;
+                    SoundManager.PlaySound("Step2");
+                }
+                if (armatureComponent.animation.isCompleted) {
+                    step1Played = false;
+                    step2Played = false;
+                }
+            }
+            if (armatureComponent.animation.GetStates()[0].name.Equals("backRunning")) {
+                double timeSpent = Math.Round(armatureComponent.animation.GetStates()[0].currentTime, 1);
+                if (timeSpent >= 0.3 && timeSpent <= .6 && !step1Played) {
+                    step1Played = true;
+                    SoundManager.PlaySound("Step1");
+                } else if (timeSpent >= 1.1 && timeSpent <= 1.4 && !step2Played) {
+                    step2Played = true;
+                    SoundManager.PlaySound("Step2");
+                }
+                if (armatureComponent.animation.isCompleted) {
+                    step1Played = false;
+                    step2Played = false;
+                }
+            }
+        }
         if (rollTime) // set in PlatformMovementPhys.cs
         {
             SoundManager.PlaySound("playerDodge");
@@ -254,7 +291,7 @@ public class Movement : MonoBehaviour
             if (armatureComponent.animation.lastAnimationName == "Jumping" && GetComponent<Rigidbody2D>().velocity.y == 0) {
                 //armatureComponent.animation.timeScale = 8;
                 //armatureComponent.animation.Play("FALLING", 1);
-                armatureComponent.animation.timeScale = 5;
+                //armatureComponent.animation.timeScale = 5;
                 armatureComponent.animation.Play("Idle",1);
             } else if (moving&&armatureComponent.animationName!="Jumping"&&armatureComponent.animation.lastAnimationName!="Jumping") {
                 float speed = Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x);
@@ -285,6 +322,7 @@ public class Movement : MonoBehaviour
 
 
             } else if (armatureComponent.animation.isCompleted || last) {
+            //} else if (GetComponent<Rigidbody2D>().velocity.y==0) {
                 armatureComponent.animation.timeScale = 2;
                 armatureComponent.animation.Play("Idle");
             }

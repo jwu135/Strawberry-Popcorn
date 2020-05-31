@@ -52,7 +52,7 @@ public class Henshin : MonoBehaviour
                 cam2.orthographicSize = Mathf.Lerp(cam2.orthographicSize, 8.709762f, speed);
             }
 
-                Debug.Log(cam.orthographicSize);
+                //Debug.Log(cam.orthographicSize);
             /*
         test1.color = new Color(1, 1, 1, 1);
         
