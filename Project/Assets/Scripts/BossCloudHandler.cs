@@ -15,19 +15,20 @@ public class BossCloudHandler : MonoBehaviour
     {
         leftWispCD -= Time.deltaTime;
         rightWispCD -= Time.deltaTime;
-
-        if (leftWispCD<=0 ) {
-            Vector3 temp = transform.position;
-            temp.x = Random.Range(-26.8f, 26.8f);
-            GameObject left = Instantiate(leftWisp,temp,transform.rotation,transform);
-            leftWispCD = Random.Range(4f, 5f);
-        }
-        if (rightWispCD<=0 ) {
-            Vector3 temp = transform.position;
-            temp.x = Random.Range(-26.8f, 26.8f);
-            GameObject right = Instantiate(rightWisp, transform.position, transform.rotation,transform);
-            //right.transform.parent = transform;
-            rightWispCD = Random.Range(4f, 5f);
+        if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() < 3) {
+            if (leftWispCD <= 0) {
+                Vector3 temp = transform.position;
+                temp.x = Random.Range(-26.8f, 26.8f);
+                GameObject left = Instantiate(leftWisp, temp, transform.rotation, transform);
+                leftWispCD = Random.Range(4f, 5f);
+            }
+            if (rightWispCD <= 0) {
+                Vector3 temp = transform.position;
+                temp.x = Random.Range(-26.8f, 26.8f);
+                GameObject right = Instantiate(rightWisp, transform.position, transform.rotation, transform);
+                //right.transform.parent = transform;
+                rightWispCD = Random.Range(4f, 5f);
+            }
         }
     }
 }

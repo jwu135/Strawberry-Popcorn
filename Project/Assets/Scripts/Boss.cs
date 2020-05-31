@@ -13,9 +13,13 @@ public class Boss : MonoBehaviour
     public Texture[] textures;
     public double[] healthNew = {25f,25f,25f,30f};
     public GameObject[] platforms;
+    public GameObject[] lights;
+    public GameObject finalPhaseHurtArea;
     private double[] healthPhases = new double[4]; // holds each health point for the boss
     private double[] maxhealthNew; // used for healthbar and whatnot
     public Image HealthBar;
+    [HideInInspector]
+    public GameObject[] mothers = new GameObject[4];
     private GameObject player;
     private int healthIndex = 0;
     private int healthPhasesIndex = 0;
@@ -23,8 +27,31 @@ public class Boss : MonoBehaviour
     private bool damageable = true;
     private bool disablePause = false;
     // Start is called before the first frame update
+    
+    void midGameOverride() // taken from RaShaun's Upgrade.cs, needed so I don't have to worry about the gameover screen issue
+    {
+        UpgradeValues.bonusHealth = 0;
+        UpgradeValues.bonusAttackSpd = 0;
+        UpgradeValues.bonusAttackDmg = 0;
+        UpgradeValues.bonusManaGain = 0;
+        UpgradeValues.upgradeLocation = 0;
+        UpgradeValues.upgradePoints = 0;
+        UpgradeValues.deathPointsUsed = 0;
+        UpgradeValues.deathProfit = false;
+        UpgradeValues.continueGame = false;
+        UpgradeValues.deathCounter = 0;
+        UpgradeValues.positions = new List<Vector2>();
+        UpgradeValues.bodies = new List<Sprite>();
+        GlobalVariable.positions = new List<Vector2>();
+        GlobalVariable.bodies = new List<Sprite>();
+        //GlobalVariable.deathCounter = 0;
+        UpgradeValues.bodyTypes = new int[1000000];
+        UpgradeValues.positionValues = new float[1000000];
+    }
     void Start()
     {
+        if(UpgradeValues.deathCounter==0)
+            midGameOverride();
         maxhealthNew = new double[healthNew.Length+1];
         Array.Copy(healthNew, maxhealthNew, healthNew.Length);
         swapPhase(0);
@@ -112,6 +139,16 @@ public class Boss : MonoBehaviour
                     foreach (GameObject tempFloor in platforms) {
                         Destroy(tempFloor);
                     }
+                    //finalPhaseHurtArea.SetActive(true);
+                    lights[0].SetActive(false);
+                    lights[1].SetActive(true);
+                    GameObject finalMothers = Resources.Load("Prefabs/4thPhaseMothers") as GameObject;
+                    player.GetComponent<PlayerController>().setMode(0);
+                    mothers[0] = gameObject;
+                    mothers[1] = Instantiate(finalMothers,new Vector3(26.46f, 4.1f, 0f), transform.rotation);
+                    mothers[2] = Instantiate(finalMothers,new Vector3(-30.44f, 4.1f, 0f), transform.rotation);
+                    mothers[3] = Instantiate(finalMothers,new Vector3(-1.892f, -8.8265f, 0f), transform.rotation);
+                    transform.localScale = Vector3.Scale(transform.localScale, new Vector3(0.75f, 0.75f, 1f));
                 }
                 GameObject.Find("Border").GetComponent<Animator>().SetTrigger("Down");
                 swapPhase((int)phase);
