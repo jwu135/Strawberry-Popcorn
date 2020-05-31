@@ -27,7 +27,6 @@ public class cutSceneStart : MonoBehaviour
             counter = true;
             if (!GameObject.Find("EventSystem").GetComponent<DialogueSystem>().startTalking) {
                 GameObject.Find("EventSystem").GetComponent<DialogueSystem>().StartCoroutine("eatDelay");
-
             }
         }
 
@@ -42,7 +41,6 @@ public class cutSceneStart : MonoBehaviour
         cutScene.Stop();
         if (!GameObject.Find("EventSystem").GetComponent<DialogueSystem>().startTalking) {
             GameObject.Find("EventSystem").GetComponent<DialogueSystem>().StartCoroutine("eatDelay");
-
         }
     }
 

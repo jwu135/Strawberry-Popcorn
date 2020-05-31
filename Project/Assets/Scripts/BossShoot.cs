@@ -103,7 +103,7 @@ public class BossShoot : MonoBehaviour
 
                     }
                     // Phase 3 stuff
-                    else if(phase>=2f){
+                    else if(phase>=2f&&phase<3){
                         float randFloat = Random.Range(0f, 1f);
                         if (randFloat > 0.9f) {
                             Shoot(true);
@@ -125,7 +125,10 @@ public class BossShoot : MonoBehaviour
                                 Shoot(false, 1, cd: 1f);
                             }*/
                         }
-                    }
+                    }else if (phase >= 3) {
+                        int randInt = Random.Range(0, 4);
+                        translateNum2(randInt, 0.8f);
+                }
                     // Misc handling
                     else {
                         Shoot(false);
@@ -164,7 +167,7 @@ public class BossShoot : MonoBehaviour
                         }
                     }
                     nextTime = Time.time + cooldown * 2;
-                } else if (phase >= 2.75f) {
+                } else if (phase >= 2.75f&&phase<3f) {
                     if (player.transform.position.x > 12) {
                         Physical(1);
                     } else if (player.transform.position.x < -12) {
@@ -179,6 +182,9 @@ public class BossShoot : MonoBehaviour
                             Physical(0);
                         }
                     }
+                    nextTime = Time.time + cooldown * 2;
+                }else if (phase >= 3f) {
+                    Physical(4);
                     nextTime = Time.time + cooldown * 2;
                 }
             }
@@ -270,6 +276,11 @@ public class BossShoot : MonoBehaviour
     private void translateNum(int index, float cooldown)
     {
         int[] arr = {0,2,6,4,7,8,3,1};
+        Shoot(false,arr[index],cd:cooldown);
+    }
+    private void translateNum2(int index, float cooldown)
+    {
+        int[] arr = {0,2,7,3,1};
         Shoot(false,arr[index],cd:cooldown);
     }
 

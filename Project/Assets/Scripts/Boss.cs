@@ -12,6 +12,7 @@ public class Boss : MonoBehaviour
     public GameObject[] armatures;
     public Texture[] textures;
     public double[] healthNew = {25f,25f,25f,30f};
+    public GameObject[] platforms;
     private double[] healthPhases = new double[4]; // holds each health point for the boss
     private double[] maxhealthNew; // used for healthbar and whatnot
     public Image HealthBar;
@@ -106,6 +107,11 @@ public class Boss : MonoBehaviour
                     GameObject CornerMother2 = Instantiate(TempCornerMother, transform.parent.transform.position + new Vector3(-25f, 0f, 0f), transform.rotation);
                     CornerMother2.transform.parent = transform.parent;
                     CornerMother.GetComponent<CornerBossShoot>().offsetCooldown();
+                }
+                if (phase == 1) {
+                    foreach (GameObject tempFloor in platforms) {
+                        Destroy(tempFloor);
+                    }
                 }
                 GameObject.Find("Border").GetComponent<Animator>().SetTrigger("Down");
                 swapPhase((int)phase);
