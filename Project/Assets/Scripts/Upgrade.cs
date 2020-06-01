@@ -126,6 +126,7 @@ public class Upgrade : MonoBehaviour
     {
         if(UpgradeValues.upgradePoints > 0 && UpgradeValues.bonusHealth < 10)
         {
+            SoundManager.PlaySound("gainLevel");
             UpgradeValues.upgradePoints -= 1;
             //UpgradeValues.deathPointsUsed -= 1;
             UpgradeValues.bonusHealth += 1;
@@ -144,6 +145,7 @@ public class Upgrade : MonoBehaviour
     {
         if (UpgradeValues.bonusAttackSpd < 0.2 && UpgradeValues.upgradePoints > 0)
         {
+            SoundManager.PlaySound("gainLevel");
             UpgradeValues.upgradePoints -= 1;
            // UpgradeValues.deathPointsUsed -= 1;
             UpgradeValues.bonusAttackSpd += 0.01;
@@ -162,6 +164,7 @@ public class Upgrade : MonoBehaviour
     {
         if (UpgradeValues.bonusAttackDmg < 5 && UpgradeValues.upgradePoints > 0)
         {
+            SoundManager.PlaySound("gainLevel");
             UpgradeValues.upgradePoints -= 1;
            // UpgradeValues.deathPointsUsed -= 1;
             UpgradeValues.bonusAttackDmg += 1;
@@ -180,6 +183,7 @@ public class Upgrade : MonoBehaviour
     {
         if (UpgradeValues.bonusManaGain < 5 && UpgradeValues.upgradePoints > 0)
         {
+            SoundManager.PlaySound("gainLevel");
             UpgradeValues.upgradePoints -= 1;
            // UpgradeValues.deathPointsUsed -= 1;
             UpgradeValues.bonusManaGain += 1;
