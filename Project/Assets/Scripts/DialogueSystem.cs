@@ -114,7 +114,6 @@ public class DialogueSystem : MonoBehaviour
                             GetComponent<CutsceneSystem>().DialogueDone(true);
                             GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[0];
                             GameObject.Find("Border").GetComponent<Animator>().SetTrigger("Up");
-                            Debug.Log("Went up");
                         } else {
                             GetComponent<CutsceneSystem>().DialogueDone();
                             GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[0];
@@ -122,8 +121,8 @@ public class DialogueSystem : MonoBehaviour
                                 if(UpgradeValues.deathCounter==1)
                                     buttonIcon.SetActive(true);
                                 GameObject.Find("Border").GetComponent<Animator>().SetTrigger("Up");
-                                Debug.Log("Went up");
                             }
+                            
                         }
                     }
 

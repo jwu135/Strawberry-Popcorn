@@ -246,7 +246,7 @@ public class FakeCannon : MonoBehaviour
             maxCharge = true;
             PlayerCombat.launch = false;
             PlayerCombat.launchVisible = false;
-            Debug.Log("doge");
+            //Debug.Log("doge");
             //maxCharge = false;
             //HealthManager.hit = false;
         }

@@ -45,36 +45,36 @@ public class Enemy : MonoBehaviour
             GetComponent<Boss>().losehealth(damage1 + UpgradeValues.bonusAttackDmg);
             /*text.text = GetComponent<Boss>().health.ToString() + "/" + "100";*/
             health -= damage1 + UpgradeValues.bonusAttackDmg;
-            Debug.Log("damage");
+            //Debug.Log("damage");
             //Debug.Log(health);
         }
         if (other.tag == "normalAttack2") {
             GetComponent<Boss>().losehealth(damage2);
             /*text.text = GetComponent<Boss>().health.ToString() + "/" + "100";*/
             health -= damage2;
-            Debug.Log("damage");
+            //Debug.Log("damage");
             //Debug.Log(health);
         }
         if (other.tag == "normalAttack3") {
             GetComponent<Boss>().losehealth(damage3);
             /*text.text = GetComponent<Boss>().health.ToString() + "/" + "100";*/
             health -= damage3;
-            Debug.Log("damage");
+            //Debug.Log("damage");
             //Debug.Log(health);
         }
         if (other.tag == "chargeAttack1") {
             GetComponent<Boss>().losehealth(damage4 + (FakeCannon.damageScale * 2));
             /*text.text = GetComponent<Boss>().health.ToString() + "/" + "100";*/
-            Debug.Log(FakeCannon.damageScale);
+            //Debug.Log(FakeCannon.damageScale);
             health -= (damage4 + (FakeCannon.damageScale * 2));
-            Debug.Log("damage");
+            //Debug.Log("damage");
             //Debug.Log(health);
         }
         if (other.tag == "chargeAttack2") {
             GetComponent<Boss>().losehealth(damage5);
             /*text.text = GetComponent<Boss>().health.ToString() + "/" + "100";*/
             health -= damage5;
-            Debug.Log("damage");
+            //Debug.Log("damage");
             //Debug.Log(health);
         }
         if (other.tag == "chargeAttack3") {
@@ -102,7 +102,7 @@ public class Enemy : MonoBehaviour
                  GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
              }*/
             health -= damage3;
-            Debug.Log("damage");
+            //Debug.Log("damage");
             //Debug.Log(health);
         }
         if (other.tag == "specialAttack1" && SA1)
@@ -114,7 +114,7 @@ public class Enemy : MonoBehaviour
                 GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
             }*/
             health -= damage7;
-            Debug.Log("damage");
+            //Debug.Log("damage");
             //Debug.Log(health);
         }
         if (other.tag == "specialAttack2" && SA2)
@@ -126,7 +126,7 @@ public class Enemy : MonoBehaviour
                 GameObject.Find("EventSystem").GetComponent<gameOver>().gameEnd();
             }*/
             health -= damage8;
-            Debug.Log("damage");
+            //Debug.Log("damage");
             //Debug.Log(health);
         }
     }

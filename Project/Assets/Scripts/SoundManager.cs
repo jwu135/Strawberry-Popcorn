@@ -262,7 +262,6 @@ public class SoundManager : MonoBehaviour
                 break;
             case "tentacleAttack":
                 audioSrc.PlayOneShot(tentacleAttack,1f);
-                Debug.Log("tried to play");
                 break;
 
         }

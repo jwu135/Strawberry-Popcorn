@@ -79,7 +79,6 @@ public class SceneChanger : MonoBehaviour
     {
         int i = 0;
         foreach (Vector2 item in positions) {
-            Debug.Log(i);
             GameObject groundBody = Instantiate(berryBody, item, berryBody.transform.rotation);
             groundBody.GetComponent<SpriteRenderer>().sprite = bodies[i];
             if (groundBody.GetComponent<SpriteRenderer>().sprite.name.Equals("DeadStrawberry1Blood")){
@@ -96,13 +95,13 @@ public class SceneChanger : MonoBehaviour
             fallingBerry = true;
             temp = new Vector2(Random.Range(-7f, 7f), Random.Range(-4.5f, -2.5f));
 
-            Debug.Log(UpgradeValues.deathCounter);
-            Debug.Log(temp.x);
+            //Debug.Log(UpgradeValues.deathCounter);
+            //Debug.Log(temp.x);
             UpgradeValues.positionValues[(UpgradeValues.deathCounter * 2) - 2] = temp.x;
-            Debug.Log(UpgradeValues.positionValues[0]);
+            //Debug.Log(UpgradeValues.positionValues[0]);
             UpgradeValues.positionValues[(UpgradeValues.deathCounter * 2) - 1] = temp.y;
-            Debug.Log(temp.y);
-            Debug.Log(UpgradeValues.positionValues[1]);
+            //Debug.Log(temp.y);
+            //Debug.Log(UpgradeValues.positionValues[1]);
 
             positions.Add(temp);
             finalPosY = temp.y;

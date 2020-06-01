@@ -98,6 +98,8 @@ public class CutsceneSystem : MonoBehaviour
         boss.GetComponentInChildren<Boss>().setDamageable(true);
         if(first)
          boss.GetComponentInChildren<BossShoot>().startTime();
-        
+        Boss bossScript = GameObject.Find("Mother's Eye").GetComponent<Boss>();
+        if (bossScript.getPhase() >= 3)
+            bossScript.toggleSprite(true);
     }
 }

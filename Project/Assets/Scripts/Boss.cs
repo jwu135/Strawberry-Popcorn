@@ -50,8 +50,8 @@ public class Boss : MonoBehaviour
     }
     void Start()
     {
-        if(UpgradeValues.deathCounter==0)
-            midGameOverride();
+        //if(UpgradeValues.deathCounter==0)
+        //    midGameOverride();
         maxhealthNew = new double[healthNew.Length+1];
         Array.Copy(healthNew, maxhealthNew, healthNew.Length);
         swapPhase(0);
@@ -90,6 +90,13 @@ public class Boss : MonoBehaviour
             healthPhases[i] = tempHealth - ((i+1) * tempHealth / phases);
         }
         healthPhasesIndex = 0;
+    }
+
+    public void toggleSprite(bool enable)
+    {
+        foreach (GameObject mother in mothers) {
+            mother.GetComponent<SpriteRenderer>().enabled = enable;
+        }
     }
     public void losehealth(double amnt)
     {
@@ -135,7 +142,7 @@ public class Boss : MonoBehaviour
                     CornerMother2.transform.parent = transform.parent;
                     CornerMother.GetComponent<CornerBossShoot>().offsetCooldown();
                 }
-                if (phase == 1) {
+                if (phase == 3) {
                     foreach (GameObject tempFloor in platforms) {
                         Destroy(tempFloor);
                     }
@@ -145,10 +152,15 @@ public class Boss : MonoBehaviour
                     GameObject finalMothers = Resources.Load("Prefabs/4thPhaseMothers") as GameObject;
                     player.GetComponent<PlayerController>().setMode(0);
                     mothers[0] = gameObject;
-                    mothers[1] = Instantiate(finalMothers,new Vector3(26.46f, 4.1f, 0f), transform.rotation);
-                    mothers[2] = Instantiate(finalMothers,new Vector3(-30.44f, 4.1f, 0f), transform.rotation);
-                    mothers[3] = Instantiate(finalMothers,new Vector3(-1.892f, -8.8265f, 0f), transform.rotation);
-                    transform.localScale = Vector3.Scale(transform.localScale, new Vector3(0.75f, 0.75f, 1f));
+                    mothers[1] = Instantiate(finalMothers,new Vector3(26.46f, 4.1f, 0f), transform.rotation,transform.parent);
+                    mothers[2] = Instantiate(finalMothers,new Vector3(-28.44f, 4.1f, 0f), transform.rotation, transform.parent);
+                    mothers[3] = Instantiate(finalMothers,new Vector3(-1.892f, -7.8265f, 0f), transform.rotation, transform.parent);
+                    mothers[3].GetComponent<LastPhaseBossShoot>().bottomEye = true;
+                    foreach (GameObject mother in mothers) {
+                        mother.transform.localScale = Vector3.Scale(mother.transform.localScale, new Vector3(0.75f, 0.75f, 1f));
+                    }
+                    toggleSprite(false);
+                    //Camera.main.orthographicSize = 25; // this might be necessary
                 }
                 GameObject.Find("Border").GetComponent<Animator>().SetTrigger("Down");
                 swapPhase((int)phase);

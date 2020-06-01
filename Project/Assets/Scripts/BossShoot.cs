@@ -283,6 +283,11 @@ public class BossShoot : MonoBehaviour
         int[] arr = {0,2,7,3,1};
         Shoot(false,arr[index],cd:cooldown);
     }
+    public void translateNum3(int index, float cooldown,Transform obj)
+    {
+        int[] arr = {0,2,7,3,1};
+        Shoot(false,arr[index],cd:cooldown,obj:obj);
+    }
 
     public void Shoot(bool laser = false, int pattern = 0, int max = 1,float maxangle = 180,float cd = 2f, Transform obj = null)
     {
