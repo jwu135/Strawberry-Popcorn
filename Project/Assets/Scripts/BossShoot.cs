@@ -103,7 +103,7 @@ public class BossShoot : MonoBehaviour
 
                     }
                     // Phase 3 stuff
-                    else if(phase>=2f){
+                    else if(phase>=2f&&phase<3){
                         float randFloat = Random.Range(0f, 1f);
                         if (randFloat > 0.9f) {
                             Shoot(true);
@@ -125,7 +125,10 @@ public class BossShoot : MonoBehaviour
                                 Shoot(false, 1, cd: 1f);
                             }*/
                         }
-                    }
+                    }else if (phase >= 3) {
+                        int randInt = Random.Range(0, 4);
+                        translateNum2(randInt, 0.8f);
+                }
                     // Misc handling
                     else {
                         Shoot(false);
@@ -164,7 +167,7 @@ public class BossShoot : MonoBehaviour
                         }
                     }
                     nextTime = Time.time + cooldown * 2;
-                } else if (phase >= 2.75f) {
+                } else if (phase >= 2.75f&&phase<3f) {
                     if (player.transform.position.x > 12) {
                         Physical(1);
                     } else if (player.transform.position.x < -12) {
@@ -179,6 +182,9 @@ public class BossShoot : MonoBehaviour
                             Physical(0);
                         }
                     }
+                    nextTime = Time.time + cooldown * 2;
+                }else if (phase >= 3f) {
+                    Physical(4);
                     nextTime = Time.time + cooldown * 2;
                 }
             }
@@ -272,9 +278,22 @@ public class BossShoot : MonoBehaviour
         int[] arr = {0,2,6,4,7,8,3,1};
         Shoot(false,arr[index],cd:cooldown);
     }
-
-    void Shoot(bool laser = false, int pattern = 0, int max = 1,float maxangle = 180,float cd = 2f)
+    private void translateNum2(int index, float cooldown)
     {
+        int[] arr = {0,2,7,3,1};
+        Shoot(false,arr[index],cd:cooldown);
+    }
+    public void translateNum3(int index, float cooldown,Transform obj)
+    {
+        int[] arr = {0,2,7,3,1};
+        Shoot(false,arr[index],cd:cooldown,obj:obj);
+    }
+
+    public void Shoot(bool laser = false, int pattern = 0, int max = 1,float maxangle = 180,float cd = 2f, Transform obj = null)
+    {
+        if (obj == null) {
+            obj = transform;
+        }
         if (laser) {
             SoundManager.PlaySound("bossLaser");
             Vector3 temp = transform.position;
@@ -307,8 +326,8 @@ public class BossShoot : MonoBehaviour
                 
             }
             for (int i = 0; i < max; i++) {
-                Vector3 temp = transform.position;
-                Vector3 direction = (Vector2)(player.transform.position - transform.position).normalized;
+                Vector3 temp = obj.position;
+                Vector3 direction = (Vector2)(player.transform.position - obj.position).normalized;
                 float offsetX = 0f;
                 float offsetY = 0f;
                 if (offset != 0) {
@@ -316,7 +335,7 @@ public class BossShoot : MonoBehaviour
                     offsetY = max == 1 ? 0 : Mathf.Cos(offset * Mathf.Deg2Rad);
                 }
                 float angle = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) + offset;
-                GameObject bullet = Instantiate(projectile[pattern], temp, transform.rotation) as GameObject; 
+                GameObject bullet = Instantiate(projectile[pattern], temp, obj.rotation) as GameObject; 
                 bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
                 bullet.GetComponent<BossBullet>().enabled = true;
                 //int projNum=0;
@@ -356,6 +375,7 @@ public class BossShoot : MonoBehaviour
                 offset += step;
             }
         }
-        nextTimeShoot = Time.time + cd;
+        if(obj==transform)
+            nextTimeShoot = Time.time + cd;
     }
 }

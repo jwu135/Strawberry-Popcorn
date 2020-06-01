@@ -113,9 +113,7 @@ public class BossBullet : MonoBehaviour
         }
       
         if (breakable) {
-            Debug.Log("can be broken");
             if(col.tag == "normalAttack1"|| col.tag == "chargeAttack1") {
-                Debug.Log("broke");
                 col.gameObject.GetComponent<Bullet>().explode();
                 explode();
             }

@@ -36,12 +36,14 @@ public class CutsceneSystem : MonoBehaviour
     // the following code is a result of having very little time to complete something that needed substantially more time
     public void cutscene(GameObject piece)
     {
-        Stop();
         GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossShoot>().destroyProjectiles();
+        Time.timeScale = 1;
+        Stop();
         Time.timeScale = 1;
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         boss.GetComponent<Rigidbody2D>().velocity = transform.up * -20;
-        player.GetComponent<Rigidbody2D>().velocity = transform.up * -20;
+        //if(GameObject.Find("Mother's Eye").GetComponent<Boss>().getPhase()!=3)
+            player.GetComponent<Rigidbody2D>().velocity = transform.up * -20;
         boss.transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("hurt", 0);
         player.GetComponent<Movement>().getArmature().animation.Play("Idle", 0);
         GetComponent<DialogueSystem>().dialogueBox.SetActive(true);
@@ -68,7 +70,7 @@ public class CutsceneSystem : MonoBehaviour
         eaten = false;
 
         foreach (MonoBehaviour script in scripts) {
-            if (script.GetType().Name != "UnityArmatureComponent" && script.GetType().Name != "UnityCombineMeshs") {
+            if (script.GetType().Name != "UnityArmatureComponent" && script.GetType().Name != "UnityCombineMeshs"&&script!=null) {
                 script.enabled = false;
             }
         }
@@ -98,6 +100,11 @@ public class CutsceneSystem : MonoBehaviour
         boss.GetComponentInChildren<Boss>().setDamageable(true);
         if(first)
          boss.GetComponentInChildren<BossShoot>().startTime();
-        
+        GameObject.Find("Mother's Eye").GetComponent<SpriteRenderer>().enabled = true;
+        Boss bossScript = GameObject.Find("Mother's Eye").GetComponent<Boss>();
+        if (bossScript.getPhase() >= 3) {
+            //bossScript.toggleSprite(true);
+            bossScript.destroyBuildDestroy();
+        }
     }
 }

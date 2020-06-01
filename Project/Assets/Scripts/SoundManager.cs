@@ -46,6 +46,11 @@ public class SoundManager : MonoBehaviour
     public static AudioClip munch;
     public static AudioClip royaltySplat;
 
+    
+    public static AudioClip Step1;
+    public static AudioClip Step2;
+    
+
     public static AudioClip playerShootSound1;
     public static AudioClip playerShootSound2;
     public static AudioClip playerShootSound3;
@@ -104,6 +109,9 @@ public class SoundManager : MonoBehaviour
 
 
         playerCharging = Resources.Load<AudioClip>("Sounds/Chiptune/ChargingUp");
+        
+        Step1 = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/Step1");
+        Step2 = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/Step2");
 
         // leaving these just in case
         playerShootSound1 = Resources.Load<AudioClip>("Sounds/shoot1");
@@ -239,6 +247,12 @@ public class SoundManager : MonoBehaviour
             case "mushroomSplat":
                 audioSrc.PlayOneShot(mushroomSplat);
                 break;
+            case "Step1":
+                audioSrc.PlayOneShot(Step1,0.7f);
+                break;
+            case "Step2":
+                audioSrc.PlayOneShot(Step2,0.7f);
+                break;
             case "deathScreenClick":
                 audioSrc.PlayOneShot(deathScreenClick);
                 break;
@@ -249,8 +263,8 @@ public class SoundManager : MonoBehaviour
                 audioSrc.PlayOneShot(eatingQuestionMark);
                 break;
             case "tentacleAttack":
-                audioSrc.PlayOneShot(tentacleAttack, 1f);
-                Debug.Log("tried to play");
+
+                audioSrc.PlayOneShot(tentacleAttack,1f);
                 break;
 
         }

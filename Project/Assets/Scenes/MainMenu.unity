@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 362278694}
   - component: {fileID: 362278693}
   - component: {fileID: 362278698}
+  - component: {fileID: 362278699}
   m_Layer: 0
   m_Name: Option2
   m_TagString: Button
@@ -179,7 +180,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 18.36, y: 9.28}
+    oldSize: {x: 20.64, y: 14.5729685}
     newSize: {x: 20.64, y: 14.5729685}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -208,7 +209,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -270,7 +271,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 87e3c46a9f1d23d4087559330e9ff52b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d67e7dcd8b20a7c4bae4d85db6d265b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -331,6 +332,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptName: 
   doWork: {fileID: 362278694}
+--- !u!114 &362278699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362278691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478e5eff84dceba4687b6303b2c7ac42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseEye: {fileID: 362278695}
+  Image: {fileID: 0}
+  MouseEyeOpen: {fileID: 21300000, guid: 87e3c46a9f1d23d4087559330e9ff52b, type: 3}
+  MouseEyeClosed: {fileID: 21300000, guid: d67e7dcd8b20a7c4bae4d85db6d265b6, type: 3}
 --- !u!1 &837815530
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,6 +854,7 @@ GameObject:
   - component: {fileID: 1051424020}
   - component: {fileID: 1051424021}
   - component: {fileID: 1051424022}
+  - component: {fileID: 1051424024}
   m_Layer: 0
   m_Name: NewGame2
   m_TagString: Button
@@ -984,7 +1002,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 18.36, y: 9.28}
+    oldSize: {x: 20.64, y: 14.5729685}
     newSize: {x: 20.64, y: 14.5729685}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1032,7 +1050,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 10af4d266f62b6e46b2f960348a4f391, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ac2c3734eabb07c47a6a2884da362ea2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1043,6 +1061,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1051424024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051424016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478e5eff84dceba4687b6303b2c7ac42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseEye: {fileID: 1051424023}
+  Image: {fileID: 0}
+  MouseEyeOpen: {fileID: 21300000, guid: af0adb1e8484c424ea822677933eda98, type: 3}
+  MouseEyeClosed: {fileID: 21300000, guid: ac2c3734eabb07c47a6a2884da362ea2, type: 3}
 --- !u!1 &1072874694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,12 +1086,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1072874695}
+  - component: {fileID: 1072874700}
   - component: {fileID: 1072874699}
   - component: {fileID: 1072874698}
   - component: {fileID: 1072874697}
-  - component: {fileID: 1072874700}
   - component: {fileID: 1072874696}
   - component: {fileID: 1072874701}
+  - component: {fileID: 1072874702}
   m_Layer: 0
   m_Name: Exit2
   m_TagString: Button
@@ -1101,7 +1136,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 18.36, y: 9.28}
+    oldSize: {x: 20.64, y: 14.5729685}
     newSize: {x: 20.64, y: 14.5729685}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1149,7 +1184,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ef45cd5d61be62b4291354128ba0bbc0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c22142c1338aa842b91eaa084164a65, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1219,9 +1254,9 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
+    m_ColorMultiplier: 1.57
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -1253,6 +1288,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptName: 
   doWork: {fileID: 1072874700}
+--- !u!114 &1072874702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072874694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478e5eff84dceba4687b6303b2c7ac42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MouseEye: {fileID: 1072874697}
+  Image: {fileID: 0}
+  MouseEyeOpen: {fileID: 21300000, guid: ef45cd5d61be62b4291354128ba0bbc0, type: 3}
+  MouseEyeClosed: {fileID: 21300000, guid: 5c22142c1338aa842b91eaa084164a65, type: 3}
 --- !u!1 &1205778263
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,7 +1666,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.5, y: -0.4}
+  m_AnchoredPosition: {x: 0, y: 1.2508}
   m_SizeDelta: {x: 694.5, y: 522.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1468723354
@@ -2022,11 +2073,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
+    m_PressedColor: {r: 0.5, g: 0.23349056, b: 0.23349056, a: 1}
+    m_SelectedColor: {r: 0.99636734, g: 1, b: 0, a: 1}
+    m_DisabledColor: {r: 1, g: 0, b: 0.92144823, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2270,12 +2321,12 @@ PrefabInstance:
     - target: {fileID: 4478260949955139234, guid: 4521da10421174945aedb74aba4e14d6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.11
+      value: -2.98
       objectReference: {fileID: 0}
     - target: {fileID: 4478260949955139234, guid: 4521da10421174945aedb74aba4e14d6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2
+      value: -0.74
       objectReference: {fileID: 0}
     - target: {fileID: 4478260949955139234, guid: 4521da10421174945aedb74aba4e14d6,
         type: 3}

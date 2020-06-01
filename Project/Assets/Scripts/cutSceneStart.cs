@@ -25,9 +25,23 @@ public class cutSceneStart : MonoBehaviour
             cam.enabled = false;
             cam2.enabled = true;
             counter = true;
+            if (!GameObject.Find("EventSystem").GetComponent<DialogueSystem>().startTalking) {
+                GameObject.Find("EventSystem").GetComponent<DialogueSystem>().StartCoroutine("eatDelay");
+            }
         }
 
 
+    }
+
+    public void cutsceneEnd()
+    {
+        cam.enabled = false;
+        cam2.enabled = true;
+        counter = true;
+        cutScene.Stop();
+        if (!GameObject.Find("EventSystem").GetComponent<DialogueSystem>().startTalking) {
+            GameObject.Find("EventSystem").GetComponent<DialogueSystem>().StartCoroutine("eatDelay");
+        }
     }
 
     // Update is called once per frame
@@ -40,14 +54,9 @@ public class cutSceneStart : MonoBehaviour
         }
         if (Input.GetButtonDown("interact"))
         {
-            cam.enabled = false;
-            cam2.enabled = true;
-            counter = true;
-            if (!GameObject.Find("EventSystem").GetComponent<DialogueSystem>().startTalking) {
-                GameObject.Find("EventSystem").GetComponent<DialogueSystem>().StartCoroutine("eatDelay");
-                
-            }
+            cutsceneEnd();
         }
 
     }
 }
+

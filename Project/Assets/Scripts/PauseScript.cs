@@ -15,6 +15,9 @@ public class PauseScript : MonoBehaviour
     { //Playercombat and look2 still need to check time scale.
         paused = 1 - paused;
         canvas[0].SetActive(!Convert.ToBoolean(paused));
+        if(paused == 1) {
+            Time.timeScale = 1;
+        }
     }
     // Update is called once per frame
     void Update()
@@ -22,6 +25,8 @@ public class PauseScript : MonoBehaviour
         if (paused == 0) {
             if (GameObject.Find("Player") != null)
                 GameObject.Find("Player").GetComponent<HealthManager>().timer = 1;
+            if (GameObject.Find("Player2") != null)
+                GameObject.Find("Player2").GetComponent<HealthManager>().timer = 1;
             Time.timeScale = 0;
         }
     }

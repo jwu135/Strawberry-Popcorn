@@ -9,6 +9,8 @@ public class DialogueParallax : MonoBehaviour
     public GameObject armature;
     public GameObject dialogueBox;
     public GameObject interactSign;
+    public GameObject QuestionBubble;
+    private bool spokenTo = false;
     private Dialogue[] dialogue = new Dialogue[7];
     private bool over = false;
     private bool activatedDialogue = false;
@@ -42,15 +44,20 @@ public class DialogueParallax : MonoBehaviour
     {
         if (col.tag == "Player") {
             //interactSign.SetActive(true);
+            interactSign = GameObject.FindGameObjectWithTag("InteractSign");
             interactSign.GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
+            //if(spokenTo)
+              //  QuestionBubble.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             over = true;
         }
     }
+
 
     void OnTriggerExit2D(Collider2D col)
     {
         //interactSign.SetActive(false);
         interactSign.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+           
         over = false;
         if (activatedDialogue) {
             dialogueBox.transform.parent.gameObject.SetActive(false);
@@ -78,7 +85,8 @@ public class DialogueParallax : MonoBehaviour
     void talk()
     {
         if (!activatedDialogue) {
-            
+            spokenTo = true;
+            QuestionBubble.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
             dialogueBox.transform.parent.gameObject.SetActive(true);
             interactSign.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
             finalSentence = dialogue[rand].sentences;

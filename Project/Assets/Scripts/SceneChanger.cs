@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,6 +14,7 @@ public class SceneChanger : MonoBehaviour
     private List<Vector2> positions;
     public Sprite berryImage;
     public Sprite[] berryImageDropped;
+    public string[] quotes = new string[1];
     public GameObject berryBody;
     private GameObject currBody;
     private List<Sprite> bodies;
@@ -23,12 +25,19 @@ public class SceneChanger : MonoBehaviour
     private Sprite tempBerrySprite;
     private int lastDeathCounter = 0;
     private bool fallingBerry = false;
+    private GameObject cursor;
     private void Awake()
     {
         Time.timeScale = 1;
     }
+    private void quoteFiller(){
+        quotes[0] = "filler";
+    }
+
+
     void Start()
     {
+        quoteFiller();
         lastDeathCounter = GlobalVariable.lastDeathCounter;
         if (play != null)
             play.onClick.AddListener(playGame);
@@ -39,6 +48,7 @@ public class SceneChanger : MonoBehaviour
         scene = SceneManager.GetActiveScene();
 
         Debug.Log(UpgradeValues.continueGame);
+        cursor = GameObject.Find("Cursor");
         if (scene.name.Equals("Gameover") && !UpgradeValues.continueGame)
         {
             positions = GlobalVariable.positions;
@@ -69,7 +79,6 @@ public class SceneChanger : MonoBehaviour
     {
         int i = 0;
         foreach (Vector2 item in positions) {
-            Debug.Log(i);
             GameObject groundBody = Instantiate(berryBody, item, berryBody.transform.rotation);
             groundBody.GetComponent<SpriteRenderer>().sprite = bodies[i];
             if (groundBody.GetComponent<SpriteRenderer>().sprite.name.Equals("DeadStrawberry1Blood")){
@@ -80,17 +89,19 @@ public class SceneChanger : MonoBehaviour
         }
     // -4.73
         if (lastDeathCounter != GlobalVariable.deathCounter) {
+            bool usingController = false;
+            cursor.SetActive(false);
             GlobalVariable.lastDeathCounter = GlobalVariable.deathCounter;
             fallingBerry = true;
             temp = new Vector2(Random.Range(-7f, 7f), Random.Range(-4.5f, -2.5f));
 
-            Debug.Log(UpgradeValues.deathCounter);
-            Debug.Log(temp.x);
+            //Debug.Log(UpgradeValues.deathCounter);
+            //Debug.Log(temp.x);
             UpgradeValues.positionValues[(UpgradeValues.deathCounter * 2) - 2] = temp.x;
-            Debug.Log(UpgradeValues.positionValues[0]);
+            //Debug.Log(UpgradeValues.positionValues[0]);
             UpgradeValues.positionValues[(UpgradeValues.deathCounter * 2) - 1] = temp.y;
-            Debug.Log(temp.y);
-            Debug.Log(UpgradeValues.positionValues[1]);
+            //Debug.Log(temp.y);
+            //Debug.Log(UpgradeValues.positionValues[1]);
 
             positions.Add(temp);
             finalPosY = temp.y;
@@ -129,11 +140,22 @@ public class SceneChanger : MonoBehaviour
                     }
                     GameObject camera = GameObject.Find("Main Camera");
                     camera.GetComponent<ScreenShake>().shakeCamera(0.5f);
+                    cursor.transform.position = currBody.transform.position;
+                    cursor.SetActive(true);
+                    cursor.GetComponent<CursorMovement>().paused = true;
+                    StartCoroutine("pauseDelay");
                 }
             }
 
         }
 
+    }
+
+
+    IEnumerator pauseDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        cursor.GetComponent<CursorMovement>().paused = false;
     }
 
     void startGame()
