@@ -41,7 +41,8 @@ public class CutsceneSystem : MonoBehaviour
         Time.timeScale = 1;
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         boss.GetComponent<Rigidbody2D>().velocity = transform.up * -20;
-        player.GetComponent<Rigidbody2D>().velocity = transform.up * -20;
+        //if(GameObject.Find("Mother's Eye").GetComponent<Boss>().getPhase()!=3)
+            player.GetComponent<Rigidbody2D>().velocity = transform.up * -20;
         boss.transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("hurt", 0);
         player.GetComponent<Movement>().getArmature().animation.Play("Idle", 0);
         GetComponent<DialogueSystem>().dialogueBox.SetActive(true);
@@ -98,8 +99,11 @@ public class CutsceneSystem : MonoBehaviour
         boss.GetComponentInChildren<Boss>().setDamageable(true);
         if(first)
          boss.GetComponentInChildren<BossShoot>().startTime();
+        GameObject.Find("Mother's Eye").GetComponent<SpriteRenderer>().enabled = true;
         Boss bossScript = GameObject.Find("Mother's Eye").GetComponent<Boss>();
-        if (bossScript.getPhase() >= 3)
-            bossScript.toggleSprite(true);
+        if (bossScript.getPhase() >= 3) {
+            //bossScript.toggleSprite(true);
+            bossScript.destroyBuildDestroy();
+        }
     }
 }

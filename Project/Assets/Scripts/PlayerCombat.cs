@@ -441,6 +441,9 @@ public class PlayerCombat : MonoBehaviour
 
         SoundManager.PlaySound("playerShotSound2");
 
+        if (GameObject.FindGameObjectWithTag("ButtonClickIcon") != null)
+            GameObject.FindGameObjectWithTag("ButtonClickIcon").GetComponent<ShootIconScript>().timesShot++;
+
         spawnedObject.transform.localScale = new Vector2( (float)(FakeCannon.copyscalex/ (float)3.1) , (float)(FakeCannon.copyscaley/ (float)3.1) );
 
         transform.GetComponent<PlayerMuzzleFlash>().spawnFlash(spawnedObject.transform.localScale);

@@ -26,8 +26,10 @@ public class Boss : MonoBehaviour
     private float phase = 0;
     private bool damageable = true;
     private bool disablePause = false;
+    private GameObject CornerMother;
+    private GameObject CornerMother2;
     // Start is called before the first frame update
-    
+
     void midGameOverride() // taken from RaShaun's Upgrade.cs, needed so I don't have to worry about the gameover screen issue
     {
         UpgradeValues.bonusHealth = 0;
@@ -50,8 +52,8 @@ public class Boss : MonoBehaviour
     }
     void Start()
     {
-        //if(UpgradeValues.deathCounter==0)
-        //    midGameOverride();
+        if(UpgradeValues.deathCounter==0)
+            midGameOverride();
         maxhealthNew = new double[healthNew.Length+1];
         Array.Copy(healthNew, maxhealthNew, healthNew.Length);
         swapPhase(0);
@@ -98,6 +100,26 @@ public class Boss : MonoBehaviour
             mother.GetComponent<SpriteRenderer>().enabled = enable;
         }
     }
+
+    public void destroyBuildDestroy()
+    {
+        foreach (GameObject tempFloor in platforms) {
+            Destroy(tempFloor);
+        }
+        Destroy(CornerMother);
+        Destroy(CornerMother2);
+        GameObject finalMothers = Resources.Load("Prefabs/4thPhaseMothers") as GameObject;
+        player.GetComponent<PlayerController>().setMode(0);
+        mothers[0] = gameObject;
+        mothers[1] = Instantiate(finalMothers, new Vector3(26.46f, 4.1f, 0f), transform.rotation, transform.parent);
+        mothers[2] = Instantiate(finalMothers, new Vector3(-28.44f, 4.1f, 0f), transform.rotation, transform.parent);
+        mothers[3] = Instantiate(finalMothers, new Vector3(-1.892f, -7.8265f, 0f), transform.rotation, transform.parent);
+        mothers[3].GetComponent<LastPhaseBossShoot>().bottomEye = true;
+        foreach (GameObject mother in mothers) {
+            mother.transform.localScale = Vector3.Scale(mother.transform.localScale, new Vector3(0.75f, 0.75f, 1f));
+        }
+        //toggleSprite(false);
+    }
     public void losehealth(double amnt)
     {
         if (damageable) {
@@ -132,34 +154,26 @@ public class Boss : MonoBehaviour
                 GameObject Piece = Instantiate(GameObject.FindGameObjectWithTag("PieceOne"), transform.position, GameObject.FindGameObjectWithTag("PieceOne").transform.rotation) as GameObject;
                 SoundManager.PlaySound("pieceFall");
                 Piece.GetComponent<Rigidbody2D>().velocity = new Vector2(-0.5f, 0.5f) * 5;
+                GetComponent<SpriteRenderer>().enabled = false;
                 /*if(healthIndex!=0)
                     phase+=1f;*/
                 if (phase == 1) {
                     GameObject TempCornerMother = Resources.Load("Prefabs/CornerMother") as GameObject;
-                    GameObject CornerMother = Instantiate(TempCornerMother,transform.parent.transform.position+new Vector3(25f,0f,0f),transform.rotation);
+                    CornerMother = Instantiate(TempCornerMother,transform.parent.transform.position+new Vector3(25f,0f,0f),transform.rotation);
                     CornerMother.transform.parent = transform.parent;
-                    GameObject CornerMother2 = Instantiate(TempCornerMother, transform.parent.transform.position + new Vector3(-25f, 0f, 0f), transform.rotation);
+                    CornerMother2 = Instantiate(TempCornerMother, transform.parent.transform.position + new Vector3(-25f, 0f, 0f), transform.rotation);
                     CornerMother2.transform.parent = transform.parent;
                     CornerMother.GetComponent<CornerBossShoot>().offsetCooldown();
                 }
                 if (phase == 3) {
-                    foreach (GameObject tempFloor in platforms) {
-                        Destroy(tempFloor);
-                    }
+                    
                     //finalPhaseHurtArea.SetActive(true);
+                    Piece.GetComponent<Rigidbody2D>().gravityScale = 0.1f;
+                    
                     lights[0].SetActive(false);
                     lights[1].SetActive(true);
-                    GameObject finalMothers = Resources.Load("Prefabs/4thPhaseMothers") as GameObject;
-                    player.GetComponent<PlayerController>().setMode(0);
-                    mothers[0] = gameObject;
-                    mothers[1] = Instantiate(finalMothers,new Vector3(26.46f, 4.1f, 0f), transform.rotation,transform.parent);
-                    mothers[2] = Instantiate(finalMothers,new Vector3(-28.44f, 4.1f, 0f), transform.rotation, transform.parent);
-                    mothers[3] = Instantiate(finalMothers,new Vector3(-1.892f, -7.8265f, 0f), transform.rotation, transform.parent);
-                    mothers[3].GetComponent<LastPhaseBossShoot>().bottomEye = true;
-                    foreach (GameObject mother in mothers) {
-                        mother.transform.localScale = Vector3.Scale(mother.transform.localScale, new Vector3(0.75f, 0.75f, 1f));
-                    }
-                    toggleSprite(false);
+                   
+                    
                     //Camera.main.orthographicSize = 25; // this might be necessary
                 }
                 GameObject.Find("Border").GetComponent<Animator>().SetTrigger("Down");
