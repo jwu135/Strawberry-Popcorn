@@ -1087,6 +1087,8 @@ MonoBehaviour:
   berryImageDropped:
   - {fileID: 21300000, guid: 7d446445a388b714180c864ab6f78385, type: 3}
   - {fileID: 21300000, guid: 3a1cb2c0f2ac18f4eb94ca25b3b3ef7c, type: 3}
+  quotes:
+  - 
   berryBody: {fileID: 1287055078027923316, guid: 8a49c0d37f5fbed4e9e2e58f1c70bc24,
     type: 3}
   scene:
@@ -1884,6 +1886,12 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 4478260949955139235, guid: 4521da10421174945aedb74aba4e14d6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 55a4efd57f6c67e48a9783630a6a3b65,
+        type: 3}
     - target: {fileID: 4478260949955139293, guid: 4521da10421174945aedb74aba4e14d6,
         type: 3}
       propertyPath: m_Name
