@@ -10,6 +10,7 @@ public class FakeCannon : MonoBehaviour
     public bool maxCharge = false;
     public bool release = false;
     public bool charging = false;
+    public bool sound1 = false;
     private bool misfire;
     public float copyscalex;
     public float copyscaley;
@@ -18,6 +19,7 @@ public class FakeCannon : MonoBehaviour
     public PlayerCombat PlayerCombat;
     public HealthManager HealthManager;
     public PlatformMovementPhys PlatformMovementPhys;
+    public SoundManager2 SoundManager2;
 
     void Start()
     {
@@ -40,6 +42,7 @@ public class FakeCannon : MonoBehaviour
         {
             explode = false;
             release = true;
+            sound1 = true;
 
             if (Input.GetButtonUp("Fire1"))
             {
@@ -165,6 +168,17 @@ public class FakeCannon : MonoBehaviour
 
         if (explode && !release && PlayerCombat.launch && PlatformMovementPhys.rollingFrame == 0 && charging)
         {
+            if (sound1 && PlayerCombat.longPress)
+            {
+               // SoundManager2.Play("eatingQuestionMark");
+               // sound1 = false;
+            }
+
+            if (sound1 && !PlayerCombat.longPress)
+            {
+               // SoundManager2.Stop("eatingQuestionMark");
+               // sound1 = false;
+            }
 
             if (scale < 2)
             {

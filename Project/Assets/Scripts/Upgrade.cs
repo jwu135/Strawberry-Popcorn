@@ -124,7 +124,7 @@ public class Upgrade : MonoBehaviour
 
     public void BonusHealth()
     {
-        if(UpgradeValues.upgradePoints > 0 && UpgradeValues.bonusHealth < 10)
+        if(UpgradeValues.upgradePoints > 0 && UpgradeValues.bonusHealth < 15)
         {
             UpgradeValues.upgradePoints -= 1;
             //UpgradeValues.deathPointsUsed -= 1;
@@ -142,7 +142,7 @@ public class Upgrade : MonoBehaviour
 
     public void BonusAttackSpd()
     {
-        if (UpgradeValues.bonusAttackSpd < 0.2 && UpgradeValues.upgradePoints > 0)
+        if (UpgradeValues.bonusAttackSpd < 0.15 && UpgradeValues.upgradePoints > 0)
         {
             UpgradeValues.upgradePoints -= 1;
            // UpgradeValues.deathPointsUsed -= 1;
@@ -160,7 +160,7 @@ public class Upgrade : MonoBehaviour
 
     public void BonusAttackDmg()
     {
-        if (UpgradeValues.bonusAttackDmg < 5 && UpgradeValues.upgradePoints > 0)
+        if (UpgradeValues.bonusAttackDmg < 15 && UpgradeValues.upgradePoints > 0)
         {
             UpgradeValues.upgradePoints -= 1;
            // UpgradeValues.deathPointsUsed -= 1;
@@ -178,7 +178,7 @@ public class Upgrade : MonoBehaviour
 
     public void BonusManaGain()
     {
-        if (UpgradeValues.bonusManaGain < 5 && UpgradeValues.upgradePoints > 0)
+        if (UpgradeValues.bonusManaGain < 15 && UpgradeValues.upgradePoints > 0)
         {
             UpgradeValues.upgradePoints -= 1;
            // UpgradeValues.deathPointsUsed -= 1;

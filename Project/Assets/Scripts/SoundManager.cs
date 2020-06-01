@@ -15,8 +15,8 @@ public class SoundManager : MonoBehaviour
     public static AudioClip enemyHit2;
     public static AudioClip playerDodge;
     public static AudioClip playerCharging;
-    
-    
+
+
     public static AudioClip mushroomSplat;
     public static AudioClip deathScreenClick;
     public static AudioClip menuClick;
@@ -27,7 +27,7 @@ public class SoundManager : MonoBehaviour
     public static AudioClip playerTalk2;
     public static AudioClip playerTalk3;
     public static AudioClip playerTalk4;
-    
+
     public static AudioClip motherTalk1;
     public static AudioClip motherTalk2;
     public static AudioClip motherTalk3;
@@ -35,7 +35,7 @@ public class SoundManager : MonoBehaviour
 
     public static AudioClip playerStep1;
     public static AudioClip playerStep2;
-    
+
     public static AudioClip bombsAfall;
     public static AudioClip Explosion;
     public static AudioClip gainLevel;
@@ -45,7 +45,7 @@ public class SoundManager : MonoBehaviour
     public static AudioClip crunch;
     public static AudioClip munch;
     public static AudioClip royaltySplat;
-    
+
     public static AudioClip playerShootSound1;
     public static AudioClip playerShootSound2;
     public static AudioClip playerShootSound3;
@@ -79,10 +79,10 @@ public class SoundManager : MonoBehaviour
         enemyHit1 = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/Hit1"); // called in Boss.cs
         enemyHit2 = Resources.Load<AudioClip>("Sounds/Chiptune/Hit2Full"); // called in Boss.cs
         playerDodge = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/Dodge"); // called in Movement.cs
-        
+
         playerStep1 = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/Step1"); // called in Movement.cs
         playerStep2 = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/Step2"); // called in Movement.cs
-        
+
         mushroomSplat = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/mushroomSplat"); // called in Movement.cs
         deathScreenClick = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/deathScreenClick"); // called in Movement.cs
         menuClick = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/menuClick"); // called in Movement.cs
@@ -121,10 +121,10 @@ public class SoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public static void PlaySound (string clip)
+    public static void PlaySound(string clip)
     {
         switch (clip)
         {
@@ -181,7 +181,7 @@ public class SoundManager : MonoBehaviour
                 audioSrc.PlayOneShot(bossAOESound);
                 break;
             case "hitSound1":
-                audioSrc.PlayOneShot(hitSound1,2);
+                audioSrc.PlayOneShot(hitSound1, 2);
                 break;
             case "hitSound2":
                 audioSrc.PlayOneShot(hitSound2);
@@ -197,7 +197,7 @@ public class SoundManager : MonoBehaviour
                 break;
             case "playerTalk3":
                 audioSrc.PlayOneShot(playerTalk3);
-                break; 
+                break;
             case "playerTalk4":
                 audioSrc.PlayOneShot(playerTalk4);
                 break;
@@ -209,16 +209,16 @@ public class SoundManager : MonoBehaviour
                 break;
             case "motherTalk3":
                 audioSrc.PlayOneShot(motherTalk3);
-                break; 
+                break;
             case "motherTalk4":
                 audioSrc.PlayOneShot(motherTalk4);
                 break;
 
             case "bombAfall":
-                audioSrc.PlayOneShot(bombsAfall,4);
+                audioSrc.PlayOneShot(bombsAfall, 4);
                 break;
             case "Explosion":
-                audioSrc.PlayOneShot(Explosion,4);
+                audioSrc.PlayOneShot(Explosion, 4);
                 break;
             case "gainLevel":
                 audioSrc.PlayOneShot(gainLevel);
@@ -241,7 +241,7 @@ public class SoundManager : MonoBehaviour
                 break;
             case "deathScreenClick":
                 audioSrc.PlayOneShot(deathScreenClick);
-                break; 
+                break;
             case "menuClick":
                 audioSrc.PlayOneShot(menuClick);
                 break;
@@ -249,10 +249,11 @@ public class SoundManager : MonoBehaviour
                 audioSrc.PlayOneShot(eatingQuestionMark);
                 break;
             case "tentacleAttack":
-                audioSrc.PlayOneShot(tentacleAttack,1f);
+                audioSrc.PlayOneShot(tentacleAttack, 1f);
                 Debug.Log("tried to play");
                 break;
 
         }
     }
+
 }

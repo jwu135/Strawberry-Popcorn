@@ -68,10 +68,10 @@ public class Enemy : MonoBehaviour
         }
         if (other.tag == "chargeAttack1")
         {
-            GetComponent<Boss>().losehealth(damage4 + (FakeCannon.damageScale * 2));
+            GetComponent<Boss>().losehealth(damage4 + (FakeCannon.damageScale * 2) + UpgradeValues.bonusAttackDmg);
             /*text.text = GetComponent<Boss>().health.ToString() + "/" + "100";*/
             Debug.Log(FakeCannon.damageScale);
-            health -= (damage4 + (FakeCannon.damageScale * 2));
+            health -= (damage4 + (FakeCannon.damageScale * 2) + UpgradeValues.bonusAttackDmg);
             Debug.Log("damage");
             //Debug.Log(health);
         }
