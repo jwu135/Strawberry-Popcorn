@@ -36,8 +36,9 @@ public class CutsceneSystem : MonoBehaviour
     // the following code is a result of having very little time to complete something that needed substantially more time
     public void cutscene(GameObject piece)
     {
-        Stop();
         GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossShoot>().destroyProjectiles();
+        Time.timeScale = 1;
+        Stop();
         Time.timeScale = 1;
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         boss.GetComponent<Rigidbody2D>().velocity = transform.up * -20;
@@ -69,7 +70,7 @@ public class CutsceneSystem : MonoBehaviour
         eaten = false;
 
         foreach (MonoBehaviour script in scripts) {
-            if (script.GetType().Name != "UnityArmatureComponent" && script.GetType().Name != "UnityCombineMeshs") {
+            if (script.GetType().Name != "UnityArmatureComponent" && script.GetType().Name != "UnityCombineMeshs"&&script!=null) {
                 script.enabled = false;
             }
         }
