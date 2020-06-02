@@ -106,8 +106,7 @@ public class Boss : MonoBehaviour
         foreach (GameObject tempFloor in platforms) {
             Destroy(tempFloor);
         }
-        Destroy(CornerMother);
-        Destroy(CornerMother2);
+        
         GameObject finalMothers = Resources.Load("Prefabs/4thPhaseMothers") as GameObject;
         player.GetComponent<PlayerController>().setMode(0);
         mothers[0] = gameObject;
@@ -169,7 +168,8 @@ public class Boss : MonoBehaviour
                     
                     //finalPhaseHurtArea.SetActive(true);
                     Piece.GetComponent<Rigidbody2D>().gravityScale = 0.1f;
-                    
+                    Destroy(CornerMother);
+                    Destroy(CornerMother2);
                     lights[0].SetActive(false);
                     lights[1].SetActive(true);
                    

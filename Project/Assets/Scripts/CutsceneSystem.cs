@@ -108,5 +108,8 @@ public class CutsceneSystem : MonoBehaviour
             //bossScript.toggleSprite(true);
             bossScript.destroyBuildDestroy();
         }
+        GameObject.FindGameObjectWithTag("Player").transform.Find("Arm").Find("bullet").GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        GameObject.FindGameObjectWithTag("Player").transform.Find("Arm").Find("bulletCharged").GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        GameObject.FindGameObjectWithTag("Player").transform.Find("Harpoon").GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
     }
 }
