@@ -87,13 +87,21 @@ public class SceneChanger : MonoBehaviour
                     
             i++;
         }
-    // -4.73
+        // -4.73
         if (lastDeathCounter != GlobalVariable.deathCounter) {
             bool usingController = false;
             cursor.SetActive(false);
             GlobalVariable.lastDeathCounter = GlobalVariable.deathCounter;
             fallingBerry = true;
-            temp = new Vector2(Random.Range(-7f, 7f), Random.Range(-4.5f, -2.5f));
+            float tempY = Random.Range(-4.5f, -2.5f);
+            float finalTempX = Random.Range(-7f, 7f);
+            if (tempY > -3.33f) { 
+                float tempXLeft = Random.Range(-7f, -2.5f); // this all is for preventing the SPs from falling on the buttons.
+                float tempXRight = Random.Range(2.5f, 7f);
+                float swapper = Random.Range(0f, 1f);
+                finalTempX = (swapper > 0.5) ? tempXLeft : tempXRight;
+            }
+            temp = new Vector2(finalTempX, tempY);
 
             //Debug.Log(UpgradeValues.deathCounter);
             //Debug.Log(temp.x);
