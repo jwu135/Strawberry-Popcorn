@@ -33,6 +33,7 @@ public class DialogueSystem : MonoBehaviour
         GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[1];
         name.text = dialogue[index].name;
         sentence.text = currSentence;
+
         boxChange();
         //StartCoroutine("textScroll");
         /*if (GlobalVariable.deathCounter > 0) {
@@ -91,44 +92,73 @@ public class DialogueSystem : MonoBehaviour
     public void lookAround()
     {
         if (startTalking) {
-            if (Input.GetButtonDown("interact") && dialogueGoing) {
+            if (dialogueGoing&&UpgradeValues.deathCounter>0) {
                 index = stops[stopsIndex] - 1; // use this to make dialogue only show first dialogue box of each thing
                 if (currSentence.Length < finalSentence.Length) {
                     StopCoroutine("textScroll");
                     sentence.text = currSentence = finalSentence;
                 } else {
-                    if (stops[stopsIndex] > index + 1 && stopsIndex < 8) {
-                        index++;
-                        name.text = dialogue[index].name;
-                        boxChange();
-                        finalSentence = dialogue[index].sentences;
-                        currSentence = "";
-                        StartCoroutine("textScroll");
+                    stopsIndex++;
+                    dialogueBox.SetActive(false);
+                    dialogueGoing = false;
+                    if (continuing) {
+                        GetComponent<CutsceneSystem>().StartCoroutine("buffer");
+                    } else if (continuing2) {
+                        GetComponent<CutsceneSystem>().DialogueDone(true);
+                        GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[0];
+                        GameObject.Find("Border").GetComponent<Animator>().SetTrigger("Up");
                     } else {
-                        stopsIndex++;
-                        dialogueBox.SetActive(false);
-                        dialogueGoing = false;
-                        if (continuing) {
-                            GetComponent<CutsceneSystem>().StartCoroutine("buffer");
-                        } else if (continuing2) {
-                            GetComponent<CutsceneSystem>().DialogueDone(true);
-                            GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[0];
+                        GetComponent<CutsceneSystem>().DialogueDone();
+                        GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[0];
+                        if (UpgradeValues.deathCounter > 0) {
+                            if (UpgradeValues.deathCounter == 1)
+                                buttonIcon.SetActive(true);
                             GameObject.Find("Border").GetComponent<Animator>().SetTrigger("Up");
-                        } else {
-                            GetComponent<CutsceneSystem>().DialogueDone();
-                            GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[0];
-                            if (UpgradeValues.deathCounter>0) {
-                                if(UpgradeValues.deathCounter==1)
-                                    buttonIcon.SetActive(true);
-                                GameObject.Find("Border").GetComponent<Animator>().SetTrigger("Up");
-                            }
-                            
                         }
-                    }
 
+                    }
+                }
+
+            }
+            
+                if (Input.GetButtonDown("interact") && dialogueGoing) {
+                    index = stops[stopsIndex] - 1; // use this to make dialogue only show first dialogue box of each thing
+                    if (currSentence.Length < finalSentence.Length) {
+                        StopCoroutine("textScroll");
+                        sentence.text = currSentence = finalSentence;
+                    } else {
+                        if (stops[stopsIndex] > index + 1 && stopsIndex < 8) {
+                            index++;
+                            name.text = dialogue[index].name;
+                            boxChange();
+                            finalSentence = dialogue[index].sentences;
+                            currSentence = "";
+                            StartCoroutine("textScroll");
+                        } else {
+                            stopsIndex++;
+                            dialogueBox.SetActive(false);
+                            dialogueGoing = false;
+                            if (continuing) {
+                                GetComponent<CutsceneSystem>().StartCoroutine("buffer");
+                            } else if (continuing2) {
+                                GetComponent<CutsceneSystem>().DialogueDone(true);
+                                GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[0];
+                                GameObject.Find("Border").GetComponent<Animator>().SetTrigger("Up");
+                            } else {
+                                GetComponent<CutsceneSystem>().DialogueDone();
+                                GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[0];
+                                if (UpgradeValues.deathCounter>0) {
+                                    if(UpgradeValues.deathCounter==1)
+                                        buttonIcon.SetActive(true);
+                                    GameObject.Find("Border").GetComponent<Animator>().SetTrigger("Up");
+                                }
+
+                            }
+                        }
+
+                    }
                 }
             }
-        }
         
     }
 
@@ -137,9 +167,9 @@ public class DialogueSystem : MonoBehaviour
         if (UpgradeValues.deathCounter == 0) {
             //SoundManager.PlaySound("crunch");
             yield return new WaitForSeconds(0f);
+            dialogueBox.SetActive(true);
+            StartCoroutine("textScroll");
         }
-        dialogueBox.SetActive(true);
-        StartCoroutine("textScroll");
         startTalking = true;
     }
 
