@@ -135,7 +135,7 @@ public class DialogueParallax : MonoBehaviour
             tempSwapper++;
 
             currSentence += finalSentence[currSentence.Length];
-            dialogueBox.transform.FindChild("Sentence").GetComponent<Text>().text = currSentence;
+            dialogueBox.transform.Find("Sentence").GetComponent<Text>().text = currSentence;
             yield return new WaitForSeconds(textspeed);
             StartCoroutine("textScroll");
         }
