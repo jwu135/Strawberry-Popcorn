@@ -46,7 +46,9 @@ public class CutsceneSystem : MonoBehaviour
             player.GetComponent<Rigidbody2D>().velocity = transform.up * -20;
         boss.transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("hurt", 0);
         player.GetComponent<Movement>().getArmature().animation.Play("Idle", 0);
-        GetComponent<DialogueSystem>().dialogueBox.SetActive(true);
+        if(UpgradeValues.deathCounter==0)
+            GetComponent<DialogueSystem>().dialogueBox.SetActive(true);
+        
         GetComponent<DialogueSystem>().restart();
         currPiece = piece;
 
@@ -82,8 +84,8 @@ public class CutsceneSystem : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         boss.transform.Find("Armature").gameObject.GetComponent<UnityArmatureComponent>().animation.Play("bossIdle", 0);
-
-        GetComponent<DialogueSystem>().dialogueBox.SetActive(true);
+        if (UpgradeValues.deathCounter == 0)
+            GetComponent<DialogueSystem>().dialogueBox.SetActive(true);
         GetComponent<DialogueSystem>().restart2();
     }
 
@@ -106,5 +108,8 @@ public class CutsceneSystem : MonoBehaviour
             //bossScript.toggleSprite(true);
             bossScript.destroyBuildDestroy();
         }
+        GameObject.FindGameObjectWithTag("Player").transform.Find("Arm").Find("bullet").GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        GameObject.FindGameObjectWithTag("Player").transform.Find("Arm").Find("bulletCharged").GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        GameObject.FindGameObjectWithTag("Player").transform.Find("Harpoon").GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
     }
 }

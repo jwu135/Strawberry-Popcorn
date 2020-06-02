@@ -21,6 +21,9 @@ public class DoorToBossRoom2 : MonoBehaviour
     {
         css.SetActive(false);
         dialogueBox.SetActive(false);
+        GameObject.FindGameObjectWithTag("Player").transform.Find("Arm").Find("bullet").GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+        GameObject.FindGameObjectWithTag("Player").transform.Find("Arm").Find("bulletCharged").GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+        GameObject.FindGameObjectWithTag("Player").transform.Find("Harpoon").GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
         if (UpgradeValues.deathCounter == 0) {
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().delayBtwAttack1 = 100000;
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>().timeBtwAttack = 100000;
