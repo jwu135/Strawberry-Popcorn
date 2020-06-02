@@ -3989,7 +3989,7 @@ MonoBehaviour:
   dialogueBox: {fileID: 1931985076}
   interactSign: {fileID: 2028394787}
   QuestionBubble: {fileID: 2008760975}
-  rand: 4
+  rand: 2
 --- !u!61 &191795499
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10972,7 +10972,7 @@ MonoBehaviour:
   dialogueBox: {fileID: 904701824}
   interactSign: {fileID: 86267353}
   QuestionBubble: {fileID: 652574135}
-  rand: 0
+  rand: 5
 --- !u!1 &597478589
 GameObject:
   m_ObjectHideFlags: 1
@@ -11130,7 +11130,7 @@ MonoBehaviour:
   dialogueBox: {fileID: 112479442}
   interactSign: {fileID: 346207752}
   QuestionBubble: {fileID: 162078847}
-  rand: 5
+  rand: 4
 --- !u!1 &604633132
 GameObject:
   m_ObjectHideFlags: 1
@@ -20525,7 +20525,7 @@ MonoBehaviour:
   dialogueBox: {fileID: 625896705}
   interactSign: {fileID: 2144481077}
   QuestionBubble: {fileID: 1998102976}
-  rand: 2
+  rand: 1
 --- !u!1 &837879638
 GameObject:
   m_ObjectHideFlags: 1
@@ -40074,6 +40074,7 @@ MonoBehaviour:
   maxCharge: 0
   release: 0
   charging: 0
+  sound1: 0
   copyscalex: 0
   copyscaley: 0
   CannonStandIn: {fileID: 2016847631}
@@ -40081,6 +40082,7 @@ MonoBehaviour:
   PlayerCombat: {fileID: 711274002}
   HealthManager: {fileID: 711274003}
   PlatformMovementPhys: {fileID: 711274001}
+  SoundManager2: {fileID: 0}
 --- !u!212 &2016847631
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -41462,6 +41464,7 @@ MonoBehaviour:
   maxCharge: 0
   release: 0
   charging: 0
+  sound1: 0
   copyscalex: 0
   copyscaley: 0
   CannonStandIn: {fileID: 2114170688}
@@ -41469,6 +41472,7 @@ MonoBehaviour:
   PlayerCombat: {fileID: 711274002}
   HealthManager: {fileID: 711274003}
   PlatformMovementPhys: {fileID: 711274001}
+  SoundManager2: {fileID: 0}
 --- !u!114 &2114170687
 MonoBehaviour:
   m_ObjectHideFlags: 0

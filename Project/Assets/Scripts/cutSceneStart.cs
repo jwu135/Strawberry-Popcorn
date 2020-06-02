@@ -22,12 +22,7 @@ public class cutSceneStart : MonoBehaviour
         }
         else
         {
-            cam.enabled = false;
-            cam2.enabled = true;
-            counter = true;
-            if (!GameObject.Find("EventSystem").GetComponent<DialogueSystem>().startTalking) {
-                GameObject.Find("EventSystem").GetComponent<DialogueSystem>().StartCoroutine("eatDelay");
-            }
+            cutsceneEnd();
         }
 
 
