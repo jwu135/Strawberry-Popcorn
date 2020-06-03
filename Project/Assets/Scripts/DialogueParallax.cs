@@ -22,7 +22,31 @@ public class DialogueParallax : MonoBehaviour
     private string finalSentence;
     private string currSentence;
     public int rand;
+    public SP[] Strawberries = new SP[8];
     // Start is called before the first frame update
+
+    public class SP
+    {
+        Vector3 position;
+        bool flipped;
+        int dialogueOption;
+
+        public SP(Vector3 pos, bool flipped, int dialogueOption)
+        {
+            this.position = pos;
+            this.flipped = flipped;
+            this.dialogueOption = dialogueOption;
+        }
+    }
+    void StrawberryPlacer()
+    {
+
+    }
+    private void Awake()
+    {
+
+    }
+
     void Start()
     {
         baseTextSpeed = textspeed;
@@ -74,7 +98,7 @@ public class DialogueParallax : MonoBehaviour
             dialogue[1].sentences = "Hello Moth-. Wait. You’re not Mother.";
             dialogue[2].sentences = "I feel that Mother is getting weak inside… Either that or more and more Strawberry Popcorns are getting stronger for some reason."; // too much text
             dialogue[3].sentences = "I wonder if Mother’s Ok.";
-            dialogue[4].sentences = "Can Mother even die? What’s my purpose if she does?"; 
+            dialogue[4].sentences = "Can Mother even die? What’s my purpose if she does?";
             dialogue[5].sentences = "There’s something about you that feels… nostalgic?"; // here
             dialogue[6].sentences = "Can't wait to meet Mother!";
 
@@ -94,9 +118,9 @@ public class DialogueParallax : MonoBehaviour
         if (col.tag == "Player") {
             //interactSign.SetActive(true);
             interactSign = GameObject.FindGameObjectWithTag("InteractSign");
-            interactSign.GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
+            interactSign.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             //if(spokenTo)
-              //  QuestionBubble.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            //  QuestionBubble.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             over = true;
         }
     }
@@ -106,7 +130,7 @@ public class DialogueParallax : MonoBehaviour
     {
         //interactSign.SetActive(false);
         interactSign.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
-           
+
         over = false;
         if (activatedDialogue) {
             dialogueBox.transform.parent.gameObject.SetActive(false);
@@ -126,7 +150,7 @@ public class DialogueParallax : MonoBehaviour
         Vector3 absDirection = new Vector3(Mathf.Abs(defaultDirection.x), Mathf.Abs(defaultDirection.y), Mathf.Abs(defaultDirection.z)); // gettin the default scale
 
         if (t) {
-            armature.transform.localScale = Vector3.Scale(absDirection,new Vector3(mult,1,1));
+            armature.transform.localScale = Vector3.Scale(absDirection, new Vector3(mult, 1, 1));
         } else {
             armature.transform.localScale = defaultDirection;
         }
@@ -159,7 +183,7 @@ public class DialogueParallax : MonoBehaviour
     IEnumerator textScroll()
     {
         if (currSentence.Length < finalSentence.Length) {
-           if (tempSwapper % 2 == 0) {
+            if (tempSwapper % 2 == 0) {
                 if (finalSentence[currSentence.Length] != ' ') {
                     //SoundManager.PlaySound("playerTalk2");
                     int swapper = Random.Range(0, 4);
