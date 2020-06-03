@@ -15,37 +15,18 @@ public class DialogueParallax : MonoBehaviour
     private bool over = false;
     private bool activatedDialogue = false;
     private Vector3 defaultDirection;
-    private string defaultAction;
+    public string defaultAction;
     private float textspeed = 0.025f;
     private float baseTextSpeed;
     private int tempSwapper;
     private string finalSentence;
     private string currSentence;
+    [HideInInspector]
     public int rand;
-    public SP[] Strawberries = new SP[8];
+    
     // Start is called before the first frame update
 
-    public class SP
-    {
-        Vector3 position;
-        bool flipped;
-        int dialogueOption;
-
-        public SP(Vector3 pos, bool flipped, int dialogueOption)
-        {
-            this.position = pos;
-            this.flipped = flipped;
-            this.dialogueOption = dialogueOption;
-        }
-    }
-    void StrawberryPlacer()
-    {
-
-    }
-    private void Awake()
-    {
-
-    }
+    
 
     void Start()
     {
