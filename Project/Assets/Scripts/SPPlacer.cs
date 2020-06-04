@@ -74,7 +74,7 @@ public class SPPlacer : MonoBehaviour
             dialogue[0].sentences = "";
             dialogue[1].sentences = "Wow, your eyes’ a different color! That’s new.";
             dialogue[2].sentences = "Hello There!";
-            //dialogue[2].sentences = "I asked Mother to teach me how to read. She said only she’s supposed to read and write. I wonder what’s in all her books she keeps in her study.";
+            //dialogue[2].sentences = "I asked Mother to teach me how to read. She said only she’s supposed to read and write.";
             dialogue[3].sentences = "Sorry to say this, but you smell kinda weird.";
             dialogue[4].sentences = "Mother’s right this way, if you wanna meet up with her.";
             dialogue[5].sentences = "Isn’t it awesome how Mother gave us a purpose?";
@@ -130,7 +130,7 @@ public class SPPlacer : MonoBehaviour
             sentences.Add("Ever thought of running away with your favorite? Mine got eaten the other day. I still miss her sometimes.");
             sentences.Add("I think that the longest Strawberry Popcorn to not be eaten was a full 542 days. I hope that doesn’t happen to me.");
             sentences.Add("I heard that long ago, Mother made daughters that were made of different ‘fruits’. I wonder what that word means.");
-            sentences.Add("I asked Mother to teach me how to read. She said only she’s supposed to read and write. I wonder what’s in all her books she keeps in her study.");
+            sentences.Add("I asked Mother to teach me how to read. She said only she’s supposed to read and write.");
             sentences.Add("Are you having fun out here? Try relaxing for a bit.");
             sentences.Add("I’m gonna ask Mother to eat me and my favorite at the same time. The thought of any of us two living without the other is too much to bear.");
             sentences.Add(":)");
@@ -164,6 +164,14 @@ public class SPPlacer : MonoBehaviour
     {
         Strawberry = Resources.Load("Prefabs/Strawberry1") as GameObject;
 
+
+        /* to-do:
+         * Add several sets of strawberry groups to use for special scene, maybe one or two
+         * For non-special, create about 5 random set-ups. 
+         * These, combo'd with the EdgeSP's should make it diverse-ish enough hopefully
+         * Also, if it is not a special scene, make only a few have dialogue options
+         * Possibly look into expanding the Collider when the SP is talking, that way the player can walk further away and still hear them
+         */
         if (specialScene) {
             Strawberries.Add(new SP(new Vector3(7.33f, -3.42f, 0f), false, 2, "Idle", -1));
             Strawberries.Add(new SP(new Vector3(15.77f, -3.15f, 0f), false, 1, "Idle", -1));
@@ -171,6 +179,7 @@ public class SPPlacer : MonoBehaviour
             Strawberries.Add(new SP(new Vector3(29.7f, -5.2f, 0f), false, 5, "Idletalking", questionMarkLayer: 1));
             Strawberries.Add(new SP(new Vector3(43.46f, -2.8f, 0f), false, 4, "Idle", -1));
         } else {
+            int set = UnityEngine.Random.Range(0, 6); // this is a thing for tomorrow
             Strawberries.Add(new SP(new Vector3(7.33f, -3.42f, 0f), false, 2, "Idle", -1));
             Strawberries.Add(new SP(new Vector3(15.77f, -3.15f, 0f), false, 1, "Idle", -1));
             Strawberries.Add(new SP(new Vector3(27.19f, -5.2f, 0f), true, 3, "Idletalking", questionMarkLayer: 1));
