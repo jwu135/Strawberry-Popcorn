@@ -45,9 +45,9 @@ public class SPPlacer : MonoBehaviour
 {
     public void Awake()
     {
+        DialogueHandler();
         SPHandler();
         EdgeSPHandler();
-        DialogueHandler();
     }
 
 
@@ -172,6 +172,7 @@ public class SPPlacer : MonoBehaviour
          * Also, if it is not a special scene, make only a few have dialogue options
          * Possibly look into expanding the Collider when the SP is talking, that way the player can walk further away and still hear them
          */
+        specialScene = false;
         if (specialScene) {
             Strawberries.Add(new SP(new Vector3(7.33f, -3.42f, 0f), false, 2, "Idle", -1));
             Strawberries.Add(new SP(new Vector3(15.77f, -3.15f, 0f), false, 1, "Idle", -1));
@@ -179,12 +180,32 @@ public class SPPlacer : MonoBehaviour
             Strawberries.Add(new SP(new Vector3(29.7f, -5.2f, 0f), false, 5, "Idletalking", questionMarkLayer: 1));
             Strawberries.Add(new SP(new Vector3(43.46f, -2.8f, 0f), false, 4, "Idle", -1));
         } else {
-            int set = UnityEngine.Random.Range(0, 6); // this is a thing for tomorrow
-            Strawberries.Add(new SP(new Vector3(7.33f, -3.42f, 0f), false, 2, "Idle", -1));
-            Strawberries.Add(new SP(new Vector3(15.77f, -3.15f, 0f), false, 1, "Idle", -1));
-            Strawberries.Add(new SP(new Vector3(27.19f, -5.2f, 0f), true, 3, "Idletalking", questionMarkLayer: 1));
-            Strawberries.Add(new SP(new Vector3(29.7f, -5.2f, 0f), false, 5, "Idletalking", questionMarkLayer: 1));
-            Strawberries.Add(new SP(new Vector3(43.46f, -2.8f, 0f), false, 4, "Idle", -1));
+            int set = UnityEngine.Random.Range(0, 1); // this is a thing for tomorrow
+
+
+            /*
+             * 
+            else if (set == 1) {
+                Strawberries.Add(new SP(new Vector3(16.19f, -3.42f, 0f), true, 3, "Idletalking", questionMarkLayer: 1));
+                Strawberries.Add(new SP(new Vector3(18.7f, -3.42f, 0f), false, 5, "Idletalking", questionMarkLayer: 1));
+            }
+             * 
+             */
+
+
+
+            if (set == 0) { 
+                Strawberries.Add(new SP(new Vector3(4.52f, -3.42f, 0f), true, 2, "Idle", -1));
+                Strawberries.Add(new SP(new Vector3(16.66f, -5.2f, 0f), true, 1, "Idle", 1, questionMarkLayer: 1));
+                Strawberries.Add(new SP(new Vector3(22.54f, -2.7f, 0f), false, 3, "Idle", -1));
+                Strawberries.Add(new SP(new Vector3(39.65f, -5.2f, 0f), false, 3, "Idle", 1, questionMarkLayer:1));
+            } else{
+                Strawberries.Add(new SP(new Vector3(7.33f, -3.42f, 0f), false, 2, "Idle", -1));
+                Strawberries.Add(new SP(new Vector3(15.77f, -3.15f, 0f), false, 1, "Idle", -1));
+                Strawberries.Add(new SP(new Vector3(27.19f, -5.2f, 0f), true, 3, "Idletalking", questionMarkLayer: 1));
+                Strawberries.Add(new SP(new Vector3(29.7f, -5.2f, 0f), false, 5, "Idletalking", questionMarkLayer: 1));
+                Strawberries.Add(new SP(new Vector3(43.46f, -2.8f, 0f), false, 4, "Idle", -1));
+            }
         }
         
         
@@ -204,6 +225,12 @@ public class SPPlacer : MonoBehaviour
             armature.GetComponent<UnityArmatureComponent>().animation.Play(Strawberries[i].defaultAction);
             armature.GetComponent<UnityArmatureComponent>().sortingOrder = Strawberries[i].orderInLayer;
             StrawberryBodies[i].transform.Find("QuestionBubble").GetComponent<SpriteRenderer>().sortingOrder = Strawberries[i].questionMarkLayer;
+            if (!specialScene) {
+                float prob = UnityEngine.Random.Range(0f, 1f);
+                //Debug.Log(prob);
+                if (prob > .3f)
+                    Strawberries[i].ableToTalk = false;
+            }
             if (Strawberries[i].ableToTalk == false) {
                 StrawberryBodies[i].GetComponent<DialogueParallax>().enabled = false;
                 StrawberryBodies[i].transform.Find("QuestionBubble").gameObject.SetActive(false);
@@ -211,6 +238,7 @@ public class SPPlacer : MonoBehaviour
             }
             //StrawberryBodies[i].GetComponent<BoxCollider2D>().size = new Vector2(5.05f, 1.95f);
             StrawberryBodies[i].GetComponent<BoxCollider2D>().size = new Vector2(2.29f, 1.95f); // might do something like increasing the collider size if you're talking to a SP
+            
         }
     }
     void EdgeSPHandler() // spawns non-interactable edge SPs

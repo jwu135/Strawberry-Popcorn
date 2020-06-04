@@ -90,7 +90,8 @@ public class SceneChanger : MonoBehaviour
         // -4.73
         if (lastDeathCounter != GlobalVariable.deathCounter) {
             bool usingController = false;
-            cursor.SetActive(false);
+            //cursor.SetActive(false);
+            cursor.GetComponent<SpriteRenderer>().enabled = false;
             GlobalVariable.lastDeathCounter = GlobalVariable.deathCounter;
             fallingBerry = true;
             float tempY = Random.Range(-4.5f, -2.5f);
@@ -149,8 +150,9 @@ public class SceneChanger : MonoBehaviour
                     GameObject camera = GameObject.Find("Main Camera");
                     camera.GetComponent<ScreenShake>().shakeCamera(0.5f);
                     cursor.transform.position = currBody.transform.position;
-                    cursor.SetActive(true);
+                    //cursor.SetActive(true);
                     cursor.GetComponent<CursorMovement>().paused = true;
+                    cursor.GetComponent<SpriteRenderer>().enabled = true;
                     StartCoroutine("pauseDelay");
                 }
             }

@@ -34,6 +34,9 @@ public class HealthManager : MonoBehaviour
     public FakeCannon FakeCannon;
     public UpgradeValues UpgradeValues;
 
+    private FlightMovementPhys flightMovementPhys;
+    private PlayerController playerController;
+    private PlatformMovementPhys PlatformMovementPhys;
     // Start is called before the first frame update
     void Awake()
     {
@@ -42,7 +45,9 @@ public class HealthManager : MonoBehaviour
         HitOverlayArr = GameObject.FindGameObjectsWithTag("HitOverlay");
         HitOverlay = HitOverlayArr[0].GetComponent<SpriteRenderer>();
         hit = false;
-        
+        flightMovementPhys = GetComponent<FlightMovementPhys>();
+        playerController = GetComponent<PlayerController>();
+        PlatformMovementPhys = GetComponent<PlatformMovementPhys>();
     }
 
     void Update()
@@ -145,13 +150,17 @@ public class HealthManager : MonoBehaviour
         else
         {
             if (other.tag == "BossBullet" && manaCounter == 1) {
-                GameObject.Find("PerfectDodgeFlash").GetComponent<Animator>().speed = 2;
-                GameObject.Find("PerfectDodgeFlash").GetComponent<Animator>().SetTrigger("Play");
-                //Time.timeScale = scaleTime;
+                // only gives mana while rolling
+                if(((flightMovementPhys.rollingFrame > 0 && playerController.getMode() == 0) || (PlatformMovementPhys.rollingFrame > 0 && playerController.getMode() == 1))){ // from RaShaun's/Ethan's scripts 
+                    GameObject.Find("PerfectDodgeFlash").GetComponent<Animator>().speed = 1.5f;
+                    GameObject.Find("PerfectDodgeFlash").GetComponent<Animator>().SetTrigger("Play");
+                    //Time.timeScale = scaleTime;
 
-                mana += (5 + UpgradeValues.bonusManaGain);
+                    mana += (5 + UpgradeValues.bonusManaGain);
 
-                //manaCounter = 0;
+                    manaCounter = 0;
+                }
+
             }
         }
     }

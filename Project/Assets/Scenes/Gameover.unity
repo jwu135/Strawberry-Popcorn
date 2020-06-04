@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -447,7 +447,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 954805660}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -652,7 +652,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 91991f12fd7e42b418c78f5d1e9f567e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1dec1a85073cc14f9380e8cf4499264, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -768,16 +768,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820431548}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3429.1758}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 9.1, y: 6.5, z: 0.99979717}
   m_Children: []
   m_Father: {fileID: 954805660}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 51.5}
-  m_SizeDelta: {x: 20.64, y: 14.5729685}
+  m_AnchoredPosition: {x: -230, y: -21}
+  m_SizeDelta: {x: 21, y: 21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &820431556
 MonoBehaviour:
@@ -792,9 +792,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MouseEye: {fileID: 820431553}
-  Image: {fileID: 0}
-  MouseEyeOpen: {fileID: 21300000, guid: 9b1be7008f50cac4e8e5b9bcf44fdf78, type: 3}
-  MouseEyeClosed: {fileID: 21300000, guid: 91991f12fd7e42b418c78f5d1e9f567e, type: 3}
+  Image: {fileID: 820431550}
+  MouseEyeOpen: {fileID: 21300000, guid: 3cd388e0f4d8a3c489a32df379a5a450, type: 3}
+  MouseEyeClosed: {fileID: 21300000, guid: d1dec1a85073cc14f9380e8cf4499264, type: 3}
+  animated: 0
+  MousEyeOpenAnim: {fileID: 0}
+  MousEyeClosedAnim: {fileID: 0}
 --- !u!1 &837815530
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,7 +960,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 954805660}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1185,6 +1188,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1265210358}
   - {fileID: 891437888}
   - {fileID: 820431555}
   - {fileID: 1310749079}
@@ -1242,7 +1246,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneChanger: {fileID: 928151868}
+
   deathStandard: 1
+
   berryImageDropped:
   - {fileID: 21300000, guid: 7d446445a388b714180c864ab6f78385, type: 3}
   - {fileID: 21300000, guid: 3a1cb2c0f2ac18f4eb94ca25b3b3ef7c, type: 3}
@@ -1277,7 +1283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1205778264
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1290,7 +1296,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 954805660}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1337,6 +1343,87 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205778263}
   m_CullTransparentMesh: 0
+--- !u!1 &1265210357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1265210358}
+  - component: {fileID: 1265210359}
+  m_Layer: 0
+  m_Name: deathScreenHeader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1265210358
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265210357}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 176, z: -3263.8794}
+  m_LocalScale: {x: 51.969936, y: 51.969936, z: 51.969936}
+  m_Children: []
+  m_Father: {fileID: 954805660}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1265210359
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265210357}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 020a0ab06310cf14f8ea33a718bef188, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 8.34, y: 3.59}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1310749078
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,16 +1455,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1310749078}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3429.1758}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 9.1, y: 6.5, z: 0.99979717}
   m_Children: []
   m_Father: {fileID: 954805660}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -33.31}
-  m_SizeDelta: {x: 20.64, y: 14.5729685}
+  m_AnchoredPosition: {x: 2, y: -30}
+  m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1310749080
 BoxCollider2D:
@@ -1396,7 +1483,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 20.64, y: 14.5729685}
+    oldSize: {x: 4.59, y: 4.88}
     newSize: {x: 20.64, y: 14.5729685}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1458,7 +1545,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b1558e630567cda46a0ff002e42c8817, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c8569303f8d651448b33198ee6a350be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1495,7 +1582,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b1558e630567cda46a0ff002e42c8817, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c8569303f8d651448b33198ee6a350be, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1572,9 +1659,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MouseEye: {fileID: 1310749082}
-  Image: {fileID: 0}
-  MouseEyeOpen: {fileID: 21300000, guid: 576bb80c15c32de45824b24b8ec8605e, type: 3}
-  MouseEyeClosed: {fileID: 21300000, guid: b1558e630567cda46a0ff002e42c8817, type: 3}
+  Image: {fileID: 1310749084}
+  MouseEyeOpen: {fileID: 21300000, guid: 6eb4f7f9c8f90db4380f77893e281d0a, type: 3}
+  MouseEyeClosed: {fileID: 21300000, guid: c8569303f8d651448b33198ee6a350be, type: 3}
+  animated: 0
+  MousEyeOpenAnim: {fileID: 0}
+  MousEyeClosedAnim: {fileID: 0}
 --- !u!1 &1336574863
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,16 +1696,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336574863}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3429.1758}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 9.1, y: 6.5, z: 0.99979717}
   m_Children: []
   m_Father: {fileID: 954805660}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -122.8}
-  m_SizeDelta: {x: 20.64, y: 14.5729685}
+  m_AnchoredPosition: {x: 259, y: -36}
+  m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1336574865
 BoxCollider2D:
@@ -1634,7 +1724,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 20.64, y: 14.5729685}
+    oldSize: {x: 5.61, y: 3.65}
     newSize: {x: 20.64, y: 14.5729685}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1696,7 +1786,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7d5de64838890fc4188410e0c13106b5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 083537f9fd49f0e40ab853eb68347808, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1733,7 +1823,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7d5de64838890fc4188410e0c13106b5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 083537f9fd49f0e40ab853eb68347808, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1799,9 +1889,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MouseEye: {fileID: 1336574867}
-  Image: {fileID: 0}
-  MouseEyeOpen: {fileID: 21300000, guid: 5b3d86d411c6d114a8a06ba1f51bca19, type: 3}
-  MouseEyeClosed: {fileID: 21300000, guid: 7d5de64838890fc4188410e0c13106b5, type: 3}
+  Image: {fileID: 1336574869}
+  MouseEyeOpen: {fileID: 21300000, guid: 6ef201ca197078c44b6e84174b5190a7, type: 3}
+  MouseEyeClosed: {fileID: 21300000, guid: 083537f9fd49f0e40ab853eb68347808, type: 3}
+  animated: 0
+  MousEyeOpenAnim: {fileID: 0}
+  MousEyeClosedAnim: {fileID: 0}
 --- !u!1001 &2003101138
 PrefabInstance:
   m_ObjectHideFlags: 0

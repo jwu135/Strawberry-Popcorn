@@ -28,6 +28,8 @@ TagManager:
   - InteractSign
   - ButtonClickIcon
   - Builds
+  - music
+
   layers:
   - Default
   - TransparentFX
