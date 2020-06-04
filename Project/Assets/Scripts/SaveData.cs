@@ -15,7 +15,21 @@ public class SaveData
     public double upgradePoints;
     public double deathPoints;
     public double deathPointsUsed;
+    public double buildHealth1;
+    public double buildDmg1;
+    public double buildMana1;
+    public double buildHealth2;
+    public double buildDmg2;
+    public double buildMana2;
+    public double buildHealth3;
+    public double buildDmg3;
+    public double buildMana3;
     public bool deathProfit;
+    public bool choseCorpse1;
+    public bool choseCorpse2;
+    public bool choseCorpse3;
+    public bool builtCorpse;
+    public bool addedCorpse;
     public double weaponAmount;
     public double[] weaponChoice;
     public int[] bodyTypes;
@@ -42,9 +56,23 @@ public class SaveData
         highestPhaseEncountered = UpgradeValues.highestPhaseEncountered;
         highestPhaseDiscussed = UpgradeValues.highestPhaseDiscussed;
         continueGame = UpgradeValues.continueGame;
+        buildHealth1 = UpgradeValues.buildHealth1;
+        buildDmg1 = UpgradeValues.buildDmg1;
+        buildMana1 = UpgradeValues.buildMana1;
+        buildHealth2 = UpgradeValues.buildHealth2;
+        buildDmg2 = UpgradeValues.buildDmg2;
+        buildMana2 = UpgradeValues.buildMana2;
+        buildHealth3 = UpgradeValues.buildHealth3;
+        buildDmg3 = UpgradeValues.buildDmg3;
+        buildMana3 = UpgradeValues.buildMana3;
+        choseCorpse1 = UpgradeValues.choseCorpse1;
+        choseCorpse2 = UpgradeValues.choseCorpse2;
+        choseCorpse3 = UpgradeValues.choseCorpse3;
+        builtCorpse = UpgradeValues.builtCorpse;
+        addedCorpse = UpgradeValues.addedCorpse;
 
         //bodyTypes = new int[UpgradeValues.deathCounter];
-       // positionValues = new float[(UpgradeValues.deathCounter * 2)];
+        // positionValues = new float[(UpgradeValues.deathCounter * 2)];
 
         bodyTypes = new int[1000000];
         positionValues = new float[1000000];

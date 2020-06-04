@@ -88,7 +88,7 @@ public class HealthManager : MonoBehaviour
             GameObject.Find("EventSystem").GetComponent<gameOver>().startGameOver(false);
         }
         if (mana != lastmana) {
-            //updateMana();
+            updateMana();
             lastmana = mana;
         }
     }
@@ -151,7 +151,7 @@ public class HealthManager : MonoBehaviour
 
                 mana += (5 + UpgradeValues.bonusManaGain);
 
-                manaCounter = 0;
+                //manaCounter = 0;
             }
         }
     }

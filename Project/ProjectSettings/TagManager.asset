@@ -23,6 +23,11 @@ TagManager:
   - HitOverlay
   - ManaOverlay
   - Ceiling
+  - Enemy2
+  - Button
+  - InteractSign
+  - ButtonClickIcon
+  - Builds
   layers:
   - Default
   - TransparentFX

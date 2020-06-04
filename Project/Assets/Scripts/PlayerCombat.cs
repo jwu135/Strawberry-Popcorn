@@ -286,20 +286,21 @@ public class PlayerCombat : MonoBehaviour
             }*/
 
             //mushroom poison
-            if (Input.GetButtonDown("special") && HM.mana >= 20 && HM.mana < 50)
-            {
-                HM.mana -= 20;
-                Shoot4();
-                timeBtwAttack = 1;
-            }
+           // if (Input.GetButtonDown("special") && HM.mana >= 20 && HM.mana < 50)
+          //  {
+           //     HM.mana -= 20;
+          //      Shoot4();
+          //      timeBtwAttack = 1;
+         //   }
             //LASER
-            if (Input.GetButtonDown("special") && HM.mana >= 50 && HM.mana < 100)
+            if (Input.GetButtonDown("fire2") && HM.mana >= 50)
             {
                 LASER = true;
                 if (LASER)
                 {
                     LaserCollider.enabled = true;
                     LaserRenderer.enabled = true;
+                    StartCoroutine(LaserTimer());
                 }
                 else if (!LASER)
                 {
@@ -311,20 +312,20 @@ public class PlayerCombat : MonoBehaviour
                 
             }
             //SPMAX
-            if (Input.GetButtonDown("special") && HM.mana >= 100)
-            {
-                HM.mana -= 100;
-                Enemy.damage1 = Enemy.damage1 * 1.5;
-                Enemy.damage2 = Enemy.damage2 * 1.5;
-                Enemy.damage3 = Enemy.damage3 * 1.5;
-                Enemy.damage4 = Enemy.damage4 * 1.5;
-                Enemy.damage5 = Enemy.damage5 * 1.5;
-                delayAttackCD = 0.1;
-                delayChargeAttackCD = 1;
+          //  if (Input.GetButtonDown("special") && HM.mana >= 100)
+        //    {
+         //       HM.mana -= 100;
+         //       Enemy.damage1 = Enemy.damage1 * 1.5;
+        //        Enemy.damage2 = Enemy.damage2 * 1.5;
+        //        Enemy.damage3 = Enemy.damage3 * 1.5;
+       //         Enemy.damage4 = Enemy.damage4 * 1.5;
+      //          Enemy.damage5 = Enemy.damage5 * 1.5;
+      //          delayAttackCD = 0.1;
+       //         delayChargeAttackCD = 1;
                 timeBtwAttack = 1;
+//
 
-
-            }
+          //  }
         }
         else
         {
@@ -531,28 +532,35 @@ public class PlayerCombat : MonoBehaviour
 
     }
 
-   // public void SavePlayer()
-   // {
-        //SaveSystem.SavePlayer(this);
-   //     Debug.Log("save");
-   // }
+    private IEnumerator LaserTimer()
+    {
+        yield return new WaitForSeconds(3.0f);
+        LASER = false;
 
-  //  public void LoadPlayer()
-  //  {
-  //      SaveData data = SaveSystem.LoadData();
+    }
 
-   //     UpgradeValues.bonusHealth = data.bonusHealth;
-  //      UpgradeValues.bonusAttackSpd = data.bonusAttackSpd;
-  //      UpgradeValues.bonusManaGain = data.bonusManaGain;
-   //     weaponAmount = data.weaponAmount;
- //       Debug.Log("load");
- //   }
+    // public void SavePlayer()
+    // {
+    //SaveSystem.SavePlayer(this);
+    //     Debug.Log("save");
+    // }
 
-  //  public void HealthUp()
- //   {
- //       UpgradeValues.bonusHealth += 1;
- //       Debug.Log("hp");
- //       Debug.Log(UpgradeValues.bonusHealth);
- //   }
+    //  public void LoadPlayer()
+    //  {
+    //      SaveData data = SaveSystem.LoadData();
+
+    //     UpgradeValues.bonusHealth = data.bonusHealth;
+    //      UpgradeValues.bonusAttackSpd = data.bonusAttackSpd;
+    //      UpgradeValues.bonusManaGain = data.bonusManaGain;
+    //     weaponAmount = data.weaponAmount;
+    //       Debug.Log("load");
+    //   }
+
+    //  public void HealthUp()
+    //   {
+    //       UpgradeValues.bonusHealth += 1;
+    //       Debug.Log("hp");
+    //       Debug.Log(UpgradeValues.bonusHealth);
+    //   }
 
 }
