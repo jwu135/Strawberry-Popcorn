@@ -52,8 +52,8 @@ public class Boss : MonoBehaviour
     }
     void Start()
     {
-        //if(UpgradeValues.deathCounter==0)
-        //    midGameOverride();
+        if(UpgradeValues.deathCounter==0)
+            midGameOverride();
         maxhealthNew = new double[healthNew.Length+1];
         Array.Copy(healthNew, maxhealthNew, healthNew.Length);
         swapPhase(0);
@@ -156,6 +156,8 @@ public class Boss : MonoBehaviour
                 GetComponent<SpriteRenderer>().enabled = false;
                 /*if(healthIndex!=0)
                     phase+=1f;*/
+                if(phase> UpgradeValues.highestPhaseEncountered)
+                    UpgradeValues.highestPhaseEncountered = phase;
                 if (phase == 1) {
                     GameObject TempCornerMother = Resources.Load("Prefabs/CornerMother") as GameObject;
                     CornerMother = Instantiate(TempCornerMother,transform.parent.transform.position+new Vector3(25f,0f,0f),transform.rotation);

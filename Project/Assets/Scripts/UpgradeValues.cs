@@ -20,7 +20,8 @@ public class UpgradeValues : MonoBehaviour
     public static List<Vector2> positions = new List<Vector2>();
     public static List<Sprite> bodies = new List<Sprite>();
     public static int deathCounter;
-
+    public static float highestPhaseEncountered;
+    public static float highestPhaseDiscussed; // parallax room
     void Awake()
     {
         DontDestroyOnLoad(this);

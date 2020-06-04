@@ -75,7 +75,8 @@ public class Upgrade : MonoBehaviour
         UpgradeValues.deathCounter = data.deathCounter;
         UpgradeValues.continueGame = data.continueGame;
         //weaponAmount = data.weaponAmount;
-
+        UpgradeValues.highestPhaseEncountered = data.highestPhaseEncountered;
+        UpgradeValues.highestPhaseDiscussed = data.highestPhaseDiscussed;
         UpgradeValues.positionValues = data.positionValues;
         UpgradeValues.bodyTypes = data.bodyTypes;
 
@@ -217,6 +218,8 @@ public class Upgrade : MonoBehaviour
         //GlobalVariable.deathCounter = 0;
         UpgradeValues.bodyTypes = new int[1000000];
         UpgradeValues.positionValues = new float[1000000];
+        UpgradeValues.highestPhaseEncountered = 0;
+        UpgradeValues.highestPhaseEncountered = 0;
         Debug.Log("newgame");
         Debug.Log(UpgradeValues.bonusHealth);
         Debug.Log(UpgradeValues.bonusAttackSpd);

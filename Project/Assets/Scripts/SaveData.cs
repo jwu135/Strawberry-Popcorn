@@ -23,6 +23,8 @@ public class SaveData
     //public List<Vector2> positions = new List<Vector2>();
    // public List<Vector2> bodies = new List<Vector2>();
     public int deathCounter;
+    public float highestPhaseEncountered;
+    public float highestPhaseDiscussed;
     public bool continueGame = false;
 
     public SaveData (Upgrade Upgrade)
@@ -37,6 +39,8 @@ public class SaveData
         deathPoints = UpgradeValues.deathPoints;
         deathPointsUsed = UpgradeValues.deathPointsUsed;
         deathCounter = UpgradeValues.deathCounter;
+        highestPhaseEncountered = UpgradeValues.highestPhaseEncountered;
+        highestPhaseDiscussed = UpgradeValues.highestPhaseDiscussed;
         continueGame = UpgradeValues.continueGame;
 
         //bodyTypes = new int[UpgradeValues.deathCounter];
