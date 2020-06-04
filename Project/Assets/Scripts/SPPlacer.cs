@@ -180,17 +180,25 @@ public class SPPlacer : MonoBehaviour
             Strawberries.Add(new SP(new Vector3(29.7f, -5.2f, 0f), false, 5, "Idletalking", questionMarkLayer: 1));
             Strawberries.Add(new SP(new Vector3(43.46f, -2.8f, 0f), false, 4, "Idle", -1));
         } else {
-            int set = UnityEngine.Random.Range(0, 6); // this is a thing for tomorrow
+            int set = UnityEngine.Random.Range(0, 1); // this is a thing for tomorrow
 
-            set = 1;
+
+            /*
+             * 
+            else if (set == 1) {
+                Strawberries.Add(new SP(new Vector3(16.19f, -3.42f, 0f), true, 3, "Idletalking", questionMarkLayer: 1));
+                Strawberries.Add(new SP(new Vector3(18.7f, -3.42f, 0f), false, 5, "Idletalking", questionMarkLayer: 1));
+            }
+             * 
+             */
+
+
+
             if (set == 0) { 
                 Strawberries.Add(new SP(new Vector3(4.52f, -3.42f, 0f), true, 2, "Idle", -1));
                 Strawberries.Add(new SP(new Vector3(16.66f, -5.2f, 0f), true, 1, "Idle", 1, questionMarkLayer: 1));
                 Strawberries.Add(new SP(new Vector3(22.54f, -2.7f, 0f), false, 3, "Idle", -1));
                 Strawberries.Add(new SP(new Vector3(39.65f, -5.2f, 0f), false, 3, "Idle", 1, questionMarkLayer:1));
-            }else if (set == 1) {
-                Strawberries.Add(new SP(new Vector3(16.19f, -3.42f, 0f), true, 3, "Idletalking", questionMarkLayer: 1));
-                Strawberries.Add(new SP(new Vector3(18.7f, -3.42f, 0f), false, 5, "Idletalking", questionMarkLayer: 1));
             } else{
                 Strawberries.Add(new SP(new Vector3(7.33f, -3.42f, 0f), false, 2, "Idle", -1));
                 Strawberries.Add(new SP(new Vector3(15.77f, -3.15f, 0f), false, 1, "Idle", -1));
