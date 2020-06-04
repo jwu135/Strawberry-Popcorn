@@ -74,6 +74,7 @@ public class SPPlacer : MonoBehaviour
             dialogue[0].sentences = "";
             dialogue[1].sentences = "Wow, your eyes’ a different color! That’s new.";
             dialogue[2].sentences = "Hello There!";
+            //dialogue[2].sentences = "I asked Mother to teach me how to read. She said only she’s supposed to read and write. I wonder what’s in all her books she keeps in her study.";
             dialogue[3].sentences = "Sorry to say this, but you smell kinda weird.";
             dialogue[4].sentences = "Mother’s right this way, if you wanna meet up with her.";
             dialogue[5].sentences = "Isn’t it awesome how Mother gave us a purpose?";
@@ -200,7 +201,7 @@ public class SPPlacer : MonoBehaviour
                 StrawberryBodies[i].GetComponent<BoxCollider2D>().enabled = false;
             }
             //StrawberryBodies[i].GetComponent<BoxCollider2D>().size = new Vector2(5.05f, 1.95f);
-            StrawberryBodies[i].GetComponent<BoxCollider2D>().size = new Vector2(2.29f, 1.95f);
+            StrawberryBodies[i].GetComponent<BoxCollider2D>().size = new Vector2(2.29f, 1.95f); // might do something like increasing the collider size if you're talking to a SP
         }
     }
     void EdgeSPHandler() // spawns non-interactable edge SPs

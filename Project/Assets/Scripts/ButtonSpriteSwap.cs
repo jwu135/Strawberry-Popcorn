@@ -50,11 +50,12 @@ public class ButtonSpriteSwap : MonoBehaviour
                 GlobalVariable.usingController = true;
         }
 
-        //if player aims, check to see if they're using controller
-        if (inputVector.magnitude > 0.3)
-            GlobalVariable.usingController = true;
-        else if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
-            GlobalVariable.usingController = false;
+        // If someone moves their mouse while moving with controller, it would get jittery, so forget it,
+        ////if player aims, check to see if they're using controller
+        //if (inputVector.magnitude > 0.3)
+        //    GlobalVariable.usingController = true;
+        //else if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
+        //    GlobalVariable.usingController = false;
 
 
         activeSwap();

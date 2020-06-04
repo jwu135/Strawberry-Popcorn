@@ -31,6 +31,7 @@ public class DialogueParallax : MonoBehaviour
     void Start()
     {
         //GameObject.Find("EventSystem").GetComponent<SPPlacer>().Activate();
+        dialogueBox.transform.Find("Sentence").GetComponent<Text>().font = Resources.Load("Font/Nitw") as Font;
         baseTextSpeed = textspeed;
         defaultDirection = armature.transform.localScale; // default is to the left
         defaultAction = armature.GetComponent<UnityArmatureComponent>().animation.lastAnimationName;
