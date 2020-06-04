@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DragonBones;
-using System.Linq;
+using System;
+
 
 public class SP
 {
@@ -25,7 +26,7 @@ public class SP
     }
     
 }
-public class EdgeSP
+public class EdgeSP : ICloneable
 {
     public Vector3 position;
     public bool flipped;
@@ -34,6 +35,10 @@ public class EdgeSP
     {
         this.position = pos;
         this.flipped = flipped;
+    }
+    public object Clone() // don't really need this anymore, but gonna leave it so I remember it for later
+    {
+        return new EdgeSP(this.position, this.flipped);
     }
 }
 public class SPPlacer : MonoBehaviour
@@ -48,7 +53,7 @@ public class SPPlacer : MonoBehaviour
 
     // Moved dialogue stuff here so it only runs once;
     private Dialogue[] dialogue = new Dialogue[7];
-
+    bool specialScene = false;
     public string DialogueReturn(int rand)
     {
         return dialogue[rand].sentences;
@@ -62,9 +67,19 @@ public class SPPlacer : MonoBehaviour
 
 
         //rand = Random.Range(0, dialogue.Length);
-
+        specialScene = false;
         // after first death
-        if (UpgradeValues.deathCounter == 1) {
+        if (UpgradeValues.deathCounter == 0) {
+            specialScene = true;
+            dialogue[0].sentences = "";
+            dialogue[1].sentences = "Wow, your eyes’ a different color! That’s new.";
+            dialogue[2].sentences = "Hello There!";
+            dialogue[3].sentences = "Sorry to say this, but you smell kinda weird.";
+            dialogue[4].sentences = "Mother’s right this way, if you wanna meet up with her.";
+            dialogue[5].sentences = "Isn’t it awesome how Mother gave us a purpose?";
+            dialogue[6].sentences = "I like your eyes! That's new.";
+        } else if (UpgradeValues.deathCounter == 1) {
+            specialScene = true;
             dialogue[0].sentences = "";
             dialogue[1].sentences = "Hey look, your eyes’ also have a different color! Super weird!";
             dialogue[2].sentences = "Mother seemed pretty upset with the last one that got in.";
@@ -72,8 +87,8 @@ public class SPPlacer : MonoBehaviour
             dialogue[4].sentences = "That’s weird. Mother didn’t eat the last one! She never does that...";
             dialogue[5].sentences = "I’ve been alive for two weeks now and Mother still hasn’t called upon me to be eaten."; // here
             dialogue[6].sentences = "Can't wait to meet Mother!";
-        } else if (UpgradeValues.highestPhaseEncountered > UpgradeValues.highestPhaseDiscussed) {
-            Debug.Log(UpgradeValues.highestPhaseEncountered);
+        } else if (UpgradeValues.highestPhaseEncountered > UpgradeValues.highestPhaseDiscussed) { // for the remaining special cases
+            specialScene = true;
             UpgradeValues.highestPhaseDiscussed = UpgradeValues.highestPhaseEncountered;
             if (UpgradeValues.highestPhaseDiscussed >= 1 && UpgradeValues.highestPhaseDiscussed < 2) { // if highest phase is 1
                 dialogue[0].sentences = "";
@@ -104,26 +119,31 @@ public class SPPlacer : MonoBehaviour
 
             }
         } else {
-            dialogue[0].sentences = "";
-            dialogue[1].sentences = "Wow, your eyes’ a different color! That’s new.";
-            dialogue[2].sentences = "Hello There!";
-            dialogue[3].sentences = "Sorry to say this, but you smell kinda weird.";
-            dialogue[4].sentences = "Mother’s right this way, if you wanna meet up with her.";
-            dialogue[5].sentences = "Isn’t it awesome how Mother gave us a purpose?";
-            dialogue[6].sentences = "I like your eyes! That's new.";
+            List<string> sentences = new List<string>();
+            sentences.Add("I had tea the other day. I like it");
+            sentences.Add("I asked Mother to change the sky color to pink. She said I would have to wait my turn.");
+            sentences.Add("I’ve been alive for two weeks now and Mother still hasn’t called upon me to be eaten.");
+            sentences.Add("Mother loves all of us. She dotes on us so much. She said we taste better when we’re filled with love.");
+            sentences.Add("Noyce Day, innit? Us SPs gutta stand oot, roight? Yoo gut the purple eyes, I made a new way oof speekin’."); // here
+            sentences.Add("I wanted to build a house for me and my favorite. Pity Mother said we’re not allowed to create anything.");
+            sentences.Add("Ever thought of running away with your favorite? Mine got eaten the other day. I still miss her sometimes.");
+            sentences.Add("I think that the longest Strawberry Popcorn to not be eaten was a full 542 days. I hope that doesn’t happen to me.");
+            sentences.Add("I heard that long ago, Mother made daughters that were made of different ‘fruits’. I wonder what that word means.");
+            sentences.Add("I asked Mother to teach me how to read. She said only she’s supposed to read and write. I wonder what’s in all her books she keeps in her study.");
+            sentences.Add("Are you having fun out here? Try relaxing for a bit.");
+            sentences.Add("I’m gonna ask Mother to eat me and my favorite at the same time. The thought of any of us two living without the other is too much to bear.");
+            sentences.Add(":)");
+            sentences.Add("Isn’t it funny to think that there’s more Strawberry Popcorns living at the other branches in the horizon? How many of us are there?");
+            for(int i = 0; i < dialogue.Length; i++) {
+                int index = UnityEngine.Random.Range(0, sentences.Count);
+                dialogue[i].sentences = sentences[index];
+                sentences.RemoveAt(index);
+            }
         }
 
 
 
-        if (UpgradeValues.deathCounter == 20) { //random pool
-            dialogue[0].sentences = "There’s something about you that feels… nostalgic?";
-            dialogue[1].sentences = "Hello Moth-. Wait. You’re not Mother.";
-            dialogue[2].sentences = "I feel that Mother is getting weak inside… Either that or more and more Strawberry Popcorns are getting stronger for some reason.";
-            dialogue[3].sentences = "I wonder if Mother’s Ok.";
-            dialogue[4].sentences = "Can Mother even die? What’s my purpose if she does?"; // here
-            dialogue[5].sentences = "Mother’s right this way, if you wanna meet up with her.";
-            dialogue[6].sentences = "Can't wait to meet Mother!";
-        }
+        
     }
 
 
@@ -142,14 +162,20 @@ public class SPPlacer : MonoBehaviour
     void SPHandler() // spawns interactable and non-interactable SPs
     {
         Strawberry = Resources.Load("Prefabs/Strawberry1") as GameObject;
-   
-        // set 1
-        Strawberries.Add(new SP(new Vector3(7.33f, -3.42f, 0f), false, 2, "Idle", -1));
-        Strawberries.Add(new SP(new Vector3(15.77f, -3.15f, 0f), false, 1, "Idle", -1));
-        Strawberries.Add(new SP(new Vector3(27.19f, -5.2f, 0f), true, 3, "Idletalking",questionMarkLayer:1));
-        Strawberries.Add(new SP(new Vector3(29.7f, -5.2f, 0f), false, 5, "Idletalking", questionMarkLayer: 1));
-        Strawberries.Add(new SP(new Vector3(43.46f, -2.8f, 0f), false, 4, "Idle", -1));
-        
+
+        if (specialScene) {
+            Strawberries.Add(new SP(new Vector3(7.33f, -3.42f, 0f), false, 2, "Idle", -1));
+            Strawberries.Add(new SP(new Vector3(15.77f, -3.15f, 0f), false, 1, "Idle", -1));
+            Strawberries.Add(new SP(new Vector3(27.19f, -5.2f, 0f), true, 3, "Idletalking", questionMarkLayer: 1));
+            Strawberries.Add(new SP(new Vector3(29.7f, -5.2f, 0f), false, 5, "Idletalking", questionMarkLayer: 1));
+            Strawberries.Add(new SP(new Vector3(43.46f, -2.8f, 0f), false, 4, "Idle", -1));
+        } else {
+            Strawberries.Add(new SP(new Vector3(7.33f, -3.42f, 0f), false, 2, "Idle", -1));
+            Strawberries.Add(new SP(new Vector3(15.77f, -3.15f, 0f), false, 1, "Idle", -1));
+            Strawberries.Add(new SP(new Vector3(27.19f, -5.2f, 0f), true, 3, "Idletalking", questionMarkLayer: 1));
+            Strawberries.Add(new SP(new Vector3(29.7f, -5.2f, 0f), false, 5, "Idletalking", questionMarkLayer: 1));
+            Strawberries.Add(new SP(new Vector3(43.46f, -2.8f, 0f), false, 4, "Idle", -1));
+        }
         
         
         
@@ -178,15 +204,34 @@ public class SPPlacer : MonoBehaviour
     void EdgeSPHandler() // spawns non-interactable edge SPs
     {
         EdgeStrawberry = Resources.Load("Prefabs/edgeSP") as GameObject;
-
-        // set 1
-        EdgeStrawberries.Add(new EdgeSP(new Vector3(22.53f, -0.08f), false));
-        EdgeStrawberries.Add(new EdgeSP(new Vector3(48.56f, 0.06f), false));
-
-        // set 2
-        //EdgeStrawberries.Add(new EdgeSP(new Vector3(22.53f, -0.08f), false));
-        //EdgeStrawberries.Add(new EdgeSP(new Vector3(12.38f, 0f), false));
         
+        // All possible positions
+        List<EdgeSP> possibleSPs = new List<EdgeSP>();
+        possibleSPs.Add(new EdgeSP(new Vector3(3.03f, 0.07f), false));
+        possibleSPs.Add(new EdgeSP(new Vector3(12.38f, 0f), false));
+        possibleSPs.Add(new EdgeSP(new Vector3(19.22f, 0.19f), false));
+        possibleSPs.Add(new EdgeSP(new Vector3(22.53f, -0.08f), false));
+        possibleSPs.Add(new EdgeSP(new Vector3(48.56f, 0.06f), false));
+
+        
+        // Using this to make some less common than other
+        float numSPProb = UnityEngine.Random.Range(0f, 1f);
+        int numSPs = 0;
+        if (numSPProb < 0.1f) {
+            numSPs = 0;
+        }else if (numSPProb>=.1f&&numSPProb<.35f) {
+            numSPs = 1;
+        }else if (numSPProb>=.35f&&numSPProb<.7f) {
+            numSPs = 2;
+        }else if (numSPProb>=.7f&&numSPProb<1f) {
+            numSPs = 3;
+        }
+
+        
+        for(int i = 0; i < numSPs; i++) {
+            EdgeStrawberries.Add(possibleSPs[UnityEngine.Random.Range(0,possibleSPs.Count)]);
+            possibleSPs.RemoveAt(i);
+        }
         EdgeStrawberryBodies = new GameObject[EdgeStrawberries.Count];
 
         for (int i = 0; i < EdgeStrawberryBodies.Length; i++) {
