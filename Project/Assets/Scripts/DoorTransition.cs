@@ -8,6 +8,7 @@ public class DoorTransition : MonoBehaviour
     public GameObject interactSign;
     private bool over = false;
     public bool door;
+    public bool isMother = false;
     private void Start()
     {
         interactSign = GameObject.FindGameObjectWithTag("InteractSign");
@@ -23,7 +24,10 @@ public class DoorTransition : MonoBehaviour
     void Update()
     {
         if (Input.GetButtonDown("interact")&&over&&door) {
-            SceneManager.LoadScene("Scenes/MainGameplay");
+            if(isMother)
+                SceneManager.LoadScene("Scenes/Gameover");
+            else
+                SceneManager.LoadScene("Scenes/MainGameplay");
         }
     }
     void OnTriggerExit2D(Collider2D col)
