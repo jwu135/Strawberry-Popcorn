@@ -62,6 +62,8 @@ public class PlayerCombat : MonoBehaviour
     public FakeCannon FakeCannon;
     public HealthManager HealthManager;
     public PlatformMovementPhys PlatformMovementPhys;
+    FlightMovementPhys flightMovementPhys;
+    PlayerController playerController;
     public UpgradeValues UpgradeValues;
 
     public double timeBtwWeaponChange;
@@ -102,7 +104,8 @@ public class PlayerCombat : MonoBehaviour
 
     void Start()
     {
-
+        flightMovementPhys = GetComponent<FlightMovementPhys>();
+        playerController = GetComponent<PlayerController>();
     }
 
 
@@ -123,14 +126,15 @@ public class PlayerCombat : MonoBehaviour
         // fuse = false;
         // LASER = false;
 
-        //combo normal a1
-        if (Input.GetButton("Fire1") && normalAttack1Buffer < (0.21) && weaponCycle == 1 && PlatformMovementPhys.rollingFrame == 0)
+        //combo normal a1+
+        if (Input.GetButton("Fire1") && normalAttack1Buffer < (0.21) && weaponCycle == 1 && ((flightMovementPhys.rollingFrame == 0 && playerController.getMode() == 0) || (PlatformMovementPhys.rollingFrame == 0 && playerController.getMode() == 1)))
         {
+            
             //LASER = true;
             normalAttack1Buffer += Time.deltaTime;
         }
 
-        if ((!Input.GetButton("Fire1") && normalAttack1Buffer > 0) || PlatformMovementPhys.rollingFrame > 0)
+        if ((!Input.GetButton("Fire1") && normalAttack1Buffer > 0) || ((flightMovementPhys.rollingFrame > 0 && playerController.getMode() == 0) || (PlatformMovementPhys.rollingFrame > 0 && playerController.getMode() == 1)))
         {
             //LASER = true;
             normalAttack1Buffer = 0;
