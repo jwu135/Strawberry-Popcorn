@@ -199,6 +199,8 @@ public class SPPlacer : MonoBehaviour
                 StrawberryBodies[i].transform.Find("QuestionBubble").gameObject.SetActive(false);
                 StrawberryBodies[i].GetComponent<BoxCollider2D>().enabled = false;
             }
+            //StrawberryBodies[i].GetComponent<BoxCollider2D>().size = new Vector2(5.05f, 1.95f);
+            StrawberryBodies[i].GetComponent<BoxCollider2D>().size = new Vector2(2.29f, 1.95f);
         }
     }
     void EdgeSPHandler() // spawns non-interactable edge SPs

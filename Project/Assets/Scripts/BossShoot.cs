@@ -127,7 +127,7 @@ public class BossShoot : MonoBehaviour
                         }
                     }else if (phase >= 3) {
                         int randInt = Random.Range(0, 4);
-                        translateNum2(randInt, 0.8f);
+                        translateNum2(randInt, 1.5f);
                 }
                     // Misc handling
                     else {
