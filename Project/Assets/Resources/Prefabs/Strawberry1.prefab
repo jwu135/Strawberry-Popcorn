@@ -1130,8 +1130,8 @@ MonoBehaviour:
   dialogueBox: {fileID: 5788269038449848946}
   interactSign: {fileID: 5788269038344924133}
   QuestionBubble: {fileID: 5788269038390833225}
+  defaultAction: 
   rand: 2
-  SPGroup: {fileID: 0}
 --- !u!61 &5788269037514957805
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2058,7 +2058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7576594396647078613
 Transform:
   m_ObjectHideFlags: 0
