@@ -13,7 +13,7 @@ public class MusicManager : MonoBehaviour
         audio = GetComponent<AudioSource>();
         audio.volume = 0.3f;
         Scene scene = SceneManager.GetActiveScene();
-        if (scene.name == "MainMenu" || scene.name == "Intro") {
+        if (scene.name == "MainMenu" || scene.name == "Intro"|| scene.name == "MainMenuOptions") {
             GameObject[] objs = GameObject.FindGameObjectsWithTag("music");
 
             if (objs.Length > 1) {
@@ -46,7 +46,7 @@ public class MusicManager : MonoBehaviour
     void Update()
     {
         Scene scene = SceneManager.GetActiveScene();
-        if (scene.name == "MainMenu" || scene.name == "Intro") {
+        if (scene.name == "MainMenu" || scene.name == "Intro" || scene.name == "MainMenuOptions") {
 
         } else {
             Destroy(this.gameObject);
