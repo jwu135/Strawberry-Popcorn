@@ -25,7 +25,7 @@ public class DoorTransition : MonoBehaviour
     {
         if (Input.GetButtonDown("interact")&&over&&door) {
             if(isMother)
-                SceneManager.LoadScene("Scenes/Gameover");
+                SceneManager.LoadScene("Scenes/Outro");
             else
                 SceneManager.LoadScene("Scenes/MainGameplay");
         }

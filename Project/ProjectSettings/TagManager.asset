@@ -23,6 +23,11 @@ TagManager:
   - HitOverlay
   - ManaOverlay
   - Ceiling
+  - ButtonClickIcon
+  - InteractSign
+  - Button
+  - Enemy2
+  - music
   layers:
   - Default
   - TransparentFX

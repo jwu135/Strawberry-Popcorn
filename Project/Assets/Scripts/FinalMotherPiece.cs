@@ -13,7 +13,6 @@ public class FinalMotherPiece : MonoBehaviour
     }
     void move()
     {
-        Debug.Log(transform.position);
         transform.position = Vector3.Lerp(transform.position, new Vector3(0, 0, 0), Time.deltaTime/2);
     }
 }

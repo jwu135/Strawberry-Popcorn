@@ -19,7 +19,7 @@ public class gameOver : MonoBehaviour
         if (boss) {
             GameObject MotherEye = GameObject.Find("Mother's Eye");
             MotherEye.GetComponent<BossShoot>().destroyProjectiles();
-
+            GameObject.Find("Border").GetComponent<Animator>().SetTrigger("Down");
 
             GameObject FinalMotherPrefab = Resources.Load("Prefabs/FinalDroppedMother") as GameObject;
             GameObject FinalMother = Instantiate(FinalMotherPrefab, MotherEye.transform.position,FinalMotherPrefab.transform.rotation) as GameObject;
