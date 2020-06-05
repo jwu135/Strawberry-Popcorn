@@ -10,6 +10,7 @@ public class MainMenuSettings : MonoBehaviour
     private Resolution defaultRes;
     private Resolution[] resolutions = new Resolution[6];
     private int resIndex = 0;
+    public bool fullscreened = true;
     private void Start()
     {
         resolutions[0].width = 640;
@@ -53,6 +54,11 @@ public class MainMenuSettings : MonoBehaviour
     {
         Screen.SetResolution(resolutions[resIndex].width, resolutions[resIndex].height, fullscreen);
         Debug.Log(fullscreen);
+    }
+    public void fullscreen()
+    {
+        fullscreened = !fullscreened;
+        Screen.SetResolution(resolutions[resIndex].width, resolutions[resIndex].height, fullscreened);
     }
     void toggleScreen()
     {
