@@ -23,6 +23,7 @@ public class Movement : MonoBehaviour
     public bool jumped = false;
     private bool step1Played = false;
     private bool step2Played = false;
+    private bool justRolled = false;
     PlatformMovementPhys platMove;
     void Start()
     {
@@ -174,6 +175,7 @@ public class Movement : MonoBehaviour
         string lastAnimation = armatureComponent.animation.lastAnimationName;
         if (armatureComponent.animationName.Equals("dodge") && armatureComponent.animation.isCompleted) {
             setPrimaryArmature(primaryIndex);
+            justRolled = true;
             /*  if (lastShot > 0)
                 setPrimaryArmature(primaryIndex);
             else {
@@ -231,14 +233,14 @@ public class Movement : MonoBehaviour
                 }
             }
         }
- 
+
         if (rollTime) // set in PlatformMovementPhys.cs
         {
             SoundManager.PlaySound("playerDodge");
             setPrimaryArmature(primaryDodgeIndex);
             armatureComponent.animation.timeScale = 2f;
             GetComponent<ParticleSystem>().Play();
-            if(direction>0)
+            if (direction > 0)
                 GetComponent<ParticleSystemRenderer>().flip = new Vector3(0f, 0f, 0f);
             else
                 GetComponent<ParticleSystemRenderer>().flip = new Vector3(1f, 0f, 0f);
@@ -281,20 +283,21 @@ public class Movement : MonoBehaviour
 
 
             Vector2 pos = transform.Find("Arm").transform.localPosition;
-            if (direction > 0) 
+            if (direction > 0)
                 pos.x = 0.21f;
             else
                 pos.x = -0.185f;
 
             transform.Find("Arm").transform.localPosition = pos;
 
-
-            if (armatureComponent.animation.lastAnimationName == "Jumping" && GetComponent<Rigidbody2D>().velocity.y == 0) {
+         
+            bool fallingOnGround = (armatureComponent.animation.GetStates()[0].name.Equals("FALLING") && GetComponent<Rigidbody2D>().velocity.y == 0);
+            if (armatureComponent.animation.lastAnimationName == "Jumping" && armatureComponent.animation.isCompleted && GetComponent<Rigidbody2D>().velocity.y != 0&&!justRolled) {
                 //armatureComponent.animation.timeScale = 8;
-                //armatureComponent.animation.Play("FALLING", 1);
+                armatureComponent.animation.Play("FALLING", 1);
                 //armatureComponent.animation.timeScale = 5;
-                armatureComponent.animation.Play("Idle",1);
-            } else if (moving&&armatureComponent.animationName!="Jumping"&&armatureComponent.animation.lastAnimationName!="Jumping") {
+                //armatureComponent.animation.Play("Idle",1);
+            } else if (moving && armatureComponent.animationName != "Jumping" && armatureComponent.animation.lastAnimationName != "Jumping" && armatureComponent.animationName != "FALLING" && armatureComponent.animation.lastAnimationName != "FALLING") {
                 float speed = Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x);
                 float maxMoveSpeed = GetComponent<PlayerController>().getStat("moveSpeed");
                 speed = (speed / maxMoveSpeed) * 2.2f; // normalize the speed between 0 and 2.2f
@@ -302,31 +305,35 @@ public class Movement : MonoBehaviour
                 armatureComponent.animation.timeScale = speed; // for some reason it just worked this time 
 
                 // if the player is doing literally anything other than Running right now, then allow them to run
-                
-                if(armatureComponent.animation.lastAnimationName == "Idle"|| armatureComponent.animationName == "backRunning" || direction != lastdirection || (armatureComponent.animation.isCompleted&& armatureComponent.animation.lastAnimationName == "Running")) {
-                    if (direction > 0&& Input.GetAxisRaw("Horizontal") < 0||direction<=0&& Input.GetAxisRaw("Horizontal") > 0) {
+
+                if (armatureComponent.animation.lastAnimationName == "Idle" || armatureComponent.animation.lastAnimationName == "landing" || armatureComponent.animationName == "backRunning" || direction != lastdirection || (armatureComponent.animation.isCompleted && armatureComponent.animation.lastAnimationName == "Running")) {
+                    if (direction > 0 && Input.GetAxisRaw("Horizontal") < 0 || direction <= 0 && Input.GetAxisRaw("Horizontal") > 0) {
                         armatureComponent.animation.Play("Running", 1);
                     }
                 }
                 // if the player is doing literally anything other than backRunning right now, then allow them to run
-                if (armatureComponent.animation.lastAnimationName == "Idle" || armatureComponent.animationName == "Running" || direction != lastdirection || (armatureComponent.animation.isCompleted && armatureComponent.animation.lastAnimationName == "backRunning")) {
+                if (armatureComponent.animation.lastAnimationName == "Idle" || armatureComponent.animation.lastAnimationName == "landing" || armatureComponent.animationName == "Running" || direction != lastdirection || (armatureComponent.animation.isCompleted && armatureComponent.animation.lastAnimationName == "backRunning")) {
                     if (direction <= 0 && Input.GetAxisRaw("Horizontal") < 0 || direction > 0 && Input.GetAxisRaw("Horizontal") > 0) {
                         armatureComponent.animation.Play("backRunning", 1);
                     }
                 }
 
-
+                //Debug.Log("moving");
 
                 if (direction != lastdirection) {
                     lastdirection = direction;
                 }
 
 
-            } else if (armatureComponent.animation.isCompleted || last) {
-            //} else if (GetComponent<Rigidbody2D>().velocity.y==0) {
+            } else if(fallingOnGround){
+                armatureComponent.animation.Play("landing",1);
+            } else if(armatureComponent.animation.isCompleted || last || armatureComponent.animation.lastAnimationName == "landing"&& armatureComponent.animation.isCompleted) {
+                //Debug.Log("Trying to idle");
+                //} else if (GetComponent<Rigidbody2D>().velocity.y==0) {
                 armatureComponent.animation.timeScale = 2;
                 armatureComponent.animation.Play("Idle");
             }
         }
+        justRolled = false;
     }
 }
