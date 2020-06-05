@@ -12,24 +12,16 @@ public class MusicManagerBossRoom : MonoBehaviour
     private void Awake()
     {
         audio = GetComponent<AudioSource>();
-        audio.volume = 0.3f;
         defaultVolume = audio.volume;
-        Scene scene = SceneManager.GetActiveScene();
-        if (scene.name == "MainMenu" || scene.name == "Intro"|| scene.name == "MainMenuOptions") {
-            GameObject[] objs = GameObject.FindGameObjectsWithTag("music");
+        audio.volume = defaultVolume*UpgradeValues.overallvolume;
+    }
 
-            if (objs.Length > 1) {
-                Destroy(this.gameObject);
-            }
-            DontDestroyOnLoad(this.gameObject);
-        }
-        if (!audio.isPlaying) {
-            CancelInvoke();
-            audio.clip = Resources.Load("Sounds/Music/"+startMusic) as AudioClip;
-            audio.Play();
-            Invoke("PlayRepeat", audio.clip.length-1f);
-        }
-        
+    public void play()
+    {
+        CancelInvoke();
+        audio.clip = Resources.Load("Sounds/Music/" + startMusic) as AudioClip;
+        audio.Play();
+        Invoke("PlayRepeat", audio.clip.length - 1f);
     }
 
     private void OnDestroy()
@@ -39,22 +31,9 @@ public class MusicManagerBossRoom : MonoBehaviour
     }
     private void PlayRepeat()
     {
-        //audio.Stop();
+        Debug.Log("looped");
         audio.clip = Resources.Load("Sounds/Music/" + loopMusic) as AudioClip;
         audio.Play();
         Invoke("PlayRepeat", audio.clip.length);
-    }
-
-    void Update()
-    {
-        Scene scene = SceneManager.GetActiveScene();
-
-        audio.volume = defaultVolume * UpgradeValues.overallvolume;
-
-        if (scene.name == "MainMenu" || scene.name == "Intro" || scene.name == "MainMenuOptions") {
-
-        } else {
-            Destroy(this.gameObject);
-        }
     }
 }

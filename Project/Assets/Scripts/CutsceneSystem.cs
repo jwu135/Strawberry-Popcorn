@@ -100,10 +100,13 @@ public class CutsceneSystem : MonoBehaviour
                 script.enabled = true;
         }
         boss.GetComponentInChildren<Boss>().setDamageable(true);
-        if(first)
-         boss.GetComponentInChildren<BossShoot>().startTime();
-        GameObject.Find("Mother's Eye").GetComponent<SpriteRenderer>().enabled = true;
         Boss bossScript = GameObject.Find("Mother's Eye").GetComponent<Boss>();
+        if (first) {
+            boss.GetComponentInChildren<BossShoot>().startTime();
+            if(UpgradeValues.deathCounter>0&&bossScript.getPhase()==0)
+                GameObject.FindGameObjectWithTag("music").GetComponent<MusicManagerBossRoom>().play();
+        }
+        GameObject.Find("Mother's Eye").GetComponent<SpriteRenderer>().enabled = true;
         if (bossScript.getPhase() >= 3) {
             //bossScript.toggleSprite(true);
             bossScript.destroyBuildDestroy();
