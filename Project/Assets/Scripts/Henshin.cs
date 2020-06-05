@@ -31,6 +31,7 @@ public class Henshin : MonoBehaviour
             Player1.SetActive(false);
             cam.enabled = false;
             sp.SetActive(false);
+            Destroy(GameObject.Find("Stopper"));
         }
         else
         {
@@ -81,7 +82,7 @@ public class Henshin : MonoBehaviour
                 cutsceneEnd();
             }
                
-        }else if(henshin == false&& over&& Input.GetButtonDown("Use")) { // had to move these around, since unity's callstack causes trigger collisions to be called before update, making interact skip through the cutscene
+        }else if(henshin == false&& over&& Input.GetButtonDown("Use")&&UpgradeValues.deathCounter==0) { // had to move these around, since unity's callstack causes trigger collisions to be called before update, making interact skip through the cutscene
             henshin = true;
             Prologue.enabled = true;
             Prologue.Play();
@@ -110,6 +111,7 @@ public class Henshin : MonoBehaviour
                 musicEnabled = true;
                 GameObject.FindGameObjectWithTag("music").GetComponent<MusicManagerRoom2>().play();
             }
+            Destroy(GameObject.Find("Stopper"));
         }
     }
 
