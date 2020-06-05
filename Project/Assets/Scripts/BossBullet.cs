@@ -104,6 +104,13 @@ public class BossBullet : MonoBehaviour
             }
             
         }
+
+        if (col.tag == "bubble") {
+            if (type != "bomb") {
+                destroy();
+            }
+        }
+
         if (col.tag == "Player") {
             if (AoEShot) {
                 spawnAoe();

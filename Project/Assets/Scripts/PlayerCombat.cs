@@ -96,7 +96,7 @@ public class PlayerCombat : MonoBehaviour
     public double normalAttack1Buffer;
 
     private bool fire2State;
-    
+    private GameObject playerBubble;
 
     public Vector2 aPosition1 = new Vector2(5, 5);
     public float hookspeed;
@@ -104,6 +104,8 @@ public class PlayerCombat : MonoBehaviour
 
     void Start()
     {
+        playerBubble = Instantiate(Resources.Load("Prefabs/bubble")) as GameObject;
+        playerBubble.SetActive(false); // set as true wherever the special attack gets called
         flightMovementPhys = GetComponent<FlightMovementPhys>();
         playerController = GetComponent<PlayerController>();
     }

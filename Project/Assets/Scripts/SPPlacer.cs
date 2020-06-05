@@ -41,6 +41,21 @@ public class EdgeSP : ICloneable
         return new EdgeSP(this.position, this.flipped);
     }
 }
+public class TeaTimeSP : ICloneable
+{
+    public Vector3 position;
+    public bool flipped;
+
+    public TeaTimeSP(Vector3 pos,bool flipped)
+    {
+        this.position = pos;
+        this.flipped = flipped;
+    }
+    public object Clone() // don't really need this anymore, but gonna leave it so I remember it for later
+    {
+        return new EdgeSP(this.position, this.flipped);
+    }
+}
 public class SPPlacer : MonoBehaviour
 {
     public void Awake()
@@ -152,11 +167,14 @@ public class SPPlacer : MonoBehaviour
 
     public GameObject Strawberry; // just the prefab
     public GameObject EdgeStrawberry; // just the prefab
+    public GameObject TeaTimeSP; // just the prefab
     //public GameObject[] StrawberryBodies = new GameObject[8]; // using this so I can access the scripts inside the prefab without changing the prefab itself
     public GameObject[] StrawberryBodies; // using this so I can access the scripts inside the prefab without changing the prefab itself
     public GameObject[] EdgeStrawberryBodies; // using this so I can access the scripts inside the prefab without changing the prefab itself
+    public GameObject[] TeaTimeStrawberryBodies; // using this so I can access the scripts inside the prefab without changing the prefab itself
     public List<SP> Strawberries = new List<SP>(); // each SP object
     public List<EdgeSP> EdgeStrawberries = new List<EdgeSP>(); // each EdgeSP object
+    public List<TeaTimeSP> TeaTimeStrawberries = new List<TeaTimeSP>(); // each EdgeSP object
     public GameObject SPGroup; // the parent group that they are attached to
 
     
@@ -277,5 +295,9 @@ public class SPPlacer : MonoBehaviour
         for (int i = 0; i < EdgeStrawberryBodies.Length; i++) {
             EdgeStrawberryBodies[i] = Instantiate(EdgeStrawberry, EdgeStrawberries[i].position, EdgeStrawberry.transform.rotation);
         }
+    }
+    void TeaTimeSPHandler()
+    {
+
     }
 }
