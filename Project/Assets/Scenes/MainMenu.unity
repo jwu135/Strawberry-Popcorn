@@ -345,9 +345,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MouseEye: {fileID: 362278695}
-  Image: {fileID: 0}
+  Image: {fileID: 362278697}
   MouseEyeOpen: {fileID: 21300000, guid: 268d5765bd8630a488db2d35b5ec009a, type: 3}
   MouseEyeClosed: {fileID: 21300000, guid: 7eb9055632c58c5478c8e76b4176c26d, type: 3}
+  animated: 0
+  MousEyeOpenAnim: {fileID: 0}
+  MousEyeClosedAnim: {fileID: 0}
+--- !u!1 &528504293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 4478260948763344099}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 528504294}
+  m_Layer: 0
+  m_Name: Cursor (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &528504294
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 4478260948763344099}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528504293}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1827544919}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &837815530
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +464,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &837815534
 MonoBehaviour:
@@ -603,7 +637,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &928151868
 MonoBehaviour:
@@ -758,7 +792,7 @@ RectTransform:
   - {fileID: 1205778264}
   - {fileID: 2027604993}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1077,9 +1111,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MouseEye: {fileID: 1051424023}
-  Image: {fileID: 0}
+  Image: {fileID: 1051424018}
   MouseEyeOpen: {fileID: 21300000, guid: 6d7ebf74c79d7c248950f20984c3ea55, type: 3}
   MouseEyeClosed: {fileID: 21300000, guid: 21c3dfaff2149fd43be844cb1655be3b, type: 3}
+  animated: 0
+  MousEyeOpenAnim: {fileID: 0}
+  MousEyeClosedAnim: {fileID: 0}
 --- !u!1 &1072874694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,9 +1341,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MouseEye: {fileID: 1072874697}
-  Image: {fileID: 0}
+  Image: {fileID: 1072874699}
   MouseEyeOpen: {fileID: 21300000, guid: 527ffd3456a655b40be1c4fca81746da, type: 3}
   MouseEyeClosed: {fileID: 21300000, guid: 9f6882575aff71947b8e8adfe7d7f0b7, type: 3}
+  animated: 0
+  MousEyeOpenAnim: {fileID: 0}
+  MousEyeClosedAnim: {fileID: 0}
 --- !u!1 &1205778263
 GameObject:
   m_ObjectHideFlags: 0
@@ -1628,7 +1668,7 @@ RectTransform:
   - {fileID: 1890104069}
   - {fileID: 1753863088}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1915,6 +1955,37 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+--- !u!1 &1827544918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 4478260948763344099}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1827544919}
+  - component: {fileID: 1958551207}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1827544919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 4478260948763344099}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827544918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 528504294}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1870144386
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,7 +2126,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1890104068
 GameObject:
@@ -2410,15 +2481,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MouseEye: {fileID: 1944144784}
-  Image: {fileID: 0}
+  Image: {fileID: 1944144781}
   MouseEyeOpen: {fileID: 21300000, guid: dd015527165a8164a8de0db3ef441530, type: 3}
   MouseEyeClosed: {fileID: 21300000, guid: 2efcb922a00d7864789f54469207fb44, type: 3}
---- !u!212 &1958551207 stripped
+  animated: 0
+  MousEyeOpenAnim: {fileID: 0}
+  MousEyeClosedAnim: {fileID: 0}
+--- !u!212 &1958551207
 SpriteRenderer:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 4478260949955139235, guid: 4521da10421174945aedb74aba4e14d6,
     type: 3}
   m_PrefabInstance: {fileID: 4478260948763344099}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827544918}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &2027604992
 GameObject:
   m_ObjectHideFlags: 0

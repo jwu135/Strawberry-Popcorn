@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
+//using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,8 +12,8 @@ public class MouseEyeControl : MonoBehaviour
     public Sprite MouseEyeOpen;
     public Sprite MouseEyeClosed;
     public bool animated = false;
-    public AnimatorController MousEyeOpenAnim;
-    public AnimatorController MousEyeClosedAnim;
+    public RuntimeAnimatorController MousEyeOpenAnim;
+    public RuntimeAnimatorController MousEyeClosedAnim;
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Button" )

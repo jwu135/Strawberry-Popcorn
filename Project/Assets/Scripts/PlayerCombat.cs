@@ -293,7 +293,7 @@ public class PlayerCombat : MonoBehaviour
           //      timeBtwAttack = 1;
          //   }
             //LASER
-            if (Input.GetButtonDown("fire2") && HM.mana >= 50)
+            if (Input.GetButtonDown("Fire2") && HM.mana >= 50)
             {
                 LASER = true;
                 if (LASER)
@@ -322,7 +322,7 @@ public class PlayerCombat : MonoBehaviour
       //          Enemy.damage5 = Enemy.damage5 * 1.5;
       //          delayAttackCD = 0.1;
        //         delayChargeAttackCD = 1;
-                timeBtwAttack = 1;
+            //    timeBtwAttack = 1;
 //
 
           //  }

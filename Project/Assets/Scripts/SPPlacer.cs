@@ -172,7 +172,7 @@ public class SPPlacer : MonoBehaviour
          * Also, if it is not a special scene, make only a few have dialogue options
          * Possibly look into expanding the Collider when the SP is talking, that way the player can walk further away and still hear them
          */
-        specialScene = false;
+        //specialScene = false;
         if (specialScene) {
             Strawberries.Add(new SP(new Vector3(7.33f, -3.42f, 0f), false, 2, "Idle", -1));
             Strawberries.Add(new SP(new Vector3(15.77f, -3.15f, 0f), false, 1, "Idle", -1));
