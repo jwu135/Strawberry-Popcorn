@@ -167,6 +167,10 @@ public class Movement : MonoBehaviour
         }
     }
 
+    void animateFlight()
+    {
+
+    }
     void animate()
     {
 
@@ -257,7 +261,7 @@ public class Movement : MonoBehaviour
             }
             StartCoroutine("afterImageStop");
             rollTime = false;
-        } else {
+        } else if (GetComponent<PlayerController>().getMode() == 1) {
             if (jumped) {
                 armatureComponent.animation.timeScale = 2;
                 armatureComponent.animation.Play("Jumping", 1);
@@ -332,6 +336,21 @@ public class Movement : MonoBehaviour
                 //} else if (GetComponent<Rigidbody2D>().velocity.y==0) {
                 armatureComponent.animation.timeScale = 2;
                 armatureComponent.animation.Play("Idle");
+            }
+        } else {
+            float mag = new Vector2(Input.GetAxisRaw("Horizontal"), 0).magnitude; // technique from Ethan's script. Don't want to read it in from there yet to avoid making changes to other people's scripts. Making the deadzone variable public or adding a function call to add the value to this script would be fine for doing this.
+            float magY = new Vector2(Input.GetAxisRaw("Vertical"), 0).magnitude; // technique from Ethan's script. Don't want to read it in from there yet to avoid making changes to other people's scripts. Making the deadzone variable public or adding a function call to add the value to this script would be fine for doing this.
+            bool moving = mag > 0.15f && (GetComponent<Rigidbody2D>().velocity.x > 0 || (GetComponent<Rigidbody2D>().velocity.x < 0));
+            if (moving||magY>0.15f) {
+                if (armatureComponent.animation.lastAnimationName == "flying" && armatureComponent.animation.isCompleted|| armatureComponent.animation.lastAnimationName == "Idle") {
+                    armatureComponent.animation.timeScale = 2;
+                    armatureComponent.animation.Play("flying", 1);
+                }
+            
+            } else if (armatureComponent.animation.isCompleted || armatureComponent.animation.lastAnimationName == "flying") {
+                Debug.Log("flying");
+                armatureComponent.animation.timeScale = 2;
+                armatureComponent.animation.Play("Idle", 1);
             }
         }
         justRolled = false;

@@ -98,7 +98,7 @@ public class SoundManager : MonoBehaviour
         eatingQuestionMark = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/EatingQuestionMark"); // called in Movement.cs
         tentacleAttack = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/TentaceAttack"); // called in Movement.cs
 
-        bombsAfall = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/bombAfall"); // called in BossBullet.cs
+        bombsAfall = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/bombsAfall"); // called in BossBullet.cs
         Explosion = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/Explosion"); // called in BossBullet.cs
         gainLevel = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/gainLevel"); // called in BossPieceUpgrade.cs
         pieceFall = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/pieceFall"); // called in Boss.cs
