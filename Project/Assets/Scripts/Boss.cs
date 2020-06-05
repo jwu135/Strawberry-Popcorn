@@ -52,6 +52,11 @@ public class Boss : MonoBehaviour
     }
     void Start()
     {
+        // hard coding these for now
+        healthNew[0] = 60;
+        healthNew[1] = 160;
+        healthNew[2] = 240;
+        healthNew[3] = 360;
         if(UpgradeValues.deathCounter==0)
             midGameOverride();
         maxhealthNew = new double[healthNew.Length+1];

@@ -18,8 +18,8 @@ public class Upgrade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        UpgradeValues.deathPoints = deathStandard;
+        if(UpgradeValues.deathCounter == 1)
+            UpgradeValues.deathPoints = deathStandard;
 
 
         //UpgradeValues.bonusHealth += 5;
