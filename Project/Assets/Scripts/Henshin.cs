@@ -14,6 +14,7 @@ public class Henshin : MonoBehaviour
     bool over = false;
     private int counter = 0;
 
+    private bool musicEnabled = false;
     public GameObject Player1;
     public GameObject Player2;
     public GameObject sp;
@@ -103,6 +104,10 @@ public class Henshin : MonoBehaviour
         Player2.GetComponent<PlatformMovementPhys>().unableToMove = false;
         Player2.GetComponent<PlatformMovementPhys>().ableToJump = true;
         cam3.enabled = false;
+        if (!musicEnabled) {
+            musicEnabled = true;
+            GameObject.FindGameObjectWithTag("music").GetComponent<MusicManagerRoom2>().play();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
