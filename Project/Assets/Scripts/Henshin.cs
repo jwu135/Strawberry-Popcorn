@@ -104,9 +104,12 @@ public class Henshin : MonoBehaviour
         Player2.GetComponent<PlatformMovementPhys>().unableToMove = false;
         Player2.GetComponent<PlatformMovementPhys>().ableToJump = true;
         cam3.enabled = false;
-        if (!musicEnabled) {
-            musicEnabled = true;
-            GameObject.FindGameObjectWithTag("music").GetComponent<MusicManagerRoom2>().play();
+        Prologue.Stop();
+        if (UpgradeValues.deathCounter == 0) {
+            if (!musicEnabled) {
+                musicEnabled = true;
+                GameObject.FindGameObjectWithTag("music").GetComponent<MusicManagerRoom2>().play();
+            }
         }
     }
 
