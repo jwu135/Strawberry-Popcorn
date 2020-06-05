@@ -36,6 +36,7 @@ public class UpgradeValues : MonoBehaviour
     public static int deathCounter;
     public static float highestPhaseEncountered;
     public static float highestPhaseDiscussed; // parallax room
+    public static float overallvolume = 0.5f;
     void Awake()
     {
         DontDestroyOnLoad(this);

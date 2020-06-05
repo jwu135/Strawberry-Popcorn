@@ -8,10 +8,12 @@ public class MusicManager : MonoBehaviour
     public string startMusic;
     public string loopMusic;
     AudioSource audio;
+    float defaultVolume;
     private void Awake()
     {
         audio = GetComponent<AudioSource>();
         audio.volume = 0.3f;
+        defaultVolume = audio.volume;
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name == "MainMenu" || scene.name == "Intro"|| scene.name == "MainMenuOptions") {
             GameObject[] objs = GameObject.FindGameObjectsWithTag("music");
@@ -46,6 +48,9 @@ public class MusicManager : MonoBehaviour
     void Update()
     {
         Scene scene = SceneManager.GetActiveScene();
+
+        audio.volume = defaultVolume * UpgradeValues.overallvolume;
+
         if (scene.name == "MainMenu" || scene.name == "Intro" || scene.name == "MainMenuOptions") {
 
         } else {

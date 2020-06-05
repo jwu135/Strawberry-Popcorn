@@ -61,9 +61,13 @@ public class SoundManager : MonoBehaviour
     public static AudioClip hitSound2;
     public static AudioClip chargingSound1;
     static AudioSource audioSrc;
+    float defaultVolume;
     // Start is called before the first frame update
     void Awake()
     {
+        AudioSource audio = GetComponent<AudioSource>();
+        defaultVolume = audio.volume;
+        audio.volume = defaultVolume * UpgradeValues.overallvolume;
         // new sounds from 5-12
         playerShotSound1 = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/Shot1"); // called in PlayerCombat.cs
         playerShotSound2 = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/Shot2"); // called in PlayerCombat.cs
