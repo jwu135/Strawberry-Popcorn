@@ -7,6 +7,10 @@ public class BossPiece : MonoBehaviour
     bool over = false;
     public Sprite[] arms = new Sprite[2];
     public GameObject[] healthbars = new GameObject[3];
+    private void Start()
+    {
+        transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+    }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Floor"&&collision.gameObject.name=="Floor") { // as far as I know, only the groundfloor satisfies both of these
@@ -83,7 +87,12 @@ public class BossPiece : MonoBehaviour
         GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossShoot>().setPhase(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
         //Debug.Log(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
         player.transform.Find("Arm").transform.GetComponent<Look>().setArmature();
-        GameObject.Find("EventSystem").GetComponent<CutsceneSystem>().eaten = true;
+
+        Instantiate(Resources.Load("Prefabs/placeHolderPhaseCard") as GameObject,GameObject.Find("Canvas").transform);
+
+
+        //GameObject.Find("EventSystem").GetComponent<CutsceneSystem>().eaten = true;
+
         if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 3) {
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().setMode(0);
         }

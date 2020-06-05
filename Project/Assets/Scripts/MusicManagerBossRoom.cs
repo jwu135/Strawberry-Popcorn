@@ -16,6 +16,15 @@ public class MusicManagerBossRoom : MonoBehaviour
         audio.volume = defaultVolume*UpgradeValues.overallvolume;
     }
 
+    public void lowerVolume()
+    {
+        audio.volume = defaultVolume * UpgradeValues.overallvolume*0.6f;
+    }
+
+    public void resetVolume()
+    {
+        audio.volume = defaultVolume * UpgradeValues.overallvolume;
+    }
     public void play()
     {
         CancelInvoke();
