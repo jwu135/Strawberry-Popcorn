@@ -14,7 +14,7 @@ public class MainMenuVolume1 : MonoBehaviour
 
     void updateText()
     {
-        volumeText.text = UpgradeValues.overallvolume * 100 + "%";   
+        volumeText.text = Mathf.Round(UpgradeValues.overallvolume * 100) + "%";   
     }
 
     public void incVolume()
