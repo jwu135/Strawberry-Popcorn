@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class NewDialogueBossRoom : MonoBehaviour
 {
+    public RuntimeAnimatorController phase1;
+    public RuntimeAnimatorController phase2;
+    public RuntimeAnimatorController phase3;
     private float textspeed = 0.025f;
     private float baseTextSpeed;
     private int tempSwapper;
@@ -17,26 +20,30 @@ public class NewDialogueBossRoom : MonoBehaviour
     void Start()
     {
         currSentence = "";
+        dialogueBox = transform.Find("Canvas").Find("DialogueBox").gameObject;
         if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 1) {
             dialogue[0] = "Aeons Ago";
             dialogue[1] = "I opened my eyes";
             dialogue[2] = "And saw I was alone";
+            GetComponent<Animator>().runtimeAnimatorController = phase1;
         }
         if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 2) {
+            dialogueBox.GetComponent<RectTransform>().localPosition = new Vector3(-145,53);
             dialogue[0] = "Life was created by my hands";
             dialogue[1] = "And by consuming its flesh";
             dialogue[2] = "I too could experience living";
+            GetComponent<Animator>().runtimeAnimatorController = phase2;
         }
         if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 3) {
             dialogue[0] = "One last experience eludes me";
             dialogue[1] = "One last creation I will make";
             dialogue[2] = "One, who shall soon replace me";
+            GetComponent<Animator>().runtimeAnimatorController = phase3;
         }
         GameObject.FindGameObjectWithTag("music").GetComponent<MusicManagerBossRoom>().lowerVolume();
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlatformMovementPhys>().unableToMove = true;
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlatformMovementPhys>().ableToJump = false;
         GameObject.FindGameObjectWithTag("Player").GetComponent<FlightMovementPhys>().unableToMove = true;
-        dialogueBox = transform.Find("Canvas").Find("DialogueBox").gameObject;
         transform.Find("Canvas").GetComponent<Canvas>().overrideSorting = true;
         talk();
     }
