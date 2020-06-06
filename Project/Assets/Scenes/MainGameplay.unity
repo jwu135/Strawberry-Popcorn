@@ -28765,7 +28765,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1544921033
 Animator:
   serializedVersion: 3
@@ -28801,7 +28801,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RenderingLayerMask: 1
-  m_RendererPriority: 0
+  m_RendererPriority: 1
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -28844,7 +28844,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544921032}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 641.6918, y: -380.29794, z: -1600.4144}
+  m_LocalPosition: {x: 641.6918, y: -380.29794, z: -1354.6}
   m_LocalScale: {x: 15.018908, y: 15.018908, z: 15.018906}
   m_Children: []
   m_Father: {fileID: 1839570390}
@@ -33514,8 +33514,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   health: 1
-  maxMana: 100
-  mana: 0
+  maxMana: 8
+  mana: 8
   invicibilityLength: 40
   invicibilityCounter: 0
   manaCounter: 1
