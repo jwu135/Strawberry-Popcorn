@@ -26,6 +26,7 @@ public class HealthManager : MonoBehaviour
     public Sprite[] allManaSprites;
     public Text helthText;
     public Text manaText;
+    public GameObject manaEye;
 
     private float alphaLevel = 0f; //Used to control the opacity of the hit overlay
     public float alphaStep = 0.005f; //how fast the opacity decays 1f is fully opaque, 0f is full transparent
@@ -48,6 +49,7 @@ public class HealthManager : MonoBehaviour
         flightMovementPhys = GetComponent<FlightMovementPhys>();
         playerController = GetComponent<PlayerController>();
         PlatformMovementPhys = GetComponent<PlatformMovementPhys>();
+        manaEye.SetActive(false);
     }
 
     void Update()
@@ -76,6 +78,14 @@ public class HealthManager : MonoBehaviour
             alphaLevel = 0;
             HitOverlay.color = new Color(1f, 1f, 1f, alphaLevel);
         }
+
+        manaText.text = mana.ToString();
+        if (mana == 0)
+        {
+            manaText.enabled = false;
+            manaEye.SetActive(true);
+
+        }
     }
     // FixedUpdate is called 50 times a second
     void FixedUpdate()
@@ -102,22 +112,22 @@ public class HealthManager : MonoBehaviour
     {
         if (mana < 7) {
             manaSprite.GetComponent<SpriteRenderer>().sprite = allManaSprites[0];
-        } else if (mana >= 1 && mana < 3) {
+        } else if (mana >= 20 && mana < 50) {
             manaSprite.GetComponent<SpriteRenderer>().sprite = allManaSprites[1];
-        } else if (mana >= 3 && mana < 8) {
+        } else if (mana >= 50 && mana < 100) {
             manaSprite.GetComponent<SpriteRenderer>().sprite = allManaSprites[2];
         } else {
             manaSprite.GetComponent<SpriteRenderer>().sprite = allManaSprites[3];
         }
-        if (mana >= 1 && mana < 4 && lastmana < 20) {
+        if (mana >= 20 && mana < 50 && lastmana < 20) {
             GameObject manaObject = GameObject.FindGameObjectWithTag("ManaOverlay");
             manaObject.GetComponent<Animator>().SetTrigger("Play");
         }
-        if (mana >= 4 && mana < 8 && lastmana < 50) {
+        if (mana >= 50 && mana < 100 && lastmana < 50) {
             GameObject manaObject = GameObject.FindGameObjectWithTag("ManaOverlay");
             manaObject.GetComponent<Animator>().SetTrigger("Play");
         }
-        if (mana >= 8 && lastmana < 100) {
+        if (mana >= 100 && lastmana < 100) {
             GameObject manaObject = GameObject.FindGameObjectWithTag("ManaOverlay");
             manaObject.GetComponent<Animator>().SetTrigger("Play");
         }
@@ -152,15 +162,15 @@ public class HealthManager : MonoBehaviour
             if (other.tag == "BossBullet" && manaCounter == 1) {
                 // only gives mana while rolling
                 if(((flightMovementPhys.rollingFrame > 0 && playerController.getMode() == 0) || (PlatformMovementPhys.rollingFrame > 0 && playerController.getMode() == 1))){ // from RaShaun's/Ethan's scripts 
-                    if(mana != 0)
-                    {
+
                         GameObject.Find("PerfectDodgeFlash").GetComponent<Animator>().speed = 1.5f;
                         GameObject.Find("PerfectDodgeFlash").GetComponent<Animator>().SetTrigger("Play");
-                    }
                     //Time.timeScale = scaleTime;
-
-                    mana -= (1 + UpgradeValues.bonusManaGain);
-
+                    if(mana > 0)
+                    {
+                        mana -= 1;
+                       
+                    }
                     manaCounter = 0;
                 }
 
@@ -174,9 +184,15 @@ public class HealthManager : MonoBehaviour
         helthText.text = health.ToString() + "/" + maxHealth.ToString();
     }
 
-    public void updateMana(double mana, double maxMana)
+    public void updateMana(double mana)
     {
-        manaText.text = mana.ToString() + "/" + maxMana.ToString();
+        manaText.text = mana.ToString();
+        if(mana == 0)
+        {
+            manaText.enabled = false;
+            manaEye.SetActive(true);
+
+        }
     }
     public void activateScreenShake( float magnitude )
     {
