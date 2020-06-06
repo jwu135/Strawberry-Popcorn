@@ -10,11 +10,16 @@ public class CutsceneSystem : MonoBehaviour
     public GameObject boss;
     public GameObject[] objects = new GameObject[size] ;
     public GameObject dialogueBox;
+    public GameObject interactSign;
     private GameObject currPiece;
     public bool eaten = false;
     // Start is called before the first frame update
     void Awake()
     {
+        GameObject sign = Resources.Load("Prefabs/InteractSign") as GameObject;
+        interactSign = Instantiate(sign,new Vector3(25.4f, -7.13f, 1),sign.transform.rotation);
+
+        interactSign.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         Stop();
     }
     void Stop(bool first = true)
@@ -107,6 +112,7 @@ public class CutsceneSystem : MonoBehaviour
                 GameObject.FindGameObjectWithTag("music").GetComponent<MusicManagerBossRoom>().play();
         }
         GameObject.Find("Mother's Eye").GetComponent<SpriteRenderer>().enabled = true;
+        interactSign.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
         if (bossScript.getPhase() >= 3) {
             //bossScript.toggleSprite(true);
             bossScript.destroyBuildDestroy();

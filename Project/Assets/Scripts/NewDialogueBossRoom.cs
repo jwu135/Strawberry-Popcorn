@@ -19,6 +19,7 @@ public class NewDialogueBossRoom : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject.Find("EventSystem").GetComponent<CutsceneSystem>().interactSign.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         currSentence = "";
         dialogueBox = transform.Find("Canvas").Find("DialogueBox").gameObject;
         if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 1) {
