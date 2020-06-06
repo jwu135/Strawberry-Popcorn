@@ -7,8 +7,8 @@ public class HealthManager : MonoBehaviour
 {
     public double maxHealth = 12;
     public double health = 12;
-    public double maxMana = 100;
-    public double mana = 100;
+    public double maxMana = 8;
+    public double mana = 8;
     private double lastmana = 0;
 
     public float invicibilityLength;
@@ -100,24 +100,24 @@ public class HealthManager : MonoBehaviour
 
     private void updateMana()
     {
-        if (mana < 20) {
+        if (mana < 7) {
             manaSprite.GetComponent<SpriteRenderer>().sprite = allManaSprites[0];
-        } else if (mana >= 20 && mana < 50) {
+        } else if (mana >= 1 && mana < 3) {
             manaSprite.GetComponent<SpriteRenderer>().sprite = allManaSprites[1];
-        } else if (mana >= 50 && mana < 100) {
+        } else if (mana >= 3 && mana < 8) {
             manaSprite.GetComponent<SpriteRenderer>().sprite = allManaSprites[2];
         } else {
             manaSprite.GetComponent<SpriteRenderer>().sprite = allManaSprites[3];
         }
-        if (mana >= 20 && mana < 50 && lastmana < 20) {
+        if (mana >= 1 && mana < 4 && lastmana < 20) {
             GameObject manaObject = GameObject.FindGameObjectWithTag("ManaOverlay");
             manaObject.GetComponent<Animator>().SetTrigger("Play");
         }
-        if (mana >= 50 && mana < 100 && lastmana < 50) {
+        if (mana >= 4 && mana < 8 && lastmana < 50) {
             GameObject manaObject = GameObject.FindGameObjectWithTag("ManaOverlay");
             manaObject.GetComponent<Animator>().SetTrigger("Play");
         }
-        if (mana >= 100 && lastmana < 100) {
+        if (mana >= 8 && lastmana < 100) {
             GameObject manaObject = GameObject.FindGameObjectWithTag("ManaOverlay");
             manaObject.GetComponent<Animator>().SetTrigger("Play");
         }
@@ -152,11 +152,14 @@ public class HealthManager : MonoBehaviour
             if (other.tag == "BossBullet" && manaCounter == 1) {
                 // only gives mana while rolling
                 if(((flightMovementPhys.rollingFrame > 0 && playerController.getMode() == 0) || (PlatformMovementPhys.rollingFrame > 0 && playerController.getMode() == 1))){ // from RaShaun's/Ethan's scripts 
-                    GameObject.Find("PerfectDodgeFlash").GetComponent<Animator>().speed = 1.5f;
-                    GameObject.Find("PerfectDodgeFlash").GetComponent<Animator>().SetTrigger("Play");
+                    if(mana != 0)
+                    {
+                        GameObject.Find("PerfectDodgeFlash").GetComponent<Animator>().speed = 1.5f;
+                        GameObject.Find("PerfectDodgeFlash").GetComponent<Animator>().SetTrigger("Play");
+                    }
                     //Time.timeScale = scaleTime;
 
-                    mana += (5 + UpgradeValues.bonusManaGain);
+                    mana -= (1 + UpgradeValues.bonusManaGain);
 
                     manaCounter = 0;
                 }

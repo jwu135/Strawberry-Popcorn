@@ -84,7 +84,7 @@ public class PlatformMovementPhys : MonoBehaviour
 
         ableToJump = GetComponent<JumpDisabler>() ? GetComponent<JumpDisabler>().ableToJump : true; //if the script is attached, set to value.                
 
-        state = true; //flase is grounded, true is in the air
+        state = true; //false is grounded, true is in the air
 
         healthManager = GetComponent<HealthManager>();
 
