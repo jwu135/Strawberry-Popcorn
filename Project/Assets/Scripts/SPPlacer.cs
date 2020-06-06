@@ -63,6 +63,7 @@ public class SPPlacer : MonoBehaviour
         DialogueHandler();
         SPHandler();
         EdgeSPHandler();
+        TeaTimeSPHandler();
     }
 
 
@@ -194,8 +195,8 @@ public class SPPlacer : MonoBehaviour
         if (specialScene) {
             Strawberries.Add(new SP(new Vector3(7.33f, -3.42f, 0f), false, 2, "Idle", -1));
             Strawberries.Add(new SP(new Vector3(15.77f, -3.15f, 0f), false, 1, "Idle", -1));
-            Strawberries.Add(new SP(new Vector3(27.19f, -5.2f, 0f), true, 3, "Idletalking", questionMarkLayer: 1));
-            Strawberries.Add(new SP(new Vector3(29.7f, -5.2f, 0f), false, 5, "Idletalking", questionMarkLayer: 1));
+            Strawberries.Add(new SP(new Vector3(27.19f, -5.2f, 0f), true, 3, "Idletalking", 1, questionMarkLayer: 1));
+            Strawberries.Add(new SP(new Vector3(29.7f, -5.2f, 0f), false, 5, "Idletalking", 1, questionMarkLayer: 1));
             Strawberries.Add(new SP(new Vector3(43.46f, -2.8f, 0f), false, 4, "Idle", -1));
         } else {
             int set = UnityEngine.Random.Range(0, 1); // this is a thing for tomorrow
@@ -298,6 +299,33 @@ public class SPPlacer : MonoBehaviour
     }
     void TeaTimeSPHandler()
     {
+        TeaTimeSP = Resources.Load("Prefabs/teaTimeSP") as GameObject;
 
+        // All possible positions
+        List<TeaTimeSP> possibleSPs = new List<TeaTimeSP>();
+        
+        possibleSPs.Add(new TeaTimeSP(new Vector3(32.97f, -1.65f), false));
+        possibleSPs.Add(new TeaTimeSP(new Vector3(4.74f, -1.43f), false));
+        
+
+        // Using this to make some less common than other
+        float numSPProb = UnityEngine.Random.Range(0f, 1f);
+        int numSPs = 0;
+        if (numSPProb < 0.95f) {
+            numSPs = 0;
+        } else {
+            numSPs = 1;
+        }
+
+
+        for (int i = 0; i < numSPs; i++) {
+            TeaTimeStrawberries.Add(possibleSPs[UnityEngine.Random.Range(0, possibleSPs.Count)]);
+            possibleSPs.RemoveAt(i);
+        }
+        TeaTimeStrawberryBodies = new GameObject[TeaTimeStrawberries.Count];
+
+        for (int i = 0; i < EdgeStrawberryBodies.Length; i++) {
+            TeaTimeStrawberryBodies[i] = Instantiate(TeaTimeSP, TeaTimeStrawberries[i].position, TeaTimeSP.transform.rotation);
+        }
     }
 }
