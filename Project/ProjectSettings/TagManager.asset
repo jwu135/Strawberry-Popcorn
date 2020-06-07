@@ -29,7 +29,8 @@ TagManager:
   - ButtonClickIcon
   - Builds
   - music
-
+  - bubble
+  - Interact2
   layers:
   - Default
   - TransparentFX
@@ -39,13 +40,13 @@ TagManager:
   - UI
   - 
   - 
-  - Enemy
-  - BossPiece
-  - PlatformAvoidance
-  - PlatformAvoidance2
-  - one-way platform
-  - platform
-  - player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -66,7 +67,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: cam1
-    uniqueID: 3929184655
     locked: 0
