@@ -18,9 +18,11 @@ public class Movement : MonoBehaviour
     private int primaryIndex = 0;
     private int primaryDodgeIndex = 1;
     private int primaryArmedIndex = 2;
+    private int currPrime = 0;
     private float lastShot = 0f;
     public bool rollTime = false;
     public bool jumped = false;
+    private bool armedIsPrimary = false;
     private bool step1Played = false;
     private bool step2Played = false;
     private bool justRolled = false;
@@ -93,7 +95,9 @@ public class Movement : MonoBehaviour
     public void setTime()
     {
         lastShot = 2f;
-        //setPrimaryArmature(primaryIndex);
+        currPrime = primaryIndex;
+        transform.Find("Arm").GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        armedIsPrimary = false;
     }
 
     private void armedSwap(bool toArmed)
@@ -179,30 +183,26 @@ public class Movement : MonoBehaviour
         bool movedLast = armatureComponent.animation.lastAnimationName.Equals("Running") || armatureComponent.animation.lastAnimationName.Equals("backRunning");
         string lastAnimation = armatureComponent.animation.lastAnimationName;
         if (armatureComponent.animationName.Equals("dodge") && armatureComponent.animation.isCompleted) {
-            setPrimaryArmature(primaryIndex);
+            if (!armedIsPrimary&&lastShot<=0) {
+                currPrime = primaryArmedIndex;
+                armedIsPrimary = true;
+                transform.Find("Arm").GetComponent<SpriteRenderer>().color = new Color(1,1,1,0);
+            }
+            //Debug.Log(currPrime);
+            setPrimaryArmature(currPrime);
             justRolled = true;
-            /*  if (lastShot > 0)
-                setPrimaryArmature(primaryIndex);
-            else {
-                setPrimaryArmature(primaryArmedIndex);
+        }else if (!armatureComponent.animationName.Equals("dodge")) {
+            if (!armedIsPrimary&&lastShot<=0) {
+                currPrime = primaryArmedIndex;
+                armedIsPrimary = true;
+                transform.Find("Arm").GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+                //setPrimaryArmature(currPrime);
+                Debug.Log("time ran out");
             }
-            if (movedLast) {
-                armatureComponent.animation.Play(lastAnimation);
-            }
-        } else if(!armatureComponent.animationName.Equals("dodge")){
-            if (lastShot > 0) {
-                setPrimaryArmature(primaryIndex);
-                if (movedLast) {
-                    armatureComponent.animation.Play(lastAnimation);
-                }
-            } else {
-                setPrimaryArmature(primaryArmedIndex);
-                if (movedLast) {
-                    armatureComponent.animation.Play(lastAnimation);
-                }
-            }
-        */
+            setPrimaryArmature(currPrime);
         }
+
+
         if (armatureComponent.animation.GetStates()[0].name.Equals("Idle")) {
             step1Played = false;
             step2Played = false;
@@ -344,7 +344,7 @@ public class Movement : MonoBehaviour
             bool moving = mag > 0.15f && (GetComponent<Rigidbody2D>().velocity.x > 0 || (GetComponent<Rigidbody2D>().velocity.x < 0));
             Vector2 pos = transform.Find("Arm").transform.localPosition;
             if (direction > 0)
-                pos.x = 0.21f;
+                pos.x = 0.09f;
             else
                 pos.x = -0.185f;
 
