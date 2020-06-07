@@ -161,8 +161,10 @@ public class Boss : MonoBehaviour
                 GetComponent<SpriteRenderer>().enabled = false;
                 /*if(healthIndex!=0)
                     phase+=1f;*/
-                if(phase> UpgradeValues.highestPhaseEncountered)
+                if (phase > UpgradeValues.highestPhaseEncountered) {
                     UpgradeValues.highestPhaseEncountered = phase;
+                    UpgradeValues.highestPhaseEncounteredBoss = phase; // I could've combined these two, but oh well
+                }
                 if (phase == 1) {
                     GameObject TempCornerMother = Resources.Load("Prefabs/CornerMother") as GameObject;
                     CornerMother = Instantiate(TempCornerMother,transform.parent.transform.position+new Vector3(25f,0f,0f),transform.rotation);

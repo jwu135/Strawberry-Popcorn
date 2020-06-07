@@ -117,7 +117,9 @@ public class Upgrade : MonoBehaviour
         UpgradeValues.builtCorpse = data.builtCorpse;
         //weaponAmount = data.weaponAmount;
         UpgradeValues.highestPhaseEncountered = data.highestPhaseEncountered;
+        UpgradeValues.highestPhaseEncounteredBoss = data.highestPhaseEncounteredBoss;
         UpgradeValues.highestPhaseDiscussed = data.highestPhaseDiscussed;
+        UpgradeValues.highestPhaseDiscussedBoss = data.highestPhaseDiscussedBoss;
         UpgradeValues.positionValues = data.positionValues;
         UpgradeValues.bodyTypes = data.bodyTypes;
         UpgradeValues.addedCorpse = data.addedCorpse;
@@ -381,7 +383,9 @@ public class Upgrade : MonoBehaviour
         UpgradeValues.bodyTypes = new int[1000000];
         UpgradeValues.positionValues = new float[1000000];
         UpgradeValues.highestPhaseEncountered = 0;
-        UpgradeValues.highestPhaseEncountered = 0;
+        UpgradeValues.highestPhaseEncounteredBoss = 0;
+        UpgradeValues.highestPhaseDiscussed = 0;
+        UpgradeValues.highestPhaseDiscussedBoss = 0;
         UpgradeValues.buildHealth1 = 0;
         UpgradeValues.buildDmg1 = 0;
         UpgradeValues.buildMana1 = 0;

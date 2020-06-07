@@ -27,7 +27,28 @@ public class DialogueSystem : MonoBehaviour
     public bool startTalking = false;
     public void Start()
     {
-        baseTextSpeed = textspeed;
+        // initial dialogue is already set
+        if (UpgradeValues.deathCounter == 1) {
+            dialogue[0].sentences = "You came back in a different body? Those are my daughters.";
+
+        }
+        if (UpgradeValues.highestPhaseEncounteredBoss > UpgradeValues.highestPhaseDiscussedBoss) {
+            UpgradeValues.highestPhaseDiscussedBoss = UpgradeValues.highestPhaseEncounteredBoss;
+            if (UpgradeValues.highestPhaseDiscussedBoss >= 1 && UpgradeValues.highestPhaseDiscussedBoss < 2) {
+                dialogue[0].sentences = "Why do you continue to do this? Know that I love all my creations dearly.";
+            }
+            if (UpgradeValues.highestPhaseDiscussedBoss >= 2 && UpgradeValues.highestPhaseDiscussedBoss < 3) {
+                dialogue[0].sentences = "You are still not strong enough.";
+            }
+            if (UpgradeValues.highestPhaseDiscussedBoss >= 3 && UpgradeValues.highestPhaseDiscussedBoss < 4) {
+                dialogue[0].sentences = "You think you'll be able to surpass me?";
+            }
+        }
+
+
+
+
+            baseTextSpeed = textspeed;
         finalSentence = dialogue[index].sentences;
         currSentence = "";
         GameObject.Find("crosshairAttack").GetComponent<SpriteRenderer>().sprite = cursors[1];
@@ -40,6 +61,7 @@ public class DialogueSystem : MonoBehaviour
             startTalking = true;
             StartCoroutine("textScroll");
         }*/
+        
     }
     void Update()
     {
@@ -92,7 +114,7 @@ public class DialogueSystem : MonoBehaviour
     public void lookAround()
     {
         if (startTalking) {
-            if (dialogueGoing&&UpgradeValues.deathCounter>0) {
+            if (dialogueGoing&&(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() > 0)) {
                 index = stops[stopsIndex] - 1; // use this to make dialogue only show first dialogue box of each thing
                 if (currSentence.Length < finalSentence.Length) {
                     StopCoroutine("textScroll");
@@ -164,12 +186,12 @@ public class DialogueSystem : MonoBehaviour
 
     IEnumerator eatDelay()
     {
-        if (UpgradeValues.deathCounter == 0) {
+        //if (UpgradeValues.deathCounter == 0) {
             //SoundManager.PlaySound("crunch");
             yield return new WaitForSeconds(0f);
             dialogueBox.SetActive(true);
             StartCoroutine("textScroll");
-        }
+        //}
         startTalking = true;
     }
 
