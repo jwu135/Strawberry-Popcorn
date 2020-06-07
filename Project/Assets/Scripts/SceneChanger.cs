@@ -10,6 +10,7 @@ public class SceneChanger : MonoBehaviour
     public Button play;
     public Button quit;
     public Button retry;
+    public Button manual;
     public bool intro = false;
     private List<Vector2> positions;
     public Sprite berryImage;
@@ -45,6 +46,8 @@ public class SceneChanger : MonoBehaviour
             quit.onClick.AddListener(doExitGame);
         if(retry!=null)
             retry.onClick.AddListener(startGame);
+        if (manual != null)
+            manual.onClick.AddListener(manualOpen);
         scene = SceneManager.GetActiveScene();
 
         Debug.Log(UpgradeValues.continueGame);
@@ -179,16 +182,16 @@ public class SceneChanger : MonoBehaviour
             SceneManager.LoadScene("Scenes/ParallaxTest");
             Debug.Log("fish1");
         }
-        if ((scene.name.Equals("MainMenu") || (scene.name.Equals("MainMenuOptions"))) && UpgradeValues.upgradeLocation == 0)
+        if ((scene.name.Equals("MainMenu") || (scene.name.Equals("MainMenuOptions")) || scene.name == "MainMenuManual") && UpgradeValues.upgradeLocation == 0)
         {
             SceneManager.LoadScene("Scenes/Upgrade");
         }
-        if ((scene.name.Equals("MainMenu") || (scene.name.Equals("MainMenuOptions"))) && UpgradeValues.upgradeLocation == 1 && UpgradeValues.upgradePoints > 0)
+        if ((scene.name.Equals("MainMenu") || (scene.name.Equals("MainMenuOptions")) || scene.name == "MainMenuManual") && UpgradeValues.upgradeLocation == 1 && UpgradeValues.upgradePoints > 0)
         {
             SceneManager.LoadScene("Scenes/Upgrade");
             Debug.Log("fish2");
         }
-        if ((scene.name.Equals("MainMenu") || (scene.name.Equals("MainMenuOptions"))) && UpgradeValues.upgradeLocation == 1 && UpgradeValues.upgradePoints == 0)
+        if ((scene.name.Equals("MainMenu") || (scene.name.Equals("MainMenuOptions")) || scene.name == "MainMenuManual") && UpgradeValues.upgradeLocation == 1 && UpgradeValues.upgradePoints == 0)
         {
             SceneManager.LoadScene("Scenes/ParallaxTest");
             Debug.Log("fish3");
@@ -210,13 +213,18 @@ public class SceneChanger : MonoBehaviour
             SceneManager.LoadScene("Scenes/MainMenu");
         }
 
-        if ((scene.name.Equals("MainMenu") || (scene.name.Equals("MainMenuOptions"))))
+        if ((scene.name.Equals("MainMenu") || (scene.name.Equals("MainMenuOptions"))) || scene.name == "MainMenuManual")
         {
             SceneManager.LoadScene("Scenes/Prologue1");
         }
 
 
 
+    }
+
+    void manualOpen()
+    {
+        SceneManager.LoadScene("Scenes/MainMenuManual");
     }
 
     void doExitGame()
