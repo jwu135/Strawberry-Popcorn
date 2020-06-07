@@ -149,8 +149,8 @@ public class Boss : MonoBehaviour
                 }
             }
 
-
-            player.GetComponent<HealthManager>().activateScreenShake((float)amnt/7f);
+            float shakeAmount = Mathf.Clamp((float)amnt / 7f,0f,1.6f);
+            player.GetComponent<HealthManager>().activateScreenShake(shakeAmount);
             if (healthNew[healthNew.Length - 1] <= 0) {
                 GameObject.FindGameObjectWithTag("EventSystem").GetComponent<gameOver>().startGameOver(true);
             } else if (healthNew[healthIndex] <= 0) {

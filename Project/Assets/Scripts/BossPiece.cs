@@ -74,6 +74,10 @@ public class BossPiece : MonoBehaviour
             healthbars[1].SetActive(false);
             healthbars[2].SetActive(true);
         }
+        if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 3) {
+            healthbars[2].SetActive(false);
+            healthbars[3].SetActive(true);
+        }
         /*if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 3) {
             player.transform.Find("ArmatureMid").gameObject.SetActive(false);
             player.transform.Find("ArmatureLast").gameObject.SetActive(true);
