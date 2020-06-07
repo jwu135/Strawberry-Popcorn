@@ -49,7 +49,7 @@ public class SceneChanger : MonoBehaviour
 
         Debug.Log(UpgradeValues.continueGame);
         cursor = GameObject.Find("Cursor");
-        if (scene.name.Equals("Gameover") && !UpgradeValues.continueGame)
+        if ((scene.name.Equals("Gameover")||scene.name.Equals("VictoryGameover")) && !UpgradeValues.continueGame)
         {
             positions = GlobalVariable.positions;
             bodies = GlobalVariable.bodies;
@@ -60,7 +60,7 @@ public class SceneChanger : MonoBehaviour
            // Upgrade.SavePlayer();
         }
 
-        if (scene.name.Equals("Gameover") && UpgradeValues.continueGame)
+        if ((scene.name.Equals("Gameover") || scene.name.Equals("VictoryGameover")) && UpgradeValues.continueGame)
         {
             positions = UpgradeValues.positions;
             bodies = UpgradeValues.bodies;
@@ -193,7 +193,9 @@ public class SceneChanger : MonoBehaviour
             SceneManager.LoadScene("Scenes/ParallaxTest");
             Debug.Log("fish3");
         }
-
+        if ((scene.name.Equals("VictoryGameover"))){
+            SceneManager.LoadScene("Scenes/VictoryUpgrade");
+        }
 
     }
     void playGame()

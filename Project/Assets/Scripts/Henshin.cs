@@ -19,8 +19,8 @@ public class Henshin : MonoBehaviour
     public GameObject Player2;
     public GameObject sp;
 
-    public PlayableDirector Prologue; 
-
+    public PlayableDirector Prologue;
+    public GameObject buildsCamera;
     void Start()
     {
         //cam = Camera.main;
@@ -41,18 +41,31 @@ public class Henshin : MonoBehaviour
         }
 
         cam3.enabled = false;
-
+        if (UpgradeValues.deathCounter > 0) {
+            buildsCamera = Instantiate(Resources.Load("Prefabs/Main Camera Builds")) as GameObject;
+            cam.enabled = false;
+            cam2.enabled = false;
+            cam3.enabled = false;
+        }
     }
 
     void Update()
     {
-        if(henshin == true)
-        {
-            if(cam2.orthographicSize < 8.7f && cam3.enabled == false)
-            {
+        if (UpgradeValues.deathCounter > 0) {
+            if (cam2.orthographicSize < 8.7f && buildsCamera.activeSelf == false) {          
                 cam2.transform.position = new Vector3(Mathf.Lerp(cam2.transform.position.x, -3.33f, speed), Mathf.Lerp(cam2.transform.position.y, 2.5f, speed), Mathf.Lerp(cam2.transform.position.z, 0, speed));
                 cam2.orthographicSize = Mathf.Lerp(cam2.orthographicSize, 8.709762f, speed);
             }
+        }
+        if (henshin == true)
+        {
+            if (UpgradeValues.deathCounter == 0) {
+                if (cam2.orthographicSize < 8.7f && cam3.enabled == false) {
+                    cam2.transform.position = new Vector3(Mathf.Lerp(cam2.transform.position.x, -3.33f, speed), Mathf.Lerp(cam2.transform.position.y, 2.5f, speed), Mathf.Lerp(cam2.transform.position.z, 0, speed));
+                    cam2.orthographicSize = Mathf.Lerp(cam2.orthographicSize, 8.709762f, speed);
+                }
+            }
+            
 
                 //Debug.Log(cam.orthographicSize);
             /*
@@ -115,6 +128,16 @@ public class Henshin : MonoBehaviour
         }
     }
 
+    public void choseSP()
+    {
+        if (buildsCamera == null) {
+            Debug.Log("null");
+        }
+        cam2.enabled = true;
+        buildsCamera.SetActive(false);
+        cam2.transform.position = new Vector3(Mathf.Lerp(buildsCamera.transform.position.x, -3.33f, speed), Mathf.Lerp(buildsCamera.transform.position.y, 2.5f, speed), Mathf.Lerp(buildsCamera.transform.position.z, 0, speed));
+        cam2.orthographicSize = Mathf.Lerp(buildsCamera.GetComponent<Camera>().orthographicSize, 8.709762f, speed);
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && (henshin == false)) {

@@ -197,7 +197,6 @@ public class Movement : MonoBehaviour
                 armedIsPrimary = true;
                 transform.Find("Arm").GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
                 //setPrimaryArmature(currPrime);
-                Debug.Log("time ran out");
             }
             setPrimaryArmature(currPrime);
         }
