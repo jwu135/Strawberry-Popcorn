@@ -128,7 +128,7 @@ public class Builds : MonoBehaviour
                 Upgrade.BuildMana1();
                 chooseCorpse = true;
                 Debug.Log("corpse1");
-
+                GameObject.Find("Henshin").transform.Find("New Sprite").GetComponent<Henshin>().choseSP();
             }
 
             if (!chooseCorpse && Input.GetButtonDown("interact"))
@@ -138,6 +138,7 @@ public class Builds : MonoBehaviour
                 Upgrade.BuildMana2();
                 chooseCorpse = true;
                 Debug.Log("corpse2");
+                GameObject.Find("Henshin").transform.Find("New Sprite").GetComponent<Henshin>().choseSP();
             }
 
             if (!chooseCorpse && Input.GetButtonDown("interact"))
@@ -147,6 +148,7 @@ public class Builds : MonoBehaviour
                 Upgrade.BuildMana3();
                 chooseCorpse = true;
                 Debug.Log("corpse3");
+                GameObject.Find("Henshin").transform.Find("New Sprite").GetComponent<Henshin>().choseSP();
             }
         }
 
