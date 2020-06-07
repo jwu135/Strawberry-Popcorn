@@ -93,6 +93,7 @@ public class Movement : MonoBehaviour
     public void setTime()
     {
         lastShot = 2f;
+        //setPrimaryArmature(primaryIndex);
     }
 
     private void armedSwap(bool toArmed)
@@ -341,16 +342,48 @@ public class Movement : MonoBehaviour
             float mag = new Vector2(Input.GetAxisRaw("Horizontal"), 0).magnitude; // technique from Ethan's script. Don't want to read it in from there yet to avoid making changes to other people's scripts. Making the deadzone variable public or adding a function call to add the value to this script would be fine for doing this.
             float magY = new Vector2(Input.GetAxisRaw("Vertical"), 0).magnitude; // technique from Ethan's script. Don't want to read it in from there yet to avoid making changes to other people's scripts. Making the deadzone variable public or adding a function call to add the value to this script would be fine for doing this.
             bool moving = mag > 0.15f && (GetComponent<Rigidbody2D>().velocity.x > 0 || (GetComponent<Rigidbody2D>().velocity.x < 0));
-            if (moving||magY>0.15f) {
-                if (armatureComponent.animation.lastAnimationName == "flying" && armatureComponent.animation.isCompleted|| armatureComponent.animation.lastAnimationName == "Idle") {
+            Vector2 pos = transform.Find("Arm").transform.localPosition;
+            if (direction > 0)
+                pos.x = 0.21f;
+            else
+                pos.x = -0.185f;
+
+            transform.Find("Arm").transform.localPosition = pos;
+
+
+            if (moving || magY > 0.15f) {
+                /*if (armatureComponent.animation.lastAnimationName == "flying" && armatureComponent.animation.isCompleted|| armatureComponent.animation.lastAnimationName == "Idle") {
                     armatureComponent.animation.timeScale = 2;
                     armatureComponent.animation.Play("flying", 1);
+                }*/
+                //bool last = armatureComponent.animation.lastAnimationName == "flying" || armatureComponent.animation.lastAnimationName == "flyingback";
+                bool commonChecks = armatureComponent.animation.lastAnimationName == "Idle" || direction != lastdirection;
+                float speed = Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x);
+                float maxMoveSpeed = GetComponent<PlayerController>().getStat("moveSpeed");
+                speed = (speed / maxMoveSpeed) * 2.2f; // normalize the speed between 0 and 2.2f
+                speed = Mathf.Clamp(speed, 1f, 2.2f);
+                armatureComponent.animation.timeScale = speed; // for some reason it just worked this time 
+                if (commonChecks || armatureComponent.animation.GetStates()[0].name.Equals("flyingback") || (armatureComponent.animation.isCompleted && armatureComponent.animation.lastAnimationName == "flying")) {
+                    if (direction > 0 && Input.GetAxisRaw("Horizontal") < 0 || direction <= 0 && Input.GetAxisRaw("Horizontal") > 0) {
+                        armatureComponent.animation.Play("flying", 1);
+                        Debug.Log("trying to fly forward");
+                    }
                 }
-            
-            } else if (armatureComponent.animation.isCompleted || armatureComponent.animation.lastAnimationName == "flying") {
-                Debug.Log("flying");
+                // if the player is doing literally anything other than backRunning right now, then allow them to run
+                if (commonChecks || armatureComponent.animation.GetStates()[0].name.Equals("flying") || (armatureComponent.animation.isCompleted && armatureComponent.animation.lastAnimationName == "flyingback")) {
+                    if (direction <= 0 && Input.GetAxisRaw("Horizontal") < 0 || direction > 0 && Input.GetAxisRaw("Horizontal") > 0) {
+                        armatureComponent.animation.Play("flyingback", 1);
+                        Debug.Log("trying to fly backwards");
+                    }
+
+                } 
+                if (direction != lastdirection) {
+                    lastdirection = direction;
+                }
+            } else if (armatureComponent.animation.isCompleted || armatureComponent.animation.lastAnimationName == "flying" || armatureComponent.animation.lastAnimationName == "flyingback") {
                 armatureComponent.animation.timeScale = 2;
-                armatureComponent.animation.Play("Idle", 1);
+                armatureComponent.animation.Play("Idle");
+                Debug.Log("idling");
             }
         }
         justRolled = false;

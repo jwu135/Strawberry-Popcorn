@@ -111,13 +111,13 @@ public class HealthManager : MonoBehaviour
     private void updateMana()
     {
         if (mana < 7) {
-            manaSprite.GetComponent<SpriteRenderer>().sprite = allManaSprites[0];
+            //manaSprite.GetComponent<SpriteRenderer>().sprite = allManaSprites[0];
         } else if (mana >= 20 && mana < 50) {
-            manaSprite.GetComponent<SpriteRenderer>().sprite = allManaSprites[1];
+            //manaSprite.GetComponent<SpriteRenderer>().sprite = allManaSprites[1];
         } else if (mana >= 50 && mana < 100) {
-            manaSprite.GetComponent<SpriteRenderer>().sprite = allManaSprites[2];
+            //manaSprite.GetComponent<SpriteRenderer>().sprite = allManaSprites[2];
         } else {
-            manaSprite.GetComponent<SpriteRenderer>().sprite = allManaSprites[3];
+            //manaSprite.GetComponent<SpriteRenderer>().sprite = allManaSprites[3];
         }
         if (mana >= 20 && mana < 50 && lastmana < 20) {
             GameObject manaObject = GameObject.FindGameObjectWithTag("ManaOverlay");

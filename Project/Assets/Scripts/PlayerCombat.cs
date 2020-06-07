@@ -447,7 +447,7 @@ public class PlayerCombat : MonoBehaviour
         GameObject spawnedObject = (GameObject)Instantiate(bullet2Prefab, firePoint.position, firePoint.rotation);
 
         SoundManager.PlaySound("playerShotSound2");
-
+        GetComponent<Movement>().setTime();
         if (GameObject.FindGameObjectWithTag("ButtonClickIcon") != null)
             GameObject.FindGameObjectWithTag("ButtonClickIcon").GetComponent<ShootIconScript>().timesShot++;
 

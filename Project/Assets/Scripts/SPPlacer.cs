@@ -324,7 +324,7 @@ public class SPPlacer : MonoBehaviour
         }
         TeaTimeStrawberryBodies = new GameObject[TeaTimeStrawberries.Count];
 
-        for (int i = 0; i < EdgeStrawberryBodies.Length; i++) {
+        for (int i = 0; i < TeaTimeStrawberryBodies.Length; i++) {
             TeaTimeStrawberryBodies[i] = Instantiate(TeaTimeSP, TeaTimeStrawberries[i].position, TeaTimeSP.transform.rotation);
         }
     }

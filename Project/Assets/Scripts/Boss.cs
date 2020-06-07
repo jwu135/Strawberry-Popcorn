@@ -54,8 +54,8 @@ public class Boss : MonoBehaviour
     {
         // hard coding these for now
         healthNew[0] = 60;
-        healthNew[1] = 160;
-        healthNew[2] = 240;
+        healthNew[1] = 190;
+        healthNew[2] = 270;
         healthNew[3] = 360;
         if(UpgradeValues.deathCounter==0)
             midGameOverride();
