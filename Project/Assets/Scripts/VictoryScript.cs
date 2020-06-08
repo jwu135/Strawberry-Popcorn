@@ -21,13 +21,13 @@ public class VictoryScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cursor.GetComponent<SpriteRenderer>().enabled = false;
-        cursor.GetComponent<CursorMovement>().paused = true;
         scene = SceneManager.GetActiveScene();
         if (win != null) {
             win.onClick.AddListener(winGame);
         }
         if (scene.name.Equals("VictoryGameover")){
+            cursor.GetComponent<SpriteRenderer>().enabled = false;
+            cursor.GetComponent<CursorMovement>().paused = true;
             tempY = Random.Range(-4.5f, -2.5f);
             float finalTempX = Random.Range(-7f, 7f);
             pos = new Vector2(finalTempX, 8f);

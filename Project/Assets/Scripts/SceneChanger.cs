@@ -50,7 +50,7 @@ public class SceneChanger : MonoBehaviour
             manual.onClick.AddListener(manualOpen);
         scene = SceneManager.GetActiveScene();
 
-        Debug.Log(UpgradeValues.continueGame);
+        //Debug.Log(UpgradeValues.continueGame);
         cursor = GameObject.Find("Cursor");
         if ((scene.name.Equals("Gameover")||scene.name.Equals("VictoryGameover")) && !UpgradeValues.continueGame)
         {
