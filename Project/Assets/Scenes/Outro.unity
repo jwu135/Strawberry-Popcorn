@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -232,6 +232,7 @@ MonoBehaviour:
   play: {fileID: 0}
   quit: {fileID: 0}
   retry: {fileID: 1497114396}
+  manual: {fileID: 0}
   intro: 1
   berryImage: {fileID: 0}
   berryImageDropped: []
@@ -596,6 +597,7 @@ GameObject:
   - component: {fileID: 1568462986}
   - component: {fileID: 1568462988}
   - component: {fileID: 1568462987}
+  - component: {fileID: 1568462989}
   m_Layer: 0
   m_Name: 1
   m_TagString: Untagged
@@ -638,6 +640,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f582bef3281d3864f90cff461b40573f, type: 3}
   - {fileID: 21300000, guid: e5c95ae742eac044192c200d9337e00a, type: 3}
   - {fileID: 21300000, guid: 8eb48ff6094579a4e9203dd0c1c53bdf, type: 3}
+  - {fileID: 21300000, guid: af2aa40ce55ed4948ad3678f2a72f7b7, type: 3}
 --- !u!212 &1568462988
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -688,6 +691,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1568462989
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568462985}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4c5cd2701ff7b854e96b5de54362aa58, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1698280400
 GameObject:
   m_ObjectHideFlags: 0
