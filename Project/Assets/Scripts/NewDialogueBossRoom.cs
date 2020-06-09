@@ -40,6 +40,7 @@ public class NewDialogueBossRoom : MonoBehaviour
             dialogue[1] = "One last creation I will make";
             dialogue[2] = "One, who shall soon replace me";
             GetComponent<Animator>().runtimeAnimatorController = phase3;
+            GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0, 0, 0);
         }
         GameObject.FindGameObjectWithTag("music").GetComponent<MusicManagerBossRoom>().lowerVolume();
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlatformMovementPhys>().unableToMove = true;

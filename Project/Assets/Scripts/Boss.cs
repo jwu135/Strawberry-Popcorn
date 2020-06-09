@@ -112,13 +112,33 @@ public class Boss : MonoBehaviour
             Destroy(tempFloor);
         }
         
+        GameObject cloud = Resources.Load("Prefabs/MotherCloud") as GameObject;
+        GameObject[] clouds = new GameObject[4];
         GameObject finalMothers = Resources.Load("Prefabs/4thPhaseMothers") as GameObject;
         player.GetComponent<PlayerController>().setMode(0);
         mothers[0] = gameObject;
         mothers[1] = Instantiate(finalMothers, new Vector3(26.46f, 4.1f, 0f), transform.rotation, transform.parent);
+        clouds[1] = Instantiate(cloud, mothers[1].transform.position, transform.rotation);
+        clouds[1].transform.eulerAngles = new Vector3(0, 0, -90);
+        clouds[1].GetComponent<BossCloudHandler>().enabled = false;
+        Vector3 temp = clouds[1].transform.position;
+        temp.x = 20f;
+        clouds[1].transform.position = temp;
         mothers[2] = Instantiate(finalMothers, new Vector3(-28.44f, 4.1f, 0f), transform.rotation, transform.parent);
+        clouds[2] = Instantiate(cloud, mothers[2].transform.position, transform.rotation);
+        clouds[2].transform.eulerAngles = new Vector3(0, 0, 90);
+        clouds[2].GetComponent<BossCloudHandler>().enabled = false;
+        temp = clouds[2].transform.position;
+        temp.x = -19.42f;
+        clouds[2].transform.position = temp;
         mothers[3] = Instantiate(finalMothers, new Vector3(-1.892f, -7.8265f, 0f), transform.rotation, transform.parent);
         mothers[3].GetComponent<LastPhaseBossShoot>().bottomEye = true;
+        clouds[3] = Instantiate(cloud, mothers[3].transform.position, transform.rotation);
+        clouds[3].transform.eulerAngles = new Vector3(0, 0, 180);
+        clouds[3].GetComponent<BossCloudHandler>().enabled = false;
+        temp = clouds[3].transform.position;
+        temp.y = -1.67f;
+        clouds[3].transform.position = temp;
         foreach (GameObject mother in mothers) {
             mother.transform.localScale = Vector3.Scale(mother.transform.localScale, new Vector3(0.75f, 0.75f, 1f));
         }
@@ -176,12 +196,11 @@ public class Boss : MonoBehaviour
                 if (phase == 3) {
                     
                     //finalPhaseHurtArea.SetActive(true);
-                    Piece.GetComponent<Rigidbody2D>().gravityScale = 0.1f;
+                    //Piece.GetComponent<Rigidbody2D>().gravityScale = 0.1f;
                     Destroy(CornerMother);
                     Destroy(CornerMother2);
                     lights[0].SetActive(false);
                     lights[1].SetActive(true);
-                   
                     
                     //Camera.main.orthographicSize = 25; // this might be necessary
                 }

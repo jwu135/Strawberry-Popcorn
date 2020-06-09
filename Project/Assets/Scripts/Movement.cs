@@ -365,14 +365,12 @@ public class Movement : MonoBehaviour
                 if (commonChecks || armatureComponent.animation.GetStates()[0].name.Equals("flyingback") || (armatureComponent.animation.isCompleted && armatureComponent.animation.lastAnimationName == "flying")) {
                     if (direction > 0 && Input.GetAxisRaw("Horizontal") < 0 || direction <= 0 && Input.GetAxisRaw("Horizontal") > 0) {
                         armatureComponent.animation.Play("flying", 1);
-                        Debug.Log("trying to fly forward");
                     }
                 }
                 // if the player is doing literally anything other than backRunning right now, then allow them to run
                 if (commonChecks || armatureComponent.animation.GetStates()[0].name.Equals("flying") || (armatureComponent.animation.isCompleted && armatureComponent.animation.lastAnimationName == "flyingback")) {
                     if (direction <= 0 && Input.GetAxisRaw("Horizontal") < 0 || direction > 0 && Input.GetAxisRaw("Horizontal") > 0) {
                         armatureComponent.animation.Play("flyingback", 1);
-                        Debug.Log("trying to fly backwards");
                     }
 
                 } 
