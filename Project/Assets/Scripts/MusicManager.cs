@@ -15,7 +15,7 @@ public class MusicManager : MonoBehaviour
         audio.volume = 0.3f;
         defaultVolume = audio.volume;
         Scene scene = SceneManager.GetActiveScene();
-        if (scene.name == "MainMenu" || scene.name == "Intro"|| scene.name == "MainMenuOptions"|| scene.name == "MainMenuManual") {
+        if (scene.name == "MainMenu" || scene.name == "Intro"|| scene.name == "MainMenuOptions"|| scene.name == "MainMenuManual"||scene.name=="Outro") {
             GameObject[] objs = GameObject.FindGameObjectsWithTag("music");
 
             if (objs.Length > 1) {
@@ -51,7 +51,7 @@ public class MusicManager : MonoBehaviour
 
         audio.volume = defaultVolume * UpgradeValues.overallvolume;
 
-        if (scene.name == "MainMenu" || scene.name == "Intro" || scene.name == "MainMenuOptions"|| scene.name == "MainMenuManual") {
+        if (scene.name == "MainMenu" || scene.name == "Intro" || scene.name == "MainMenuOptions"|| scene.name == "MainMenuManual" || scene.name == "Outro") {
 
         } else {
             Destroy(this.gameObject);
