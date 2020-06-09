@@ -61,9 +61,13 @@ public class SoundManager : MonoBehaviour
     public static AudioClip hitSound2;
     public static AudioClip chargingSound1;
     static AudioSource audioSrc;
+    float defaultVolume;
     // Start is called before the first frame update
     void Awake()
     {
+        AudioSource audio = GetComponent<AudioSource>();
+        defaultVolume = audio.volume;
+        audio.volume = defaultVolume * UpgradeValues.overallvolume;
         // new sounds from 5-12
         playerShotSound1 = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/Shot1"); // called in PlayerCombat.cs
         playerShotSound2 = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/Shot2"); // called in PlayerCombat.cs
@@ -94,7 +98,7 @@ public class SoundManager : MonoBehaviour
         eatingQuestionMark = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/EatingQuestionMark"); // called in Movement.cs
         tentacleAttack = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/TentaceAttack"); // called in Movement.cs
 
-        bombsAfall = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/bombAfall"); // called in BossBullet.cs
+        bombsAfall = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/bombsAfall"); // called in BossBullet.cs
         Explosion = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/Explosion"); // called in BossBullet.cs
         gainLevel = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/gainLevel"); // called in BossPieceUpgrade.cs
         pieceFall = Resources.Load<AudioClip>("Sounds/ChiptuneSoft/pieceFall"); // called in Boss.cs

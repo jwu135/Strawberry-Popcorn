@@ -35,4 +35,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Upgrade.unity
     guid: d5970f9f83648774c9e566d735892c02
+  - enabled: 1
+    path: Assets/Scenes/MainMenuOptions.unity
+    guid: d16ce67a7cea17848b6b2144f40ab862
+  - enabled: 1
+    path: Assets/Scenes/Outro.unity
+    guid: 3f272a81b417a28498d4492cb871ff14
+  - enabled: 1
+    path: Assets/Scenes/VictoryGameover.unity
+    guid: aa13abfdeaf92ed48b1bc35e5166d345
+  - enabled: 1
+    path: Assets/Scenes/VictoryUpgrade.unity
+    guid: 5515b7c4c89a2424b8bb8cd9f50a976f
+  - enabled: 1
+    path: Assets/Scenes/MainMenuManual.unity
+    guid: e71913e83ccb399498bc55865a0ecdce
   m_configObjects: {}

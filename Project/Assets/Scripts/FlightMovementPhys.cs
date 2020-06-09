@@ -106,18 +106,15 @@ public class FlightMovementPhys : MonoBehaviour
             if (controlFrozen == false)
             {
                 velocityVector = Vector2.ClampMagnitude(body.velocity + (stickInput * acceleration), moveSpeed);
-                /*if ((velocityVector.x < 0 && stickInput.x < 0) || (velocityVector.x > 0 && stickInput.x > 0))//check if it should use acceleration or deceleration
+                if ((velocityVector.x > 0 && stickInput.x < 0) || (velocityVector.x < 0 && stickInput.x > 0))
                 {
-                    velocityVector = new Vector2((body.velocity + (stickInput * acceleration)).x, body.velocity.y);
+                    velocityVector.x = (body.velocity + (stickInput * turnAroundSpeed)).x;
                 }
-                else if ((velocityVector.x > 0 && stickInput.x < 0) || (velocityVector.x < 0 && stickInput.x > 0))
+                if ((velocityVector.y > 0 && stickInput.y < 0) || (velocityVector.y < 0 && stickInput.y > 0))
                 {
-                    velocityVector = new Vector2((body.velocity + (stickInput * turnAroundSpeed)).x, body.velocity.y);
+                    velocityVector.y = (body.velocity + (stickInput * turnAroundSpeed)).y;
                 }
-                else
-                {
-                    velocityVector = new Vector2((body.velocity + (stickInput * acceleration)).x, body.velocity.y);
-                }*/
+
             }
 
 

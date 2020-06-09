@@ -20,7 +20,7 @@ public class DoorToBossRoom2Part2 : MonoBehaviour
         if (Time.timeScale != 0) {
             if (gameStarted && Input.GetButton("interact")) {
                 css.SetActive(true); // cutSceneStart gets Started
-                //dialogueBox.SetActive(true);
+                dialogueBox.SetActive(true);
                 Destroy(prayingSP);
                 Destroy(this);
             }

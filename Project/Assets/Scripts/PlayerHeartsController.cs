@@ -14,7 +14,9 @@ public class PlayerHeartsController : MonoBehaviour
         hearts.Add(heart);
         for(int i = 1; i < health; i++) {
             Vector2 temp = heart.transform.position;
-            temp.x += i * 1.5f;
+            int yOffset = Mathf.FloorToInt(i / 9);
+            temp.x += (i%9) * 1.68f;
+            temp.y -= yOffset * 1.15f;
             hearts.Add(Instantiate(heart, temp , transform.rotation) as GameObject);
             hearts[i].transform.parent = GameObject.Find("Canvas").transform.Find("Border").transform.Find("health");
             hearts[i].transform.localScale = heart.transform.localScale;
@@ -27,9 +29,11 @@ public class PlayerHeartsController : MonoBehaviour
             hearts[i].SetActive(true);
         }
         while ((int)player.GetComponent<HealthManager>().health > hearts.Count) {
-            int i = hearts.Count;
+            int i = hearts.Count%8;
+            int yOffset = Mathf.FloorToInt(hearts.Count / 8);
             Vector2 temp = heart.transform.position;
-            temp.x += i * 1.5f;
+            temp.x += i * 1.7f;
+            temp.y += yOffset * 1.5f;
             hearts.Add(Instantiate(heart, temp, transform.rotation) as GameObject);
             hearts[i].transform.parent = GameObject.Find("Canvas").transform.Find("health");
             hearts[i].transform.localScale = heart.transform.localScale;

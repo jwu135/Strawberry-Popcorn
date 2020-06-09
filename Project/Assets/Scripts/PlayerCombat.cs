@@ -99,7 +99,7 @@ public class PlayerCombat : MonoBehaviour
     public double dodgeCountdown;
 
     private bool fire2State;
-    
+    private GameObject playerBubble;
 
     public Vector2 aPosition1 = new Vector2(5, 5);
     public float hookspeed;
@@ -107,6 +107,8 @@ public class PlayerCombat : MonoBehaviour
 
     void Start()
     {
+        playerBubble = Instantiate(Resources.Load("Prefabs/bubble")) as GameObject;
+        playerBubble.SetActive(false); // set as true wherever the special attack gets called
         flightMovementPhys = GetComponent<FlightMovementPhys>();
         playerController = GetComponent<PlayerController>();
 
@@ -325,17 +327,18 @@ public class PlayerCombat : MonoBehaviour
 
 
             //SPMAX
-            //  if (Input.GetButtonDown("special") && HM.mana >= 100)
-            //    {
-            //       HM.mana -= 100;
-            //       Enemy.damage1 = Enemy.damage1 * 1.5;
-            //        Enemy.damage2 = Enemy.damage2 * 1.5;
-            //        Enemy.damage3 = Enemy.damage3 * 1.5;
-            //         Enemy.damage4 = Enemy.damage4 * 1.5;
-            //          Enemy.damage5 = Enemy.damage5 * 1.5;
-            //          delayAttackCD = 0.1;
-            //         delayChargeAttackCD = 1;
-            timeBtwAttack = 1;
+
+          //  if (Input.GetButtonDown("special") && HM.mana >= 100)
+        //    {
+         //       HM.mana -= 100;
+         //       Enemy.damage1 = Enemy.damage1 * 1.5;
+        //        Enemy.damage2 = Enemy.damage2 * 1.5;
+        //        Enemy.damage3 = Enemy.damage3 * 1.5;
+       //         Enemy.damage4 = Enemy.damage4 * 1.5;
+      //          Enemy.damage5 = Enemy.damage5 * 1.5;
+      //          delayAttackCD = 0.1;
+       //         delayChargeAttackCD = 1;
+            //    timeBtwAttack = 1;
 //
 
           //  }
@@ -458,7 +461,7 @@ public class PlayerCombat : MonoBehaviour
         GameObject spawnedObject = (GameObject)Instantiate(bullet2Prefab, firePoint.position, firePoint.rotation);
 
         SoundManager.PlaySound("playerShotSound2");
-
+        GetComponent<Movement>().setTime();
         if (GameObject.FindGameObjectWithTag("ButtonClickIcon") != null)
             GameObject.FindGameObjectWithTag("ButtonClickIcon").GetComponent<ShootIconScript>().timesShot++;
 

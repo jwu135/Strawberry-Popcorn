@@ -30,7 +30,7 @@ public class PlatformMovementPhys : MonoBehaviour
     public PlayerCombat PlayerCombat;
     public bool unableToMove = false; //needed for scenes other than MainGameplay
     public bool ableToJump; //needed for scenes other than MainGameplay
-
+    public bool ableToRoll = true; // only need for Parallax and Prologue1 
     public LayerMask whatIsGround;
     bool state; //false is grounded
     bool isFastFalling = false;
@@ -84,7 +84,7 @@ public class PlatformMovementPhys : MonoBehaviour
 
         ableToJump = GetComponent<JumpDisabler>() ? GetComponent<JumpDisabler>().ableToJump : true; //if the script is attached, set to value.                
 
-        state = true; //flase is grounded, true is in the air
+        state = true; //false is grounded, true is in the air
 
         healthManager = GetComponent<HealthManager>();
 
@@ -209,7 +209,7 @@ public class PlatformMovementPhys : MonoBehaviour
                 jump();
             }
 
-            if (((Input.GetButton("Roll") == true) || (Input.GetAxis("Roll") < 0)) && (rollingFrame == 0 && stickInput.magnitude > 0) || rollingFrame >= 1)
+            if ((((Input.GetButton("Roll") == true) || (Input.GetAxis("Roll") < 0)) && (rollingFrame == 0 && stickInput.magnitude > 0) || rollingFrame >= 1)&&ableToRoll)
             {
 
 

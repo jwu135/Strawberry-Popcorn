@@ -1,0 +1,8 @@
+Three Vials Sheet:
+width: 1680px, height: 1186px
+
+Ascension Button 1 Sheet:
+width: 560px, height: 560px
+
+Ascension Button 2 Sheet:
+width: 560px, height: 560px

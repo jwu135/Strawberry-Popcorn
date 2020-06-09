@@ -31,7 +31,7 @@ public class Look : MonoBehaviour
         armatureTransform = armature[0].GetComponent<Transform>();
         aimDeadzone = 0.9f;
 
-        scaleVector = new Vector3(0.5f, 0.5f, 0.5f);
+        scaleVector = armatureTransform.localScale;//new Vector3(0.5f, 0.5f, 0.5f);
     }
 
     public void setArmature()

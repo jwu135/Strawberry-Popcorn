@@ -41,6 +41,21 @@ public class EdgeSP : ICloneable
         return new EdgeSP(this.position, this.flipped);
     }
 }
+public class TeaTimeSP : ICloneable
+{
+    public Vector3 position;
+    public bool flipped;
+
+    public TeaTimeSP(Vector3 pos,bool flipped)
+    {
+        this.position = pos;
+        this.flipped = flipped;
+    }
+    public object Clone() // don't really need this anymore, but gonna leave it so I remember it for later
+    {
+        return new EdgeSP(this.position, this.flipped);
+    }
+}
 public class SPPlacer : MonoBehaviour
 {
     public void Awake()
@@ -48,6 +63,7 @@ public class SPPlacer : MonoBehaviour
         DialogueHandler();
         SPHandler();
         EdgeSPHandler();
+        TeaTimeSPHandler();
     }
 
 
@@ -152,11 +168,14 @@ public class SPPlacer : MonoBehaviour
 
     public GameObject Strawberry; // just the prefab
     public GameObject EdgeStrawberry; // just the prefab
+    public GameObject TeaTimeSP; // just the prefab
     //public GameObject[] StrawberryBodies = new GameObject[8]; // using this so I can access the scripts inside the prefab without changing the prefab itself
     public GameObject[] StrawberryBodies; // using this so I can access the scripts inside the prefab without changing the prefab itself
     public GameObject[] EdgeStrawberryBodies; // using this so I can access the scripts inside the prefab without changing the prefab itself
+    public GameObject[] TeaTimeStrawberryBodies; // using this so I can access the scripts inside the prefab without changing the prefab itself
     public List<SP> Strawberries = new List<SP>(); // each SP object
     public List<EdgeSP> EdgeStrawberries = new List<EdgeSP>(); // each EdgeSP object
+    public List<TeaTimeSP> TeaTimeStrawberries = new List<TeaTimeSP>(); // each EdgeSP object
     public GameObject SPGroup; // the parent group that they are attached to
 
     
@@ -172,12 +191,12 @@ public class SPPlacer : MonoBehaviour
          * Also, if it is not a special scene, make only a few have dialogue options
          * Possibly look into expanding the Collider when the SP is talking, that way the player can walk further away and still hear them
          */
-        specialScene = false;
+        //specialScene = false;
         if (specialScene) {
             Strawberries.Add(new SP(new Vector3(7.33f, -3.42f, 0f), false, 2, "Idle", -1));
             Strawberries.Add(new SP(new Vector3(15.77f, -3.15f, 0f), false, 1, "Idle", -1));
-            Strawberries.Add(new SP(new Vector3(27.19f, -5.2f, 0f), true, 3, "Idletalking", questionMarkLayer: 1));
-            Strawberries.Add(new SP(new Vector3(29.7f, -5.2f, 0f), false, 5, "Idletalking", questionMarkLayer: 1));
+            Strawberries.Add(new SP(new Vector3(27.19f, -5.2f, 0f), true, 3, "Idletalking", 1, questionMarkLayer: 1));
+            Strawberries.Add(new SP(new Vector3(29.7f, -5.2f, 0f), false, 5, "Idletalking", 1, questionMarkLayer: 1));
             Strawberries.Add(new SP(new Vector3(43.46f, -2.8f, 0f), false, 4, "Idle", -1));
         } else {
             int set = UnityEngine.Random.Range(0, 1); // this is a thing for tomorrow
@@ -276,6 +295,37 @@ public class SPPlacer : MonoBehaviour
 
         for (int i = 0; i < EdgeStrawberryBodies.Length; i++) {
             EdgeStrawberryBodies[i] = Instantiate(EdgeStrawberry, EdgeStrawberries[i].position, EdgeStrawberry.transform.rotation);
+        }
+    }
+    void TeaTimeSPHandler()
+    {
+        TeaTimeSP = Resources.Load("Prefabs/teaTimeSP") as GameObject;
+
+        // All possible positions
+        List<TeaTimeSP> possibleSPs = new List<TeaTimeSP>();
+        
+        possibleSPs.Add(new TeaTimeSP(new Vector3(32.97f, -1.65f), false));
+        possibleSPs.Add(new TeaTimeSP(new Vector3(4.74f, -1.43f), false));
+        
+
+        // Using this to make some less common than other
+        float numSPProb = UnityEngine.Random.Range(0f, 1f);
+        int numSPs = 0;
+        if (numSPProb < 0.95f) {
+            numSPs = 0;
+        } else {
+            numSPs = 1;
+        }
+
+
+        for (int i = 0; i < numSPs; i++) {
+            TeaTimeStrawberries.Add(possibleSPs[UnityEngine.Random.Range(0, possibleSPs.Count)]);
+            possibleSPs.RemoveAt(i);
+        }
+        TeaTimeStrawberryBodies = new GameObject[TeaTimeStrawberries.Count];
+
+        for (int i = 0; i < TeaTimeStrawberryBodies.Length; i++) {
+            TeaTimeStrawberryBodies[i] = Instantiate(TeaTimeSP, TeaTimeStrawberries[i].position, TeaTimeSP.transform.rotation);
         }
     }
 }

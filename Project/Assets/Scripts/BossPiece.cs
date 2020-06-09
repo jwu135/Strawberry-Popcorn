@@ -7,6 +7,10 @@ public class BossPiece : MonoBehaviour
     bool over = false;
     public Sprite[] arms = new Sprite[2];
     public GameObject[] healthbars = new GameObject[3];
+    private void Start()
+    {
+        transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+    }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Floor"&&collision.gameObject.name=="Floor") { // as far as I know, only the groundfloor satisfies both of these
@@ -56,12 +60,12 @@ public class BossPiece : MonoBehaviour
         Movement movement = player.GetComponent<Movement>();
         Vector2 scale = movement.getArmature().transform.localScale;
         if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 1) {
-            (player.transform.Find("Armature").gameObject).SetActive(false);
+            /*(player.transform.Find("Armature").gameObject).SetActive(false);
             (player.transform.Find("ArmatureMid").gameObject).SetActive(true);
             movement.setPrimaryIndex(movement.findIndex("ArmatureMid"));
             player.GetComponent<Movement>().setArmature();
             player.transform.Find("Arm").gameObject.GetComponent<Look>().setArmature();
-            player.transform.Find("Arm").gameObject.GetComponent<SpriteRenderer>().sprite = arms[0];
+            player.transform.Find("Arm").gameObject.GetComponent<SpriteRenderer>().sprite = arms[0];*/
             healthbars[0].SetActive(false);
             healthbars[1].SetActive(true);
 
@@ -71,19 +75,28 @@ public class BossPiece : MonoBehaviour
             healthbars[2].SetActive(true);
         }
         if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 3) {
+            healthbars[2].SetActive(false);
+            healthbars[3].SetActive(true);
+        }
+        /*if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 3) {
             player.transform.Find("ArmatureMid").gameObject.SetActive(false);
             player.transform.Find("ArmatureLast").gameObject.SetActive(true);
             movement.setPrimaryIndex(movement.findIndex("ArmatureLast"));
             player.GetComponent<Movement>().setArmature();
             player.transform.Find("Arm").gameObject.GetComponent<Look>().setArmature();
             player.transform.Find("Arm").gameObject.GetComponent<SpriteRenderer>().sprite = arms[1];
-        }
+        }*/
         player.GetComponent<Movement>().getArmature().transform.localScale = scale;
 
         GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossShoot>().setPhase(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
         //Debug.Log(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase());
         player.transform.Find("Arm").transform.GetComponent<Look>().setArmature();
-        GameObject.Find("EventSystem").GetComponent<CutsceneSystem>().eaten = true;
+
+        Instantiate(Resources.Load("Prefabs/placeHolderPhaseCard") as GameObject,GameObject.Find("Canvas").transform);
+
+
+        //GameObject.Find("EventSystem").GetComponent<CutsceneSystem>().eaten = true;
+
         if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 3) {
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().setMode(0);
         }

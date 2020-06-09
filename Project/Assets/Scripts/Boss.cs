@@ -28,6 +28,8 @@ public class Boss : MonoBehaviour
     private bool disablePause = false;
     private GameObject CornerMother;
     private GameObject CornerMother2;
+    [HideInInspector]
+    public GameObject[] clouds;
     // Start is called before the first frame update
 
     void midGameOverride() // taken from RaShaun's Upgrade.cs, needed so I don't have to worry about the gameover screen issue
@@ -52,6 +54,11 @@ public class Boss : MonoBehaviour
     }
     void Start()
     {
+        // hard coding these for now
+        healthNew[0] = 60;
+        healthNew[1] = 190;
+        healthNew[2] = 270;
+        healthNew[3] = 360;
         if(UpgradeValues.deathCounter==0)
             midGameOverride();
         maxhealthNew = new double[healthNew.Length+1];
@@ -106,14 +113,38 @@ public class Boss : MonoBehaviour
         foreach (GameObject tempFloor in platforms) {
             Destroy(tempFloor);
         }
-        
+        finalPhaseHurtArea.SetActive(true);
+        GameObject cloud = Resources.Load("Prefabs/MotherCloud") as GameObject;
+        clouds = new GameObject[4];
+        clouds[0] = GameObject.Find("MotherCloud");
+        Vector3 temp = clouds[0].transform.position;
+        temp.y = 11.164f;
+        clouds[0].transform.position = temp;
         GameObject finalMothers = Resources.Load("Prefabs/4thPhaseMothers") as GameObject;
         player.GetComponent<PlayerController>().setMode(0);
         mothers[0] = gameObject;
         mothers[1] = Instantiate(finalMothers, new Vector3(26.46f, 4.1f, 0f), transform.rotation, transform.parent);
+        clouds[1] = Instantiate(cloud, mothers[1].transform.position, transform.rotation);
+        clouds[1].transform.eulerAngles = new Vector3(0, 0, -90);
+        clouds[1].GetComponent<BossCloudHandler>().enabled = false;
+        temp = clouds[1].transform.position;
+        temp.x = 21f;
+        clouds[1].transform.position = temp;
         mothers[2] = Instantiate(finalMothers, new Vector3(-28.44f, 4.1f, 0f), transform.rotation, transform.parent);
+        clouds[2] = Instantiate(cloud, mothers[2].transform.position, transform.rotation);
+        clouds[2].transform.eulerAngles = new Vector3(0, 0, 90);
+        clouds[2].GetComponent<BossCloudHandler>().enabled = false;
+        temp = clouds[2].transform.position;
+        temp.x = -21.42f;
+        clouds[2].transform.position = temp;
         mothers[3] = Instantiate(finalMothers, new Vector3(-1.892f, -7.8265f, 0f), transform.rotation, transform.parent);
         mothers[3].GetComponent<LastPhaseBossShoot>().bottomEye = true;
+        clouds[3] = Instantiate(cloud, mothers[3].transform.position, transform.rotation);
+        clouds[3].transform.eulerAngles = new Vector3(0, 0, 180);
+        clouds[3].GetComponent<BossCloudHandler>().enabled = false;
+        temp = clouds[3].transform.position;
+        temp.y = -2.17f;
+        clouds[3].transform.position = temp;
         foreach (GameObject mother in mothers) {
             mother.transform.localScale = Vector3.Scale(mother.transform.localScale, new Vector3(0.75f, 0.75f, 1f));
         }
@@ -144,8 +175,8 @@ public class Boss : MonoBehaviour
                 }
             }
 
-
-            player.GetComponent<HealthManager>().activateScreenShake((float)amnt/7f);
+            float shakeAmount = Mathf.Clamp((float)amnt / 7f,0f,1.6f);
+            player.GetComponent<HealthManager>().activateScreenShake(shakeAmount);
             if (healthNew[healthNew.Length - 1] <= 0) {
                 GameObject.FindGameObjectWithTag("EventSystem").GetComponent<gameOver>().startGameOver(true);
             } else if (healthNew[healthIndex] <= 0) {
@@ -156,8 +187,10 @@ public class Boss : MonoBehaviour
                 GetComponent<SpriteRenderer>().enabled = false;
                 /*if(healthIndex!=0)
                     phase+=1f;*/
-                if(phase> UpgradeValues.highestPhaseEncountered)
+                if (phase > UpgradeValues.highestPhaseEncountered) {
                     UpgradeValues.highestPhaseEncountered = phase;
+                    UpgradeValues.highestPhaseEncounteredBoss = phase; // I could've combined these two, but oh well
+                }
                 if (phase == 1) {
                     GameObject TempCornerMother = Resources.Load("Prefabs/CornerMother") as GameObject;
                     CornerMother = Instantiate(TempCornerMother,transform.parent.transform.position+new Vector3(25f,0f,0f),transform.rotation);
@@ -169,12 +202,11 @@ public class Boss : MonoBehaviour
                 if (phase == 3) {
                     
                     //finalPhaseHurtArea.SetActive(true);
-                    Piece.GetComponent<Rigidbody2D>().gravityScale = 0.1f;
+                    //Piece.GetComponent<Rigidbody2D>().gravityScale = 0.1f;
                     Destroy(CornerMother);
                     Destroy(CornerMother2);
                     lights[0].SetActive(false);
                     lights[1].SetActive(true);
-                   
                     
                     //Camera.main.orthographicSize = 25; // this might be necessary
                 }

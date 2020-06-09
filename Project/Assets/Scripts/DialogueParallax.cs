@@ -52,17 +52,19 @@ public class DialogueParallax : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D col)
     {
-        //interactSign.SetActive(false);
-        interactSign.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+        if (col.tag == "Player") {
+            //interactSign.SetActive(false);
+            interactSign.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
 
-        over = false;
-        if (activatedDialogue) {
-            dialogueBox.transform.parent.gameObject.SetActive(false);
-            //dialogueBox.transform.parent.gameObject.SetActive(false);
-            activatedDialogue = false;
-            armature.GetComponent<UnityArmatureComponent>().animation.Play(defaultAction);
-            lookAtPlayer(false);
-            StopCoroutine("textScroll");
+            over = false;
+            if (activatedDialogue) {
+                dialogueBox.transform.parent.gameObject.SetActive(false);
+                //dialogueBox.transform.parent.gameObject.SetActive(false);
+                activatedDialogue = false;
+                armature.GetComponent<UnityArmatureComponent>().animation.Play(defaultAction);
+                lookAtPlayer(false);
+                StopCoroutine("textScroll");
+            }
         }
     }
     void lookAtPlayer(bool t)

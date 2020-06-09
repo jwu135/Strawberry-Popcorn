@@ -14,12 +14,14 @@ public class Henshin : MonoBehaviour
     bool over = false;
     private int counter = 0;
 
+    private bool musicEnabled = false;
     public GameObject Player1;
     public GameObject Player2;
     public GameObject sp;
-
-    public PlayableDirector Prologue; 
-
+    public GameObject cursor;
+    public GameObject crossHair;
+    public PlayableDirector Prologue;
+    public GameObject buildsCamera;
     void Start()
     {
         //cam = Camera.main;
@@ -30,6 +32,14 @@ public class Henshin : MonoBehaviour
             Player1.SetActive(false);
             cam.enabled = false;
             sp.SetActive(false);
+            Destroy(GameObject.Find("Stopper"));
+            GameObject.Find("EventSystem").GetComponent<Builds>().enabled = true;
+            Player2.SetActive(false);
+            cursor = Instantiate(cursor);
+            cursor.AddComponent<BuildsCursor>(); // didn't even know this was possible til just now
+            cursor.GetComponent<BoxCollider2D>().isTrigger = true;
+            cursor.GetComponent<SpriteRenderer>().sortingOrder = 20;
+            crossHair.SetActive(false);
         }
         else
         {
@@ -39,18 +49,31 @@ public class Henshin : MonoBehaviour
         }
 
         cam3.enabled = false;
-
+        if (UpgradeValues.deathCounter > 0) {
+            buildsCamera = Instantiate(Resources.Load("Prefabs/Main Camera Builds")) as GameObject;
+            cam.enabled = false;
+            cam2.enabled = false;
+            cam3.enabled = false;
+        }
     }
 
     void Update()
     {
-        if(henshin == true)
-        {
-            if(cam2.orthographicSize < 8.7f && cam3.enabled == false)
-            {
+        if (UpgradeValues.deathCounter > 0) {
+            if (cam2.orthographicSize < 8.7f && buildsCamera.activeSelf == false) {          
                 cam2.transform.position = new Vector3(Mathf.Lerp(cam2.transform.position.x, -3.33f, speed), Mathf.Lerp(cam2.transform.position.y, 2.5f, speed), Mathf.Lerp(cam2.transform.position.z, 0, speed));
                 cam2.orthographicSize = Mathf.Lerp(cam2.orthographicSize, 8.709762f, speed);
             }
+        }
+        if (henshin == true)
+        {
+            if (UpgradeValues.deathCounter == 0) {
+                if (cam2.orthographicSize < 8.7f && cam3.enabled == false) {
+                    cam2.transform.position = new Vector3(Mathf.Lerp(cam2.transform.position.x, -3.33f, speed), Mathf.Lerp(cam2.transform.position.y, 2.5f, speed), Mathf.Lerp(cam2.transform.position.z, 0, speed));
+                    cam2.orthographicSize = Mathf.Lerp(cam2.orthographicSize, 8.709762f, speed);
+                }
+            }
+            
 
                 //Debug.Log(cam.orthographicSize);
             /*
@@ -80,7 +103,7 @@ public class Henshin : MonoBehaviour
                 cutsceneEnd();
             }
                
-        }else if(henshin == false&& over&& Input.GetButtonDown("Use")) { // had to move these around, since unity's callstack causes trigger collisions to be called before update, making interact skip through the cutscene
+        }else if(henshin == false&& over&& Input.GetButtonDown("Use")&&UpgradeValues.deathCounter==0) { // had to move these around, since unity's callstack causes trigger collisions to be called before update, making interact skip through the cutscene
             henshin = true;
             Prologue.enabled = true;
             Prologue.Play();
@@ -103,8 +126,35 @@ public class Henshin : MonoBehaviour
         Player2.GetComponent<PlatformMovementPhys>().unableToMove = false;
         Player2.GetComponent<PlatformMovementPhys>().ableToJump = true;
         cam3.enabled = false;
+        Prologue.Stop();
+        if (UpgradeValues.deathCounter == 0) {
+            if (!musicEnabled) {
+                musicEnabled = true;
+                GameObject.FindGameObjectWithTag("music").GetComponent<MusicManagerRoom2>().play();
+            }
+            Destroy(GameObject.Find("Stopper"));
+        }
     }
 
+    public void choseSP(Vector3 pos)
+    {
+        Destroy(cursor);
+        if (buildsCamera == null) {
+            Debug.Log("null");
+        }
+        if (!musicEnabled) {
+            musicEnabled = true;
+            GameObject.FindGameObjectWithTag("music").GetComponent<MusicManagerRoom2>().play();
+        }
+        Player2.SetActive(true);
+        Player2.transform.localPosition = pos;
+        Player2.transform.Find("Armature").transform.localScale = Vector3.Scale(Player2.transform.localScale, new Vector3(-1,1,1));
+        cam2.enabled = true;
+        buildsCamera.SetActive(false);
+        cam2.transform.position = new Vector3(Mathf.Lerp(buildsCamera.transform.position.x, -3.33f, speed), Mathf.Lerp(buildsCamera.transform.position.y, 2.5f, speed), Mathf.Lerp(buildsCamera.transform.position.z, 0, speed));
+        cam2.orthographicSize = Mathf.Lerp(buildsCamera.GetComponent<Camera>().orthographicSize, 8.709762f, speed);
+        crossHair.SetActive(true);
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && (henshin == false)) {

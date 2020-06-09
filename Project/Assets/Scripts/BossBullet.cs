@@ -104,6 +104,13 @@ public class BossBullet : MonoBehaviour
             }
             
         }
+
+        if (col.tag == "bubble") {
+            if (type != "bomb") {
+                destroy();
+            }
+        }
+
         if (col.tag == "Player") {
             if (AoEShot) {
                 spawnAoe();
@@ -146,7 +153,10 @@ public class BossBullet : MonoBehaviour
             }
         }
         type = temp.type;
-        bulletSpeed = temp.bulletSpeed*b;
+        if(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase()>=3)
+            bulletSpeed = temp.bulletSpeed * b * .8f;
+        else
+            bulletSpeed = temp.bulletSpeed * b;
         followPlayer = temp.followPlayer;
         transform.localScale = Vector3.Scale(transform.localScale, temp.scale); // multiplies the default scale with the scale modifier, in case we change it in the inspector for whatever reason. 
         accelerator = temp.accelerate;

@@ -32,6 +32,8 @@ TagManager:
   - Builds1
   - Builds2
   - Builds3
+  - bubble
+  - Interact2
   layers:
   - Default
   - TransparentFX
