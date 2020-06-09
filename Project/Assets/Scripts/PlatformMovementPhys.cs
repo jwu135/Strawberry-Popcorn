@@ -30,7 +30,7 @@ public class PlatformMovementPhys : MonoBehaviour
     public PlayerCombat PlayerCombat;
     public bool unableToMove = false; //needed for scenes other than MainGameplay
     public bool ableToJump; //needed for scenes other than MainGameplay
-
+    public bool ableToRoll = true; // only need for Parallax and Prologue1 
     public LayerMask whatIsGround;
     bool state; //false is grounded
     bool isFastFalling = false;
@@ -209,7 +209,7 @@ public class PlatformMovementPhys : MonoBehaviour
                 jump();
             }
 
-            if (((Input.GetButton("Roll") == true) || (Input.GetAxis("Roll") < 0)) && (rollingFrame == 0 && stickInput.magnitude > 0) || rollingFrame >= 1)
+            if ((((Input.GetButton("Roll") == true) || (Input.GetAxis("Roll") < 0)) && (rollingFrame == 0 && stickInput.magnitude > 0) || rollingFrame >= 1)&&ableToRoll)
             {
 
 

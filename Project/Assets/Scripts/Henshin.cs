@@ -133,6 +133,10 @@ public class Henshin : MonoBehaviour
         if (buildsCamera == null) {
             Debug.Log("null");
         }
+        if (!musicEnabled) {
+            musicEnabled = true;
+            GameObject.FindGameObjectWithTag("music").GetComponent<MusicManagerRoom2>().play();
+        }
         cam2.enabled = true;
         buildsCamera.SetActive(false);
         cam2.transform.position = new Vector3(Mathf.Lerp(buildsCamera.transform.position.x, -3.33f, speed), Mathf.Lerp(buildsCamera.transform.position.y, 2.5f, speed), Mathf.Lerp(buildsCamera.transform.position.z, 0, speed));

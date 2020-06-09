@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -346,6 +346,7 @@ MonoBehaviour:
   PlayerCombat: {fileID: 22433038}
   unableToMove: 0
   ableToJump: 0
+  ableToRoll: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
@@ -481,6 +482,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 795d29f57bdbcd2448bf48e04bee5e7f, type: 3}
   helthText: {fileID: 0}
   manaText: {fileID: 0}
+  manaEye: {fileID: 0}
   alphaStep: 0.005
   PlayerCombat: {fileID: 22433038}
   FakeCannon: {fileID: 0}
@@ -579,7 +581,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22433033}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.22, y: -1.21, z: 0}
+  m_LocalPosition: {x: -11.277, y: -1.125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 643603279}
@@ -921,8 +923,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512493316}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.9341, y: -1.618, z: 0}
-  m_LocalScale: {x: 2.3453152, y: 0.14263928, z: 0.102758}
+  m_LocalPosition: {x: -11.7863, y: -1.392, z: 0}
+  m_LocalScale: {x: 2.245344, y: 0.14263928, z: 0.102758}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -1803,6 +1805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas:
   - {fileID: 1648551026}
+  menu: {fileID: 0}
 --- !u!114 &1131425332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3256,7 +3259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125094781}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.06, y: 0.19, z: -10.17}
+  m_LocalPosition: {x: -0.06, y: 0.42, z: -10.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22433043}
@@ -3313,7 +3316,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 0.6391313
+  orthographic size: 0.92
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

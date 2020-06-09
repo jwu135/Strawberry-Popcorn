@@ -70,6 +70,7 @@ public class NewDialogueBossRoom : MonoBehaviour
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlatformMovementPhys>().unableToMove = false;
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlatformMovementPhys>().ableToJump = true;
             GameObject.FindGameObjectWithTag("Player").GetComponent<FlightMovementPhys>().unableToMove = false;
+            GameObject.Find("EventSystem").GetComponent<CutsceneSystem>().interactSign.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
             GameObject.FindGameObjectWithTag("music").GetComponent<MusicManagerBossRoom>().resetVolume();
             Destroy(gameObject);
         }

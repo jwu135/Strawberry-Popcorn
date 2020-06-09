@@ -8,6 +8,7 @@ public class PauseScript : MonoBehaviour
     public GameObject[] canvas;
     int paused = 1;
     GameObject cursor;
+    public GameObject menu;
     private void Awake()
     {
         Time.timeScale = 1; //this should fix the game freezing on multiple playthroughs
@@ -26,6 +27,9 @@ public class PauseScript : MonoBehaviour
             Vector3 dir = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 dir2 = new Vector2(dir.x, dir.y);
             cursor.transform.position = dir2;
+            if (menu != null) {
+                cursor.GetComponent<CursorMovementPause>().menu = menu;
+            }
         }
     }
     // Update is called once per frame

@@ -2,6 +2,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,6 +23,8 @@ public class CursorMovementPause: MonoBehaviour
     bool usingController = true;
 
     private Camera m_camera;
+
+    public GameObject menu;
 
     PhysicsScene2D scene1Physics;
     Scene scene1;
@@ -45,6 +48,9 @@ public class CursorMovementPause: MonoBehaviour
 
         SceneManager.MoveGameObjectToScene(gameObject,scene1);
 
+        if (menu != null) {
+            SceneManager.MoveGameObjectToScene(menu, scene1);
+        }
         Physics2D.autoSimulation = false;
         
         
