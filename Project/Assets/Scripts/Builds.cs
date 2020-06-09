@@ -22,6 +22,7 @@ public class Builds : MonoBehaviour
     public GameObject displayDmg;
     public GameObject displayMana;
 
+    public List<GameObject> allDisplay = new List<GameObject>();
 
     public Upgrade Upgrade;
 
@@ -51,58 +52,59 @@ public class Builds : MonoBehaviour
 
             for (int i = 0; i < 3; i++)
             {
-                Instantiate(displaySP, (standSP.position + new Vector3((0.0f + (5 * i)), 0.0f, 0.0f)), standSP.rotation);
+                allDisplay.Add(Instantiate(displaySP, (standSP.position + new Vector3((0.0f + (5 * i)), 0.0f, 0.0f)), standSP.rotation));
+                allDisplay[i].gameObject.name = "SPCorpse" + i;
             }
 
             //1st SP
 
             for(int i = 0; i < UpgradeValues.buildHealth1; i++)
             {
-                Instantiate(displayHP, (standHP.position + new Vector3((0.0f + (1 * i)), 0.0f, 0.0f)), standHP.rotation);
+                allDisplay.Add(Instantiate(displayHP, (standHP.position + new Vector3((0.0f + (1 * i)), 0.0f, 0.0f)), standHP.rotation));
             }
 
             for (int i = 0; i < UpgradeValues.buildDmg1; i++)
             {
-                Instantiate(displayHP, (standDmg.position + new Vector3((0.0f + (1 * i)), 0.0f, 0.0f)), standDmg.rotation);
+                allDisplay.Add(Instantiate(displayHP, (standDmg.position + new Vector3((0.0f + (1 * i)), 0.0f, 0.0f)), standDmg.rotation));
             }
 
             for (int i = 0; i < UpgradeValues.buildMana1; i++)
             {
-                Instantiate(displayMana, (standMana.position + new Vector3((0.0f + (1 * i)), 0.0f, 0.0f)), standMana.rotation);
+                allDisplay.Add(Instantiate(displayMana, (standMana.position + new Vector3((0.0f + (1 * i)), 0.0f, 0.0f)), standMana.rotation));
             }
 
             //2nd SP
 
             for (int i = 0; i < UpgradeValues.buildHealth2; i++)
             {
-                Instantiate(displayHP, (standHP.position + new Vector3((5.0f + (1 * i)), 0.0f, 0.0f)), standHP.rotation);
+                allDisplay.Add(Instantiate(displayHP, (standHP.position + new Vector3((5.0f + (1 * i)), 0.0f, 0.0f)), standHP.rotation));
             }
 
             for (int i = 0; i < UpgradeValues.buildDmg2; i++)
             {
-                Instantiate(displayHP, (standDmg.position + new Vector3((5.0f + (1 * i)), 0.0f, 0.0f)), standDmg.rotation);
+                allDisplay.Add(Instantiate(displayHP, (standDmg.position + new Vector3((5.0f + (1 * i)), 0.0f, 0.0f)), standDmg.rotation));
             }
 
             for (int i = 0; i < UpgradeValues.buildMana2; i++)
             {
-                Instantiate(displayMana, (standMana.position + new Vector3((5.0f + (1 * i)), 0.0f, 0.0f)), standMana.rotation);
+                allDisplay.Add(Instantiate(displayMana, (standMana.position + new Vector3((5.0f + (1 * i)), 0.0f, 0.0f)), standMana.rotation));
             }
 
             //3rd SP
 
             for (int i = 0; i < UpgradeValues.buildHealth3; i++)
             {
-                Instantiate(displayHP, (standHP.position + new Vector3((10.0f + (1 * i)), 0.0f, 0.0f)), standHP.rotation);
+                allDisplay.Add(Instantiate(displayHP, (standHP.position + new Vector3((10.0f + (1 * i)), 0.0f, 0.0f)), standHP.rotation));
             }
 
             for (int i = 0; i < UpgradeValues.buildDmg3; i++)
             {
-                Instantiate(displayHP, (standDmg.position + new Vector3((10.0f + (1 * i)), 0.0f, 0.0f)), standDmg.rotation);
+                allDisplay.Add(Instantiate(displayHP, (standDmg.position + new Vector3((10.0f + (1 * i)), 0.0f, 0.0f)), standDmg.rotation));
             }
 
             for (int i = 0; i < UpgradeValues.buildMana3; i++)
             {
-                Instantiate(displayMana, (standMana.position + new Vector3((10.0f + (1 * i)), 0.0f, 0.0f)), standMana.rotation);
+                allDisplay.Add(Instantiate(displayMana, (standMana.position + new Vector3((10.0f + (1 * i)), 0.0f, 0.0f)), standMana.rotation));
             }
 
         }
@@ -117,42 +119,54 @@ public class Builds : MonoBehaviour
 
     }
 
-    void OnTriggerStay2D(Collider2D col)
+    /*void OnTriggerStay2D(Collider2D col)
     {
         if (col.tag == "Builds")
-        {
-            if (!chooseCorpse && Input.GetButtonDown("interact"))
-            {
-                Upgrade.BuildHealth1();
-                Upgrade.BuildDmg1();
-                Upgrade.BuildMana1();
-                chooseCorpse = true;
-                Debug.Log("corpse1");
-                GameObject.Find("Henshin").transform.Find("New Sprite").GetComponent<Henshin>().choseSP();
-            }
-
-            if (!chooseCorpse && Input.GetButtonDown("interact"))
-            {
-                Upgrade.BuildHealth2();
-                Upgrade.BuildDmg2();
-                Upgrade.BuildMana2();
-                chooseCorpse = true;
-                Debug.Log("corpse2");
-                GameObject.Find("Henshin").transform.Find("New Sprite").GetComponent<Henshin>().choseSP();
-            }
-
-            if (!chooseCorpse && Input.GetButtonDown("interact"))
-            {
-                Upgrade.BuildHealth3();
-                Upgrade.BuildDmg3();
-                Upgrade.BuildMana3();
-                chooseCorpse = true;
-                Debug.Log("corpse3");
-                GameObject.Find("Henshin").transform.Find("New Sprite").GetComponent<Henshin>().choseSP();
-            }
+        {*/
+    public void chooseOne() {
+        if (!chooseCorpse) {
+            Upgrade.BuildHealth1();
+            Upgrade.BuildDmg1();
+            Upgrade.BuildMana1();
+            chooseCorpse = true;
+            Debug.Log("corpse1");
+            GameObject.Find("Henshin").transform.Find("New Sprite").GetComponent<Henshin>().choseSP();
+            destroyDisplay();
         }
-
     }
+    public void chooseTwo()
+    {
+        if (!chooseCorpse) {
+            Upgrade.BuildHealth2();
+            Upgrade.BuildDmg2();
+            Upgrade.BuildMana2();
+            chooseCorpse = true;
+            Debug.Log("corpse2");
+            GameObject.Find("Henshin").transform.Find("New Sprite").GetComponent<Henshin>().choseSP();
+            destroyDisplay();
+        }
+    }
+    public void chooseThree()
+    {
+        if (!chooseCorpse) {
+            Upgrade.BuildHealth3();
+            Upgrade.BuildDmg3();
+            Upgrade.BuildMana3();
+            chooseCorpse = true;
+            Debug.Log("corpse3");
+            GameObject.Find("Henshin").transform.Find("New Sprite").GetComponent<Henshin>().choseSP();
+            destroyDisplay();
+        }
+    }
+    public void destroyDisplay()
+    {
+        foreach (GameObject disp in allDisplay) {
+            Destroy(disp);
+        }
+    }
+    //}
+
+    //}
 
 
 }

@@ -7520,6 +7520,7 @@ GameObject:
   - component: {fileID: 427931878}
   - component: {fileID: 427931885}
   - component: {fileID: 427931886}
+  - component: {fileID: 427931887}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: EventSystem
@@ -7567,6 +7568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas:
   - {fileID: 769236772}
+  menu: {fileID: 0}
 --- !u!114 &427931881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7677,6 +7679,7 @@ MonoBehaviour:
   play: {fileID: 0}
   quit: {fileID: 0}
   retry: {fileID: 0}
+  manual: {fileID: 0}
   intro: 0
   berryImage: {fileID: 0}
   berryImageDropped: []
@@ -7686,6 +7689,39 @@ MonoBehaviour:
   scene:
     m_Handle: 0
   Upgrade: {fileID: 0}
+--- !u!114 &427931887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427931877}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ebf65b2de96414997098d0b4a8cd88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildHPMin: 1
+  buildHPMax: 3
+  buildDmgMin: 1
+  buildDmgMax: 3
+  buildManaMin: 1
+  buildManaMax: 3
+  chooseCorpse: 0
+  standSP: {fileID: 1649316103}
+  standHP: {fileID: 1827731131}
+  standDmg: {fileID: 1727131933}
+  standMana: {fileID: 710819600}
+  displaySP: {fileID: 265297461320700428, guid: b848533d0c2155742af8becbd4b214b3,
+    type: 3}
+  displayHP: {fileID: 7690629383734070306, guid: 1b8b3dd2ef557f8459a449400b9e8936,
+    type: 3}
+  displayDmg: {fileID: 6815045648475305816, guid: b5354b4565af3b349ad3d6afbacc3bca,
+    type: 3}
+  displayMana: {fileID: 6578741076743766941, guid: 46fbec2935ec8c2408bb2b09e95d634e,
+    type: 3}
+  allDisplay: []
+  Upgrade: {fileID: 1483184649}
 --- !u!1 &442293956
 GameObject:
   m_ObjectHideFlags: 0
@@ -9657,6 +9693,7 @@ MonoBehaviour:
   PlayerCombat: {fileID: 561725343}
   unableToMove: 0
   ableToJump: 0
+  ableToRoll: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
@@ -18200,6 +18237,7 @@ MonoBehaviour:
   PlayerCombat: {fileID: 711274002}
   unableToMove: 0
   ableToJump: 0
+  ableToRoll: 1
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
@@ -18484,7 +18522,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711273994}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15ebf65b2de96414997098d0b4a8cd88, type: 3}
   m_Name: 
@@ -18508,6 +18546,7 @@ MonoBehaviour:
     type: 3}
   displayMana: {fileID: 6578741076743766941, guid: 46fbec2935ec8c2408bb2b09e95d634e,
     type: 3}
+  allDisplay: []
   Upgrade: {fileID: 1483184649}
 --- !u!1 &712285242
 GameObject:
@@ -18720,7 +18759,10 @@ MonoBehaviour:
   Player1: {fileID: 561725337}
   Player2: {fileID: 711273994}
   sp: {fileID: 4250436}
+  cursor: {fileID: 4478260949955139293, guid: 4521da10421174945aedb74aba4e14d6, type: 3}
+  crossHair: {fileID: 1941189682}
   Prologue: {fileID: 351191404}
+  buildsCamera: {fileID: 0}
 --- !u!61 &726958176
 BoxCollider2D:
   m_ObjectHideFlags: 0

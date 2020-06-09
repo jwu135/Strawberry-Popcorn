@@ -18,7 +18,8 @@ public class Henshin : MonoBehaviour
     public GameObject Player1;
     public GameObject Player2;
     public GameObject sp;
-
+    public GameObject cursor;
+    public GameObject crossHair;
     public PlayableDirector Prologue;
     public GameObject buildsCamera;
     void Start()
@@ -32,6 +33,13 @@ public class Henshin : MonoBehaviour
             cam.enabled = false;
             sp.SetActive(false);
             Destroy(GameObject.Find("Stopper"));
+            GameObject.Find("EventSystem").GetComponent<Builds>().enabled = true;
+            Player2.SetActive(false);
+            cursor = Instantiate(cursor);
+            cursor.AddComponent<BuildsCursor>(); // didn't even know this was possible til just now
+            cursor.GetComponent<BoxCollider2D>().isTrigger = true;
+            cursor.GetComponent<SpriteRenderer>().sortingOrder = 20;
+            crossHair.SetActive(false);
         }
         else
         {
@@ -130,6 +138,7 @@ public class Henshin : MonoBehaviour
 
     public void choseSP()
     {
+        Destroy(cursor);
         if (buildsCamera == null) {
             Debug.Log("null");
         }
@@ -137,10 +146,12 @@ public class Henshin : MonoBehaviour
             musicEnabled = true;
             GameObject.FindGameObjectWithTag("music").GetComponent<MusicManagerRoom2>().play();
         }
+        Player2.SetActive(true);
         cam2.enabled = true;
         buildsCamera.SetActive(false);
         cam2.transform.position = new Vector3(Mathf.Lerp(buildsCamera.transform.position.x, -3.33f, speed), Mathf.Lerp(buildsCamera.transform.position.y, 2.5f, speed), Mathf.Lerp(buildsCamera.transform.position.z, 0, speed));
         cam2.orthographicSize = Mathf.Lerp(buildsCamera.GetComponent<Camera>().orthographicSize, 8.709762f, speed);
+        crossHair.SetActive(true);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
