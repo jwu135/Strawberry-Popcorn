@@ -10,7 +10,7 @@ public class IntroHandler : MonoBehaviour
     public Camera cutsceneCamera;
     public PlayableDirector outroCutscene;
     int index = 0;
-    float cd = 1;
+    float cd = 3.5f;
     RuntimeAnimatorController AC;
     Vector3 defaultScale;
     Scene scene;
@@ -20,6 +20,8 @@ public class IntroHandler : MonoBehaviour
     {
         scene = SceneManager.GetActiveScene();
         defaultScale = transform.localScale;
+        /*if(scene.name.Equals("Intro"))
+            Screen.SetResolution(1280, 720, false);*/
         //AC = GetComponent<RuntimeAnimatorController>();
     }
 
@@ -27,7 +29,7 @@ public class IntroHandler : MonoBehaviour
     {
         cutsceneCamera.enabled = false;
         outroCutscene.Stop();
-        cd = 2;
+        cd = 3.5f;
         started = true;
     }
 
@@ -43,7 +45,7 @@ public class IntroHandler : MonoBehaviour
                 else {
                     GetComponent<SpriteRenderer>().sprite = images[index];
                 }
-                cd = 2;
+                cd = 3.5f;
             }
         }
         if (scene.name.Equals("Outro")&&started) { 
@@ -56,7 +58,7 @@ public class IntroHandler : MonoBehaviour
                 } else {
                     GetComponent<Animator>().enabled = false;
                     transform.localScale = defaultScale;
-                    cd = 2;
+                    cd = 3.5f;
                 }
                 if (index > images.Length - 1)
                     SceneManager.LoadScene("Scenes/MainMenu");

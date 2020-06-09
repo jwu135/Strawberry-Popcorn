@@ -285,7 +285,7 @@ public class SPPlacer : MonoBehaviour
         }else if (numSPProb>=.7f&&numSPProb<1f) {
             numSPs = 3;
         }
-
+        numSPs = 1;
         
         for(int i = 0; i < numSPs; i++) {
             EdgeStrawberries.Add(possibleSPs[UnityEngine.Random.Range(0,possibleSPs.Count)]);

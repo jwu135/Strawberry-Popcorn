@@ -84,13 +84,13 @@ public class NewDialogueBossRoom : MonoBehaviour
                     //SoundManager.PlaySound("playerTalk2");
                     int swapper = Random.Range(0, 4);
                     if (swapper == 0) {
-                        SoundManager.PlaySound("playerTalk1");
+                        SoundManager.PlaySound("motherTalk1");
                     } else if (swapper == 1) {
-                        SoundManager.PlaySound("playerTalk2");
+                        SoundManager.PlaySound("motherTalk2");
                     } else if (swapper == 2) {
-                        SoundManager.PlaySound("playerTalk3");
+                        SoundManager.PlaySound("motherTalk3");
                     } else if (swapper == 3) {
-                        SoundManager.PlaySound("playerTalk4");
+                        SoundManager.PlaySound("motherTalk4");
                     }
                     textspeed = baseTextSpeed;
                 }

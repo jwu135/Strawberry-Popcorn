@@ -127,9 +127,9 @@ public class Builds : MonoBehaviour
         {*/
     public void chooseOne() {
         if (!chooseCorpse) {
-            Upgrade.BuildHealth1();
-            Upgrade.BuildDmg1();
-            Upgrade.BuildMana1();
+            //Upgrade.BuildHealth1();
+            //Upgrade.BuildDmg1();
+            //Upgrade.BuildMana1();
             chooseCorpse = true;
             Debug.Log("corpse1");
             GameObject.Find("Henshin").transform.Find("New Sprite").GetComponent<Henshin>().choseSP(allDisplay[0].transform.position);
@@ -140,9 +140,9 @@ public class Builds : MonoBehaviour
     public void chooseTwo()
     {
         if (!chooseCorpse) {
-            Upgrade.BuildHealth2();
-            Upgrade.BuildDmg2();
-            Upgrade.BuildMana2();
+            //Upgrade.BuildHealth2();
+            //Upgrade.BuildDmg2();
+            //Upgrade.BuildMana2();
             chooseCorpse = true;
             Debug.Log("corpse2");
             GameObject.Find("Henshin").transform.Find("New Sprite").GetComponent<Henshin>().choseSP(allDisplay[1].transform.position);
@@ -153,9 +153,9 @@ public class Builds : MonoBehaviour
     public void chooseThree()
     {
         if (!chooseCorpse) {
-            Upgrade.BuildHealth3();
-            Upgrade.BuildDmg3();
-            Upgrade.BuildMana3();
+            //Upgrade.BuildHealth3();
+            //Upgrade.BuildDmg3();
+            //Upgrade.BuildMana3();
             chooseCorpse = true;
             Debug.Log("corpse3");
             GameObject.Find("Henshin").transform.Find("New Sprite").GetComponent<Henshin>().choseSP(allDisplay[2].transform.position);

@@ -32,6 +32,9 @@ public class CursorMovement: MonoBehaviour
         cursorBody = GetComponent<Rigidbody2D>();
         velocityVector = new Vector2(0, 0);
         m_camera = Camera.main;
+        Vector3 dir = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 dir2 = new Vector2(dir.x, dir.y);
+        cursorBody.position = dir2;
     }
 
     // Fixed update is called 50 times per second, regardless of framerate (this can be changed in the project settings)
