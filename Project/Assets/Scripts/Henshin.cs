@@ -136,7 +136,7 @@ public class Henshin : MonoBehaviour
         }
     }
 
-    public void choseSP()
+    public void choseSP(Vector3 pos)
     {
         Destroy(cursor);
         if (buildsCamera == null) {
@@ -147,6 +147,8 @@ public class Henshin : MonoBehaviour
             GameObject.FindGameObjectWithTag("music").GetComponent<MusicManagerRoom2>().play();
         }
         Player2.SetActive(true);
+        Player2.transform.localPosition = pos;
+        Player2.transform.Find("Armature").transform.localScale = Vector3.Scale(Player2.transform.localScale, new Vector3(-1,1,1));
         cam2.enabled = true;
         buildsCamera.SetActive(false);
         cam2.transform.position = new Vector3(Mathf.Lerp(buildsCamera.transform.position.x, -3.33f, speed), Mathf.Lerp(buildsCamera.transform.position.y, 2.5f, speed), Mathf.Lerp(buildsCamera.transform.position.z, 0, speed));

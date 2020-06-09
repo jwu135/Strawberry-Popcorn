@@ -11,12 +11,14 @@ public class BuildsCursor : MonoBehaviour
         if (col.tag == "Builds") {
             name = col.gameObject.name;
             over = true;
+            col.gameObject.transform.Find("arrow").gameObject.SetActive(true);
         }
     } 
     void OnTriggerExit2D(Collider2D col)
     {
         if (col.tag == "Builds") {
             over = false;
+            col.gameObject.transform.Find("arrow").gameObject.SetActive(false);
         }
     }
     private void Update()
