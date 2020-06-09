@@ -28,6 +28,8 @@ public class Boss : MonoBehaviour
     private bool disablePause = false;
     private GameObject CornerMother;
     private GameObject CornerMother2;
+    [HideInInspector]
+    public GameObject[] clouds;
     // Start is called before the first frame update
 
     void midGameOverride() // taken from RaShaun's Upgrade.cs, needed so I don't have to worry about the gameover screen issue
@@ -111,9 +113,13 @@ public class Boss : MonoBehaviour
         foreach (GameObject tempFloor in platforms) {
             Destroy(tempFloor);
         }
-        
+        finalPhaseHurtArea.SetActive(true);
         GameObject cloud = Resources.Load("Prefabs/MotherCloud") as GameObject;
-        GameObject[] clouds = new GameObject[4];
+        clouds = new GameObject[4];
+        clouds[0] = GameObject.Find("MotherCloud");
+        Vector3 temp = clouds[0].transform.position;
+        temp.y = 11.164f;
+        clouds[0].transform.position = temp;
         GameObject finalMothers = Resources.Load("Prefabs/4thPhaseMothers") as GameObject;
         player.GetComponent<PlayerController>().setMode(0);
         mothers[0] = gameObject;
@@ -121,15 +127,15 @@ public class Boss : MonoBehaviour
         clouds[1] = Instantiate(cloud, mothers[1].transform.position, transform.rotation);
         clouds[1].transform.eulerAngles = new Vector3(0, 0, -90);
         clouds[1].GetComponent<BossCloudHandler>().enabled = false;
-        Vector3 temp = clouds[1].transform.position;
-        temp.x = 20f;
+        temp = clouds[1].transform.position;
+        temp.x = 21f;
         clouds[1].transform.position = temp;
         mothers[2] = Instantiate(finalMothers, new Vector3(-28.44f, 4.1f, 0f), transform.rotation, transform.parent);
         clouds[2] = Instantiate(cloud, mothers[2].transform.position, transform.rotation);
         clouds[2].transform.eulerAngles = new Vector3(0, 0, 90);
         clouds[2].GetComponent<BossCloudHandler>().enabled = false;
         temp = clouds[2].transform.position;
-        temp.x = -19.42f;
+        temp.x = -21.42f;
         clouds[2].transform.position = temp;
         mothers[3] = Instantiate(finalMothers, new Vector3(-1.892f, -7.8265f, 0f), transform.rotation, transform.parent);
         mothers[3].GetComponent<LastPhaseBossShoot>().bottomEye = true;
@@ -137,7 +143,7 @@ public class Boss : MonoBehaviour
         clouds[3].transform.eulerAngles = new Vector3(0, 0, 180);
         clouds[3].GetComponent<BossCloudHandler>().enabled = false;
         temp = clouds[3].transform.position;
-        temp.y = -1.67f;
+        temp.y = -2.17f;
         clouds[3].transform.position = temp;
         foreach (GameObject mother in mothers) {
             mother.transform.localScale = Vector3.Scale(mother.transform.localScale, new Vector3(0.75f, 0.75f, 1f));

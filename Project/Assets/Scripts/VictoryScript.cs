@@ -50,7 +50,7 @@ public class VictoryScript : MonoBehaviour
                 Vector2 temp = SPObj.transform.position;
                 temp.y -= 0.12f;
                 SPObj.transform.position = temp;
-                Debug.Log(finalPos);
+                //Debug.Log(finalPos);
                 if (SPObj.transform.position.y <= finalPos.y) {
                     landed = true;
                     Debug.Log("landed");

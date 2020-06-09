@@ -24,8 +24,12 @@ public class gameOver : MonoBehaviour
             GameObject FinalMotherPrefab = Resources.Load("Prefabs/FinalDroppedMother") as GameObject;
             GameObject FinalMother = Instantiate(FinalMotherPrefab, MotherEye.transform.position,FinalMotherPrefab.transform.rotation) as GameObject;
             //FinalMother.GetComponent<Rigidbody2D>().velocity = new Vector2(-0.5f, 0.5f) * 5;
-
-
+            Boss bs = MotherEye.GetComponent<Boss>();
+            for (int i = bs.clouds.Length - 1; i >= 0; i--) {
+                Debug.Log(i);
+                Destroy(bs.clouds[i]);
+            }
+            bs.finalPhaseHurtArea.SetActive(false);
             Destroy(GameObject.Find("Mother"));
             //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().setMode(0);
             //GameObject.FindGameObjectWithTag("DemoText").GetComponent<Text>().enabled = true;
