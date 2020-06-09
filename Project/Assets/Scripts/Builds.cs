@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Builds : MonoBehaviour
 {
-    public float buildHPMin;
-    public float buildHPMax;
-    public float buildDmgMin;
-    public float buildDmgMax;
-    public float buildManaMin;
-    public float buildManaMax;
+    public int buildHPMin;
+    public int buildHPMax;
+    public int buildDmgMin;
+    public int buildDmgMax;
+    public int buildManaMin;
+    public int buildManaMax;
     public bool chooseCorpse;
 
     public Transform standSP;
@@ -28,6 +28,9 @@ public class Builds : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        UpgradeValues.choseCorpse1 = false;
+        UpgradeValues.choseCorpse2 = false;
+        UpgradeValues.choseCorpse3 = false;
         if (UpgradeValues.deathCounter > 0 && !UpgradeValues.builtCorpse)
         {
             UpgradeValues.buildHealth1 = Random.Range(buildHPMin, buildHPMax);
@@ -51,7 +54,23 @@ public class Builds : MonoBehaviour
 
             for (int i = 0; i < 3; i++)
             {
-                Instantiate(displaySP, (standSP.position + new Vector3((0.0f + (5 * i)), 0.0f, 0.0f)), standSP.rotation);
+                
+                if(i == 0)
+                {
+                    GameObject spawnedObject1 = (GameObject)Instantiate(displaySP, (standSP.position + new Vector3((0.0f + (5 * i)), 0.0f, 0.0f)), standSP.rotation);
+                    spawnedObject1.gameObject.tag = "Builds1";
+                }
+                if (i == 1)
+                {
+                    GameObject spawnedObject2 = (GameObject)Instantiate(displaySP, (standSP.position + new Vector3((0.0f + (5 * i)), 0.0f, 0.0f)), standSP.rotation);
+                    spawnedObject2.gameObject.tag = "Builds2";
+                }
+                if (i == 2)
+                {
+                    GameObject spawnedObject3 = (GameObject)Instantiate(displaySP, (standSP.position + new Vector3((0.0f + (5 * i)), 0.0f, 0.0f)), standSP.rotation);
+                    spawnedObject3.gameObject.tag = "Builds3";
+                }
+
             }
 
             //1st SP
@@ -119,34 +138,53 @@ public class Builds : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (col.tag == "Builds")
+        if (col.tag == "Builds1")
         {
+            Debug.Log("B1");
             if (!chooseCorpse && Input.GetButtonDown("interact"))
             {
                 Upgrade.BuildHealth1();
                 Upgrade.BuildDmg1();
                 Upgrade.BuildMana1();
+                Debug.Log(UpgradeValues.bonusHealth);
+                Debug.Log(UpgradeValues.dodgeNeeded);
+                Debug.Log(UpgradeValues.shieldDuration);
                 chooseCorpse = true;
                 Debug.Log("corpse1");
+                UpgradeValues.choseCorpse1 = true;
 
             }
-
+        }
+        else if (col.tag == "Builds2")
+        {
+            Debug.Log("B2");
             if (!chooseCorpse && Input.GetButtonDown("interact"))
             {
                 Upgrade.BuildHealth2();
                 Upgrade.BuildDmg2();
                 Upgrade.BuildMana2();
+                Debug.Log(UpgradeValues.bonusHealth);
+                Debug.Log(UpgradeValues.dodgeNeeded);
+                Debug.Log(UpgradeValues.shieldDuration);
                 chooseCorpse = true;
                 Debug.Log("corpse2");
+                UpgradeValues.choseCorpse2 = true;
             }
-
+        }
+        else if (col.tag == "Builds3")
+        {
+            Debug.Log("B3");
             if (!chooseCorpse && Input.GetButtonDown("interact"))
             {
                 Upgrade.BuildHealth3();
                 Upgrade.BuildDmg3();
                 Upgrade.BuildMana3();
+                Debug.Log(UpgradeValues.bonusHealth);
+                Debug.Log(UpgradeValues.dodgeNeeded);
+                Debug.Log(UpgradeValues.shieldDuration);
                 chooseCorpse = true;
                 Debug.Log("corpse3");
+                UpgradeValues.choseCorpse3 = true;
             }
         }
 

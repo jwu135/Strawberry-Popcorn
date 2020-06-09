@@ -19,100 +19,103 @@ public class ManaBranch1Visual : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        ManaBranch2.enabled = false;
+        ManaBranch3.enabled = false;
+        ManaBranch4.enabled = false;
+        Debug.Log(UpgradeValues.shieldDuration);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (UpgradeValues.bonusManaGain == 0)
+        if (UpgradeValues.dodgeNeeded  == 8)
         {
             ManaBranch1.sprite = Eye0;
             ManaBranch2.enabled = false;
             ManaBranch3.enabled = false;
             ManaBranch4.enabled = false;
         }
-        if (UpgradeValues.bonusManaGain < 6)
+        if (UpgradeValues.shieldDuration < 8)
         {
             ManaBranch3.enabled = false;
             ManaBranch4.enabled = false;
         }
-        if (UpgradeValues.bonusManaGain < 11)
+        if (UpgradeValues.shieldDuration < 13)
         {
             ManaBranch4.enabled = false;
         }
-        if (UpgradeValues.bonusManaGain > 0)
+        if (UpgradeValues.dodgeNeeded < 8)
         {
             ManaBranch2.enabled = true;
             ManaBranch2.sprite = Eye0;
         }
-        if (UpgradeValues.bonusManaGain == 1)
+        if (UpgradeValues.dodgeNeeded  == 7)
         {
             ManaBranch1.sprite = Eye1;
         }
-        if (UpgradeValues.bonusManaGain == 2)
+        if (UpgradeValues.dodgeNeeded == 6)
         {
             ManaBranch1.sprite = Eye2;
         }
-        if (UpgradeValues.bonusManaGain == 3)
+        if (UpgradeValues.dodgeNeeded == 5)
         {
             ManaBranch1.sprite = Eye3;
         }
-        if (UpgradeValues.bonusManaGain == 4)
+        if (UpgradeValues.shieldDuration == 6)
         {
             ManaBranch1.sprite = Eye4;
         }
-        if (UpgradeValues.bonusManaGain > 4)
+        if (UpgradeValues.shieldDuration > 6)
         {
             ManaBranch1.sprite = Eye5;
         }
-        if (UpgradeValues.bonusManaGain > 5)
+        if (UpgradeValues.shieldDuration > 7)
         {
             ManaBranch3.enabled = true;
         }
-        if (UpgradeValues.bonusManaGain == 6)
+        if (UpgradeValues.shieldDuration == 8)
         {
             ManaBranch2.sprite = Eye1;
             ManaBranch3.sprite = Eye0;
         }
-        if (UpgradeValues.bonusManaGain == 7)
+        if (UpgradeValues.shieldDuration == 9)
         {
             ManaBranch2.sprite = Eye2;
         }
-        if (UpgradeValues.bonusManaGain == 8)
+        if (UpgradeValues.shieldDuration == 10)
         {
             ManaBranch2.sprite = Eye3;
         }
-        if (UpgradeValues.bonusManaGain == 9)
+        if (UpgradeValues.shieldDuration == 11)
         {
             ManaBranch2.sprite = Eye4;
         }
-        if (UpgradeValues.bonusManaGain > 9)
+        if (UpgradeValues.shieldDuration > 11)
         {
             ManaBranch2.sprite = Eye5;
         }
-        if (UpgradeValues.bonusManaGain > 10)
+        if (UpgradeValues.shieldDuration > 12)
         {
             ManaBranch4.enabled = true;
         }
-        if (UpgradeValues.bonusManaGain == 11)
+        if (UpgradeValues.shieldDuration == 13)
         {
             ManaBranch3.sprite = Eye1;
             ManaBranch4.sprite = Eye0;
         }
-        if (UpgradeValues.bonusManaGain == 12)
+        if (UpgradeValues.shieldDuration == 14)
         {
             ManaBranch3.sprite = Eye2;
         }
-        if (UpgradeValues.bonusManaGain == 13)
+        if (UpgradeValues.shieldDuration == 15)
         {
             ManaBranch3.sprite = Eye3;
         }
-        if (UpgradeValues.bonusManaGain == 14)
+        if (UpgradeValues.shieldDuration == 16)
         {
             ManaBranch3.sprite = Eye4;
         }
-        if (UpgradeValues.bonusManaGain > 14)
+        if (UpgradeValues.shieldDuration > 16)
         {
             ManaBranch3.sprite = Eye5;
         }

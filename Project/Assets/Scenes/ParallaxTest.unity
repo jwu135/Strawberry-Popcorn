@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -424,6 +424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactSign: {fileID: 982097094}
   door: 0
+  isMother: 0
 --- !u!1 &13388471
 GameObject:
   m_ObjectHideFlags: 1
@@ -6819,6 +6820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactSign: {fileID: 1366688209}
   door: 1
+  isMother: 0
 --- !u!1 &368213112
 GameObject:
   m_ObjectHideFlags: 0
@@ -9827,6 +9829,7 @@ MonoBehaviour:
   FakeCannon: {fileID: 0}
   HealthManager: {fileID: 0}
   PlatformMovementPhys: {fileID: 0}
+  SceneChanger: {fileID: 0}
   UpgradeValues: {fileID: 0}
   timeBtwWeaponChange: 0.5
   delayBtwAttack1: 0.3
@@ -9856,6 +9859,7 @@ MonoBehaviour:
   damage4: 5
   specialChargeAttack1Timer: 0
   normalAttack1Buffer: 0
+  dodgeCountdown: 0
   aPosition1: {x: 5, y: 5}
   hookspeed: 0
 --- !u!114 &561725344
@@ -13428,7 +13432,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710819597}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11, y: -0.62, z: -16.398438}
+  m_LocalPosition: {x: -10.31, y: -0.62, z: -16.398438}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -18369,6 +18373,7 @@ MonoBehaviour:
   FakeCannon: {fileID: 2016847630}
   HealthManager: {fileID: 711274003}
   PlatformMovementPhys: {fileID: 711274001}
+  SceneChanger: {fileID: 0}
   UpgradeValues: {fileID: 0}
   timeBtwWeaponChange: 0.5
   delayBtwAttack1: 0.12
@@ -18398,6 +18403,7 @@ MonoBehaviour:
   damage4: 5
   specialChargeAttack1Timer: 0
   normalAttack1Buffer: 0
+  dodgeCountdown: 0
   aPosition1: {x: 5, y: 5}
   hookspeed: 0
 --- !u!114 &711274003
@@ -18584,11 +18590,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildHPMin: 1
-  buildHPMax: 3
+  buildHPMax: 4
   buildDmgMin: 1
-  buildDmgMax: 3
+  buildDmgMax: 4
   buildManaMin: 1
-  buildManaMax: 3
+  buildManaMax: 4
   chooseCorpse: 0
   standSP: {fileID: 1649316103}
   standHP: {fileID: 1827731131}
@@ -34571,7 +34577,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649316100}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.35, y: -2.64, z: -16.398438}
+  m_LocalPosition: {x: -9.42, y: -2.64, z: -16.398438}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -35539,7 +35545,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1727131930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11, y: 0.56, z: -16.398438}
+  m_LocalPosition: {x: -10.31, y: 0.56, z: -16.398438}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -37306,7 +37312,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827731128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11, y: 1.42, z: -16.398438}
+  m_LocalPosition: {x: -10.31, y: 1.42, z: -16.398438}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

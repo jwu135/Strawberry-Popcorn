@@ -24,6 +24,8 @@ public class SaveData
     public double buildHealth3;
     public double buildDmg3;
     public double buildMana3;
+    public double dodgeNeeded;
+    public double shieldDuration;
     public bool deathProfit;
     public bool choseCorpse1;
     public bool choseCorpse2;
@@ -40,6 +42,7 @@ public class SaveData
     public float highestPhaseEncountered;
     public float highestPhaseDiscussed;
     public bool continueGame = false;
+
 
     public SaveData (Upgrade Upgrade)
     {
@@ -70,6 +73,8 @@ public class SaveData
         choseCorpse3 = UpgradeValues.choseCorpse3;
         builtCorpse = UpgradeValues.builtCorpse;
         addedCorpse = UpgradeValues.addedCorpse;
+        dodgeNeeded = UpgradeValues.dodgeNeeded;
+        shieldDuration = UpgradeValues.shieldDuration;
 
         //bodyTypes = new int[UpgradeValues.deathCounter];
         // positionValues = new float[(UpgradeValues.deathCounter * 2)];

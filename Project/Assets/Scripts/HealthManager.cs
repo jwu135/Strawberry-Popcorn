@@ -159,6 +159,7 @@ public class HealthManager : MonoBehaviour
                     mana += (5 + UpgradeValues.bonusManaGain);
 
                     manaCounter = 0;
+                    PlayerCombat.dodgeCountdown -= 1;
                 }
 
             }
