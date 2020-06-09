@@ -22,6 +22,8 @@ public class UpgradeValues : MonoBehaviour
     public static double buildHealth3;
     public static double buildDmg3;
     public static double buildMana3;
+    public static double dodgeNeeded = 8;
+    public static double shieldDuration = 5;
     public static bool deathProfit;
     public static bool continueGame = false;
     public static bool choseCorpse1 = false;

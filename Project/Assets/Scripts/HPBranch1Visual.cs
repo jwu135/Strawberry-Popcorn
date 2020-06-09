@@ -19,7 +19,10 @@ public class HPBranch1Visual : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        HPBranch2.enabled = false;
+        HPBranch3.enabled = false;
+        HPBranch4.enabled = false;
+        Debug.Log(UpgradeValues.bonusHealth);
     }
 
     // Update is called once per frame

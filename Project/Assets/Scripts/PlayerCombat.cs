@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -62,6 +63,7 @@ public class PlayerCombat : MonoBehaviour
     public FakeCannon FakeCannon;
     public HealthManager HealthManager;
     public PlatformMovementPhys PlatformMovementPhys;
+    public SceneChanger SceneChanger;
     FlightMovementPhys flightMovementPhys;
     PlayerController playerController;
     public UpgradeValues UpgradeValues;
@@ -94,6 +96,7 @@ public class PlayerCombat : MonoBehaviour
     public double damage4;
     public double specialChargeAttack1Timer;
     public double normalAttack1Buffer;
+    public double dodgeCountdown;
 
     private bool fire2State;
     private GameObject playerBubble;
@@ -108,6 +111,17 @@ public class PlayerCombat : MonoBehaviour
         playerBubble.SetActive(false); // set as true wherever the special attack gets called
         flightMovementPhys = GetComponent<FlightMovementPhys>();
         playerController = GetComponent<PlayerController>();
+
+        // Create a temporary reference to the current scene.
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        // Retrieve the name of this scene.
+        string sceneName = currentScene.name;
+        if (sceneName == "MainGameplay")
+        {
+            dodgeCountdown = UpgradeValues.dodgeNeeded;
+            Debug.Log("countdown");
+        }
     }
 
 
@@ -295,25 +309,25 @@ public class PlayerCombat : MonoBehaviour
           //      timeBtwAttack = 1;
          //   }
             //LASER
-            if (Input.GetButtonDown("Fire2") && HM.mana >= 50)
+            if (dodgeCountdown < 1 && !LASER)
             {
                 LASER = true;
-                if (LASER)
-                {
-                    LaserCollider.enabled = true;
-                    LaserRenderer.enabled = true;
-                    StartCoroutine(LaserTimer());
-                }
-                else if (!LASER)
-                {
-                    HM.mana -= 50;
-                    LaserCollider.enabled = false;
-                    LaserRenderer.enabled = false;
-                }
-                timeBtwAttack = 1;
-                
+
+
+                playerBubble.SetActive(true);
+                //timeBtwAttack = 1;           
             }
+            if (LASER)
+            {
+                //LaserCollider.enabled = true;
+                //LaserRenderer.enabled = true;
+                Debug.Log("sshield up");
+                StartCoroutine(LaserTimer());
+            }
+
+
             //SPMAX
+
           //  if (Input.GetButtonDown("special") && HM.mana >= 100)
         //    {
          //       HM.mana -= 100;
@@ -536,8 +550,17 @@ public class PlayerCombat : MonoBehaviour
 
     private IEnumerator LaserTimer()
     {
-        yield return new WaitForSeconds(3.0f);
+        Debug.Log("waiting");
+        yield return new WaitForSeconds((float)UpgradeValues.shieldDuration);
+        //HM.mana -= 50;
+        // LaserCollider.enabled = false;
+        //LaserRenderer.enabled = false;
+        playerBubble.SetActive(false);
+        Debug.Log("sshield down");
+        dodgeCountdown = UpgradeValues.dodgeNeeded;
+        HealthManager.updateMana(8);
         LASER = false;
+        Debug.Log(LASER);
 
     }
 

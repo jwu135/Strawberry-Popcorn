@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Builds : MonoBehaviour
 {
-    public float buildHPMin;
-    public float buildHPMax;
-    public float buildDmgMin;
-    public float buildDmgMax;
-    public float buildManaMin;
-    public float buildManaMax;
+    public int buildHPMin;
+    public int buildHPMax;
+    public int buildDmgMin;
+    public int buildDmgMax;
+    public int buildManaMin;
+    public int buildManaMax;
     public bool chooseCorpse;
 
     public Transform standSP;
@@ -31,6 +31,9 @@ public class Builds : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        UpgradeValues.choseCorpse1 = false;
+        UpgradeValues.choseCorpse2 = false;
+        UpgradeValues.choseCorpse3 = false;
         if (UpgradeValues.deathCounter > 0 && !UpgradeValues.builtCorpse)
         {
             UpgradeValues.buildHealth1 = Random.Range(buildHPMin, buildHPMax);
@@ -123,13 +126,65 @@ public class Builds : MonoBehaviour
 
     /*void OnTriggerStay2D(Collider2D col)
     {
+        if (col.tag == "Builds1")
+        {
+            Debug.Log("B1");
+            if (!chooseCorpse && Input.GetButtonDown("interact"))
+            {
+                Upgrade.BuildHealth1();
+                Upgrade.BuildDmg1();
+                Upgrade.BuildMana1();
+                Debug.Log(UpgradeValues.bonusHealth);
+                Debug.Log(UpgradeValues.dodgeNeeded);
+                Debug.Log(UpgradeValues.shieldDuration);
+                chooseCorpse = true;
+                Debug.Log("corpse1");
+                UpgradeValues.choseCorpse1 = true;
+
+            }
+        }
+        else if (col.tag == "Builds2")
+        {
+            Debug.Log("B2");
+            if (!chooseCorpse && Input.GetButtonDown("interact"))
+            {
+                Upgrade.BuildHealth2();
+                Upgrade.BuildDmg2();
+                Upgrade.BuildMana2();
+                Debug.Log(UpgradeValues.bonusHealth);
+                Debug.Log(UpgradeValues.dodgeNeeded);
+                Debug.Log(UpgradeValues.shieldDuration);
+                chooseCorpse = true;
+                Debug.Log("corpse2");
+                UpgradeValues.choseCorpse2 = true;
+            }
+        }
+        else if (col.tag == "Builds3")
+        {
+            Debug.Log("B3");
+            if (!chooseCorpse && Input.GetButtonDown("interact"))
+            {
+                Upgrade.BuildHealth3();
+                Upgrade.BuildDmg3();
+                Upgrade.BuildMana3();
+                Debug.Log(UpgradeValues.bonusHealth);
+                Debug.Log(UpgradeValues.dodgeNeeded);
+                Debug.Log(UpgradeValues.shieldDuration);
+                chooseCorpse = true;
+                Debug.Log("corpse3");
+                UpgradeValues.choseCorpse3 = true;
+            }
         if (col.tag == "Builds")
         {*/
+
     public void chooseOne() {
         if (!chooseCorpse) {
-            //Upgrade.BuildHealth1();
-            //Upgrade.BuildDmg1();
-            //Upgrade.BuildMana1();
+            Upgrade.BuildHealth1();
+            Upgrade.BuildDmg1();
+            Upgrade.BuildMana1();
+            Debug.Log(UpgradeValues.bonusHealth);
+            Debug.Log(UpgradeValues.dodgeNeeded);
+            Debug.Log(UpgradeValues.shieldDuration);
             chooseCorpse = true;
             Debug.Log("corpse1");
             GameObject.Find("Henshin").transform.Find("New Sprite").GetComponent<Henshin>().choseSP(allDisplay[0].transform.position);
@@ -140,9 +195,9 @@ public class Builds : MonoBehaviour
     public void chooseTwo()
     {
         if (!chooseCorpse) {
-            //Upgrade.BuildHealth2();
-            //Upgrade.BuildDmg2();
-            //Upgrade.BuildMana2();
+            Upgrade.BuildHealth2();
+            Upgrade.BuildDmg2();
+            Upgrade.BuildMana2();
             chooseCorpse = true;
             Debug.Log("corpse2");
             GameObject.Find("Henshin").transform.Find("New Sprite").GetComponent<Henshin>().choseSP(allDisplay[1].transform.position);
@@ -153,9 +208,9 @@ public class Builds : MonoBehaviour
     public void chooseThree()
     {
         if (!chooseCorpse) {
-            //Upgrade.BuildHealth3();
-            //Upgrade.BuildDmg3();
-            //Upgrade.BuildMana3();
+            Upgrade.BuildHealth3();
+            Upgrade.BuildDmg3();
+            Upgrade.BuildMana3();
             chooseCorpse = true;
             Debug.Log("corpse3");
             GameObject.Find("Henshin").transform.Find("New Sprite").GetComponent<Henshin>().choseSP(allDisplay[2].transform.position);

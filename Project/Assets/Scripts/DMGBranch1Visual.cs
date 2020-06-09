@@ -19,7 +19,10 @@ public class DMGBranch1Visual : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        DMGBranch2.enabled = false;
+        DMGBranch3.enabled = false;
+        DMGBranch4.enabled = false;
+        Debug.Log(UpgradeValues.bonusAttackDmg);
     }
 
     // Update is called once per frame
