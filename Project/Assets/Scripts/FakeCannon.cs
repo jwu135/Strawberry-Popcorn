@@ -191,6 +191,7 @@ public class FakeCannon : MonoBehaviour
             if (scale >= 2f)
             {
                 maxCharge = true;
+                //charged ping sound
             }
 
         }

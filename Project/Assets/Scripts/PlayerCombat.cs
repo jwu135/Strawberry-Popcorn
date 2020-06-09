@@ -314,13 +314,13 @@ public class PlayerCombat : MonoBehaviour
                 LASER = true;
 
 
-
+                playerBubble.SetActive(true);
                 //timeBtwAttack = 1;           
             }
             if (LASER)
             {
-                LaserCollider.enabled = true;
-                LaserRenderer.enabled = true;
+                //LaserCollider.enabled = true;
+                //LaserRenderer.enabled = true;
                 Debug.Log("sshield up");
                 StartCoroutine(LaserTimer());
             }
@@ -553,11 +553,12 @@ public class PlayerCombat : MonoBehaviour
         Debug.Log("waiting");
         yield return new WaitForSeconds((float)UpgradeValues.shieldDuration);
         //HM.mana -= 50;
-        LaserCollider.enabled = false;
-        LaserRenderer.enabled = false;
-
+        // LaserCollider.enabled = false;
+        //LaserRenderer.enabled = false;
+        playerBubble.SetActive(false);
         Debug.Log("sshield down");
         dodgeCountdown = UpgradeValues.dodgeNeeded;
+        HealthManager.updateMana(8);
         LASER = false;
         Debug.Log(LASER);
 

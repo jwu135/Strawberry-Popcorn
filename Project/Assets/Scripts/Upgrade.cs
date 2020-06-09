@@ -27,8 +27,7 @@ public class Upgrade : MonoBehaviour
         {
             UpgradeValues.upgradeLocation = 0;
             UpgradeValues.builtCorpse = false;
-            Debug.Log(UpgradeValues.choseCorpse1);
-            UpgradeValues.choseCorpse1 = true;
+
 
             if (UpgradeValues.deathPointsUsed < (UpgradeValues.deathPoints * UpgradeValues.deathCounter))
             {
@@ -43,7 +42,6 @@ public class Upgrade : MonoBehaviour
                 BreakHealth1();
                 BreakDmg1();
                 BreakMana1();
-                Debug.Log(UpgradeValues.bonusHealth);
                 UpgradeValues.choseCorpse1 = false;
             }
             if (UpgradeValues.choseCorpse2)
@@ -358,20 +356,20 @@ public class Upgrade : MonoBehaviour
 
     public void BreakHealth1()
     {
-        SoundManager.PlaySound("gainLevel");
+        //SoundManager.PlaySound("gainLevel");
         UpgradeValues.bonusHealth -= UpgradeValues.buildHealth1;
 
         //SavePlayer();
     }
     public void BreakDmg1()
     {
-        SoundManager.PlaySound("gainLevel");
+        //SoundManager.PlaySound("gainLevel");
         UpgradeValues.bonusAttackDmg -= UpgradeValues.buildDmg1;
         //SavePlayer();
     }
     public void BreakMana1()
     {
-        SoundManager.PlaySound("gainLevel");
+        //SoundManager.PlaySound("gainLevel");
         if(UpgradeValues.shieldDuration > 18)
         {
             UpgradeValues.shieldDuration -= UpgradeValues.buildMana1;
@@ -395,20 +393,20 @@ public class Upgrade : MonoBehaviour
 
     public void BreakHealth2()
     {
-        SoundManager.PlaySound("gainLevel");
+        //SoundManager.PlaySound("gainLevel");
         UpgradeValues.bonusHealth -= UpgradeValues.buildHealth2;
         
        // SavePlayer();
     }
     public void BreakDmg2()
     {
-        SoundManager.PlaySound("gainLevel");
+       // SoundManager.PlaySound("gainLevel");
         UpgradeValues.bonusAttackDmg -= UpgradeValues.buildDmg2;
         //SavePlayer();
     }
     public void BreakMana2()
     {
-        SoundManager.PlaySound("gainLevel");
+        //SoundManager.PlaySound("gainLevel");
         if (UpgradeValues.shieldDuration > 18)
         {
             UpgradeValues.shieldDuration -= UpgradeValues.buildMana2;
@@ -432,20 +430,20 @@ public class Upgrade : MonoBehaviour
 
     public void BreakHealth3()
     {
-        SoundManager.PlaySound("gainLevel");
+        //SoundManager.PlaySound("gainLevel");
         UpgradeValues.bonusHealth -= UpgradeValues.buildHealth3;
       
        // SavePlayer();
     }
     public void BreakDmg3()
     {
-        SoundManager.PlaySound("gainLevel");
+        //SoundManager.PlaySound("gainLevel");
         UpgradeValues.bonusAttackDmg -= UpgradeValues.buildDmg3;
        // SavePlayer();
     }
     public void BreakMana3()
     {
-        SoundManager.PlaySound("gainLevel");
+       // SoundManager.PlaySound("gainLevel");
         if (UpgradeValues.shieldDuration > 18)
         {
             UpgradeValues.shieldDuration -= UpgradeValues.buildMana3;

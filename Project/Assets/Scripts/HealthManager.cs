@@ -79,13 +79,8 @@ public class HealthManager : MonoBehaviour
             HitOverlay.color = new Color(1f, 1f, 1f, alphaLevel);
         }
 
-        manaText.text = mana.ToString();
-        if (mana == 0)
-        {
-            manaText.enabled = false;
-            manaEye.SetActive(true);
+        updateMana(mana);
 
-        }
     }
     // FixedUpdate is called 50 times a second
     void FixedUpdate()
@@ -103,7 +98,7 @@ public class HealthManager : MonoBehaviour
             GameObject.Find("EventSystem").GetComponent<gameOver>().startGameOver(false);
         }
         if (mana != lastmana) {
-            updateMana();
+            //updateMana(mana);
             lastmana = mana;
         }
     }
@@ -187,12 +182,18 @@ public class HealthManager : MonoBehaviour
 
     public void updateMana(double mana)
     {
+        mana = PlayerCombat.dodgeCountdown;
         manaText.text = mana.ToString();
         if(mana == 0)
         {
             manaText.enabled = false;
             manaEye.SetActive(true);
 
+        }
+        else
+        {
+            manaText.enabled = true;
+            manaEye.SetActive(false);
         }
     }
     public void activateScreenShake( float magnitude )

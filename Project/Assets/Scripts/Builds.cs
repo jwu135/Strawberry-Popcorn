@@ -182,6 +182,9 @@ public class Builds : MonoBehaviour
             Upgrade.BuildHealth1();
             Upgrade.BuildDmg1();
             Upgrade.BuildMana1();
+            Debug.Log(UpgradeValues.bonusHealth);
+            Debug.Log(UpgradeValues.dodgeNeeded);
+            Debug.Log(UpgradeValues.shieldDuration);
             chooseCorpse = true;
             Debug.Log("corpse1");
             GameObject.Find("Henshin").transform.Find("New Sprite").GetComponent<Henshin>().choseSP(allDisplay[0].transform.position);
