@@ -34,6 +34,7 @@ public class MainMenuSettings : MonoBehaviour
                 resIndex = i;
             }
         }
+        fullscreened = Screen.fullScreen;
         resolutionText.text = resolutions[resIndex].width + " x " + resolutions[resIndex].height;
     }
     void Awake()
@@ -50,11 +51,11 @@ public class MainMenuSettings : MonoBehaviour
         Screen.SetResolution(resolutions[resIndex].width, resolutions[resIndex].height, Screen.fullScreen);
         Debug.Log("changed res");
     }
-    public void fullscreen(bool fullscreen)
+    /*public void fullscreen(bool fullscreen)
     {
         Screen.SetResolution(resolutions[resIndex].width, resolutions[resIndex].height, fullscreen);
         Debug.Log(fullscreen);
-    }
+    }*/
     public void fullscreen()
     {
         fullscreened = !fullscreened;

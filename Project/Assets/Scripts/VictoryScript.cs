@@ -44,6 +44,7 @@ public class VictoryScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        Cursor.visible = false;
         if (scene.name.Equals("VictoryGameover")) {
             if (!landed) {
                 //SPObj.transform.position = Vector2.Lerp(pos, finalPos, Time.deltaTime);

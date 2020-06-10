@@ -59,6 +59,7 @@ public class Henshin : MonoBehaviour
 
     void Update()
     {
+        Cursor.visible = false;
         if (UpgradeValues.deathCounter > 0) {
             if (cam2.orthographicSize < 8.7f && buildsCamera.activeSelf == false) {          
                 cam2.transform.position = new Vector3(Mathf.Lerp(cam2.transform.position.x, -3.33f, speed), Mathf.Lerp(cam2.transform.position.y, 2.5f, speed), Mathf.Lerp(cam2.transform.position.z, 0, speed));
@@ -153,7 +154,7 @@ public class Henshin : MonoBehaviour
         buildsCamera.SetActive(false);
         cam2.transform.position = new Vector3(Mathf.Lerp(buildsCamera.transform.position.x, -3.33f, speed), Mathf.Lerp(buildsCamera.transform.position.y, 2.5f, speed), Mathf.Lerp(buildsCamera.transform.position.z, 0, speed));
         cam2.orthographicSize = Mathf.Lerp(buildsCamera.GetComponent<Camera>().orthographicSize, 8.709762f, speed);
-        crossHair.SetActive(true);
+        //crossHair.SetActive(true);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

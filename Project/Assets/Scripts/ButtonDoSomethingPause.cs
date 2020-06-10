@@ -6,7 +6,7 @@ using System;
 using UnityEngine.UI;
 
 
-public class ButtonDoSomething : MonoBehaviour
+public class ButtonDoSomethingPause : MonoBehaviour
 {
     // Start is called before the first frame update
     public String scriptName = "ExitScript";
@@ -20,7 +20,7 @@ public class ButtonDoSomething : MonoBehaviour
 
     void Start()
     {
-        cursorBody = GameObject.Find("Cursor").GetComponent<BoxCollider2D>();
+        cursorBody = GameObject.Find("CursorIns(Clone)").GetComponent<BoxCollider2D>();
         buttonBody = GetComponent<BoxCollider2D>();
         MyScriptType = System.Type.GetType(scriptName + ",Assembly-CSharp");
         script = gameObject.AddComponent(MyScriptType);

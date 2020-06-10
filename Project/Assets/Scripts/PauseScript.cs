@@ -6,7 +6,7 @@ using UnityEngine;
 public class PauseScript : MonoBehaviour
 {
     public GameObject[] canvas;
-    int paused = 1;
+    public int paused = 1;
     GameObject cursor;
     public GameObject menu;
     private void Awake()
@@ -16,7 +16,6 @@ public class PauseScript : MonoBehaviour
     public void togglePause()
     { //Playercombat and look2 still need to check time scale.
         paused = 1 - paused;
-        canvas[0].SetActive(!Convert.ToBoolean(paused));
         if (paused == 1) {
             Time.timeScale = 1;
             if (cursor != null) {
@@ -31,6 +30,8 @@ public class PauseScript : MonoBehaviour
                 cursor.GetComponent<CursorMovementPause>().menu = menu;
             }
         }
+        menu.transform.Find("Menu").GetComponent<Canvas>().worldCamera = Camera.main;
+        canvas[0].SetActive(!Convert.ToBoolean(paused));
     }
     // Update is called once per frame
     void Update()

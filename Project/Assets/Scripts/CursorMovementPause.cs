@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 // duplicated from CursorMovement to prevent bugs and get functionality for this specific case
 public class CursorMovementPause: MonoBehaviour
@@ -50,11 +51,12 @@ public class CursorMovementPause: MonoBehaviour
 
         if (menu != null) {
             SceneManager.MoveGameObjectToScene(menu, scene1);
+            menu.transform.Find("Menu").Find("MainMenu2").GetComponent<ButtonDoSomethingPause>().cursorBody = gameObject.GetComponent<BoxCollider2D>();
         }
         Physics2D.autoSimulation = false;
-        
-        
-        
+        float cameraSizeOffset = 1 + Camera.main.orthographicSize - 0.9467377f;
+        Vector3 cameraSizeOffsetVect = new Vector3(cameraSizeOffset, cameraSizeOffset, cameraSizeOffset);
+        transform.localScale = Vector3.Scale(transform.localScale, cameraSizeOffsetVect);
     }
 
     // Fixed update is called 50 times per second, regardless of framerate (this can be changed in the project settings)
@@ -69,7 +71,7 @@ public class CursorMovementPause: MonoBehaviour
         Physics2D.autoSimulation = true;
         //_ = SceneManager.UnloadSceneAsync(scene1.buildIndex);
     }
-
+ 
     void doMovement()
     {
         if(scene1Physics!=null)
