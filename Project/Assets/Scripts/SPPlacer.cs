@@ -88,7 +88,7 @@ public class SPPlacer : MonoBehaviour
         if (UpgradeValues.deathCounter == 0) {
             specialScene = true;
             dialogue[0].sentences = "";
-            dialogue[1].sentences = "Wow, your eyes’ a different color! That’s new.";
+            dialogue[1].sentences = "Wow, your eyes are a different color! That’s new.";
             dialogue[2].sentences = "Hello There!";
             //dialogue[2].sentences = "I asked Mother to teach me how to read. She said only she’s supposed to read and write.";
             dialogue[3].sentences = "Sorry to say this, but you smell kinda weird.";
@@ -98,7 +98,7 @@ public class SPPlacer : MonoBehaviour
         } else if (UpgradeValues.deathCounter == 1) {
             specialScene = true;
             dialogue[0].sentences = "";
-            dialogue[1].sentences = "Hey look, your eyes’ also have a different color! Super weird!";
+            dialogue[1].sentences = "Hey look, your eyes also have a different color! Super weird!";
             dialogue[2].sentences = "Mother seemed pretty upset with the last one that got in.";
             dialogue[3].sentences = "I wonder what’s happening.";
             dialogue[4].sentences = "That’s weird. Mother didn’t eat the last one! She never does that...";
@@ -316,7 +316,7 @@ public class SPPlacer : MonoBehaviour
         } else {
             numSPs = 1;
         }
-
+      
 
         for (int i = 0; i < numSPs; i++) {
             TeaTimeStrawberries.Add(possibleSPs[UnityEngine.Random.Range(0, possibleSPs.Count)]);
