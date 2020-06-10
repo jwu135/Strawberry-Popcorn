@@ -40,6 +40,7 @@ public class UpgradeValues : MonoBehaviour
     public static float highestPhaseEncounteredBoss;
     public static float highestPhaseDiscussed; // parallax room
     public static float highestPhaseDiscussedBoss; // parallax room
+    public static bool usedSpecial = false;
     public static float overallvolume = 0.5f;
     void Awake()
     {

@@ -43,6 +43,7 @@ public class SaveData
     public float highestPhaseEncounteredBoss;
     public float highestPhaseDiscussed;
     public float highestPhaseDiscussedBoss;
+    public bool usedSpecial = false;
     public bool continueGame = false;
 
 
@@ -79,7 +80,7 @@ public class SaveData
         addedCorpse = UpgradeValues.addedCorpse;
         dodgeNeeded = UpgradeValues.dodgeNeeded;
         shieldDuration = UpgradeValues.shieldDuration;
-
+        usedSpecial = UpgradeValues.usedSpecial;
         //bodyTypes = new int[UpgradeValues.deathCounter];
         // positionValues = new float[(UpgradeValues.deathCounter * 2)];
 

@@ -35,6 +35,7 @@ public class HealthManager : MonoBehaviour
     public FakeCannon FakeCannon;
     public UpgradeValues UpgradeValues;
 
+    private GameObject specialSign;
     private FlightMovementPhys flightMovementPhys;
     private PlayerController playerController;
     private PlatformMovementPhys PlatformMovementPhys;
@@ -179,21 +180,40 @@ public class HealthManager : MonoBehaviour
     {
         helthText.text = health.ToString() + "/" + maxHealth.ToString();
     }
-
+    public void destroySpecialSign()
+    {
+        //if (UpgradeValues.usedSpecial) {
+            // code for interact sign disable
+            if (specialSign != null) {
+                Destroy(specialSign);
+            }
+        UpgradeValues.usedSpecial = true;
+        //}
+    }
     public void updateMana(double mana)
     {
-        mana = PlayerCombat.dodgeCountdown;
+        mana = (double)(Mathf.Clamp((float)PlayerCombat.dodgeCountdown,0,20));
         manaText.text = mana.ToString();
         if(mana == 0)
         {
             manaText.enabled = false;
             manaEye.SetActive(true);
-
+            if (!UpgradeValues.usedSpecial) {
+                // code for interact sign enable
+                if (specialSign == null) {
+                    GameObject ss = Resources.Load("Prefabs/SpecialSign") as GameObject;
+                    specialSign = Instantiate(ss, ss.transform.position, ss.transform.rotation, transform) as GameObject;
+                    specialSign.transform.localPosition = new Vector3(0, 3.38f, 0);
+                    specialSign.transform.localScale = new Vector3(0.7284095f, 0.7284095f, 0);
+                }
+                //UpgradeValues.usedSpecial = true;
+            }
         }
         else
         {
             manaText.enabled = true;
             manaEye.SetActive(false);
+            
         }
     }
     public void activateScreenShake( float magnitude )

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -331,6 +331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scriptName: 
+  cursorBody: {fileID: 0}
   doWork: {fileID: 362278694}
 --- !u!114 &362278699
 MonoBehaviour:
@@ -425,6 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scriptName: 
+  cursorBody: {fileID: 0}
   doWork: {fileID: 801606329}
 --- !u!61 &801606328
 BoxCollider2D:
@@ -490,7 +492,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 801606332}
   m_OnClick:
     m_PersistentCalls:
@@ -1224,6 +1226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scriptName: 
+  cursorBody: {fileID: 0}
   doWork: {fileID: 1051424020}
 --- !u!61 &1051424022
 BoxCollider2D:
@@ -1530,6 +1533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scriptName: 
+  cursorBody: {fileID: 0}
   doWork: {fileID: 1072874700}
 --- !u!114 &1072874702
 MonoBehaviour:
@@ -2636,6 +2640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scriptName: 
+  cursorBody: {fileID: 0}
   doWork: {fileID: 1944144780}
 --- !u!212 &1944144784
 SpriteRenderer:

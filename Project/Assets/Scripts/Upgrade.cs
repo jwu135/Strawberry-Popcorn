@@ -130,7 +130,7 @@ public class Upgrade : MonoBehaviour
         UpgradeValues.addedCorpse = data.addedCorpse;
         UpgradeValues.dodgeNeeded = data.dodgeNeeded;
         UpgradeValues.shieldDuration = data.shieldDuration;
-
+        UpgradeValues.usedSpecial = data.usedSpecial;
         for (int i = 0; i < (UpgradeValues.deathCounter * 2); i++)
         {
             UpgradeValues.positionValues[i] = data.positionValues[i];
@@ -509,6 +509,7 @@ public class Upgrade : MonoBehaviour
         UpgradeValues.addedCorpse = false;
         UpgradeValues.dodgeNeeded = 8;
         UpgradeValues.shieldDuration = 5;
+        UpgradeValues.usedSpecial = false;
         Debug.Log("newgame");
         Debug.Log(UpgradeValues.bonusHealth);
         Debug.Log(UpgradeValues.bonusAttackSpd);

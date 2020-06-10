@@ -313,7 +313,9 @@ public class PlayerCombat : MonoBehaviour
             {
                 LASER = true;
 
-
+                if (!UpgradeValues.usedSpecial) {
+                    HealthManager.destroySpecialSign();
+                }
                 playerBubble.SetActive(true);
                 //timeBtwAttack = 1;           
             }
