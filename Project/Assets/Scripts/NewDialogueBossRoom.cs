@@ -19,7 +19,15 @@ public class NewDialogueBossRoom : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.Find("EventSystem").GetComponent<CutsceneSystem>().interactSign.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        if (UpgradeValues.highestPhaseDiscussedBoss >= GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase()) {
+            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+            transform.Find("Canvas").Find("DialogueBox").transform.Find("Sentence").GetComponent<Text>().color = new Color(1, 1, 1, 0);
+            Cursor.visible = false;
+            GameObject.Find("EventSystem").GetComponent<CutsceneSystem>().interactSign.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+        }
+
+
+        
         currSentence = "";
         dialogueBox = transform.Find("Canvas").Find("DialogueBox").gameObject;
         if (GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase() == 1) {
@@ -47,13 +55,21 @@ public class NewDialogueBossRoom : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlatformMovementPhys>().ableToJump = false;
         GameObject.FindGameObjectWithTag("Player").GetComponent<FlightMovementPhys>().unableToMove = true;
         transform.Find("Canvas").GetComponent<Canvas>().overrideSorting = true;
-        talk();
+        if (UpgradeValues.highestPhaseDiscussedBoss < GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase()) {
+            GameObject.Find("EventSystem").GetComponent<CutsceneSystem>().interactSign.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            transform.Find("Canvas").Find("DialogueBox").transform.Find("Sentence").GetComponent<Text>().color = new Color(1, 1, 1, 1);
+            talk();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Time.timeScale != 0) {
+            if(UpgradeValues.highestPhaseDiscussedBoss>= GameObject.FindGameObjectWithTag("Enemy").GetComponent<Boss>().getPhase()) {
+                endDialogue();
+            }
             if (Input.GetButtonDown("interact")) {
                 talk();
             }
@@ -67,14 +83,18 @@ public class NewDialogueBossRoom : MonoBehaviour
             StartCoroutine("textScroll");
             index++;
         } else {
-            GameObject.Find("EventSystem").GetComponent<CutsceneSystem>().eaten = true;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlatformMovementPhys>().unableToMove = false;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlatformMovementPhys>().ableToJump = true;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<FlightMovementPhys>().unableToMove = false;
-            GameObject.Find("EventSystem").GetComponent<CutsceneSystem>().interactSign.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
-            GameObject.FindGameObjectWithTag("music").GetComponent<MusicManagerBossRoom>().resetVolume();
-            Destroy(gameObject);
+            endDialogue();
         }
+    }
+    void endDialogue()
+    {
+        GameObject.Find("EventSystem").GetComponent<CutsceneSystem>().eaten = true;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlatformMovementPhys>().unableToMove = false;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlatformMovementPhys>().ableToJump = true;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<FlightMovementPhys>().unableToMove = false;
+        GameObject.Find("EventSystem").GetComponent<CutsceneSystem>().interactSign.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+        GameObject.FindGameObjectWithTag("music").GetComponent<MusicManagerBossRoom>().resetVolume();
+        Destroy(gameObject);
     }
     IEnumerator textScroll()
     {

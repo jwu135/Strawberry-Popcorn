@@ -309,7 +309,7 @@ public class PlayerCombat : MonoBehaviour
           //      timeBtwAttack = 1;
          //   }
             //LASER
-            if (dodgeCountdown < 1 && !LASER && Input.GetButton("Fire2"))
+            if (dodgeCountdown < 1 && !LASER && (Input.GetButton("Fire2")|| (Input.GetAxis("Fire2") > 0)))
             {
                 LASER = true;
 

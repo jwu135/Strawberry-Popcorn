@@ -28,7 +28,11 @@ public class DialogueSystem : MonoBehaviour
     public void Start()
     {
         // initial dialogue is already set
-        if (UpgradeValues.deathCounter == 1) {
+
+
+        if (UpgradeValues.deathCounter == 0) {
+            dialogue[0].sentences = "You.You are rotten.Get out of my sight.";
+        }else  if (UpgradeValues.deathCounter == 1) {
             dialogue[0].sentences = "You came back in a different body? Those are my daughters.";
 
         }

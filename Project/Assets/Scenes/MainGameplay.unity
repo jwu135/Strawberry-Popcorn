@@ -26619,7 +26619,7 @@ MonoBehaviour:
   done: 0
   dialogue:
   - name: 'Mother:'
-    sentences: You. You are rotten. Get out of my sight.
+    sentences: ...
   - name: 'Mother:'
     sentences: "Poppy\u2026 How do you know that?"
   - name: 'Strawberry Popcorn:'
