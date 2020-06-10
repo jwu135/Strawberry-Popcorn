@@ -29,7 +29,7 @@ public class IntroHandler : MonoBehaviour
     {
         cutsceneCamera.enabled = false;
         outroCutscene.Stop();
-        cd = 3.5f;
+        cd = 3f;
         started = true;
     }
 
@@ -45,7 +45,7 @@ public class IntroHandler : MonoBehaviour
                 else {
                     GetComponent<SpriteRenderer>().sprite = images[index];
                 }
-                cd = 3.5f;
+                cd = 3f;
             }
         }
         if (scene.name.Equals("Outro")&&started) { 
@@ -58,7 +58,7 @@ public class IntroHandler : MonoBehaviour
                 } else {
                     GetComponent<Animator>().enabled = false;
                     transform.localScale = defaultScale;
-                    cd = 3.5f;
+                    cd = 3f;
                 }
                 if (index > images.Length - 1)
                     SceneManager.LoadScene("Scenes/MainMenu");
