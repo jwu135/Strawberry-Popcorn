@@ -22,8 +22,12 @@ public class Upgrade : MonoBehaviour
 
         //UpgradeValues.bonusHealth += 5;
         // Debug.Log(UpgradeValues.bonusHealth);
-        
-        if (SceneChanger.scene.name.Equals("Gameover"))
+        if (SceneChanger.scene.name.Equals("MainMenu"))
+        {
+            SaveData data = SaveSystem.LoadData();
+            UpgradeValues.deathCounter = data.deathCounter;
+        }
+            if (SceneChanger.scene.name.Equals("Gameover"))
         {
             UpgradeValues.upgradeLocation = 0;
             UpgradeValues.builtCorpse = false;

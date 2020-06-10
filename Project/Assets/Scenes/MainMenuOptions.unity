@@ -649,6 +649,7 @@ GameObject:
   - component: {fileID: 578606476}
   - component: {fileID: 578606475}
   - component: {fileID: 578606474}
+  - component: {fileID: 578606481}
   m_Layer: 0
   m_Name: Continue2
   m_TagString: Button
@@ -874,6 +875,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &578606481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578606472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 703f6cce8b68aea439327748856bb213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  continueButton: {fileID: 578606478}
+  available: {fileID: 21300000, guid: 2efcb922a00d7864789f54469207fb44, type: 3}
+  notAvailable: {fileID: 21300000, guid: 2abd1657c9745a540a7f6b15399bf3f7, type: 3}
+  buttonCollider: {fileID: 578606475}
 --- !u!1 &599420899
 GameObject:
   m_ObjectHideFlags: 0
@@ -2489,6 +2506,7 @@ MonoBehaviour:
   play: {fileID: 1871621379}
   quit: {fileID: 927754383}
   retry: {fileID: 578606477}
+  manual: {fileID: 0}
   intro: 0
   berryImage: {fileID: 0}
   berryImageDropped: []

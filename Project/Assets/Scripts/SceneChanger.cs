@@ -182,16 +182,16 @@ public class SceneChanger : MonoBehaviour
             SceneManager.LoadScene("Scenes/ParallaxTest");
             Debug.Log("fish1");
         }
-        if ((scene.name.Equals("MainMenu") || (scene.name.Equals("MainMenuOptions")) || scene.name == "MainMenuManual") && UpgradeValues.upgradeLocation == 0)
+        if ((scene.name.Equals("MainMenu") || (scene.name.Equals("MainMenuOptions")) || scene.name == "MainMenuManual") && UpgradeValues.upgradeLocation == 0 && UpgradeValues.deathCounter > 0)
         {
             SceneManager.LoadScene("Scenes/Upgrade");
         }
-        if ((scene.name.Equals("MainMenu") || (scene.name.Equals("MainMenuOptions")) || scene.name == "MainMenuManual") && UpgradeValues.upgradeLocation == 1 && UpgradeValues.upgradePoints > 0)
+        if ((scene.name.Equals("MainMenu") || (scene.name.Equals("MainMenuOptions")) || scene.name == "MainMenuManual") && UpgradeValues.upgradeLocation == 1 && UpgradeValues.upgradePoints > 0 && UpgradeValues.deathCounter > 0)
         {
             SceneManager.LoadScene("Scenes/Upgrade");
             Debug.Log("fish2");
         }
-        if ((scene.name.Equals("MainMenu") || (scene.name.Equals("MainMenuOptions")) || scene.name == "MainMenuManual") && UpgradeValues.upgradeLocation == 1 && UpgradeValues.upgradePoints == 0)
+        if ((scene.name.Equals("MainMenu") || (scene.name.Equals("MainMenuOptions")) || scene.name == "MainMenuManual") && UpgradeValues.upgradeLocation == 1 && UpgradeValues.upgradePoints == 0 && UpgradeValues.deathCounter > 0)
         {
             SceneManager.LoadScene("Scenes/ParallaxTest");
             Debug.Log("fish3");

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2837,6 +2837,7 @@ GameObject:
   - component: {fileID: 1944144783}
   - component: {fileID: 1944144782}
   - component: {fileID: 1944144787}
+  - component: {fileID: 1944144788}
   m_Layer: 0
   m_Name: Continue2
   m_TagString: Button
@@ -3062,6 +3063,22 @@ MonoBehaviour:
   animated: 0
   MousEyeOpenAnim: {fileID: 0}
   MousEyeClosedAnim: {fileID: 0}
+--- !u!114 &1944144788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944144779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 703f6cce8b68aea439327748856bb213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  continueButton: {fileID: 1944144784}
+  available: {fileID: 21300000, guid: 2efcb922a00d7864789f54469207fb44, type: 3}
+  notAvailable: {fileID: 21300000, guid: 2abd1657c9745a540a7f6b15399bf3f7, type: 3}
+  buttonCollider: {fileID: 1944144782}
 --- !u!212 &1958551207 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4478260949955139235, guid: 4521da10421174945aedb74aba4e14d6,
